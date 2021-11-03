@@ -15,7 +15,7 @@ export default function Quickstart() {
                 <title>Mr. Clean - Quick Start</title>
                 <meta property="og:title" content="Mr. Clean - Quick Start" />
                 <meta property="og:type" content="article" />
-                <meta property="og:description" content="Quick Start for Mr. Clean.\nSetup powerful protection for your server in minutes!" />
+                <meta property="og:description" content="Quick Start for Mr. Clean. Setup powerful protection for your server in minutes!" />
             </Head>
 
             <h1 className="text-3xl text-center md:text-5xl md:text-left font-bold mb-16">

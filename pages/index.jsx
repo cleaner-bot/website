@@ -13,7 +13,7 @@ export default function Home() {
                 <title>Mr. Clean - Keeps servers clean</title>
                 <meta property="og:title" content="Mr. Clean - Keeps servers clean" />
                 <meta property="og:type" content="article" />
-                <meta property="og:description" content="A bot built for keeping servers clean.\nStart protecting your server with Mr. Clean now!" />
+                <meta property="og:description" content="A bot built for keeping servers clean. Start protecting your server with Mr. Clean now!" />
             </Head>
             <div className="-container">
                 <div className="flex justify-center mb-12">
