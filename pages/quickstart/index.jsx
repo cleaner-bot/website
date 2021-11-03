@@ -219,17 +219,19 @@ const steps = {
                         <bold>Congratulations!</bold>{" "}
                         Captcha verification is now setup properly!
                     </p>
-                    <h3>
-                        Bonus: Captcha on join
-                    </h3>
-                    <ol>
-                        <li>
-                            Run the following command: <code>/config verify join enable</code>
-                        </li>
-                        <li>
-                            That's it!
-                        </li>
-                    </ol>
+                    {!member && <>
+                        <h3>
+                            Bonus: Captcha on join
+                        </h3>
+                        <ol>
+                            <li>
+                                Run the following command: <code>/config verify join enable</code>
+                            </li>
+                            <li>
+                                That's it!
+                            </li>
+                        </ol>
+                    </>}
                 </article>}
                 <StepBar setCurrentStep={setCurrentStep} previous="1-invite" next="3-mod" skip={member === undefined} />
             </>
