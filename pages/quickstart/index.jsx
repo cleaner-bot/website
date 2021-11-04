@@ -148,14 +148,11 @@ const steps = {
                             </p>
                             <div className="mb-2">
                                 <Contra>
-                                    Every member has one role
+                                    Every member who joins has to solve a captcha.
                                 </Contra>
-                            </div>
-                            If using captcha on join:
-                            <div>
-                                <Pro>
-                                    Bot doesn't have to give the role to everyone who joins immediately.
-                                </Pro>
+                                <Contra>
+                                    Every member has one role.
+                                </Contra>
                             </div>
                         </div>
                         <div>
@@ -164,10 +161,10 @@ const steps = {
                             </p>
                             <div className="mb-2">
                                 <Pro>
-                                    Members do not have any unneeded roles
+                                    Members do not have any unneeded roles.
                                 </Pro>
                                 <Pro>
-                                    Better for read-only access.
+                                    Better for read-only access. (without causing conflicts with your muted role)
                                 </Pro>
                             </div>
                             If using captcha on join:
@@ -178,6 +175,12 @@ const steps = {
                                 <Contra>
                                     If the bot has an outage, new joiners can immediately access the server.
                                 </Contra>
+                            </div>
+                            If not using captcha on join:
+                            <div>
+                                <Pro>
+                                    Users aren't annoyed by captchas unless they misbehave.
+                                </Pro>
                             </div>
                         </div>
                         <button className={clsx(
