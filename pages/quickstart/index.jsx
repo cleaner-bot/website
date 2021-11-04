@@ -209,10 +209,7 @@ const steps = {
                             Create the <code>{member ? "Member" : "Verification required"}</code> role.
                         </li>
                         <li>
-                            Run the following command: <code>/config verify set #verify {member ? "@Member" : "@Verification required"}</code>
-                        </li>
-                        <li>
-                            Run the following command: <code>/config verify action {member ? "give" : "take"}</code>
+                            Run the following command: <code>/config verify set #verify {member ? "@Member" : "@Verification required"} {member ? "give" : "take"}</code>
                         </li>
                         <li>
                             Revoke the <code>{member ? "View Channel" : "Send Messages"}</code> permission for <code>{member ? "Member" : "Verification required"}</code> in every public channel.
