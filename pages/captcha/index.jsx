@@ -12,7 +12,7 @@ export default function Solve() {
                 <title>Captcha required.</title>
                 <meta property="og:title" content="Captcha required." />
                 <meta property="og:type" content="article" />
-                <meta proeprty="og:description" content="The server you are trying to access is using Mr. Clean to protect itself. A captcha is required." />
+                <meta proeprty="og:description" content="The server you are trying to access is using The Cleaner to protect itself. A captcha is required." />
             </Head>
 
             <div className="bg-coolGray-600 h-[78px]">

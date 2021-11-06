@@ -10,17 +10,17 @@ export default function Home() {
     return (
         <>
             <Head>
-                <title>Mr. Clean - Keeps servers clean</title>
-                <meta property="og:title" content="Mr. Clean - Keeps servers clean" />
+                <title>The Cleaner - Keeps servers clean</title>
+                <meta property="og:title" content="The Cleaner - Keeps servers clean" />
                 <meta property="og:type" content="article" />
-                <meta property="og:description" content="A bot built for keeping servers clean. Start protecting your server with Mr. Clean now!" />
+                <meta property="og:description" content="A bot built for keeping servers clean. Start protecting your server with The Cleaner now!" />
             </Head>
             <div className="-container">
                 <div className="flex justify-center mb-12">
                     <h1 className="text-6xl font-extrabold -heading">
                         <Image className="w-16 h-16 align-middle rounded-full inline" src="https://cdn.discordapp.com/avatars/823533449717481492/cc36bba21762e6822f22e75d5be68c78.png?size=256" />
                         <span className="align-middle px-2 hover:border-b-4 border-b-indigo-600">
-                            Mr. Clean
+                            The Cleaner
                         </span>
                     </h1>
                 </div>
@@ -30,7 +30,7 @@ export default function Home() {
                             A bot built for keeping servers clean
                         </h2>
                         <p className="text-gray-100 mt-1">
-                            Mr. Clean is a Discord bot designed to keep your server clean by removing spam, phishing, and more!
+                            The Cleaner is a Discord bot designed to keep your server clean by removing spam, phishing, and more!
                         </p>
                         <div className="mt-2 space-y-1">
                             <FeatureList>
@@ -83,7 +83,7 @@ export default function Home() {
                             </p>
                             <div className="space-y-1 mt-2">
                                 <FeatureList>
-                                    Detection generally within 5 seconds. (multi-user raid)
+                                    Detection generally within 5 seconds.
                                 </FeatureList>
                                 <FeatureList>
                                     Can handle up to 33 message/second. (discord ratelimit)
@@ -133,14 +133,14 @@ export default function Home() {
                                 Captchas for anyone, anytime.
                             </h2>
                             <p className="text-gray-100">
-                                Captchas can be disabled, but Mr. Clean will be forced to fallback to banning.
+                                If Captcha verification is not setup, members will be banned instead.
                             </p>
                             <div className="space-y-1 mt-2">
                                 <FeatureList>
                                     Captcha on join.  <span className="text-sm text-gray-200 ml-2">(configurable)</span>
                                 </FeatureList>
                                 <FeatureList>
-                                    Captcha when deemed necessary by Mr. Clean.
+                                    Captcha when deemed necessary.
                                 </FeatureList>
                             </div>
                         </div>
@@ -169,7 +169,7 @@ export default function Home() {
             <div className="-container mb-10 mt-[50vh] grid grid-cols-4">
                 <div className="col-span-2">
                     <h3 className="text-3xl font-bold">
-                        Mr. Clean
+                        The Cleaner
                     </h3>
                     <p className="text-gray-200 mt-1">
                         Copyright &copy; 2021 - 2021
@@ -182,9 +182,6 @@ export default function Home() {
                     </p>
                     <p className="text-gray-200 mt-2 leading-4">
                         Not affiliated with Discord.
-                    </p>
-                    <p className="text-gray-200 leading-4">
-                        Not affiliated with Mr. Clean by Procter and Gamble.
                     </p>
                 </div>
                 <div>

@@ -12,14 +12,14 @@ export default function Quickstart() {
     return (
         <div className="-container mt-20">
             <Head>
-                <title>Mr. Clean - Quick Start</title>
-                <meta property="og:title" content="Mr. Clean - Quick Start" />
+                <title>The Cleaner - Quick Start</title>
+                <meta property="og:title" content="The Cleaner - Quick Start" />
                 <meta property="og:type" content="article" />
-                <meta property="og:description" content="Quick Start for Mr. Clean. Setup powerful protection for your server in minutes!" />
+                <meta property="og:description" content="Quick Start for The Cleaner. Setup powerful protection for your server in minutes!" />
             </Head>
 
             <h1 className="text-3xl text-center md:text-5xl md:text-left font-bold mb-16">
-                Quick Start with Mr. Clean
+                Quick Start with The Cleaner
             </h1>
             <StepFn setCurrentStep={setCurrentStep} />
         </div>
@@ -54,7 +54,7 @@ const steps = {
         return (
             <>
                 <h2 className="text-3xl font-semibold mb-8">
-                    1. Invite Mr. Clean
+                    1. Invite The Cleaner
                 </h2>
                 <button className="-anim -btn w-60 bg-blue-500 hover:bg-blue-550" onClick={() => {
                     const popup = window.open("https://discord.com/oauth2/authorize?client_id=823533449717481492&scope=applications.commands%20bot&permissions=27652", "botinvitepopup", "width=500,height=776,left=100,top=100");
@@ -65,7 +65,7 @@ const steps = {
                         }
                     }, 100)
                 }}>
-                    Invite Mr. Clean
+                    Invite The Cleaner
                 </button>
                 <h3 className="text-xl font-semibold mt-8 mb-2">
                     Permission info:
@@ -136,7 +136,7 @@ const steps = {
                         If you don't want to setup captcha, you can skip this step!
                     </p>
                     <p>
-                        Mr. Clean will ban instead of issuing a captcha.
+                        The Cleaner will ban instead of issuing a captcha.
                     </p>
                 </div>
                 <div className="mt-12">
@@ -255,7 +255,7 @@ const steps = {
                     </h3>
                     <p>
                         You can add Moderator roles using the following command.
-                        Mr. Clean will ignore Moderators and they will be able to use moderation commands.
+                        The Cleaner will ignore Moderators and they will be able to use moderation commands.
                     </p>
                     <p>
                         <code>
@@ -317,13 +317,13 @@ const steps = {
                 </h2>
                 <article>
                     <p>
-                        You have completed the Quick Start guide of Mr. Clean!
+                        You have completed the Quick Start guide of The Cleaner!
                     </p>
                     <h3>
                         5.1 Still issues?
                     </h3>
                     <p>
-                        Run <code>/diagnose</code> and Mr. Clean will detect and inform you about some problems.
+                        Run <code>/diagnose</code> and The Cleaner will detect and inform you about some problems.
                     </p> 
                     <p>
                         Didn't help? Join the support server below and we'll try to help!

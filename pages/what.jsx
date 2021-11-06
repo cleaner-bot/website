@@ -9,7 +9,7 @@ export default function What() {
         <div className="-container">
             <Head>
                 <title>What? Why? What now? Help?</title>
-                <meta property="og:title" content="Mr. Clean - What? Why? What now? Help?" />
+                <meta property="og:title" content="The Cleaner - What? Why? What now? Help?" />
                 <meta property="og:type" content="article" />
                 <meta property="og:description" content="A Captcha? What? Why? What now? Help?" />
             </Head>
