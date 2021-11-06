@@ -319,17 +319,23 @@ const steps = {
                     <p>
                         You have completed the Quick Start guide of Mr. Clean!
                     </p>
+                    <h3>
+                        5.1 Still issues?
+                    </h3>
                     <p>
-                        Still have questions? Join the support server below and we'll try to help!
+                        Run <code>/diagnose</code> and Mr. Clean will detect and inform you about some problems.
+                    </p> 
+                    <p>
+                        Didn't help? Join the support server below and we'll try to help!
                     </p>
                 </article>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
-                    <Link href="/discord">
-                        <a className="-anim -btn bg-blue-500 hover:bg-blue-550">
-                            Support Server
-                            <ExternalLinkIcon className="h-6 w-6 inline ml-2" />
-                        </a>
-                    </Link>
+                <Link href="/discord">
+                    <a className="-anim -btn bg-blue-500 hover:bg-blue-550 w-full lg:w-96 mt-4">
+                        Support Server
+                        <ExternalLinkIcon className="h-6 w-6 inline ml-2" />
+                    </a>
+                </Link>
+                <div className="grid grid-cols-1 gap-2 mt-8 w-full lg:w-96">
                     <Link href="/">
                         <a className="-anim -btn bg-blue-500 hover:bg-blue-550">
                             Back to the homepage
