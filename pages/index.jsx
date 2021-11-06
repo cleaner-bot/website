@@ -208,9 +208,6 @@ export default function Home() {
                         <Link href="/privacy">
                             <a className="hover:underline">Privacy Policy</a>
                         </Link>
-                        <Link href="/tos">
-                            <a className="hover:underline">Terms</a>
-                        </Link>
                         <Link href="/discord">
                             <a className="hover:underline">Contact (discord)</a>
                         </Link>
