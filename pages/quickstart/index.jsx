@@ -153,6 +153,9 @@ const steps = {
                                 <Contra>
                                     Every member has one role.
                                 </Contra>
+                                <Contra>
+                                    Interferes with guild-wide Verification Level.
+                                </Contra>
                             </div>
                         </div>
                         <div>
@@ -165,6 +168,9 @@ const steps = {
                                 </Pro>
                                 <Pro>
                                     Better for read-only access. (without causing conflicts with your muted role)
+                                </Pro>
+                                <Pro>
+                                    Does not interfere with guild-wide Verification Level.
                                 </Pro>
                             </div>
                             If using captcha on join:
