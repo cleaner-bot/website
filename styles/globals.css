@@ -89,6 +89,9 @@ article bold {
 article p {
     @apply my-2;
 }
+article a {
+    @apply font-bold underline text-gray-200;
+}
 
 article ul {
     @apply list-disc list-outside;
