@@ -83,13 +83,13 @@ export default function Home() {
                             </p>
                             <div className="space-y-1 mt-2">
                                 <FeatureList>
-                                    Automatic slowmode adjustments.
+                                    Detection generally within 5 seconds. (multi-user raid)
                                 </FeatureList>
                                 <FeatureList>
-                                    Automatic adjustments of the Verification Level.
+                                    Can handle up to 33 message/second. (discord ratelimit)
                                 </FeatureList>
                                 <FeatureList>
-                                    Temporary lockdown of attack channel.
+                                    Automatic adjustments of Slowmode & Verification Level.
                                 </FeatureList>
                             </div>
                         </div>
