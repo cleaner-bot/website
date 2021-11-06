@@ -1,10 +1,18 @@
 
 import Link from "next/link";
+import Head from "next/head";
 
 
 export default function Privacy() {
     return (
         <article className="-container">
+            <Head>
+                <title>Mr. Clean - Privacy Policy</title>
+                <meta property="og:title" content="Mr. Clean - Privacy Policy" />
+                <meta property="og:type" content="article" />
+                <meta property="og:description" content="Privacy policy for Mr. Clean." />
+            </Head>
+
             <h1>
                 PRIVACY NOTICE
             </h1>
@@ -110,14 +118,6 @@ export default function Privacy() {
                 </li>
                 <li>
                     <bold>Vital Interests:</bold> We may disclose your information where we believe it is necessary to investigate, prevent, or take action regarding potential violations of our policies, suspected fraud, situations involving potential threats to the safety of any person and illegal activities, or as evidence in litigation in which we are involved.
-                </li>
-            </ol>
-            <p>
-                More specifically, we may need to process your data or share your personal information in the following situations:
-            </p>
-            <ol>
-                <li>
-                    <bold>Business Transfers.</bold> We may share or transfer your information in connection with, or during negotiations of, any merger, sale of company assets, financing, or acquisition of all or a portion of our business to another company.
                 </li>
             </ol>
 
