@@ -29,6 +29,9 @@ body {
 .-btn {
     @apply px-8 py-3 flex items-center justify-center rounded focus:outline-none;
 }
+.-btn-basic {
+    @apply px-8 py-3 rounded focus:outline-none;
+}
 .-small-btn {
     @apply px-4 py-1 flex items-center justify-center rounded focus:outline-none;
 }

@@ -4,6 +4,7 @@ import Link from "next/link";
 import Head from "next/head";
 
 import Image from "@/components/image.jsx";
+import isDev from "@/lib/dev.js";
 
 
 export default function Home() {
@@ -166,48 +167,125 @@ export default function Home() {
                     </a>
                 </Link>
             </div>
-            <div className="-container mb-10 mt-[50vh] grid grid-cols-4">
-                <div className="col-span-2">
-                    <h3 className="text-3xl font-bold">
-                        The Cleaner
-                    </h3>
-                    <p className="text-gray-200 mt-1">
-                        Copyright &copy; 2021 - 2021
-                        {" "}
-                        <Link href="https://leodev.xyz">
-                            <a>
-                                Leo Developer.
+            <div className="text-coolGray-750 mt-80">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" fill="currentColor">
+                    <path fill-opacity="1" d="M0,256L48,213.3C96,171,192,85,288,80C384,75,480,149,576,154.7C672,160,768,96,864,90.7C960,85,1056,139,1152,154.7C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+                </svg>
+            </div>
+            <div className="bg-coolGray-750">
+                {isDev() && <div className="-container">
+                    <h2 className="text-6xl font-bold">
+                        Require <span className="-highlight italic">Professional</span> Cleaning?
+                    </h2>
+                    <p className="my-2">
+                        Go <span className="-highlight">Pro</span> to support The Cleaner and unlock the following features:
+                    </p>
+                    <div>
+                        <FeatureList>
+                            Multiple Cleaner Bots (bypass rate limits)
+                        </FeatureList>
+                        <FeatureList>
+                            Customizable "Captcha verification required" embed
+                        </FeatureList>
+                        <FeatureList>
+                            Custom delay before the captcha on join can be solved
+                        </FeatureList>
+                        <FeatureList>
+                            1 Lua Firewall rule
+                        </FeatureList>
+                        <FeatureList>
+                            Exclusive role and support channels on Discord
+                        </FeatureList>
+                    </div>
+                    <div className="grid sm:grid-cols-2 gap-2 xl:w-1/2 my-4">
+                        <Link href="/pro?plan=monthly">
+                            <a className="-anim -btn-basic bg-coolGray-720 hover:bg-emerald-600">
+                                <p className="text-lg font-bold text-center">
+                                    Monthly
+                                </p>
+                                <div className="flex">
+                                    <span className="text-3xl font-extrabold slashed-zero pr-4">
+                                        2,00€
+                                    </span>
+                                    <div>
+                                        <p className="text-sm leading-tight">
+                                            EUR / month
+                                        </p>
+                                        <p className="text-xs text-gray-200">
+                                            Billed monthly
+                                        </p>
+                                    </div>
+                                </div>
                             </a>
                         </Link>
-                    </p>
-                    <p className="text-gray-200 mt-2 leading-4">
-                        Not affiliated with Discord.
-                    </p>
-                </div>
-                <div>
-                    <h3 className="text-sm text-gray-200">
-                        Docs
-                    </h3>
-                    <div className="flex flex-col">
-                        <Link href="/quickstart">
-                            <a className="hover:underline">Quick Start</a>
-                        </Link>
-                        <Link href="/docs">
-                            <a className="hover:underline">Full docs</a>
+                        <Link href="/pro?plan=yearly">
+                            <a className="-anim -btn-basic bg-coolGray-720 hover:bg-emerald-600">
+                                <p className="text-lg font-bold text-center">
+                                    Yearly
+                                </p>
+                                <div className="flex">
+                                    <span className="text-3xl font-extrabold slashed-zero pr-4">
+                                        1,50€
+                                    </span>
+                                    <div>
+                                        <p className="text-sm leading-tight">
+                                            EUR / month
+                                        </p>
+                                        <p className="text-xs text-gray-200">
+                                            Billed yearly (18€)
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
                         </Link>
                     </div>
-                </div>
-                <div>
-                    <h3 className="text-sm text-gray-200">
-                        Legal
-                    </h3>
-                    <div className="flex flex-col">
-                        <Link href="/privacy">
-                            <a className="hover:underline">Privacy Policy</a>
-                        </Link>
-                        <Link href="/discord">
-                            <a className="hover:underline">Contact (discord)</a>
-                        </Link>
+                    <p>
+                        Mr. Clean at its core will always stay free - but the servers do not pay themselves.
+                    </p>
+                </div>}
+                <div className="-container grid grid-cols-4 pb-10 pt-80">
+                    <div className="col-span-2">
+                        <h3 className="text-3xl font-bold">
+                            The Cleaner
+                        </h3>
+                        <p className="text-gray-200 mt-1">
+                            Copyright &copy; 2021 - 2021
+                            {" "}
+                            <Link href="https://leodev.xyz">
+                                <a>
+                                    Leo Developer.
+                                </a>
+                            </Link>
+                        </p>
+                        <p className="text-gray-200 mt-2 leading-4">
+                            Not affiliated with Discord.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 className="text-sm text-gray-200">
+                            Docs
+                        </h3>
+                        <div className="flex flex-col">
+                            <Link href="/quickstart">
+                                <a className="hover:underline">Quick Start</a>
+                            </Link>
+                            <Link href="/docs">
+                                <a className="hover:underline">Full docs</a>
+                            </Link>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 className="text-sm text-gray-200">
+                            Legal
+                        </h3>
+                        <div className="flex flex-col">
+                            <Link href="/privacy">
+                                <a className="hover:underline">Privacy Policy</a>
+                            </Link>
+                            <Link href="/discord">
+                                <a className="hover:underline">Contact (discord)</a>
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </div>
