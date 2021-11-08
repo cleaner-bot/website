@@ -18,8 +18,8 @@ export default function Home() {
             </Head>
             <div className="-container">
                 <div className="flex justify-center mb-12">
-                    <h1 className="text-6xl font-extrabold -heading">
-                        <Image className="w-16 h-16 align-middle rounded-full inline" src="https://cdn.discordapp.com/avatars/823533449717481492/cc36bba21762e6822f22e75d5be68c78.png?size=256" />
+                    <h1 className="text-5xl sm:text-6xl font-extrabold -heading">
+                        <Image className="w-16 h-16 align-middle rounded-full hidden md:inline" src="https://cdn.discordapp.com/avatars/823533449717481492/cc36bba21762e6822f22e75d5be68c78.png?size=256" />
                         <span className="align-middle px-2 hover:border-b-4 border-b-indigo-600">
                             The Cleaner
                         </span>
@@ -44,7 +44,7 @@ export default function Home() {
                                 Filter bots out with CAPTCHAs.
                             </FeatureList>
                         </div>
-                        <div className="grid gap-1 grid-cols-2 mt-2">
+                        <div className="grid gap-1 sm:grid-cols-2 mt-2">
                             <Link href="/quickstart">
                                 <a className="-btn -anim bg-blue-500 hover:bg-blue-550">
                                     Quick Start
@@ -165,7 +165,7 @@ export default function Home() {
                     Start protecting <span className="-highlight">your server</span> now.
                 </h2>
                 <Link href="/quickstart">
-                    <a className="w-1/2 mt-6 -btn -anim bg-blue-500 hover:bg-blue-550">
+                    <a className="w-full sm:w-1/2 mt-6 -btn -anim bg-blue-500 hover:bg-blue-550">
                         Quick Start
                         <ArrowRightIcon className="h-6 w-6 inline ml-2" />
                     </a>
@@ -250,7 +250,7 @@ export default function Home() {
                         Mr. Clean at its core will always stay free - but the servers do not pay themselves.
                     </p>
                 </div>}
-                <div className="-container grid grid-cols-4 pb-10 pt-80">
+                <div className="-container grid grid-cols-2 md:grid-cols-4 pb-10 pt-80 gap-4">
                     <div className="col-span-2">
                         <h3 className="text-3xl font-bold">
                             The Cleaner
