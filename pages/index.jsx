@@ -38,7 +38,7 @@ export default function Home() {
                                 Raid detection within seconds.
                             </FeatureList>
                             <FeatureList>
-                                Instant phishing link detection with the help of heuristics and a huge database.
+                                Instant phishing link detection with the help of heuristics, a database of old links and shared knowledge between servers.
                             </FeatureList>
                             <FeatureList>
                                 Filter bots out with captchas.
@@ -134,11 +134,15 @@ export default function Home() {
                                 Captchas for anyone, anytime.
                             </h2>
                             <p className="text-gray-100">
-                                If Captcha verification is not setup, members will be banned instead.
+                                If members are misbehaving, they're issued a captcha that they must solve to continue participating.
+                                If a member is issued too many captchas, they'll have to wait a bit until they can solve the next one.
+                            </p>
+                            <p className="text-gray-100">
+                                If captcha verification is not setup, The Cleaner will ban misbehaving members instead.
                             </p>
                             <div className="space-y-1 mt-2">
                                 <FeatureList>
-                                    Captcha on join.  <span className="text-sm text-gray-200 ml-2">(configurable)</span>
+                                    Captcha on join.
                                 </FeatureList>
                                 <FeatureList>
                                     Captcha when deemed necessary.
@@ -185,10 +189,13 @@ export default function Home() {
                             Multiple Cleaner Bots (bypass rate limits)
                         </FeatureList>
                         <FeatureList>
-                            Customizable "Captcha verification required" embed
+                            Custom delay before the human verification can done
                         </FeatureList>
                         <FeatureList>
-                            Custom delay before the captcha on join can be solved
+                            Customizable "Human verification required" embed
+                        </FeatureList>
+                        <FeatureList>
+                            Custom HTML/CSS on the captcha sites.
                         </FeatureList>
                         <FeatureList>
                             1 Lua Firewall rule
