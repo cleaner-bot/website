@@ -116,7 +116,7 @@ const steps = {
                             Manage roles
                         </h4>
                         <p className="text-gray-200">
-                            Required for captcha challenge of users.
+                            Required for CAPTCHA challenge of users.
                         </p>
                     </div>
                 </div>
@@ -129,14 +129,14 @@ const steps = {
         return (
             <>
                 <h2 className="text-3xl font-semibold mb-8">
-                    2. Captcha Setup
+                    2. CAPTCHA Setup
                 </h2>
                 <div className="border-yellow-500 border-2 rounded-md bg-yellow-300 bg-opacity-30 px-2 py-0.5 my-2">
                     <p>
-                        If you don't want to setup captcha, you can skip this step!
+                        If you don't want to setup CAPTCHA, you can skip this step!
                     </p>
                     <p>
-                        The Cleaner will ban instead of issuing a captcha.
+                        The Cleaner will ban instead of issuing a CAPTCHA.
                     </p>
                 </div>
                 <div className="mt-12">
@@ -148,7 +148,7 @@ const steps = {
                             </p>
                             <div className="mb-2">
                                 <Contra>
-                                    Every member who joins has to solve a captcha.
+                                    Every member who joins has to solve a CAPTCHA.
                                 </Contra>
                                 <Contra>
                                     Every member has one role.
@@ -173,7 +173,7 @@ const steps = {
                                     Does not interfere with guild-wide Verification Level.
                                 </Pro>
                             </div>
-                            If using captcha on join:
+                            If using CAPTCHA on join:
                             <div>
                                 <Contra>
                                     Bot has to give the role to everyone who joins immediately.
@@ -182,10 +182,10 @@ const steps = {
                                     If the bot has an outage, new joiners can immediately access the server.
                                 </Contra>
                             </div>
-                            If not using captcha on join:
+                            If not using CAPTCHA on join:
                             <div>
                                 <Pro>
-                                    Users aren't annoyed by captchas unless they misbehave.
+                                    Users aren't annoyed by CAPTCHAs unless they misbehave.
                                 </Pro>
                             </div>
                         </div>
@@ -223,11 +223,11 @@ const steps = {
                     </ol>
                     <p>
                         <bold>Congratulations!</bold>{" "}
-                        Captcha verification is now setup properly!
+                        CAPTCHA verification is now setup properly!
                     </p>
                     {!member && <>
                         <h3>
-                            Bonus: Captcha on join
+                            Bonus: CAPTCHA on join
                         </h3>
                         <ol>
                             <li>
