@@ -15,6 +15,10 @@ export default function Solve() {
                 <meta proeprty="og:description" content="The server you are trying to access is using The Cleaner to protect itself. A captcha is required." />
             </Head>
 
+            {router.query.failed && <div className="bg-red-500 px-2 py-1 rounded mb-4">
+                CAPTCHA failed for some reason.
+            </div>}
+
             <div className="bg-coolGray-600 h-[78px]">
                 <HCaptcha
                     sitekey="10613019-10d8-4d66-a2fb-e83e6e6c80b7"
