@@ -41,7 +41,7 @@ export default function Home() {
                                 Instant phishing link detection with the help of heuristics, a database of old links and shared knowledge between servers.
                             </FeatureList>
                             <FeatureList>
-                                Filter bots out with captchas.
+                                Filter bots out with CAPTCHAs.
                             </FeatureList>
                         </div>
                         <div className="grid gap-1 grid-cols-2 mt-2">
@@ -118,7 +118,7 @@ export default function Home() {
                                 </FeatureList>
                             </div>
                             <p className="text-gray-100 mt-4">
-                                Once phishing has been detected, the account will be issued a captcha that must be solved.
+                                Once phishing has been detected, the account will be issued a CAPTCHA that must be solved.
                             </p>
                             <p className="text-gray-100">
                                 This ensures the account owner can regain access to the server once the account is recovered.
@@ -131,21 +131,21 @@ export default function Home() {
                     <div className="mt-40 grid md:grid-cols-2">
                         <div>
                             <h2 className="text-4xl text-bold leading-10">
-                                Captchas for anyone, anytime.
+                                CAPTCHAs for anyone, anytime.
                             </h2>
                             <p className="text-gray-100">
-                                If members are misbehaving, they're issued a captcha that they must solve to continue participating.
-                                If a member is issued too many captchas, they'll have to wait a bit until they can solve the next one.
+                                If members are misbehaving, they're issued a CAPTCHA that they must solve to continue participating.
+                                If a member is issued too many CAPTCHAs, they'll have to wait a bit until they can solve the next one.
                             </p>
                             <p className="text-gray-100">
-                                If captcha verification is not setup, The Cleaner will ban misbehaving members instead.
+                                If CAPTCHA verification is not setup, The Cleaner will ban misbehaving members instead.
                             </p>
                             <div className="space-y-1 mt-2">
                                 <FeatureList>
-                                    Captcha on join.
+                                    CAPTCHA on join.
                                 </FeatureList>
                                 <FeatureList>
-                                    Captcha when deemed necessary.
+                                    CAPTCHA when deemed necessary.
                                 </FeatureList>
                             </div>
                         </div>
@@ -195,7 +195,7 @@ export default function Home() {
                             Customizable "Human verification required" embed
                         </FeatureList>
                         <FeatureList>
-                            Custom HTML/CSS on the captcha sites.
+                            Custom HTML/CSS on the CAPTCHA sites.
                         </FeatureList>
                         <FeatureList>
                             1 Lua Firewall rule
