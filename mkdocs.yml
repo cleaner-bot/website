@@ -1,6 +1,7 @@
 site_name: The Cleaner
 site_url: https://cleaner.leodev.xyz/docs/
 nav:
+    - Commands: commands.md
     - Rules: rules.md
     - Mitigation Strategies: mitigation.md
     - CAPTCHAs: captchas.md
