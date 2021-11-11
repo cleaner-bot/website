@@ -42,14 +42,28 @@ Adds or removes moderator privileges from the role.
 Moderators are ignored by The Cleaner.
 
 
-#### /config exception
+#### /config exception add
 
-/config exception (add|remove) #channel
+/config exception add #channel
 
-Adds or removes the exception flag for the channel.
+Adds exception flag to the channel.
 
 Channels marked with this have higher antispam limits and [mitigations](mitigation.md) trigger later.
 This should only be used for channels that consist of *pure* spam because it makes defending against raids happening in that channel *a lot* harder.
+
+
+#### /config exception remove
+
+/config exception remove #channel
+
+Removes exception flag from the channel.
+
+
+#### /config exception list
+
+/config exception list
+
+Lists all channels with the exception flag.
 
 
 ## Diagnose
