@@ -88,7 +88,7 @@ If the same message is sent from multiple different guilds to the command server
 
 ## Lua Rules
 
-> **Warning**: This is experimental and only available to a small group of group.
+> **Warning**: This is experimental and only available to a small group of people.
 
 Lua rules allow for running *your* lua code on every message.
 Basically like builtin rules but they're made by you, not the devs!
