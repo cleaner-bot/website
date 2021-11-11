@@ -28,6 +28,13 @@ Catches suspicious domain names.
 Action: `CHALLENGE`, `BLOCK`
 
 
+#### heuristic.content
+
+Catches suspicious messages with at least one url.
+
+Action: `CHALLENGE`, `BLOCK`
+
+
 #### mass_ping.hidden
 
 Catches people abusing hidden pings. (the spoiler trick)
