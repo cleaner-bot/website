@@ -10,6 +10,14 @@ There are multiple types of rules:
 - global dynamic rules, combating global spam, scam and threats  (phishing)
 - lua rules  (experimental, only for a small group of people)
 
+
+Who is ignored by The Cleaner?
+
+- the server owner
+- members with `ADMINSTRATOR` permission
+- [moderator roles](commands.md#config-modrole)
+
+
 ## Builtin rules
 
 Builtin rules are hardcoded, premade rules by the developers.
