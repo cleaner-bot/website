@@ -109,3 +109,11 @@ Lists all rules or patterns.
 /rules test (rule)
 
 Tests if the rule is disabled.
+
+
+#### /rules banwave
+
+/rules banwave (rule)
+
+Bans everyone who triggered the rule in the last hour.
+
