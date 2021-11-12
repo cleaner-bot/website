@@ -33,13 +33,27 @@ Enables verification for your server by giving new members the verification role
 Sets the logging channel. If the channel is not specified, the channel is reset.
 
 
-#### /config modrole
+#### /config modrole add
 
-/config modrole (add|remove) @role
+/config modrole add @role
 
-Adds or removes moderator privileges from the role.
+Adds moderator privileges to the role.
 
 Moderators are ignored by The Cleaner.
+
+
+#### /config modrole remove
+
+/config modrole remove @role
+
+Removes moderator privileges to the role.
+
+
+#### /config modrole list
+
+/config modrole list
+
+
 
 
 #### /config exception add
