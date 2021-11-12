@@ -79,6 +79,13 @@ We currently do not resolve invites for performance reason, so this will also tr
 Action: `BLOCK`
 
 
+#### emoji.mass
+
+Catches mass emoji. (>= 7)
+
+Action: `BLOCK`
+
+
 ## Dynamic Rules
 
 Dynamic rules are not pre-defined and generated on the fly.
