@@ -111,7 +111,7 @@ Basically like builtin rules but they're made by you, not the devs!
 
 Restrictions (subject to change):
 
-- cpu time limit: 10ms
-- memory: 128kb (131072 bytes)
-
+- cpu time: 10ms
+- memory: 128kb (131,072 bytes)
+- script size: 16kb (16,384 bytes)
 
