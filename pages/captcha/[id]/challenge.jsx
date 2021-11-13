@@ -27,6 +27,14 @@ export default function Solve({ splash }) {
                     CAPTCHA failed for some reason.
                 </div>}
 
+                <div className="bg-coolGray-600 text-center mb-4 px-2 py-3 rounded shadow-2xl">
+                    <p className="font-semibold">
+                        Solve the CAPTCHA to proceed.
+                    </p>
+                    <p className="mt-2 text-gray-200 text-sm">
+                        The server you're trying to access is demanding a CAPTCHA to protect itself.
+                    </p>
+                </div>
                 <div className="bg-coolGray-600 h-[78px] shadow-2xl">
                     <HCaptcha
                         sitekey="10613019-10d8-4d66-a2fb-e83e6e6c80b7"
@@ -40,14 +48,6 @@ export default function Solve({ splash }) {
                             router.push("/api/captcha/verify?" + query.toString());
                         }}
                     />
-                </div>
-                <div className="bg-coolGray-600 text-center mt-4 px-2 py-3 rounded shadow-2xl">
-                    <p className="font-semibold">
-                        Solve the CAPTCHA to proceed.
-                    </p>
-                    <p className="mt-2 text-gray-200 text-sm">
-                        The server you're trying to access is demanding a CAPTCHA to protect itself.
-                    </p>
                 </div>
             </div>
         </BackgroundImage>
