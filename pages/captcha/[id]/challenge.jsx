@@ -4,12 +4,18 @@ import { plus } from "hero-patterns";
 import { useRouter } from "next/router";
 import Head from "next/head";
 
+import Image from "@/components/image.jsx";
+import { getCustomPaths, getCustomProps } from "@/lib/custom.js";
 
-export default function Solve() {
+
+export default function Solve({ splash }) {
     const router = useRouter();
     return (
-        <div style={{backgroundImage: plus("9c92ac", 0.4)}}>
-            <div className="w-[303px] mx-auto min-h-screen py-20 md:py-40">
+        <BackgroundImage background={!splash}>
+            {splash && <div className="absolute right-0">
+                <Image className="object-none min-h-screen w-auto" src={splash} />
+            </div>}
+            <div className="w-[303px] absolute top-1/2 left-1/2 -mr-1/2 -translate-x-1/2 -translate-y-1/2">
                 <Head>
                     <title>CAPTCHA required.</title>
                     <meta property="og:title" content="Captcha required." />
@@ -35,8 +41,8 @@ export default function Solve() {
                         }}
                     />
                 </div>
-                <div className="bg-coolGray-600 mt-4 px-2 py-1 rounded shadow-2xl">
-                    <p className="text-center font-semibold">
+                <div className="bg-coolGray-600 text-center mt-4 px-2 py-3 rounded shadow-2xl">
+                    <p className="font-semibold">
                         Solve the CAPTCHA to proceed.
                     </p>
                     <p className="mt-2 text-gray-200 text-sm">
@@ -44,6 +50,30 @@ export default function Solve() {
                     </p>
                 </div>
             </div>
+        </BackgroundImage>
+    )
+}
+
+function BackgroundImage({ background, children }) {
+    if(!background)
+        return children;
+    return (
+        <div className="h-screen" style={{backgroundImage: plus("9c92ac", 0.4)}}>
+            {children}
         </div>
     )
+}
+
+export async function getStaticProps({ params: {id} }) {
+    return {
+        props: getCustomProps(id)
+    };
+}
+
+
+export async function getStaticPaths() {
+    return {
+        paths: getCustomPaths(),
+        fallback: false
+    }
 }

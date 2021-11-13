@@ -4,11 +4,17 @@ import { plus } from "hero-patterns";
 import Link from "next/link";
 import Head from "next/head";
 
+import Image from "@/components/image.jsx";
+import { getCustomPaths, getCustomProps } from "@/lib/custom.js";
 
-export default function Success() {
+
+export default function Success({ splash }) {
     return (
-        <div style={{backgroundImage: plus("9c92ac", 0.4)}}>
-            <div className="mx-auto w-[303px] min-h-screen py-20 md:py-40">
+        <BackgroundImage background={!splash}>
+            {splash && <div className="absolute right-0">
+                <Image className="object-none min-h-screen w-auto" src={splash} />
+            </div>}
+            <div className="w-[303px] absolute top-1/2 left-1/2 -mr-1/2 -translate-x-1/2 -translate-y-1/2">
                 <Head>
                     <title>Captcha solved successfully.</title>
                     <meta property="og:title" content="Captcha solved successfully." />
@@ -34,6 +40,30 @@ export default function Success() {
                     </a>
                 </Link>
             </div>
+        </BackgroundImage>
+    )
+}
+
+function BackgroundImage({ background, children }) {
+    if(!background)
+        return children;
+    return (
+        <div className="h-screen" style={{backgroundImage: plus("9c92ac", 0.4)}}>
+            {children}
         </div>
     )
+}
+
+export async function getStaticProps({ params: {id} }) {
+    return {
+        props: getCustomProps(id)
+    };
+}
+
+
+export async function getStaticPaths() {
+    return {
+        paths: getCustomPaths(),
+        fallback: false
+    }
 }
