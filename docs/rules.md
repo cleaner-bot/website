@@ -22,12 +22,6 @@ Who is ignored by The Cleaner?
 
 Builtin rules are hardcoded, premade rules by the developers.
 
-#### embed.asset
-
-Catches discord imposters by analyzing assets used in the embed.
-
-Action: `CHALLENGE`, `BLOCK`
-
 
 #### heuristic.domain
 
@@ -39,6 +33,13 @@ Action: `CHALLENGE`, `BLOCK`
 #### heuristic.content
 
 Catches suspicious messages with at least one url.
+
+Action: `CHALLENGE`, `BLOCK`
+
+
+#### embed.asset
+
+Catches discord imposters by analyzing assets used in the embed.
 
 Action: `CHALLENGE`, `BLOCK`
 
