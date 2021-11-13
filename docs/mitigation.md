@@ -46,3 +46,12 @@ Detects sticker spam. (3/30s)
 
 - Action: `BLOCK`
 - Expires: INSTANTLY  (does not deploy rule)
+
+
+#### traffic.attachment
+
+Detects attachment spam using filesize.  (3/30s)
+
+
+- Action: `BLOCK`
+- Expires: INSTANTLY  (does not deploy rule)
