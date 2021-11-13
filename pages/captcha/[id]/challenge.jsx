@@ -42,7 +42,7 @@ export default function Solve({ splash }) {
                         reCaptchaCompat={false}
                         onVerify={token => {
                             const query = new URLSearchParams();
-                            query.append("site", 0);
+                            query.append("site", router.query.id);
                             query.append("token", token);
                             query.append("state", router.query.state);
                             router.push("/api/captcha/verify?" + query.toString());
