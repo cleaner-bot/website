@@ -189,7 +189,7 @@ export default function Home() {
                             Multiple Cleaner Bots (bypass rate limits)
                         </FeatureList>
                         <FeatureList>
-                            Custom delay before the human verification can done
+                            Custom delay before the human verification can be performed
                         </FeatureList>
                         <FeatureList>
                             Customizable "Human verification required" embed
