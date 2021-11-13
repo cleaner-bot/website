@@ -37,3 +37,12 @@ This is intended for catching bots that send the same message into every channel
 
 - Action: `CHALLENGE`, `BLOCK`
 - Expires: 300s (5m)
+
+
+#### traffic.sticker
+
+Detects sticker spam. (3/30s)
+
+
+- Action: `BLOCK`
+- Expires: INSTANTLY  (does not deploy rule)
