@@ -89,7 +89,7 @@ Diagnoses common issues! (missing permissions, wrong setup etc)
 
 ## Rules
 
-You can disable all kinds of rules. (builtin, dynamic, global, lua)
+You can disable all kinds of rules. (builtin, dynamic, global, js)
 
 You can either use the rule name (`mass_ping.few`) or an * (`mass_ping.*`).  
 The syntax for these patterns is very simple and the implementation is intended to be fast.

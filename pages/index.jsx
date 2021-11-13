@@ -198,7 +198,7 @@ export default function Home() {
                             Custom HTML/CSS on the CAPTCHA sites.
                         </FeatureList>
                         <FeatureList>
-                            1 Lua Firewall rule
+                            1 Javascript Firewall rule
                         </FeatureList>
                         <FeatureList>
                             Exclusive role and support channels on Discord

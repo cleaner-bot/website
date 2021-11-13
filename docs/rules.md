@@ -8,7 +8,7 @@ There are multiple types of rules:
 - builtin rules, premade rules by the developers  (@everyone pings, basic scam detection, ...)
 - on-the-fly dynamic rules, deployed to combat spam
 - global dynamic rules, combating global spam, scam and threats  (phishing)
-- lua rules  (experimental, only for a small group of people)
+- javascript rules  (in experiment)
 
 
 Who is ignored by The Cleaner?
@@ -102,16 +102,16 @@ Once a guild service is challenging an user, the message will be sent to the com
 If the same message is sent from multiple different guilds to the command server and if certain conditions are met, the command server will issue a global rule to combat the potential wave faster and better.
 
 
-## Lua Rules
+## Javascript Rules
 
 > **Warning**: This is experimental and only available to a small group of people.
 
-Lua rules allow for running *your* lua code on every message.
+Javascript rules allow for running *your* js code on every message.
 Basically like builtin rules but they're made by you, not the devs!
 
 Restrictions (subject to change):
 
-- instruction limit (10,000 instructions)
-- memory (100,000kb)
+- cpu time limit: 10ms
+- memory: 128kb (131072 bytes)
 
 
