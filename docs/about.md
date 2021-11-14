@@ -6,8 +6,9 @@ The Cleaner is a bot developed by [Leo Developer](https://leodev.xyz).
 Special thanks to:
 
 - Rxvan for testing and feedback
+- A7U for website feedback and dev help
 - Rynav and Tech for being there and helping with the name and pfp
-- Rynav, Tech and usernamep for website feedback
+- Rynav, Tech, usernamep and coodin for website feedback
 
 - **You**! Thanks for using my bot <3
 
