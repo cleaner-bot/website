@@ -125,7 +125,7 @@ export default function Home() {
                             </p>
                         </div>
                         <div className="text-gray-400 md:order-first">
-                            image here
+                            <Image src="/img/home/feature_phishing.png" className="w-full" />
                         </div>
                     </div>
                     <div className="mt-40 grid md:grid-cols-2">
@@ -150,7 +150,7 @@ export default function Home() {
                             </div>
                         </div>
                         <div className="text-gray-400">
-                            image here
+                            <Image src="/img/home/feature_captcha.png" className="w-full" />
                         </div>
                     </div>
                 </div>
