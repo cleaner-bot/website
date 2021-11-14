@@ -23,16 +23,16 @@ Who is ignored by The Cleaner?
 Builtin rules are hardcoded, premade rules by the developers.
 
 
-#### heuristic.domain
+#### heuristic.content
 
-Catches suspicious domain names.
+Catches suspicious messages with at least one url.
 
 Action: `CHALLENGE`, `BLOCK`
 
 
-#### heuristic.content
+#### heuristic.domain
 
-Catches suspicious messages with at least one url.
+Catches suspicious domain names.
 
 Action: `CHALLENGE`, `BLOCK`
 
