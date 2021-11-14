@@ -1,17 +1,24 @@
 
 import { CheckIcon } from "@heroicons/react/outline";
 import Link from "next/link";
+import Head from "next/head";
 
 
 export default function Pro() {
     return (
         <div>
+            <Head>
+                <title>Go Professionally Clean with The Claener!</title>
+                <meta property="og:title" content="Go Professionally Clean with The Claener!" />
+                <meta property="og:type" content="article" />
+                <meta property="og:description" content="Time to go professional. Support The Cleaner and unlock exclusive features!" />
+            </Head>
             <div className="-container">
                 <h1 className="text-6xl font-bold mt-8">
                     Require <span className="-highlight italic">Professional</span> Cleaning?
                 </h1>
                 <p className="mt-2">
-                    Go <span className="-highlight">Pro</span> to Support The Cleaner and unlock exlusive features!
+                    Go <span className="-highlight">Pro</span> to Support The Cleaner and unlock exclusive features!
                 </p>
                 {/*
                 <div className="mt-40 grid md:grid-cols-2">
