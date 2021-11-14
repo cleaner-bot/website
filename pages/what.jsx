@@ -18,54 +18,48 @@ export default function What() {
                     What?
                 </h1>
                 <p>
-                    You are required to solve a Captcha.
+                    You are required to prove that you are human.
+                    Click the "I am human" button to begin.
                 </p>
                 <h2>
                     Why?
                 </h2>
                 <p>
-                    The most common reasons for a Captcha are:
+                    The most common reasons for a challenge are:
                 </p>
                 <ol>
                     <li>
-                        The server is requiring a Captcha from every new member.
+                        The server has requested that new members prove they're human.
                     </li>
                     <li>
-                        Your behavior has been deemed to be bot-like or not appropriate.
+                        Your behavior has been deemed to be bot-like or inappropriate.
                     </li>
                     <li>
                         Unnormal join or message rate (burst/flood)
                     </li>
                 </ol>
                 <p>
-                    This is a non-exhaustive list, there are many more factors that determine if you have to solve a Captcha or not.
+                    This is a non-exhaustive list, there are many more factors that determine if you have to solve a challenge or not.
                 </p>
 
                 <h2>
-                    What now?
-                </h2>
-                <p>
-                    Just solve the Captcha to gain access to the server.
-                </p>
-                <p>
-                    If there is an ongoing raid, it's recommended to stay quiet, so you don't have to solve more Captchas or get banned.
-                </p>
-
-                <h2>
-                    How?
+                    What now? And how?
                 </h2>
                 <ol>
                     <li>
                         Press the <code>`I am human`</code> button.
                     </li>
                     <li>
-                        Click on the <code>`Solve Captcha`</code> button link of the new message.
+                        If the bot answers with "You have been verified", you are done!
                     </li>
                     <li>
-                        Complete the Captcha on the website.
+                        Click on the <code>`Solve CAPTCHA`</code> button link of the new message.
                     </li>
                     <li>
-                        After completing, press the <code>`Submit Captcha`</code> button.
+                        Complete the CAPTCHA on the website.
+                    </li>
+                    <li>
+                        After completing, press the <code>`Submit CAPTCHA`</code> button.
                     </li>
                     <li>
                         Done!
@@ -86,7 +80,7 @@ export default function What() {
             </article>
 
             <Link href="/">
-                <a className="-anim -btn bg-blue-500 hover:bg-blue-550 w-full md:w-96 mt-32">
+                <a className="-anim -btn bg-blue-500 hover:bg-blue-550 w-full md:w-96 my-32">
                     Back to the homepage
                     <ArrowRightIcon className="h-6 w-6 inline ml-2" />
                 </a>
