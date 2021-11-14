@@ -57,7 +57,7 @@ const steps = {
                     1. Invite The Cleaner
                 </h2>
                 <button className="-anim -btn w-60 bg-blue-500 hover:bg-blue-550" onClick={() => {
-                    const popup = window.open("https://discord.com/oauth2/authorize?client_id=823533449717481492&scope=applications.commands%20bot&permissions=27652", "botinvitepopup", "width=500,height=776,left=100,top=100");
+                    const popup = window.open("https://discord.com/oauth2/authorize?client_id=823533449717481492&scope=applications.commands%20bot&permissions=268446772", "botinvitepopup", "width=500,height=776,left=100,top=100");
                     const timer = setInterval(() => {
                         if(popup.closed) {
                             clearInterval(timer);
