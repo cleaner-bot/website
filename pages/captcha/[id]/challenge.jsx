@@ -23,7 +23,7 @@ export default function Solve({ splash }) {
                     <meta proeprty="og:description" content="The server you are trying to access is using The Cleaner to protect itself. A captcha is required." />
                 </Head>
 
-                {router.query.failed && <div className="bg-red-500 px-2 py-1 rounded mb-4 shadow-2xl">
+                {router.query.failed && <div className="bg-red-500 text-center px-2 py-1 rounded mb-4 shadow-2xl">
                     CAPTCHA failed for some reason.
                 </div>}
 
