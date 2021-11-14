@@ -8,7 +8,7 @@ import Image from "@/components/image.jsx";
 import { getCustomPaths, getCustomProps } from "@/lib/custom.js";
 
 
-export default function Solve({ splash }) {
+export default function Solve({ splash, text }) {
     const router = useRouter();
     return (
         <BackgroundImage background={!splash}>
@@ -18,7 +18,7 @@ export default function Solve({ splash }) {
             <div className="w-[303px] absolute top-1/2 left-1/2 -mr-1/2 -translate-x-1/2 -translate-y-1/2">
                 <Head>
                     <title>CAPTCHA required.</title>
-                    <meta property="og:title" content="Captcha required." />
+                    <meta property="og:title" content="CATPCHA required." />
                     <meta property="og:type" content="article" />
                     <meta proeprty="og:description" content="The server you are trying to access is using The Cleaner to protect itself. A captcha is required." />
                 </Head>
@@ -32,7 +32,7 @@ export default function Solve({ splash }) {
                         Solve the CAPTCHA to proceed.
                     </p>
                     <p className="mt-2 text-gray-200 text-sm">
-                        The server you're trying to access is demanding a CAPTCHA to protect itself.
+                        {text || "The server you're trying to access is demanding a CAPTCHA to protect itself."}
                     </p>
                 </div>
                 <div className="bg-coolGray-600 h-[78px] shadow-2xl">

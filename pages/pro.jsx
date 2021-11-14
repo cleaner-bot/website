@@ -43,6 +43,9 @@ export default function Pro() {
                         <FeatureList>
                             Custom Splash on the CAPTCHA sites
                         </FeatureList>
+                        <FeatureList>
+                            Custom Text on the CAPTCHA sites
+                        </FeatureList>
                     </div>
                     <div className="text-gray-400">
                         image here

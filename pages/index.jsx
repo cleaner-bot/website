@@ -197,7 +197,7 @@ export default function Home() {
                             Customizable "Human verification required" embed
                         </FeatureList>
                         <FeatureList>
-                            Custom Splash on the CAPTCHA sites
+                            Custom Text and Splash on the CAPTCHA sites
                         </FeatureList>
                         <FeatureList>
                             1 Javascript Firewall rule
