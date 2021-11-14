@@ -1,8 +1,10 @@
 
 import HCaptcha from "@hcaptcha/react-hcaptcha";
+import { ArrowLeftIcon, ExternalLinkIcon } from "@heroicons/react/outline";
 import { plus } from "hero-patterns";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import Link from "next/link";
 
 import Image from "@/components/image.jsx";
 import { getCustomPaths, getCustomProps } from "@/lib/custom.js";
@@ -35,7 +37,7 @@ export default function Solve({ splash, text }) {
                         {text || "The server you're trying to access is demanding a CAPTCHA to protect itself."}
                     </p>
                 </div>
-                <div className="bg-coolGray-600 h-[78px] shadow-2xl">
+                {router.query.state ? <div className="bg-coolGray-600 h-[78px] shadow-2xl">
                     <HCaptcha
                         sitekey="10613019-10d8-4d66-a2fb-e83e6e6c80b7"
                         theme="dark"
@@ -48,7 +50,23 @@ export default function Solve({ splash, text }) {
                             router.push("/api/captcha/verify?" + query.toString());
                         }}
                     />
-                </div>
+                </div> : <>
+                    <div className="bg-red-500 text-center px-2 py-1 rounded mb-4 shadow-2xl">
+                        The link you used to come here is invalid.
+                    </div>
+                    <Link href="/">
+                        <a className="-anim -btn bg-coolGray-800 hover:bg-coolGray-600 mt-4 shadow-2xl">
+                            <ArrowLeftIcon className="h-6 w-6 mr-2" />
+                            Go to Homepage
+                        </a>
+                    </Link>
+                    <Link href="/discord">
+                        <a className="-anim -btn bg-coolGray-800 hover:bg-coolGray-600 mt-2 shadow-2xl">
+                            Help
+                            <ExternalLinkIcon className="h-6 w-6 ml-2" />
+                        </a>
+                    </Link>
+                </>}
             </div>
         </BackgroundImage>
     )
