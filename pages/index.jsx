@@ -185,9 +185,11 @@ export default function Home() {
                         Go <span className="-highlight">Pro</span> to support The Cleaner and unlock the following features:
                     </p>
                     <div>
+                        {/*
                         <FeatureList>
                             Multiple Cleaner Bots (bypass rate limits)
                         </FeatureList>
+                        */}
                         <FeatureList>
                             Custom delay before the human verification can be performed
                         </FeatureList>
@@ -195,7 +197,7 @@ export default function Home() {
                             Customizable "Human verification required" embed
                         </FeatureList>
                         <FeatureList>
-                            Custom Splash on the CAPTCHA sites.
+                            Custom Splash on the CAPTCHA sites
                         </FeatureList>
                         <FeatureList>
                             1 Javascript Firewall rule
