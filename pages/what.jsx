@@ -11,7 +11,7 @@ export default function What() {
                 <title>What? Why? What now? Help?</title>
                 <meta property="og:title" content="The Cleaner - What? Why? What now? Help?" />
                 <meta property="og:type" content="article" />
-                <meta property="og:description" content="A Captcha? What? Why? What now? Help?" />
+                <meta property="og:description" content="Human Verification? What? Why? What now? Help?" />
             </Head>
             <article>
                 <h1>
