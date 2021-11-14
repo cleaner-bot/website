@@ -12,7 +12,7 @@ export default function Solve({ splash, text }) {
     const router = useRouter();
     return (
         <BackgroundImage background={!splash}>
-            {splash && <div className="absolute right-0">
+            {splash && <div className="absolute right-0 h-screen overflow-hidden">
                 <Image className="object-none min-h-screen w-auto" src={splash} />
             </div>}
             <div className="w-[303px] absolute top-1/2 left-1/2 -mr-1/2 -translate-x-1/2 -translate-y-1/2">
