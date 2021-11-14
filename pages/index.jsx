@@ -87,7 +87,7 @@ export default function Home() {
                                     Detection generally within 5 seconds.
                                 </FeatureList>
                                 <FeatureList>
-                                    Can handle up to 33 message/second. (discord ratelimit)
+                                    Can handle up to 33 messages/second. (discord ratelimit)
                                 </FeatureList>
                                 <FeatureList>
                                     Automatic adjustments of Slowmode & Verification Level.
