@@ -116,27 +116,27 @@ const steps = {
                             Manage roles
                         </h4>
                         <p className="text-gray-200">
-                            Required for CAPTCHA challenge of users.
+                            Required for human verification of users.
                         </p>
                     </div>
                 </div>
-                <StepBar setCurrentStep={setCurrentStep} next="2-captcha" skip={skip} />
+                <StepBar setCurrentStep={setCurrentStep} next="2-challenge" skip={skip} />
             </>
         )
     },
-    "2-captcha": function CaptchaStep({ setCurrentStep }) {
+    "2-challenge": function ChallengeStep({ setCurrentStep }) {
         const [member, setMember] = useState(undefined);
         return (
             <>
                 <h2 className="text-3xl font-semibold mb-8">
-                    2. CAPTCHA Setup
+                    2. Human verification Setup
                 </h2>
                 <div className="border-yellow-500 border-2 rounded-md bg-yellow-300 bg-opacity-30 px-2 py-0.5 my-2">
                     <p>
-                        If you don't want to setup CAPTCHA, you can skip this step!
+                        If you don't want to setup human verification, you can skip this step!
                     </p>
                     <p>
-                        The Cleaner will ban instead of issuing a CAPTCHA.
+                        The Cleaner will ban instead of issuing challenges.
                     </p>
                 </div>
                 <div className="mt-12">
@@ -148,7 +148,7 @@ const steps = {
                             </p>
                             <div className="mb-2">
                                 <Contra>
-                                    Every member who joins has to solve a CAPTCHA.
+                                    Every member who joins has to verify they are human.
                                 </Contra>
                                 <Contra>
                                     Every member has one role.
@@ -156,6 +156,9 @@ const steps = {
                                 <Contra>
                                     Interferes with guild-wide Verification Level.
                                 </Contra>
+                                <Pro>
+                                    If The Cleaner has an outage, new members don't have immediately access to the server.
+                                </Pro>
                             </div>
                         </div>
                         <div>
@@ -173,7 +176,7 @@ const steps = {
                                     Does not interfere with guild-wide Verification Level.
                                 </Pro>
                             </div>
-                            If using CAPTCHA on join:
+                            If using Verification on join:
                             <div>
                                 <Contra>
                                     Bot has to give the role to everyone who joins immediately.
@@ -182,7 +185,7 @@ const steps = {
                                     If the bot has an outage, new joiners can immediately access the server.
                                 </Contra>
                             </div>
-                            If not using CAPTCHA on join:
+                            If not using Verification on join:
                             <div>
                                 <Pro>
                                     Users aren't annoyed by CAPTCHAs unless they misbehave.
@@ -223,11 +226,11 @@ const steps = {
                     </ol>
                     <p>
                         <bold>Congratulations!</bold>{" "}
-                        CAPTCHA verification is now setup properly!
+                        Human verification is now setup properly!
                     </p>
                     {!member && <>
                         <h3>
-                            Bonus: CAPTCHA on join
+                            Bonus: Verification on join
                         </h3>
                         <ol>
                             <li>
@@ -286,7 +289,7 @@ const steps = {
                         You can also disable logging with <code>/config logging reset</code>
                     </p>
                 </article>
-                <StepBar setCurrentStep={setCurrentStep} previous="2-captcha" next="4-exceptions" />
+                <StepBar setCurrentStep={setCurrentStep} previous="2-challenge" next="4-exceptions" />
             </>
         )
     },
