@@ -33,6 +33,7 @@ Requirements:
 
 - never had to solve a challenge (on-join captchas don't count)
 - server is not under attack
+- account is older than 3 days
 
 
 ---
