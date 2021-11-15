@@ -26,6 +26,13 @@ Mode `give` gives you the verification role after you verify, `take` takes the r
 Enables verification for your server by giving new members the verification role automatically.
 
 
+#### /config verify reset
+
+/config verify reset
+
+Resets verification setup. (does not delete the embed with buttons)
+
+
 #### /config logging
 
 /config verify [#channel]
