@@ -160,3 +160,7 @@ Tests if the rule is disabled.
 
 Bans everyone who triggered the rule in the last hour.
 
+
+---
+
+[Ready to invite the Cleaner?](/quickstart/) | [Need Support Instead?](/discord)

@@ -33,3 +33,8 @@ Requirements:
 
 - never had to solve a challenge (on-join captchas don't count)
 - server is not under attack
+
+
+---
+
+[Ready to invite the Cleaner?](/quickstart/) | [Need Support Instead?](/discord)

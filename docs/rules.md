@@ -115,3 +115,8 @@ Restrictions (subject to change):
 - memory: 128kb (131,072 bytes)
 - script size: 16kb (16,384 bytes)
 
+
+
+---
+
+[Ready to invite the Cleaner?](/quickstart/) | [Need Support Instead?](/discord)

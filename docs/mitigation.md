@@ -55,3 +55,8 @@ Detects attachment spam using filesize.  (3/30s)
 
 - Action: `BLOCK`
 - Expires: INSTANTLY  (does not deploy rule)
+
+
+---
+
+[Ready to invite the Cleaner?](/quickstart/) | [Need Support Instead?](/discord)
