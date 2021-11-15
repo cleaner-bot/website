@@ -1,7 +1,7 @@
 
 # Commands
 
-You need the `Manage Server` or `Administrator` permission to any of these commands.
+You need the `Manage Server` or `Administrator` permission to use any of these commands.
 
 Arguments in [] are optional.
 
