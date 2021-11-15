@@ -27,13 +27,13 @@ export default function Home() {
                 </div>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-10">
                     <div>
-                        <h2 className="text-5xl text-extrabold leading-10">
+                        <h2 className="text-5xl text-extrabold leading-10 mb-4">
                             A bot built for keeping servers clean
                         </h2>
                         <p className="text-gray-100 mt-1">
                             The Cleaner is a Discord bot designed to keep your server clean by removing spam, phishing, and more!
                         </p>
-                        <div className="mt-2 space-y-1">
+                        <div className="space-y-1 my-4">
                             <FeatureList>
                                 Raid detection within seconds.
                             </FeatureList>
@@ -73,7 +73,7 @@ export default function Home() {
                 <div className="-container">
                     <div className="grid md:grid-cols-2 gap-y-10">
                         <div>
-                            <h2 className="text-4xl text-bold leading-10">
+                            <h2 className="text-4xl text-bold leading-10 mb-4">
                                 Automatic Raid Prevention
                             </h2>
                             <p className="text-gray-100 mt-1">
@@ -82,7 +82,7 @@ export default function Home() {
                             <p className="text-gray-100">
                                 Uses Discord's features whenever necessary:
                             </p>
-                            <div className="space-y-1 mt-2">
+                            <div className="space-y-1 my-4">
                                 <FeatureList>
                                     Detection generally within 5 seconds.
                                 </FeatureList>
@@ -100,24 +100,24 @@ export default function Home() {
                     </div>
                     <div className="mt-40 grid md:grid-cols-2 gap-y-10">
                         <div>
-                            <h2 className="text-4xl text-bold leading-10">
+                            <h2 className="text-4xl text-bold leading-10 mb-4">
                                 Phishing Prevention
                             </h2>
                             <p className="text-gray-100">
                                 Detects phishing links and automatically freezes the account until the owner recovers it.
                             </p>
-                            <div className="space-y-1 mt-2">
+                            <div className="space-y-1 my-4">
                                 <FeatureList>
                                     Huge database of past phishing waves.
                                 </FeatureList>
                                 <FeatureList>
-                                    Heuristics for detecting new domains.
+                                    Advanced heuristics for detecting new domains.
                                 </FeatureList>
                                 <FeatureList>
                                     Learning from past waves and independent of link detection.
                                 </FeatureList>
                             </div>
-                            <p className="text-gray-100 mt-4">
+                            <p className="text-gray-100">
                                 Once phishing has been detected, the account will be issued a CAPTCHA that must be solved.
                             </p>
                             <p className="text-gray-100">
@@ -130,7 +130,7 @@ export default function Home() {
                     </div>
                     <div className="mt-40 grid md:grid-cols-2 gap-y-10">
                         <div>
-                            <h2 className="text-4xl text-bold leading-10">
+                            <h2 className="text-4xl text-bold leading-10 mb-4">
                                 CAPTCHAs for anyone, anytime.
                             </h2>
                             <p className="text-gray-100">
@@ -140,7 +140,7 @@ export default function Home() {
                             <p className="text-gray-100">
                                 If CAPTCHA verification is not setup, The Cleaner will ban misbehaving members instead.
                             </p>
-                            <div className="space-y-1 mt-2">
+                            <div className="space-y-1 my-4">
                                 <FeatureList>
                                     CAPTCHA on join.
                                 </FeatureList>
@@ -155,13 +155,13 @@ export default function Home() {
                     </div>
                     <div className="mt-40 grid md:grid-cols-2 gap-y-10">
                         <div>
-                            <h2 className="text-4xl text-bold leading-10">
+                            <h2 className="text-4xl text-bold leading-10 mb-4">
                                 Just... keep it clean.
                             </h2>
                             <p className="text-gray-100">
                                 Keeps a lot of unsocialized content out of your server - by default.
                             </p>
-                            <div className="space-y-1 mt-2">
+                            <div className="space-y-1 my-4">
                                 <FeatureList>
                                     Automatic de-hoisting
                                 </FeatureList>
