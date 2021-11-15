@@ -108,13 +108,13 @@ export default function Home() {
                             </p>
                             <div className="space-y-1 mt-2">
                                 <FeatureList>
-                                    Huge database of already known domains.
+                                    Huge database of past phishing waves.
                                 </FeatureList>
                                 <FeatureList>
-                                    Smart heuristics for detecting new domains.
+                                    Heuristics for detecting new domains.
                                 </FeatureList>
                                 <FeatureList>
-                                    Information exchange of new domains in real-time.
+                                    Learning from past waves and independent of link detection.
                                 </FeatureList>
                             </div>
                             <p className="text-gray-100 mt-4">
