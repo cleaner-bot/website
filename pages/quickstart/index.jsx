@@ -57,7 +57,7 @@ const steps = {
                     1. Invite The Cleaner
                 </h2>
                 <button className="-anim -btn w-60 bg-blue-500 hover:bg-blue-550" onClick={() => {
-                    const popup = window.open("https://discord.com/oauth2/authorize?client_id=823533449717481492&scope=applications.commands%20bot&permissions=268446772", "botinvitepopup", "width=500,height=776,left=100,top=100");
+                    const popup = window.open("https://discord.com/oauth2/authorize?client_id=823533449717481492&scope=applications.commands%20bot&permissions=402664502", "botinvitepopup", "width=500,height=776,left=100,top=100");
                     const timer = setInterval(() => {
                         if(popup.closed) {
                             clearInterval(timer);
@@ -77,6 +77,14 @@ const steps = {
                         </h4>
                         <p className="text-gray-200">
                             Required for... banning members.
+                        </p>
+                    </div>
+                    <div>
+                        <h4 className="font-bold">
+                            Kick members
+                        </h4>
+                        <p className="text-gray-200">
+                            Currently not used, but there are features planned that will use this.
                         </p>
                     </div>
                     <div>
@@ -117,6 +125,14 @@ const steps = {
                         </h4>
                         <p className="text-gray-200">
                             Required for human verification of users.
+                        </p>
+                    </div>
+                    <div>
+                        <h4 className="font-bold">
+                            Manage nicknames
+                        </h4>
+                        <p className="text-gray-200">
+                            Required for the dehoisting feature.
                         </p>
                     </div>
                 </div>
