@@ -163,23 +163,23 @@ export default function Home() {
                             </p>
                             <div className="space-y-1 my-4">
                                 <FeatureList>
-                                    Automatic de-hoisting
+                                    Automatic de-hoisting.
                                 </FeatureList>
                                 <FeatureList>
-                                    Mass ping ({">"}= 5)
+                                    Block on mass ping. (triggers after 5)
                                 </FeatureList>
                                 <FeatureList>
-                                    Mass emoji  ({">"}= 7)
+                                    Block on mass emoji.  (triggers after 7)
                                 </FeatureList>
                                 <FeatureList>
-                                    Discord invites
+                                    Block on Discord invites.
                                 </FeatureList>
                                 <FeatureList>
-                                    @everyone and @here pings (only if you don't have the permissions to actually ping)
+                                    Block on @everyone and @here pings. (only if the ping fails)
                                 </FeatureList>
                             </div>
                             <p>
-                                Want to allow some content? Check out the command documentation on rules.
+                                Want to disable some rules? Check out the command documentation on rules.
                             </p>
                             <Link href="/docs/commands/#rules">
                                 <a className="w-full sm:w-1/2 md:w-full lg:w-1/2 mt-6 -btn -anim bg-blue-500 hover:bg-blue-550">
