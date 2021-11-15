@@ -25,7 +25,7 @@ export default function Home() {
                         </span>
                     </h1>
                 </div>
-                <div className="grid grid-cols-1 lg:grid-cols-2">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-10">
                     <div>
                         <h2 className="text-5xl text-extrabold leading-10">
                             A bot built for keeping servers clean
@@ -71,7 +71,7 @@ export default function Home() {
             </div>
             <div className="bg-coolGray-750">
                 <div className="-container">
-                    <div className="grid md:grid-cols-2">
+                    <div className="grid md:grid-cols-2 gap-y-10">
                         <div>
                             <h2 className="text-4xl text-bold leading-10">
                                 Automatic Raid Prevention
@@ -98,7 +98,7 @@ export default function Home() {
                             image here
                         </div>
                     </div>
-                    <div className="mt-40 grid md:grid-cols-2">
+                    <div className="mt-40 grid md:grid-cols-2 gap-y-10">
                         <div>
                             <h2 className="text-4xl text-bold leading-10">
                                 Phishing Prevention
@@ -128,7 +128,7 @@ export default function Home() {
                             <Image src="/img/home/feature_phishing.png" className="w-full" />
                         </div>
                     </div>
-                    <div className="mt-40 grid md:grid-cols-2">
+                    <div className="mt-40 grid md:grid-cols-2 gap-y-10">
                         <div>
                             <h2 className="text-4xl text-bold leading-10">
                                 CAPTCHAs for anyone, anytime.
@@ -153,7 +153,7 @@ export default function Home() {
                             <Image src="/img/home/feature_captcha.png" className="w-full" />
                         </div>
                     </div>
-                    <div className="mt-40 grid md:grid-cols-2">
+                    <div className="mt-40 grid md:grid-cols-2 gap-y-10">
                         <div>
                             <h2 className="text-4xl text-bold leading-10">
                                 Just... keep it clean.
