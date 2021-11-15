@@ -153,6 +153,45 @@ export default function Home() {
                             <Image src="/img/home/feature_captcha.png" className="w-full" />
                         </div>
                     </div>
+                    <div className="mt-40 grid md:grid-cols-2">
+                        <div>
+                            <h2 className="text-4xl text-bold leading-10">
+                                Just... keep it clean.
+                            </h2>
+                            <p className="text-gray-100">
+                                Keeps a lot of unsocialized content out of your server - by default.
+                            </p>
+                            <div className="space-y-1 mt-2">
+                                <FeatureList>
+                                    Automatic de-hoisting
+                                </FeatureList>
+                                <FeatureList>
+                                    Mass ping ({">"}= 5)
+                                </FeatureList>
+                                <FeatureList>
+                                    Mass emoji  ({">"}= 7)
+                                </FeatureList>
+                                <FeatureList>
+                                    Discord invites
+                                </FeatureList>
+                                <FeatureList>
+                                    @everyone and @here pings (only if you don't have the permissions to actually ping)
+                                </FeatureList>
+                            </div>
+                            <p>
+                                Want to allow some content? Check out the command documentation on rules.
+                            </p>
+                            <Link href="/docs/commands/#rules">
+                                <a className="w-full sm:w-1/2 md:w-full lg:w-1/2 mt-6 -btn -anim bg-blue-500 hover:bg-blue-550">
+                                    Rules Commands
+                                    <ArrowRightIcon className="w-6 h-6 ml-2 inline" />
+                                </a>
+                            </Link>
+                        </div>
+                        <div className="text-gray-400 md:order-first">
+                            <Image src="/img/home/feature_clean.png" className="w-full" />
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className="text-coolGray-750">
