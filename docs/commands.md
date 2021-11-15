@@ -124,6 +124,14 @@ Done.
 Disabled.
 ```
 
+## Rules TLDR
+
+1. Disable a rule with `/rules disable add advertisement.discord`.
+2. Re-enable it with `/rules disable remove advertisement.discord`.
+3. Disable all matching rules with `/rules disable add mass_ping.*`
+4. Re-enable them with `/rules disable remove mass_ping.*`
+5. Check all enabled rules with `/rules list rules`
+
 
 #### /rules disable
 
