@@ -13,7 +13,7 @@ You have to solve a challenge when:
 ## CAPTCHA delay
 
 The moment the bot decided to give you a challenge, a delay is also decided.
-This can range from 0 seconds to *a week*.
+This can range from 0 seconds to *a day*.
 
 Factors that can increase the delay:
 
