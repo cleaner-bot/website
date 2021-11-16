@@ -87,6 +87,13 @@ Catches mass emoji. (>= 7)
 Action: `BLOCK`
 
 
+#### link.checker
+
+Catches blacklisted urls/domains that were blacklisted by the Link Checker.
+
+Action: `BLOCK`
+
+
 ## Dynamic Rules
 
 Dynamic rules are not pre-defined and generated on the fly.
