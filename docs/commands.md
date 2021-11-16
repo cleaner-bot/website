@@ -61,6 +61,11 @@ Removes moderator privileges to the role.
 /config modrole list
 
 
+#### /config linkchecker
+
+/config linkchecker (enable|disable)
+
+Enables or disables link checker. (you need to setup a [logging channel](#config-logging) first)
 
 
 #### /config exception add
