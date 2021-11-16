@@ -156,6 +156,38 @@ export default function Home() {
                     <div className="mt-40 grid md:grid-cols-2 gap-y-10">
                         <div>
                             <h2 className="text-4xl text-bold leading-10 mb-4">
+                                Keep links clean
+                            </h2>
+                            <p className="text-gray-100">
+                                Sends every link into the logging channel where it can be reviewed.
+                            </p>
+                            <div className="space-y-1 my-4">
+                                <FeatureList>
+                                    Whitelist domains so they don't have to be reviewed again.
+                                </FeatureList>
+                                <FeatureList>
+                                    Blacklist only that exact url.
+                                </FeatureList>
+                                <FeatureList>
+                                    Blacklist entire domain.
+                                </FeatureList>
+                            </div>
+                            <p>
+                                Enable Link Checker with {" "}
+                                <Link href="/docs/commands/#config-linkchecker">
+                                    <a className="hover:underline">
+                                        <code>/config linkchecker enable</code>
+                                    </a>
+                                </Link>
+                            </p>
+                        </div>
+                        <div className="text-gray-400 md:order-first">
+                            <Image src="/img/home/feature_link_checker.png" className="w-full" />
+                        </div>
+                    </div>
+                    <div className="mt-40 grid md:grid-cols-2 gap-y-10">
+                        <div>
+                            <h2 className="text-4xl text-bold leading-10 mb-4">
                                 Just... keep it clean.
                             </h2>
                             <p className="text-gray-100">
@@ -188,7 +220,7 @@ export default function Home() {
                                 </a>
                             </Link>
                         </div>
-                        <div className="text-gray-400 md:order-first">
+                        <div className="text-gray-400">
                             <Image src="/img/home/feature_clean.png" className="w-full" />
                         </div>
                     </div>
