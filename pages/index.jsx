@@ -73,7 +73,7 @@ export default function Home() {
                 <div className="-container">
                     <div className="grid md:grid-cols-2 gap-y-10">
                         <div>
-                            <h2 className="text-4xl text-bold leading-10 mb-4">
+                            <h2 className="text-4xl font-bold leading-10 mb-4">
                                 Automatic Raid Prevention
                             </h2>
                             <p className="text-gray-100 mt-1">
@@ -100,7 +100,7 @@ export default function Home() {
                     </div>
                     <div className="mt-40 grid md:grid-cols-2 gap-y-10">
                         <div>
-                            <h2 className="text-4xl text-bold leading-10 mb-4">
+                            <h2 className="text-4xl font-bold leading-10 mb-4">
                                 Phishing Prevention
                             </h2>
                             <p className="text-gray-100">
@@ -130,7 +130,7 @@ export default function Home() {
                     </div>
                     <div className="mt-40 grid md:grid-cols-2 gap-y-10">
                         <div>
-                            <h2 className="text-4xl text-bold leading-10 mb-4">
+                            <h2 className="text-4xl font-bold leading-10 mb-4">
                                 CAPTCHAs for anyone, anytime.
                             </h2>
                             <p className="text-gray-100">
@@ -155,7 +155,7 @@ export default function Home() {
                     </div>
                     <div className="mt-40 grid md:grid-cols-2 gap-y-10">
                         <div>
-                            <h2 className="text-4xl text-bold leading-10 mb-4">
+                            <h2 className="text-4xl font-bold leading-10 mb-4">
                                 Keep links clean
                             </h2>
                             <p className="text-gray-100">
@@ -187,7 +187,7 @@ export default function Home() {
                     </div>
                     <div className="mt-40 grid md:grid-cols-2 gap-y-10">
                         <div>
-                            <h2 className="text-4xl text-bold leading-10 mb-4">
+                            <h2 className="text-4xl font-bold leading-10 mb-4">
                                 Just... keep it clean.
                             </h2>
                             <p className="text-gray-100">
