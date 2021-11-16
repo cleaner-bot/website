@@ -242,13 +242,13 @@ export default function Home() {
                     </a>
                 </Link>
             </div>
-            <div className="text-coolGray-750 mt-80">
+            <div className="text-coolGray-750 mt-20">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" fill="currentColor">
                     <path fillOpacity="1" d="M0,256L48,213.3C96,171,192,85,288,80C384,75,480,149,576,154.7C672,160,768,96,864,90.7C960,85,1056,139,1152,154.7C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
                 </svg>
             </div>
             <div className="bg-coolGray-750">
-                {isDev() && <div className="-container">
+                {isDev() && <div className="-container pb-40">
                     <h2 className="text-6xl font-bold">
                         Require <span className="-highlight italic">Professional</span> Cleaning?
                     </h2>
@@ -323,7 +323,7 @@ export default function Home() {
                         Mr. Clean at its core will always stay free - but the servers do not pay themselves.
                     </p>
                 </div>}
-                <div className="-container grid grid-cols-2 md:grid-cols-4 pb-10 pt-80 gap-4">
+                <div className="-container grid grid-cols-2 md:grid-cols-4 pb-10 gap-4">
                     <div className="col-span-2">
                         <h3 className="text-3xl font-bold">
                             The Cleaner
