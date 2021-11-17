@@ -54,3 +54,8 @@ You can disable that (and other rules) with [/rules disable add](commands.md#rul
 
 For example: `/rules disable add advertisement.discord` will disable the rule and with `/rules disable remove advertisement.discord` you enable it again.
 
+
+
+---
+
+[Ready to invite the Cleaner?](/quickstart/) | [Need Support Instead?](/discord)
