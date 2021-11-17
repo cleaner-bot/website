@@ -1,20 +1,18 @@
 
 import Link from "next/link";
-import Head from "next/head";
 
 import Image from "@/components/image.jsx";
+import MetaTags from "@/components/metatags.jsx";
 import { Pro, Restriction } from "@/components/featurelist.jsx";
 
 
 export default function ProSite() {
     return (
         <div>
-            <Head>
-                <title>Go Professionally Clean with The Claener!</title>
-                <meta property="og:title" content="Go Professionally Clean with The Claener!" />
-                <meta property="og:type" content="article" />
-                <meta property="og:description" content="Time to go professional. Support The Cleaner and unlock exclusive features!" />
-            </Head>
+            <MetaTags
+                title="Go Professionally Clean with The Cleaner!"
+                description="Time to go professional. Support The Cleaner and unlock exclusive features!"
+            />
             <div className="-container">
                 <h1 className="text-6xl font-bold mt-8">
                     Require <span className="-highlight italic">Professional</span> Cleaning?

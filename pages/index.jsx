@@ -1,9 +1,9 @@
 
-import { ArrowRightIcon, CheckIcon, ExternalLinkIcon } from "@heroicons/react/outline";
+import { ArrowRightIcon, ExternalLinkIcon } from "@heroicons/react/outline";
 import Link from "next/link";
-import Head from "next/head";
 
 import Image from "@/components/image.jsx";
+import MetaTags from "@/components/metatags.jsx";
 import { Pro } from "@/components/featurelist.jsx";
 import isDev from "@/lib/dev.js";
 
@@ -11,12 +11,10 @@ import isDev from "@/lib/dev.js";
 export default function Home() {
     return (
         <>
-            <Head>
-                <title>The Cleaner - Keeps servers clean</title>
-                <meta property="og:title" content="The Cleaner - Keeps servers clean" />
-                <meta property="og:type" content="article" />
-                <meta property="og:description" content="A bot built for keeping servers clean. Start protecting your server with The Cleaner now!" />
-            </Head>
+            <MetaTags
+                title="The Cleaner - Keeps servers clean"
+                description="A bot built for keeping servers clean. Start protecting your server with The Cleaner now!"
+            />
             <div className="-container">
                 <div className="flex justify-center mb-12">
                     <h1 className="text-5xl sm:text-6xl font-extrabold -heading">

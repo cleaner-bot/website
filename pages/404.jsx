@@ -1,8 +1,15 @@
 import { ArrowLeftIcon } from "@heroicons/react/outline";
 
+import MetaTags from "@/components/metatags.jsx";
+
+
 export default function FourOFour() {
     return (
         <div className="flex justify-center items-center my-10">
+            <MetaTags
+                title="404 - Not Found"
+                description="Not found. Please check your spelling."
+            />
             <div>
                 <p className="text-9xl font-extrabold border-b-4 border-indigo-500 text-center">
                     404

@@ -2,26 +2,23 @@
 import { ArrowLeftIcon, CheckIcon } from "@heroicons/react/outline";
 import { plus } from "hero-patterns";
 import Link from "next/link";
-import Head from "next/head";
 
 import Image from "@/components/image.jsx";
+import MetaTags from "@/components/metatags.jsx";
 import { getCustomPaths, getCustomProps } from "@/lib/custom.js";
 
 
 export default function Success({ splash }) {
     return (
         <BackgroundImage background={!splash}>
+            <MetaTags
+                title="Captcha solved successfully!"
+                description="The captcha has been solved successfully and access has been granted."
+            />
             {splash && <div className="absolute right-0 h-screen overflow-hidden">
                 <Image className="object-none min-h-screen w-auto" src={splash} />
             </div>}
             <div className="w-[303px] absolute top-1/2 left-1/2 -mr-1/2 -translate-x-1/2 -translate-y-1/2">
-                <Head>
-                    <title>Captcha solved successfully.</title>
-                    <meta property="og:title" content="Captcha solved successfully." />
-                    <meta property="og:type" content="article" />
-                    <meta proeprty="og:description" content="The captcha has been solved successfully and access has been granted." />
-                </Head>
-
                 <div className="bg-emerald-550 rounded py-1 px-2 shadow-2xl">
                     <h1 className="font-bold flex">
                         <CheckIcon className="h-10 w-10 inline" />

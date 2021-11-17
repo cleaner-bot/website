@@ -3,8 +3,8 @@ import { ArrowRightIcon, ChevronLeftIcon, ChevronRightIcon, ExternalLinkIcon } f
 import clsx from "clsx";
 import { useState } from "react";
 import Link from "next/link";
-import Head from "next/head";
 
+import MetaTags from "@/components/metatags.jsx";
 import { Pro, Contra } from "@/components/featurelist.jsx";
 
 
@@ -13,12 +13,10 @@ export default function Quickstart() {
     const StepFn = steps[currentStep];
     return (
         <div className="-container mt-20">
-            <Head>
-                <title>The Cleaner - Quick Start</title>
-                <meta property="og:title" content="The Cleaner - Quick Start" />
-                <meta property="og:type" content="article" />
-                <meta property="og:description" content="Quick Start for The Cleaner. Setup powerful protection for your server in minutes!" />
-            </Head>
+            <MetaTags
+                title="The Cleaner - Quick Start"
+                description="Quick Start for The Cleaner. Setup powerful protection for your server in minutes!"
+            />
 
             <h1 className="text-3xl text-center md:text-5xl md:text-left font-bold mb-16">
                 Quick Start with The Cleaner

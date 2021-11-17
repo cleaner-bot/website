@@ -3,10 +3,10 @@ import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { ArrowLeftIcon, ExternalLinkIcon } from "@heroicons/react/outline";
 import { plus } from "hero-patterns";
 import { useRouter } from "next/router";
-import Head from "next/head";
 import Link from "next/link";
 
 import Image from "@/components/image.jsx";
+import MetaTags from "@/components/metatags.jsx";
 import { getCustomPaths, getCustomProps } from "@/lib/custom.js";
 
 
@@ -14,6 +14,10 @@ export default function Solve({ splash, text }) {
     const router = useRouter();
     return (
         <BackgroundImage background={!splash}>
+            <MetaTags
+                title="CAPTCHA Verification required."
+                description={text || "The server you're trying to access is demanding a CAPTCHA to protect itself."}
+            />
             {splash && <div className="absolute right-0 h-screen overflow-hidden">
                 <Image className="object-none min-h-screen w-auto" src={splash} />
             </div>}
@@ -22,7 +26,7 @@ export default function Solve({ splash, text }) {
                     <title>CAPTCHA required.</title>
                     <meta property="og:title" content="CATPCHA required." />
                     <meta property="og:type" content="article" />
-                    <meta proeprty="og:description" content="The server you are trying to access is using The Cleaner to protect itself. A captcha is required." />
+                    <meta proeprty="og:description" content="" />
                 </Head>
 
                 {router.query.failed && <div className="bg-red-500 text-center px-2 py-1 rounded mb-4 shadow-2xl">

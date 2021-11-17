@@ -1,18 +1,17 @@
 
 import Link from "next/link";
-import Head from "next/head";
 import { ArrowRightIcon } from "@heroicons/react/outline";
+
+import MetaTags from "@/components/metatags.jsx";
 
 
 export default function What() {
     return (
         <div className="-container">
-            <Head>
-                <title>What? Why? What now? Help?</title>
-                <meta property="og:title" content="The Cleaner - What? Why? What now? Help?" />
-                <meta property="og:type" content="article" />
-                <meta property="og:description" content="Human Verification? What? Why? What now? Help?" />
-            </Head>
+            <MetaTags
+                title="What? Why? What now? Help?"
+                description="Human Verification? What? Why? What now? Help?"
+            />
             <article>
                 <h1>
                     What?

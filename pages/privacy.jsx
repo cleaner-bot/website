@@ -1,17 +1,16 @@
 
 import Link from "next/link";
-import Head from "next/head";
+
+import MetaTags from "@/components/metatags.jsx";
 
 
 export default function Privacy() {
     return (
         <article className="-container">
-            <Head>
-                <title>The Cleaner - Privacy Policy</title>
-                <meta property="og:title" content="The Cleaner - Privacy Policy" />
-                <meta property="og:type" content="article" />
-                <meta property="og:description" content="Privacy policy for The Cleaner." />
-            </Head>
+            <MetaTags
+                title="The Cleaner - Privacy Policy"
+                description="Privacy Policy for The Cleaner."
+            />
 
             <h1>
                 PRIVACY NOTICE
