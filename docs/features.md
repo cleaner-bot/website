@@ -14,6 +14,15 @@ After 10 blocked messages in 5 minutes, the server will enter *under attack mode
 
 You can use the [/rules banwave](commands.md#rules-banwave) command to ban everyone who triggered a rule in the last hour.
 
+## Automatic slow mode
+
+The slow mode of a channel is automatically adjusted depending on the volume of incoming messages.
+
+More messages = higher slow mode
+
+If the slow mode is above 10 seconds or if the `MANAGE_CHANNELS` permission is missing, it won't be automatically adjusted.
+
+
 
 ## Phishing Prevention
 
