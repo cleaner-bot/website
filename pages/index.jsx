@@ -96,7 +96,7 @@ export default function Home() {
                             </div>
                         </div>
                         <div className="text-gray-400">
-                            image here
+                            <Image src="/img/home/feature_antiraid.png" className="w-full" />
                         </div>
                     </div>
                     <div className="mt-40 grid md:grid-cols-2 gap-y-10">
