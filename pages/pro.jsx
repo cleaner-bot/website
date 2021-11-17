@@ -38,7 +38,7 @@ export default function ProSite() {
                 </div>
                 */}
                 <div className="mt-40 grid md:grid-cols-2 gap-y-10">
-                    <div className="space-y-1 my-4">
+                    <div className="space-y-1 m-auto">
                         <Pro>
                             Customizable "Human verification required" embed
                         </Pro>
@@ -51,7 +51,7 @@ export default function ProSite() {
                     </div>
                 </div>
                 <div className="mt-40 grid md:grid-cols-2 gap-y-10">
-                    <div className="space-y-1 my-4">
+                    <div className="space-y-1 m-auto">
                         <Pro>
                             Custom Splash on the CAPTCHA sites
                         </Pro>
@@ -64,7 +64,7 @@ export default function ProSite() {
                     </div>
                 </div>
                 <div className="mt-40 grid md:grid-cols-2 gap-y-10">
-                    <div className="space-y-1 my-4">
+                    <div className="space-y-1 m-auto">
                         <Pro>
                             1
                             <Link href="/docs/rules/#javascript-rules">
@@ -91,7 +91,7 @@ export default function ProSite() {
                     </div>
                 </div>
                 <div className="mt-40 grid md:grid-cols-2 gap-y-10">
-                    <div className="space-y-1 my-4">
+                    <div className="space-y-1 m-auto">
                         <Pro>
                             Exclusive role and support channels on Discord
                         </Pro>

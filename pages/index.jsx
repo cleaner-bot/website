@@ -73,7 +73,7 @@ export default function Home() {
             <div className="bg-coolGray-750">
                 <div className="-container">
                     <div className="grid md:grid-cols-2 gap-y-10">
-                        <div>
+                        <div className="md:m-auto">
                             <h2 className="text-4xl font-bold leading-10 mb-4">
                                 Automatic Raid Prevention
                             </h2>
@@ -100,7 +100,7 @@ export default function Home() {
                         </div>
                     </div>
                     <div className="mt-40 grid md:grid-cols-2 gap-y-10">
-                        <div>
+                        <div className="m-auto">
                             <h2 className="text-4xl font-bold leading-10 mb-4">
                                 Phishing Prevention
                             </h2>
@@ -130,7 +130,7 @@ export default function Home() {
                         </div>
                     </div>
                     <div className="mt-40 grid md:grid-cols-2 gap-y-10">
-                        <div>
+                        <div className="m-auto">
                             <h2 className="text-4xl font-bold leading-10 mb-4">
                                 CAPTCHAs for anyone, anytime.
                             </h2>
@@ -155,7 +155,7 @@ export default function Home() {
                         </div>
                     </div>
                     <div className="mt-40 grid md:grid-cols-2 gap-y-10">
-                        <div>
+                        <div className="m-auto">
                             <h2 className="text-4xl font-bold leading-10 mb-4">
                                 Keep links clean
                             </h2>
@@ -187,7 +187,7 @@ export default function Home() {
                         </div>
                     </div>
                     <div className="mt-40 grid md:grid-cols-2 gap-y-10">
-                        <div>
+                        <div className="m-auto">
                             <h2 className="text-4xl font-bold leading-10 mb-4">
                                 Just... keep it clean.
                             </h2>
