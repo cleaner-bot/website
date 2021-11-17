@@ -28,7 +28,7 @@ export default function Home() {
                 </div>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-10">
                     <div>
-                        <h2 className="text-5xl text-extrabold leading-10">
+                        <h2 className="text-5xl font-extrabold leading-10">
                             A bot built for keeping servers clean
                         </h2>
                         <p className="text-gray-100 mt-6">
