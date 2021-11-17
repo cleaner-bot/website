@@ -76,7 +76,15 @@ const steps = {
                             Ban members
                         </h4>
                         <p className="text-gray-200">
-                            Required for... banning members.
+                            Required for banning members if you do not have verification setup or are using the{" "}
+                            <code>
+                                <Link href="/docs/commands/#rules-banwave">
+                                    <a className="hover:underline">
+                                        /rules banwave
+                                    </a>
+                                </Link>
+                            </code>
+                            {" "} command.
                         </p>
                     </div>
                     <div>
@@ -84,7 +92,7 @@ const steps = {
                             Kick members
                         </h4>
                         <p className="text-gray-200">
-                            Currently not used, but there are features planned that will use this.
+                            Required for auto kick of unnatural joins.
                         </p>
                     </div>
                     <div>
@@ -108,7 +116,7 @@ const steps = {
                             Manage server
                         </h4>
                         <p className="text-gray-200">
-                            Required for automatic adjustments of Verification Level.
+                            Required for automatic adjustments of Server Verification Level.
                         </p>
                     </div>
                     <div>
@@ -116,7 +124,13 @@ const steps = {
                             Manage channels
                         </h4>
                         <p className="text-gray-200">
-                            Required for automatic adjustments of slowmode and lockdown.
+                            Required for{" "}
+                            <Link href="/docs/features/#automatic-slow-mode">
+                                <a className="hover:underline">
+                                    automatic adjustments of slow mode
+                                </a>
+                            </Link>
+                            .
                         </p>
                     </div>
                     <div>
@@ -124,7 +138,14 @@ const steps = {
                             Manage roles
                         </h4>
                         <p className="text-gray-200">
-                            Required for human verification of users.
+                            Required for 
+                            {" "}
+                            <Link href="/docs/captchas/">
+                                <a className="hover:underline">
+                                    human verification of users
+                                </a>
+                            </Link>
+                            .
                         </p>
                     </div>
                     <div>
@@ -132,133 +153,179 @@ const steps = {
                             Manage nicknames
                         </h4>
                         <p className="text-gray-200">
-                            Required for the dehoisting feature.
+                            Required for the{" "}
+                            <Link href="/docs/features/#automatic-de-hoisting">
+                                <a className="hover:underline">
+                                    de-hoisting feature
+                                </a>
+                            </Link>
+                            .
                         </p>
                     </div>
                 </div>
+                <p className="mt-6 text-sm text-gray-100">
+                    You can read the{" "}
+                    <Link href="/docs/">
+                        <a className="hover:underline">
+                            Documentation
+                        </a>
+                    </Link>
+                    {" "}for more information about each feature.
+                    Some features are purposedly not very well or not at all documented, so that they cannot be bypassed.
+                </p>
                 <StepBar setCurrentStep={setCurrentStep} next="2-challenge" skip={skip} />
             </>
         )
     },
     "2-challenge": function ChallengeStep({ setCurrentStep }) {
+        const [useVerification, setUserVerification] = useState(undefined);
         const [member, setMember] = useState(undefined);
         return (
             <>
                 <h2 className="text-3xl font-semibold mb-8">
                     2. Human verification Setup
                 </h2>
-                <div className="border-yellow-500 border-2 rounded-md bg-yellow-300 bg-opacity-30 px-2 py-0.5 my-2">
-                    <p>
-                        If you don't want to setup human verification, you can skip this step!
-                    </p>
-                    <p>
-                        The Cleaner will ban instead of issuing challenges.
-                    </p>
+
+                <p>
+                    What should happen when people are issued a challenge?
+                </p>
+                <div className="grid grid-cols-2 gap-4 mt-6">
+                    <button className={clsx(
+                        "-anim -btn",
+                        useVerification === true ? "ring ring-emerald-550 hover:bg-emerald-550" : "ring-2 ring-coolGray-750 hover:bg-coolGray-750"
+                    )} onClick={() => setUserVerification(useVerification === true ? undefined : true)}>
+                        Issue a CAPTCHA
+                    </button>
+                    <button className={clsx(
+                        "-anim -btn",
+                        useVerification === false ? "ring ring-emerald-500 hover:bg-emerald-550" : "ring-2 ring-coolGray-750 hover:bg-coolGray-750"
+                    )} onClick={() => setUserVerification(useVerification === false ? undefined : false)}>
+                        Ban
+                    </button>
                 </div>
-                <div className="mt-12">
-                    Do you use a "Member" or "Verification required" role?
-                    <div className="grid grid-cols-2 gap-4 mt-6">
-                        <div>
-                            <p className="text-center text-xl underline">
-                                Member
-                            </p>
-                            <div className="mb-2">
-                                <Contra>
-                                    Every member who joins has to verify they are human.
-                                </Contra>
-                                <Contra>
-                                    Every member has one role.
-                                </Contra>
-                                <Contra>
-                                    Interferes with guild-wide Verification Level.
-                                </Contra>
-                                <Pro>
-                                    If The Cleaner has an outage, new members don't have immediately access to the server.
-                                </Pro>
-                            </div>
-                        </div>
-                        <div>
-                            <p className="text-center text-xl underline">
-                                Verification Required
-                            </p>
-                            <div className="mb-2">
-                                <Pro>
-                                    Members do not have any unneeded roles.
-                                </Pro>
-                                <Pro>
-                                    Better for read-only access. (without causing conflicts with your muted role)
-                                </Pro>
-                                <Pro>
-                                    Does not interfere with guild-wide Verification Level.
-                                </Pro>
-                            </div>
-                            If using Verification on join:
+                
+                {useVerification === true && <>
+                    <div className="mt-12">
+                        Do you use a "Member" or "Verification required" role?
+                        <div className="grid grid-cols-2 gap-4 mt-6">
                             <div>
-                                <Contra>
-                                    Bot has to give the role to everyone who joins immediately.
-                                </Contra>
-                                <Contra>
-                                    If the bot has an outage, new joiners can immediately access the server.
-                                </Contra>
+                                <p className="text-center text-xl underline">
+                                    Member
+                                </p>
+                                <div className="mb-2">
+                                    <Contra>
+                                        Every member who joins has to verify they are human.
+                                    </Contra>
+                                    <Contra>
+                                        Every member has one role.
+                                    </Contra>
+                                    <Contra>
+                                        Interferes with guild-wide Verification Level.
+                                    </Contra>
+                                    <Pro>
+                                        If The Cleaner has an outage, new members don't have immediately access to the server.
+                                    </Pro>
+                                </div>
                             </div>
-                            If not using Verification on join:
                             <div>
-                                <Pro>
-                                    Users aren't annoyed by CAPTCHAs unless they misbehave.
-                                </Pro>
+                                <p className="text-center text-xl underline">
+                                    Verification Required
+                                </p>
+                                <div className="mb-2">
+                                    <Pro>
+                                        Members do not have any unneeded roles.
+                                    </Pro>
+                                    <Pro>
+                                        Better for read-only access. (without causing conflicts with your muted role)
+                                    </Pro>
+                                    <Pro>
+                                        Does not interfere with guild-wide Verification Level.
+                                    </Pro>
+                                </div>
+                                If using Verification on join:
+                                <div>
+                                    <Contra>
+                                        The Cleaner has to give the role to everyone who joins immediately.
+                                    </Contra>
+                                    <Contra>
+                                        If The Cleaner has an outage, new joiners can immediately access the server.
+                                    </Contra>
+                                </div>
+                                If not using Verification on join:
+                                <div>
+                                    <Pro>
+                                        Users aren't annoyed by CAPTCHAs unless they misbehave.
+                                    </Pro>
+                                </div>
                             </div>
+                            <button className={clsx(
+                                "-anim -btn",
+                                member === true ? "ring ring-emerald-550 hover:bg-emerald-550" : "ring-2 ring-coolGray-750 hover:bg-coolGray-750"
+                            )} onClick={() => setMember(member === true ? undefined : true)}>
+                                {member === true ? "Selected" : "Select"}
+                            </button>
+                            <button className={clsx(
+                                "-anim -btn",
+                                member === false ? "ring ring-emerald-500 hover:bg-emerald-550" : "ring-2 ring-coolGray-750 hover:bg-coolGray-750"
+                            )} onClick={() => setMember(member === false ? undefined : false)}>
+                                {member === false ? "Selected" : "Select"}
+                            </button>
                         </div>
-                        <button className={clsx(
-                            "-anim -btn",
-                            member === true ? "ring ring-emerald-550 hover:bg-emerald-550" : "ring-2 ring-coolGray-750 hover:bg-coolGray-750"
-                        )} onClick={() => setMember(member === true ? undefined : true)}>
-                            {member === true ? "Selected" : "Select"}
-                        </button>
-                        <button className={clsx(
-                            "-anim -btn",
-                            member === false ? "ring ring-emerald-500 hover:bg-emerald-550" : "ring-2 ring-coolGray-750 hover:bg-coolGray-750"
-                        )} onClick={() => setMember(member === false ? undefined : false)}>
-                            {member === false ? "Selected" : "Select"}
-                        </button>
                     </div>
-                </div>
-                {member !== undefined && <article className="mt-8">
-                    <h3>
-                        Channel Setup
-                    </h3>
-                    <ol>
-                        <li>
-                            Create a channel (something like <code>#verify</code>)
-                        </li>
-                        <li>
-                            Create the <code>{member ? "Member" : "Verification required"}</code> role.
-                        </li>
-                        <li>
-                            Run the following command: <code>/config verify set #verify {member ? "give" : "take"} {member ? "@Member" : "@Verification required"}</code>
-                        </li>
-                        <li>
-                            Revoke the <code>{member ? "View Channel" : "Send Messages"}</code> permission for <code>{member ? "Member" : "Verification required"}</code> in every public channel.
-                        </li>
-                    </ol>
-                    <p>
-                        <bold>Congratulations!</bold>{" "}
-                        Human verification is now setup properly!
-                    </p>
-                    {!member && <>
+                    {member !== undefined && <article className="mt-8">
                         <h3>
-                            Bonus: Verification on join
+                            Channel Setup
                         </h3>
                         <ol>
                             <li>
-                                Run the following command: <code>/config verify join enable</code>
+                                Create a channel (something like <code>#verify</code>)
                             </li>
                             <li>
-                                That's it!
+                                Create the <code>{member ? "Member" : "Verification required"}</code> role.
+                            </li>
+                            <li>
+                                Run the following command: <code>/config verify set #verify {member ? "give" : "take"} {member ? "@Member" : "@Verification required"}</code>
+                            </li>
+                            <li>
+                                Revoke the <code>{member ? "View Channel" : "Send Messages"}</code> permission for <code>{member ? "Member" : "Verification required"}</code> in every public channel.
                             </li>
                         </ol>
-                    </>}
-                </article>}
-                <StepBar setCurrentStep={setCurrentStep} previous="1-invite" next="3-mod" skip={member === undefined} />
+                        <p>
+                            <bold>Congratulations!</bold>{" "}
+                            Human verification is now setup!
+                        </p>
+                        <p>
+                            You can use{" "}
+                            <code>
+                                <Link href="/docs/commands/#diagnose">
+                                    <a>
+                                        /diagnose
+                                    </a>
+                                </Link>
+                            </code>
+                            {" "}to check if you set all permissions correctly!
+                        </p>
+                        {!member && <>
+                            <h3>
+                                Bonus: Verification on join
+                            </h3>
+                            <ol>
+                                <li>
+                                    Run the following command: <code>/config verify join enable</code>
+                                </li>
+                                <li>
+                                    That's it!
+                                </li>
+                            </ol>
+                        </>}
+                    </article>}
+                </>}
+                {useVerification === false && <>
+                    <p className="mt-12">
+                        Nothing to setup! That's the default!
+                    </p>
+                </>}
+                <StepBar setCurrentStep={setCurrentStep} previous="1-invite" next="3-mod" skip={member === undefined && useVerification !== false} />
             </>
         )
     },
@@ -273,8 +340,16 @@ const steps = {
                         3.1 Add Moderator roles
                     </h3>
                     <p>
-                        You can add Moderator roles using the following command.
-                        The Cleaner will ignore Moderators and they will be able to use moderation commands.
+                        To make sure The Cleaner ignores your moderators, you have to tell him who your moderators are.
+                        You use the{" "}
+                        <code>
+                            <Link href="/docs/commands/#config-modrole-add">
+                                <a>
+                                    /config modrole add
+                                </a>
+                            </Link>
+                        </code>
+                        {" "}command for that!
                     </p>
                     <p>
                         <code>
@@ -282,7 +357,7 @@ const steps = {
                         </code>
                     </p>
                     <p>
-                        You can also remove Moderator roles:
+                        You can also remove moderator roles:
                     </p>
                     <p>
                         <code>
@@ -294,7 +369,8 @@ const steps = {
                         3.2 Add logging channel
                     </h3>
                     <p>
-                        All log events will be sent into the channel you specify with the command below.
+                        The Cleaner wants to tell you what he does, but he doesn't know where to put it.
+                        Tell him by using the following command:
                     </p>
                     <p>
                         <code>
@@ -315,14 +391,27 @@ const steps = {
                 <h2 className="text-3xl font-semibold mb-8">
                     4. Exceptions
                 </h2>
-                <p>
-                    If you have a <code>#bot-spam</code> channel that is literally only used for spam, you can add an exception for that channel which will increase the threshold needed for activating raid prevention.
-                </p>
-                <p>
-                    Exceptions don't disable the protection! It'll just make it harder to trigger.
-                </p>
                 <article>
-                    You can use <code>/config exception add #bot-spam</code> to add an exception and <code>/config exception remove #bot-spam</code>.
+                    <p>
+                        In some servers there are spam channels that are purposedly for spam.
+                        The Cleaner doesn't know that and will think that a raid is happening.
+                    </p>
+                    <p>
+                        So, if you have a <code>#spam</code> channel that is literally only used for spam, mark that channel as an exception.
+                        The Cleaner will then only intervene when it gets really severe.
+                    </p>
+                    <p>
+                        <code>/config exception add #spam</code>
+                    </p>
+                    <p>
+                        Changed your mind?
+                    </p>
+                    <p>
+                        <code>/config exception remove #spam</code>
+                    </p>
+                    <p className="mt-10">
+                        Exceptions don't disable the protection! It'll just make it harder to trigger.
+                    </p>
                 </article>
                 <StepBar setCurrentStep={setCurrentStep} previous="3-mod" next="5-done" />
             </>
