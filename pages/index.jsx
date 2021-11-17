@@ -20,7 +20,7 @@ export default function Home() {
             <div className="-container">
                 <div className="flex justify-center mb-12">
                     <h1 className="text-5xl sm:text-6xl font-extrabold -heading">
-                        <Image className="w-16 h-16 align-middle rounded-full hidden md:inline" src="https://cdn.discordapp.com/avatars/823533449717481492/64e20328c02c26f8da22e43b17f2d0db.png?size=256" />
+                        <Image className="w-16 h-16 align-middle rounded-full hidden md:inline" src="https://cdn.discordapp.com/avatars/823533449717481492/64e20328c02c26f8da22e43b17f2d0db.png?size=256" width={256} height={256} />
                         <span className="align-middle px-2 hover:border-b-4 border-b-indigo-600">
                             The Cleaner
                         </span>
