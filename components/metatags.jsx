@@ -8,8 +8,9 @@ export function MetaTags({ title, description }) {
             <title>{title}</title>
             <meta property="og:title" content={title} />
             <meta property="og:type" content="article" />
-            <meta property="description" content={description} />
             <meta property="og:description" content={description} />
+            <meta name="description" content={description} />
+            <meta name="theme-color" content="#6366F1" />
         </Head>
     )
 }
