@@ -1,9 +1,11 @@
 
-import { ArrowRightIcon, CheckIcon, ChevronLeftIcon, ChevronRightIcon, ExternalLinkIcon, ScaleIcon, XIcon } from "@heroicons/react/outline";
+import { ArrowRightIcon, ChevronLeftIcon, ChevronRightIcon, ExternalLinkIcon } from "@heroicons/react/outline";
 import clsx from "clsx";
 import { useState } from "react";
 import Link from "next/link";
 import Head from "next/head";
+
+import { Pro, Contra } from "@/components/featurelist.jsx";
 
 
 export default function Quickstart() {
@@ -372,22 +374,4 @@ const steps = {
             </>
         )
     }
-}
-
-
-function Pro({ children }) {
-    return (
-        <div className="flex flex-nowrap">
-            <CheckIcon className="w-6 h-6 inline text-emerald-400 mr-2 flex-none" />
-            {children}
-        </div>
-    )
-}
-function Contra({ children }) {
-    return (
-        <div className="flex flex-nowrap">
-            <XIcon className="w-6 h-6 inline text-red-400 mr-2 flex-none" />
-            {children}
-        </div>
-    )
 }

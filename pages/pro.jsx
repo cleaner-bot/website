@@ -1,10 +1,12 @@
 
-import { CheckIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 import Head from "next/head";
 
+import Image from "@/components/image.jsx";
+import { Pro, Restriction } from "@/components/featurelist.jsx";
 
-export default function Pro() {
+
+export default function ProSite() {
     return (
         <div>
             <Head>
@@ -17,8 +19,11 @@ export default function Pro() {
                 <h1 className="text-6xl font-bold mt-8">
                     Require <span className="-highlight italic">Professional</span> Cleaning?
                 </h1>
-                <p className="mt-2">
+                <p className="mt-6">
                     Go <span className="-highlight">Pro</span> to Support The Cleaner and unlock exclusive features!
+                </p>
+                <p className="font-extrabold my-8">
+                    NOT FINAL DESIGN. ALL OF THIS IS WIP AND MAY CHANGE AT ANY POINT.
                 </p>
                 {/*
                 <div className="mt-40 grid md:grid-cols-2">
@@ -32,50 +37,68 @@ export default function Pro() {
                     </div>
                 </div>
                 */}
-                <div className="mt-40 grid md:grid-cols-2">
-                    <div>
-                        <FeatureList>
+                <div className="mt-40 grid md:grid-cols-2 gap-y-10">
+                    <div className="space-y-1 my-4">
+                        <Pro>
                             Customizable "Human verification required" embed
-                        </FeatureList>
-                        <FeatureList>
+                        </Pro>
+                        <Pro>
                             Custom delay before the human verification can be performed
-                        </FeatureList>
+                        </Pro>
                     </div>
                     <div className="text-gray-400 md:order-first">
-                        image here
+                        <Image src="/img/pro/benefit_verify.png" className="w-full" />
                     </div>
                 </div>
-                <div className="mt-40 grid md:grid-cols-2">
-                    <div>
-                        <FeatureList>
+                <div className="mt-40 grid md:grid-cols-2 gap-y-10">
+                    <div className="space-y-1 my-4">
+                        <Pro>
                             Custom Splash on the CAPTCHA sites
-                        </FeatureList>
-                        <FeatureList>
+                        </Pro>
+                        <Pro>
                             Custom Text on the CAPTCHA sites
-                        </FeatureList>
+                        </Pro>
                     </div>
                     <div className="text-gray-400">
                         image here
                     </div>
                 </div>
-                <div className="mt-40 grid md:grid-cols-2">
-                    <div>
-                        <FeatureList>
-                            1 Javascript Firewall rule
-                        </FeatureList>
+                <div className="mt-40 grid md:grid-cols-2 gap-y-10">
+                    <div className="space-y-1 my-4">
+                        <Pro>
+                            1
+                            <Link href="/docs/rules/#javascript-rules">
+                                <a className="ml-1.5    hover:underline">
+                                    Javascript Firewall rule
+                                </a>
+                            </Link>
+                        </Pro>
+                        <Restriction size="sm" className="text-gray-100">
+                            CPU: 10ms per message
+                        </Restriction>
+                        <Restriction size="sm" className="text-gray-100">
+                            RAM: 100kb
+                        </Restriction>
+                        <Restriction size="sm" className="text-gray-100">
+                            Script size: 16kb
+                        </Restriction>
+                        <p className="text-sm mt-2">
+                            Need more? Contact us in the discord!
+                        </p>
                     </div>
                     <div className="text-gray-400 md:order-first">
                         image here
                     </div>
                 </div>
-                <div className="mt-40 grid md:grid-cols-2">
-                    <div>
-                        <FeatureList>
+                <div className="mt-40 grid md:grid-cols-2 gap-y-10">
+                    <div className="space-y-1 my-4">
+                        <Pro>
                             Exclusive role and support channels on Discord
-                        </FeatureList>
+                        </Pro>
                     </div>
-                    <div className="text-gray-400">
-                        image here
+                    <div className="text-gray-400 relative">
+                        <Image src="/img/pro/benefit_discord1.png" className="w-full" />
+                        <Image src="/img/pro/benefit_discord2.png" className="w-40 top-4 right-4 absolute rounded-lg" />
                     </div>
                 </div>
             </div>
@@ -133,15 +156,6 @@ export default function Pro() {
                     </div>
                 </div>
             </div>
-        </div>
-    )
-}
-
-function FeatureList({ children }) {
-    return (
-        <div className="flex flex-nowrap">
-            <CheckIcon className="w-6 h-6 inline text-emerald-400 mr-2 flex-none" />
-            {children}
         </div>
     )
 }

@@ -4,6 +4,7 @@ import Link from "next/link";
 import Head from "next/head";
 
 import Image from "@/components/image.jsx";
+import { Pro } from "@/components/featurelist.jsx";
 import isDev from "@/lib/dev.js";
 
 
@@ -27,22 +28,22 @@ export default function Home() {
                 </div>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-10">
                     <div>
-                        <h2 className="text-5xl text-extrabold leading-10 mb-4">
+                        <h2 className="text-5xl text-extrabold leading-10">
                             A bot built for keeping servers clean
                         </h2>
-                        <p className="text-gray-100 mt-1">
+                        <p className="text-gray-100 mt-6">
                             The Cleaner is a Discord bot designed to keep your server clean by removing spam, phishing, and more!
                         </p>
                         <div className="space-y-1 my-4">
-                            <FeatureList>
+                            <Pro>
                                 Raid detection within seconds.
-                            </FeatureList>
-                            <FeatureList>
+                            </Pro>
+                            <Pro>
                                 Instant phishing link detection with the help of heuristics, a database of old links and shared knowledge between servers.
-                            </FeatureList>
-                            <FeatureList>
+                            </Pro>
+                            <Pro>
                                 Filter bots out with CAPTCHAs.
-                            </FeatureList>
+                            </Pro>
                         </div>
                         <div className="grid gap-1 sm:grid-cols-2 mt-2">
                             <Link href="/quickstart">
@@ -83,15 +84,15 @@ export default function Home() {
                                 Uses Discord's features whenever necessary:
                             </p>
                             <div className="space-y-1 my-4">
-                                <FeatureList>
+                                <Pro>
                                     Detection generally within 5 seconds.
-                                </FeatureList>
-                                <FeatureList>
+                                </Pro>
+                                <Pro>
                                     Can handle up to 33 messages/second. (discord ratelimit)
-                                </FeatureList>
-                                <FeatureList>
+                                </Pro>
+                                <Pro>
                                     Automatic adjustments of Slowmode & Verification Level.
-                                </FeatureList>
+                                </Pro>
                             </div>
                         </div>
                         <div className="text-gray-400">
@@ -107,15 +108,15 @@ export default function Home() {
                                 Detects phishing links and automatically freezes the account until the owner recovers it.
                             </p>
                             <div className="space-y-1 my-4">
-                                <FeatureList>
+                                <Pro>
                                     Huge database of past phishing waves.
-                                </FeatureList>
-                                <FeatureList>
+                                </Pro>
+                                <Pro>
                                     Advanced heuristics for detecting new domains.
-                                </FeatureList>
-                                <FeatureList>
+                                </Pro>
+                                <Pro>
                                     Learning from past waves and independent of link detection.
-                                </FeatureList>
+                                </Pro>
                             </div>
                             <p className="text-gray-100">
                                 Once phishing has been detected, the account will be issued a CAPTCHA that must be solved.
@@ -141,12 +142,12 @@ export default function Home() {
                                 If CAPTCHA verification is not setup, The Cleaner will ban misbehaving members instead.
                             </p>
                             <div className="space-y-1 my-4">
-                                <FeatureList>
+                                <Pro>
                                     CAPTCHA on join.
-                                </FeatureList>
-                                <FeatureList>
+                                </Pro>
+                                <Pro>
                                     CAPTCHA when deemed necessary.
-                                </FeatureList>
+                                </Pro>
                             </div>
                         </div>
                         <div className="text-gray-400">
@@ -162,15 +163,15 @@ export default function Home() {
                                 Sends every link into the logging channel where it can be reviewed.
                             </p>
                             <div className="space-y-1 my-4">
-                                <FeatureList>
+                                <Pro>
                                     Whitelist domains so they don't have to be reviewed again.
-                                </FeatureList>
-                                <FeatureList>
+                                </Pro>
+                                <Pro>
                                     Blacklist only that exact url.
-                                </FeatureList>
-                                <FeatureList>
+                                </Pro>
+                                <Pro>
                                     Blacklist entire domain.
-                                </FeatureList>
+                                </Pro>
                             </div>
                             <p>
                                 Enable Link Checker with {" "}
@@ -194,21 +195,21 @@ export default function Home() {
                                 Keeps a lot of unsocialized content out of your server - by default.
                             </p>
                             <div className="space-y-1 my-4">
-                                <FeatureList>
+                                <Pro>
                                     Automatic de-hoisting.
-                                </FeatureList>
-                                <FeatureList>
+                                </Pro>
+                                <Pro>
                                     Block on mass ping. (triggers after 5)
-                                </FeatureList>
-                                <FeatureList>
+                                </Pro>
+                                <Pro>
                                     Block on mass emoji.  (triggers after 7)
-                                </FeatureList>
-                                <FeatureList>
+                                </Pro>
+                                <Pro>
                                     Block on Discord invites.
-                                </FeatureList>
-                                <FeatureList>
+                                </Pro>
+                                <Pro>
                                     Block on @everyone and @here pings. (only if the ping fails)
-                                </FeatureList>
+                                </Pro>
                             </div>
                             <p>
                                 Want to disable some rules? Check out the command documentation on rules.
@@ -257,25 +258,25 @@ export default function Home() {
                     </p>
                     <div>
                         {/*
-                        <FeatureList>
+                        <Pro>
                             Multiple Cleaner Bots (bypass rate limits)
-                        </FeatureList>
+                        </Pro>
                         */}
-                        <FeatureList>
+                        <Pro>
                             Custom delay before the human verification can be performed
-                        </FeatureList>
-                        <FeatureList>
+                        </Pro>
+                        <Pro>
                             Customizable "Human verification required" embed
-                        </FeatureList>
-                        <FeatureList>
+                        </Pro>
+                        <Pro>
                             Custom Text and Splash on the CAPTCHA sites
-                        </FeatureList>
-                        <FeatureList>
+                        </Pro>
+                        <Pro>
                             1 Javascript Firewall rule
-                        </FeatureList>
-                        <FeatureList>
+                        </Pro>
+                        <Pro>
                             Exclusive role and support channels on Discord
-                        </FeatureList>
+                        </Pro>
                     </div>
                     <div className="grid sm:grid-cols-2 gap-2 xl:w-1/2 my-4">
                         <Link href="/pro?plan=monthly">
@@ -370,14 +371,5 @@ export default function Home() {
                 </div>
             </div>
         </>
-    )
-}
-
-function FeatureList({ children }) {
-    return (
-        <div className="flex flex-nowrap">
-            <CheckIcon className="w-6 h-6 inline text-emerald-400 mr-2 flex-none" />
-            {children}
-        </div>
     )
 }
