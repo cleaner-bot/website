@@ -22,13 +22,6 @@ export default function Solve({ splash, text }) {
                 <Image className="object-none min-h-screen w-auto" src={splash} />
             </div>}
             <div className="w-[303px] absolute top-1/2 left-1/2 -mr-1/2 -translate-x-1/2 -translate-y-1/2">
-                <Head>
-                    <title>CAPTCHA required.</title>
-                    <meta property="og:title" content="CATPCHA required." />
-                    <meta property="og:type" content="article" />
-                    <meta proeprty="og:description" content="" />
-                </Head>
-
                 {router.query.failed && <div className="bg-red-500 text-center px-2 py-1 rounded mb-4 shadow-2xl">
                     CAPTCHA failed for some reason.
                 </div>}
