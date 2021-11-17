@@ -25,7 +25,7 @@ export default function Home() {
                     </h1>
                 </div>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-10">
-                    <div>
+                    <div className="m-auto">
                         <h2 className="text-5xl font-extrabold leading-10">
                             A bot built for keeping servers clean
                         </h2>
@@ -58,8 +58,8 @@ export default function Home() {
                             </Link>
                         </div>
                     </div>
-                    <div className="text-gray-400">
-                        image here
+                    <div className="m-auto">
+                        <Image src="/img/home/feature_phishing.gif" className="w-full" width={600} height={300} alt="GIF of phishing protection in action" />
                     </div>
                 </div>
             </div>
