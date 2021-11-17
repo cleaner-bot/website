@@ -324,7 +324,7 @@ export default function Home() {
                         Mr. Clean at its core will always stay free - but the servers do not pay themselves.
                     </p>
                 </div>}
-                <div className="-container grid grid-cols-2 md:grid-cols-4 pb-10 gap-4">
+                <div className="-container grid grid-cols-2 md:grid-cols-4 pb-10 gap-4 gap-y-12">
                     <div className="col-span-2">
                         <h3 className="text-3xl font-bold">
                             The Cleaner
@@ -346,7 +346,7 @@ export default function Home() {
                         <h3 className="text-sm text-gray-200">
                             Docs
                         </h3>
-                        <div className="flex flex-col">
+                        <div className="flex flex-col gap-2 mt-4 md:gap-0 md:mt-0">
                             <Link href="/quickstart">
                                 <a className="hover:underline">Quick Start</a>
                             </Link>
@@ -359,7 +359,7 @@ export default function Home() {
                         <h3 className="text-sm text-gray-200">
                             Legal
                         </h3>
-                        <div className="flex flex-col">
+                        <div className="flex flex-col gap-2 mt-4 md:gap-0 md:mt-0">
                             <Link href="/privacy">
                                 <a className="hover:underline">Privacy Policy</a>
                             </Link>
