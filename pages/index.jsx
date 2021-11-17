@@ -18,7 +18,7 @@ export default function Home() {
             <div className="-container">
                 <div className="flex justify-center mb-12">
                     <h1 className="text-5xl sm:text-6xl font-extrabold -heading">
-                        <Image className="w-16 h-16 align-middle rounded-full hidden md:inline" src="https://cdn.discordapp.com/avatars/823533449717481492/64e20328c02c26f8da22e43b17f2d0db.png?size=256" width={256} height={256} />
+                        <Image className="w-16 h-16 align-middle rounded-full hidden md:inline" src="https://cdn.discordapp.com/avatars/823533449717481492/64e20328c02c26f8da22e43b17f2d0db.png?size=256" width={256} height={256} alt="Avatar of The Cleaner." />
                         <span className="align-middle px-2 hover:border-b-4 border-b-indigo-600">
                             The Cleaner
                         </span>
@@ -94,7 +94,7 @@ export default function Home() {
                             </div>
                         </div>
                         <div className="text-gray-400">
-                            <Image src="/img/home/feature_antiraid.png" className="w-full" width={1260} height={764} />
+                            <Image src="/img/home/feature_antiraid.png" className="w-full" width={1260} height={764} alt="Image of antiraid in action" />
                         </div>
                     </div>
                     <div className="mt-40 grid md:grid-cols-2 gap-y-10">
@@ -124,7 +124,7 @@ export default function Home() {
                             </p>
                         </div>
                         <div className="text-gray-400 md:order-first">
-                            <Image src="/img/home/feature_phishing.png" className="w-full" width={1221} height={539} />
+                            <Image src="/img/home/feature_phishing.png" className="w-full" width={1221} height={539} alt="Image of phishing prevention catching a phishing message" />
                         </div>
                     </div>
                     <div className="mt-40 grid md:grid-cols-2 gap-y-10">
@@ -149,7 +149,7 @@ export default function Home() {
                             </div>
                         </div>
                         <div className="text-gray-400">
-                            <Image src="/img/home/feature_captcha.png" className="w-full" width={1250} height={777} />
+                            <Image src="/img/home/feature_captcha.png" className="w-full" width={1250} height={777} alt="Image of the CAPTCHA challenge in discord" />
                         </div>
                     </div>
                     <div className="mt-40 grid md:grid-cols-2 gap-y-10">
@@ -181,7 +181,7 @@ export default function Home() {
                             </p>
                         </div>
                         <div className="text-gray-400 md:order-first">
-                            <Image src="/img/home/feature_link_checker.png" className="w-full" width={415} height={225} />
+                            <Image src="/img/home/feature_link_checker.png" className="w-full" width={415} height={225} alt="Image of a 'new link spotted' logging message" />
                         </div>
                     </div>
                     <div className="mt-40 grid md:grid-cols-2 gap-y-10">
@@ -220,7 +220,7 @@ export default function Home() {
                             </Link>
                         </div>
                         <div className="text-gray-400">
-                            <Image src="/img/home/feature_clean.png" className="w-full" width={1177} height={797} />
+                            <Image src="/img/home/feature_clean.png" className="w-full" width={1177} height={797} alt="Image of just named rules in actions" />
                         </div>
                     </div>
                 </div>
