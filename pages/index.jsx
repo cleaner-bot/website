@@ -47,13 +47,13 @@ export default function Home() {
                         </div>
                         <div className="grid gap-1 sm:grid-cols-2 mt-2">
                             <Link href="/quickstart">
-                                <a className="-btn -anim bg-blue-500 hover:bg-blue-550">
+                                <a className="-btn -anim bg-blue-580 hover:bg-blue-630">
                                     Quick Start
                                     <ArrowRightIcon className="h-6 w-6 inline ml-2" />
                                 </a>
                             </Link>
                             <Link href="/discord">
-                                <a className="-btn -anim bg-blue-500 hover:bg-blue-550">
+                                <a className="-btn -anim bg-blue-580 hover:bg-blue-630">
                                     Join the Discord
                                     <ExternalLinkIcon className="h-6 w-6 inline ml-2" />
                                 </a>
@@ -215,7 +215,7 @@ export default function Home() {
                                 Want to disable some rules? Check out the command documentation on rules.
                             </p>
                             <Link href="/docs/commands/#rules">
-                                <a className="w-full sm:w-1/2 md:w-full lg:w-1/2 mt-6 -btn -anim bg-blue-500 hover:bg-blue-550">
+                                <a className="w-full sm:w-1/2 md:w-full lg:w-1/2 mt-6 -btn -anim bg-blue-580 hover:bg-blue-630">
                                     Rules Commands
                                     <ArrowRightIcon className="w-6 h-6 ml-2 inline" />
                                 </a>
@@ -237,7 +237,7 @@ export default function Home() {
                     Start protecting <span className="-highlight">your server</span> now.
                 </h2>
                 <Link href="/quickstart">
-                    <a className="w-full sm:w-1/2 mt-6 -btn -anim bg-blue-500 hover:bg-blue-550">
+                    <a className="w-full sm:w-1/2 mt-6 -btn -anim bg-blue-580 hover:bg-blue-630">
                         Quick Start
                         <ArrowRightIcon className="h-6 w-6 inline ml-2" />
                     </a>
