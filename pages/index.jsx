@@ -96,7 +96,7 @@ export default function Home() {
                             </div>
                         </div>
                         <div className="text-gray-400">
-                            <Image src="/img/home/feature_antiraid.png" className="w-full" />
+                            <Image src="/img/home/feature_antiraid.png" className="w-full" width={1260} height={764} />
                         </div>
                     </div>
                     <div className="mt-40 grid md:grid-cols-2 gap-y-10">
@@ -126,7 +126,7 @@ export default function Home() {
                             </p>
                         </div>
                         <div className="text-gray-400 md:order-first">
-                            <Image src="/img/home/feature_phishing.png" className="w-full" />
+                            <Image src="/img/home/feature_phishing.png" className="w-full" width={1221} height={539} />
                         </div>
                     </div>
                     <div className="mt-40 grid md:grid-cols-2 gap-y-10">
@@ -151,7 +151,7 @@ export default function Home() {
                             </div>
                         </div>
                         <div className="text-gray-400">
-                            <Image src="/img/home/feature_captcha.png" className="w-full" />
+                            <Image src="/img/home/feature_captcha.png" className="w-full" width={1250} height={777} />
                         </div>
                     </div>
                     <div className="mt-40 grid md:grid-cols-2 gap-y-10">
@@ -183,7 +183,7 @@ export default function Home() {
                             </p>
                         </div>
                         <div className="text-gray-400 md:order-first">
-                            <Image src="/img/home/feature_link_checker.png" className="w-full" />
+                            <Image src="/img/home/feature_link_checker.png" className="w-full" width={415} height={225} />
                         </div>
                     </div>
                     <div className="mt-40 grid md:grid-cols-2 gap-y-10">
@@ -222,7 +222,7 @@ export default function Home() {
                             </Link>
                         </div>
                         <div className="text-gray-400">
-                            <Image src="/img/home/feature_clean.png" className="w-full" />
+                            <Image src="/img/home/feature_clean.png" className="w-full" width={1177} height={797} />
                         </div>
                     </div>
                 </div>

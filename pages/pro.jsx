@@ -47,7 +47,7 @@ export default function ProSite() {
                         </Pro>
                     </div>
                     <div className="text-gray-400 md:order-first">
-                        <Image src="/img/pro/benefit_verify.png" className="w-full" />
+                        <Image src="/img/pro/benefit_verify.png" className="w-full" width={667} height={268} />
                     </div>
                 </div>
                 <div className="mt-40 grid md:grid-cols-2 gap-y-10">
@@ -97,8 +97,8 @@ export default function ProSite() {
                         </Pro>
                     </div>
                     <div className="text-gray-400 relative">
-                        <Image src="/img/pro/benefit_discord1.png" className="w-full" />
-                        <Image src="/img/pro/benefit_discord2.png" className="w-40 top-4 right-4 absolute rounded-lg" />
+                        <Image src="/img/pro/benefit_discord1.png" className="w-full" width={421} height={290} />
+                        <Image src="/img/pro/benefit_discord2.png" className="w-40 top-4 right-4 absolute rounded-lg" width={168} height={59} />
                     </div>
                 </div>
             </div>
