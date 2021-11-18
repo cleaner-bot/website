@@ -6,6 +6,7 @@ import Link from "next/link";
 
 import MetaTags from "@/components/metatags.jsx";
 import { Pro, Contra } from "@/components/featurelist.jsx";
+import Image from "@/components/image.jsx";
 
 
 export default function Quickstart() {
@@ -56,7 +57,7 @@ const steps = {
                 <h2 className="text-3xl font-semibold mb-8">
                     1. Invite The Cleaner
                 </h2>
-                <button className="-anim -btn w-60 bg-blue-500 hover:bg-blue-550" onClick={() => {
+                <button className="-anim -btn w-60 bg-blue-580 hover:bg-blue-630" onClick={() => {
                     const isMobile = "ontouchstart" in window;
                     const invite = "https://discord.com/oauth2/authorize?client_id=823533449717481492&scope=applications.commands%20bot&permissions=402664502";
                     if(isMobile) {
@@ -202,7 +203,7 @@ const steps = {
                         "-anim -btn",
                         useVerification === true ? "ring ring-emerald-550 hover:bg-emerald-550" : "ring-2 ring-coolGray-750 hover:bg-coolGray-750"
                     )} onClick={() => setUserVerification(useVerification === true ? undefined : true)}>
-                        Issue a CAPTCHA
+                        CAPTCHA Verification
                     </button>
                     <button className={clsx(
                         "-anim -btn",
@@ -348,7 +349,7 @@ const steps = {
                         3.1 Add Moderator roles
                     </h3>
                     <p>
-                        To make sure The Cleaner ignores your moderators, you have to tell him who your moderators are.
+                        To make sure The Cleaner ignores your moderators, you have to tell us who your moderators are.
                         You use the{" "}
                         <code>
                             <Link href="/docs/commands/#config-modrole-add">
@@ -378,7 +379,7 @@ const steps = {
                     </h3>
                     <p>
                         The Cleaner wants to tell you what he does, but he doesn't know where to put it.
-                        Tell him by using the following command:
+                        Tell us by using the following command:
                     </p>
                     <p>
                         <code>
@@ -388,21 +389,13 @@ const steps = {
                     <p>
                         You can also disable logging with <code>/config logging reset</code>
                     </p>
-                </article>
-                <StepBar setCurrentStep={setCurrentStep} previous="2-challenge" next="4-exceptions" />
-            </>
-        )
-    },
-    "4-exceptions": function RulesStep({ setCurrentStep }) {
-        return (
-            <>
-                <h2 className="text-3xl font-semibold mb-8">
-                    4. Exceptions
-                </h2>
-                <article>
+                    <h3>
+                        3.3 Mark channels as exception
+                    </h3>
+
                     <p>
-                        In some servers there are spam channels that are purposedly for spam.
-                        The Cleaner doesn't know that and will think that a raid is happening.
+                        In some servers there are spam channels that are purely for spam.
+                        The Cleaner doesn't know that and will try to fight the spam.
                     </p>
                     <p>
                         So, if you have a <code>#spam</code> channel that is literally only used for spam, mark that channel as an exception.
@@ -421,28 +414,99 @@ const steps = {
                         Exceptions don't disable the protection! It'll just make it harder to trigger.
                     </p>
                 </article>
-                <StepBar setCurrentStep={setCurrentStep} previous="3-mod" next="5-done" />
+                <StepBar setCurrentStep={setCurrentStep} previous="2-challenge" next="4-linkchecker" />
             </>
         )
     },
-    "5-done": function Done({ setCurrentStep }) {
+    "4-linkchecker": function RulesStep({ setCurrentStep }) {
         return (
             <>
                 <h2 className="text-3xl font-semibold mb-8">
-                    5. Done
+                    4. Link Checker
                 </h2>
                 <article>
                     <p>
+                        <bold>
+                            The Link Checker is 100% optional.
+                        </bold>
+                        You can just go straight to the next topic if you don't want Link Checker.
+                    </p>
+                    <p>
+                        If you enable the Link Checker, every time someone sends a message with a link, the link will be re-sent in your logging channel.
+                        You can then decide to white- or blacklist the domain or to blacklist only that exact url.
+                    </p>
+                    <p className="mt-4">
+                        Use the following command to enable Link Checker: (you must have a logging channel setup)
+                    </p>
+                    <p>
+                        <code>/config linkchecker enable</code>
+                    </p>
+                    <Image src="/img/home/feature_link_checker.png" className="w-full md:w-auto" width={415} height={225} alt="Image of a 'new link spotted' logging message" />
+                </article>
+                <StepBar setCurrentStep={setCurrentStep} previous="3-mod" next="5-rules" />
+            </>
+        )
+    },
+    "5-rules": function Rules({ setCurrentStep }) {
+        return (
+            <>
+                <h2 className="text-3xl font-semibold mb-8">
+                    5. Rules TL;DR
+                </h2>
+                <Link href="/docs/commands/#rules">
+                    <a className="-anim -btn md:w-96 bg-blue-580 hover:bg-blue-630">
+                        Not TL;DR version <ArrowRightIcon className="w-6 h-6 ml-2" />
+                    </a>
+                </Link>
+                <article>
+                    <h3>
+                        5.1 Disable a rule
+                    </h3>
+                    <p>
+                        Want to allow discord invites but messages keep getting deleted because of <code>advertisement.discord</code>?
+                        Just disable that rule!
+                    </p>
+                    <p>
+                        <code>/rules disable add advertisement.discord</code>
+                    </p>
+                    <p>
+                        Changed your mind?
+                    </p>
+                    <p>
+                        <code>/rules disable remove advertisement.discord</code>
+                    </p>
+                </article>
+                <StepBar setCurrentStep={setCurrentStep} previous="4-linkchecker" next="6-done" />
+            </>
+        )
+    },
+    "6-done": function Done({ setCurrentStep }) {
+        return (
+            <>
+                <h2 className="text-3xl font-semibold mb-8">
+                    6. Done
+                </h2>
+                <article>
+                    <p>
+                        <bold>Congratulations!</bold>{" "}
                         You have completed the Quick Start guide of The Cleaner!
                     </p>
                     <h3>
                         5.1 Still issues?
                     </h3>
                     <p>
-                        Run <code>/diagnose</code> and The Cleaner will detect and inform you about some problems.
+                        Run the{" "}
+                        <code>
+                            <Link href="/docs/commands/#diagnose">
+                                <a>
+                                    /diagnose
+                                </a>
+                            </Link>
+                        </code>
+                        {" "}command and The Cleaner will detect common issues and tell you about them.
                     </p> 
                     <p>
-                        Didn't help? Join the support server below and we'll try to help!
+                        Didn't help? Join the Support Server below and we'll try to help!
                     </p>
                 </article>
                 <Link href="/discord">
@@ -465,7 +529,7 @@ const steps = {
                         </a>
                     </Link>
                 </div>
-                <StepBar setCurrentStep={setCurrentStep} previous="4-exceptions" />
+                <StepBar setCurrentStep={setCurrentStep} previous="5-rules" />
             </>
         )
     }
