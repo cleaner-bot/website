@@ -1,4 +1,6 @@
-import { ArrowLeftIcon } from "@heroicons/react/outline";
+
+import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/outline";
+import Link from "next/link";
 
 import MetaTags from "@/components/metatags.jsx";
 
@@ -23,6 +25,12 @@ export default function FourOFour() {
                     <ArrowLeftIcon className="w-6 h-6 mr-2" />
                     Go back
                 </button>
+                <Link href="/">
+                    <a className="-anim -btn w-full bg-blue-580 hover:bg-blue-630 mt-2">
+                        Go to the Homepage
+                        <ArrowRightIcon className="w-6 h-6 ml-2" />
+                    </a>
+                </Link>
             </div>
         </div>
     )
