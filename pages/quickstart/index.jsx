@@ -446,20 +446,20 @@ const steps = {
                     </p>
                 </article>
                 <Link href="/discord">
-                    <a className="-anim -btn bg-blue-500 hover:bg-blue-550 w-full lg:w-96 mt-4">
+                    <a className="-anim -btn bg-blue-580 hover:bg-blue-630 w-full lg:w-96 mt-4">
                         Support Server
                         <ExternalLinkIcon className="h-6 w-6 inline ml-2" />
                     </a>
                 </Link>
                 <div className="grid grid-cols-1 gap-2 mt-8 w-full lg:w-96">
                     <Link href="/">
-                        <a className="-anim -btn bg-blue-500 hover:bg-blue-550">
+                        <a className="-anim -btn bg-blue-580 hover:bg-blue-630">
                             Back to the homepage
                             <ArrowRightIcon className="h-6 w-6 inline ml-2" />
                         </a>
                     </Link>
                     <Link href="/docs">
-                        <a className="-anim -btn bg-blue-500 hover:bg-blue-550">
+                        <a className="-anim -btn bg-blue-580 hover:bg-blue-630">
                             Read the docs
                             <ArrowRightIcon className="h-6 w-6 inline ml-2" />
                         </a>
