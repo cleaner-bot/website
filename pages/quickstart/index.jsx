@@ -57,13 +57,21 @@ const steps = {
                     1. Invite The Cleaner
                 </h2>
                 <button className="-anim -btn w-60 bg-blue-500 hover:bg-blue-550" onClick={() => {
-                    const popup = window.open("https://discord.com/oauth2/authorize?client_id=823533449717481492&scope=applications.commands%20bot&permissions=402664502", "botinvitepopup", "width=500,height=776,left=100,top=100");
-                    const timer = setInterval(() => {
-                        if(popup.closed) {
-                            clearInterval(timer);
-                            setSkip(false);
-                        }
-                    }, 100)
+                    const isMobile = "ontouchstart" in window;
+                    const invite = "https://discord.com/oauth2/authorize?client_id=823533449717481492&scope=applications.commands%20bot&permissions=402664502";
+                    if(isMobile) {
+                        window.open(invite, "_blank");
+                        setSkip(false);
+                    }
+                    else {
+                        const popup = window.open(invite, "botinvitepopup", "width=500,height=776,left=100,top=100");
+                        const timer = setInterval(() => {
+                            if(popup.closed) {
+                                clearInterval(timer);
+                                setSkip(false);
+                            }
+                        }, 100)
+                    }
                 }}>
                     Invite The Cleaner
                 </button>
