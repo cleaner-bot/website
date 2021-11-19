@@ -8,7 +8,7 @@ Special thanks to:
 - Rxvan for testing and feedback
 - A7U for website feedback and dev help
 - Rynav and Tech for being there and helping with the name and pfp
-- Rynav, Tech, usernamep and coodin for website feedback
+- Rynav, Tech, usernamep, coodin and MJK for website feedback
 
 - **You**! Thanks for using my bot <3
 
