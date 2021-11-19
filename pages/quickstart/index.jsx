@@ -411,7 +411,8 @@ const steps = {
                         <code>/config exception remove #spam</code>
                     </p>
                     <p className="mt-10">
-                        Exceptions don't disable the protection! It'll just make it harder to trigger.
+                        <bold>Marking as exception doesn't disable the antispam!</bold>{" "}
+                        It just makes it harder to trigger.
                     </p>
                 </article>
                 <StepBar setCurrentStep={setCurrentStep} previous="2-challenge" next="4-linkchecker" />
