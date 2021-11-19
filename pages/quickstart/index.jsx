@@ -216,7 +216,7 @@ const steps = {
                 {useVerification === true && <>
                     <div className="mt-12">
                         Do you use a "Member" or "Verification required" role?
-                        <div className="grid grid-cols-2 gap-4 mt-6">
+                        <div className="grid md:grid-cols-2 gap-4 mt-6">
                             <div>
                                 <p className="text-center text-xl underline">
                                     Member
@@ -236,6 +236,12 @@ const steps = {
                                     </Pro>
                                 </div>
                             </div>
+                            <button className={clsx(
+                                "-anim -btn md:order-2",
+                                member === true ? "ring ring-emerald-550 hover:bg-emerald-550" : "ring-2 ring-coolGray-750 hover:bg-coolGray-750"
+                            )} onClick={() => setMember(member === true ? undefined : true)}>
+                                {member === true ? "Selected" : "Select"}
+                            </button>
                             <div>
                                 <p className="text-center text-xl underline">
                                     Verification Required
@@ -267,12 +273,6 @@ const steps = {
                                     </Pro>
                                 </div>
                             </div>
-                            <button className={clsx(
-                                "-anim -btn",
-                                member === true ? "ring ring-emerald-550 hover:bg-emerald-550" : "ring-2 ring-coolGray-750 hover:bg-coolGray-750"
-                            )} onClick={() => setMember(member === true ? undefined : true)}>
-                                {member === true ? "Selected" : "Select"}
-                            </button>
                             <button className={clsx(
                                 "-anim -btn",
                                 member === false ? "ring ring-emerald-500 hover:bg-emerald-550" : "ring-2 ring-coolGray-750 hover:bg-coolGray-750"
