@@ -1,4 +1,7 @@
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 import { ArrowRightIcon, ExternalLinkIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 
@@ -6,9 +9,13 @@ import Image from "@/components/image.jsx";
 import MetaTags from "@/components/metatags.jsx";
 import { Pro } from "@/components/featurelist.jsx";
 import isDev from "@/lib/dev.js";
+import { useEffect } from "react";
 
 
 export default function Home() {
+    useEffect(() => {
+        AOS.init();
+    })
     return (
         <>
             <MetaTags
@@ -76,7 +83,7 @@ export default function Home() {
             </div>
             <div className="bg-coolGray-750">
                 <div className="-container">
-                    <div className="grid md:grid-cols-2 gap-y-10">
+                    <div className="grid md:grid-cols-2 gap-y-10" data-aos="fade-up">
                         <div className="md:m-auto">
                             <h2 className="text-4xl font-bold leading-10 mb-4">
                                 Automatic Raid Prevention
@@ -103,7 +110,7 @@ export default function Home() {
                             <Image src="/img/home/feature_antiraid.png" className="w-full" width={1260} height={764} alt="Image of antiraid in action" />
                         </div>
                     </div>
-                    <div className="mt-40 grid md:grid-cols-2 gap-y-10">
+                    <div className="mt-40 grid md:grid-cols-2 gap-y-10" data-aos="fade-up">
                         <div className="m-auto">
                             <h2 className="text-4xl font-bold leading-10 mb-4">
                                 Phishing Prevention
@@ -133,7 +140,7 @@ export default function Home() {
                             <Image src="/img/home/feature_phishing.png" className="w-full" width={1221} height={539} alt="Image of phishing prevention catching a phishing message" />
                         </div>
                     </div>
-                    <div className="mt-40 grid md:grid-cols-2 gap-y-10">
+                    <div className="mt-40 grid md:grid-cols-2 gap-y-10" data-aos="fade-up">
                         <div className="m-auto">
                             <h2 className="text-4xl font-bold leading-10 mb-4">
                                 CAPTCHAs for anyone, anytime.
@@ -158,7 +165,7 @@ export default function Home() {
                             <Image src="/img/home/feature_captcha.png" className="w-full" width={1250} height={777} alt="Image of the CAPTCHA challenge in discord" />
                         </div>
                     </div>
-                    <div className="mt-40 grid md:grid-cols-2 gap-y-10">
+                    <div className="mt-40 grid md:grid-cols-2 gap-y-10" data-aos="fade-up">
                         <div className="m-auto">
                             <h2 className="text-4xl font-bold leading-10 mb-4">
                                 Keep links clean
@@ -190,7 +197,7 @@ export default function Home() {
                             <Image src="/img/home/feature_link_checker.png" className="w-full" width={415} height={225} alt="Image of a 'new link spotted' logging message" />
                         </div>
                     </div>
-                    <div className="mt-40 grid md:grid-cols-2 gap-y-10">
+                    <div className="mt-40 grid md:grid-cols-2 gap-y-10" data-aos="fade-up">
                         <div className="m-auto">
                             <h2 className="text-4xl font-bold leading-10 mb-4">
                                 Just... keep it clean.
@@ -236,7 +243,7 @@ export default function Home() {
                     <path fillOpacity="1" d="M0,128L48,133.3C96,139,192,149,288,176C384,203,480,245,576,261.3C672,277,768,267,864,234.7C960,203,1056,149,1152,133.3C1248,117,1344,139,1392,149.3L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
                 </svg>
             </div>
-            <div className="-container">
+            <div className="-container" data-aos="fade-up">
                 <h2 className="text-6xl font-bold leading-[3rem]">
                     Start protecting <span className="-highlight">your server</span> now.
                 </h2>
