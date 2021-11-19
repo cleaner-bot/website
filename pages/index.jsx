@@ -43,9 +43,9 @@ export default function Home() {
                                 Filter bots out with CAPTCHAs.
                             </Pro>
                         </div>
-                        <div className="grid gap-1 sm:grid-cols-2 mt-2">
+                        <div className="grid gap-2 sm:grid-cols-2 mt-2">
                             <Link href="/quickstart">
-                                <a className="-btn -anim bg-blue-580 hover:bg-blue-630">
+                                <a className="-btn -anim bg-blue-580 hover:bg-blue-630 sm:col-span-2">
                                     Quick Start
                                     <ArrowRightIcon className="h-6 w-6 inline ml-2" />
                                 </a>
@@ -54,6 +54,12 @@ export default function Home() {
                                 <a className="-btn -anim bg-blue-580 hover:bg-blue-630">
                                     Join the Discord
                                     <ExternalLinkIcon className="h-6 w-6 inline ml-2" />
+                                </a>
+                            </Link>
+                            <Link href="/docs/">
+                                <a className="-btn -anim bg-blue-580 hover:bg-blue-630">
+                                    Documentation
+                                    <ArrowRightIcon className="h-6 w-6 inline ml-2" />
                                 </a>
                             </Link>
                         </div>
