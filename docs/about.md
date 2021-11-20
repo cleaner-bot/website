@@ -1,7 +1,7 @@
 
 # About The Cleaner
 
-The Cleaner is a bot developed by [Leo Developer](https://leodev.xyz).
+The Cleaner is a bot developed by [Leo](https://leodev.xyz).
 
 Special thanks to:
 
