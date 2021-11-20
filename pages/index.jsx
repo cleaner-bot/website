@@ -244,11 +244,11 @@ export default function Home() {
                 </svg>
             </div>
             <div className="-container" data-aos="fade-up">
-                <h2 className="text-6xl font-bold leading-[3rem]">
-                    Start protecting <span className="-highlight">your server</span> now.
+                <h2 className="text-6xl font-bold leading-[3rem] text-center max-w-[30rem] lg:max-w-none mx-auto">
+                    Start protecting <span className="text-blue-330">your server</span> now
                 </h2>
                 <Link href="/quickstart">
-                    <a className="w-full sm:w-1/2 mt-6 -btn -anim bg-blue-580 hover:bg-blue-630">
+                    <a className="mx-auto max-w-[27rem] lg:max-w-[56rem] mt-12 -btn -anim bg-blue-580 hover:bg-blue-630">
                         Quick Start
                         <ArrowRightIcon className="h-6 w-6 inline ml-2" />
                     </a>
