@@ -16,7 +16,7 @@ export default function Privacy() {
                 PRIVACY NOTICE
             </h1>
             <p>
-                Last updated November 15, 2021
+                Last updated November 21, 2021
             </p>
             <p>
                 Thank you for choosing to be part of our community at The Cleaner ("Bot," "we," "us," or "our"). We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about this privacy notice or our practices with regard to your personal information, please contact us at leodeveloper@protonmail.com.
@@ -44,6 +44,12 @@ export default function Privacy() {
                 </li>
                 <li>
                     <code>`Services,`</code> we are referring to our Website, and other related services, including the Bot, any sales, marketing, or events
+                </li>
+                <li>
+                    <code>`Visitor,`</code> we are referring to anyone visiting our Website.
+                </li>
+                <li>
+                    <code>`User,`</code> we are referring to anyone in a Discord guild with our Bot.
                 </li>
             </ol>
 
