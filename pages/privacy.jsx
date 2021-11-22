@@ -57,23 +57,16 @@ export default function Privacy() {
                 1. WHAT INFORMATION DO WE COLLECT?
             </h2>
             <h3>
-                Personal information you disclose to us
+                Information collected of Visitors
             </h3>
             <p>
-                We collect personal information that you voluntarily provide to us when you express an interest in obtaining information about us or our products and Services, when you participate in activities on the Website or otherwise when you contact us.
-            </p>
-            <p>
-                The personal information that we collect depends on the context of your interactions with us and the Website, the choices you make and the products and features you use.
-                {/* The personal information we collect may include the following: */}
-            </p>
-            <p>
-                All personal information that you provide to us must be true, complete and accurate, and you must notify us of any changes to such personal information.
+                We do not collect any information of Visitors.
             </p>
             <h3>
-                Information collected from through Discord
+                Information collected of Users through Discord
             </h3>
             <p>
-                We collect personal information that you voluntarily provide to us when you participate in a discord guild ("server") that has our Service added.
+                We collect personal information that you voluntarily provide to us when you participate in a Discord guild ("server") that has our Service added.
                 The personal information we collect may include the following:
             </p>
             <ul>
@@ -81,10 +74,10 @@ export default function Privacy() {
                     Message content (up to 10 minutes, possibly longer but anonymized)
                 </li>
                 <li>
-                    Server joins (up to 5 minutes)
+                    Which server you joined (up to 5 minutes)
                 </li>
                 <li>
-                    User identifier  (indefinetly)
+                    User identifier used to identify you
                 </li>
             </ul>
 
@@ -160,7 +153,7 @@ export default function Privacy() {
                 6. DO WE COLLECT INFORMATION FROM MINORS?
             </h2>
             <p>
-                We do not knowingly solicit data from or market to children under 18 years of age. By using the Website, you represent that you are at least 18 or that you are the parent or guardian of such a minor and consent to such minor dependent’s use of the Website. If we learn that personal information from users less than 18 years of age has been collected, we will deactivate the account and take reasonable measures to promptly delete such data from our records. If you become aware of any data we may have collected from children under age 18, please contact us at leodeveloper@protonmail.com.
+                We do not knowingly solicit data from or market to children under 13 years of age. By using the Service, you represent that you are at least 13 or that you are the parent or guardian of such a minor and consent to such minor dependent’s use of the Service. If we learn that personal information from users less than 13 years of age has been collected, we will deactivate the account and take reasonable measures to promptly delete such data from our records. If you become aware of any data we may have collected from children under age 13, please contact us at leodeveloper@protonmail.com.
             </p>
 
             <h2>
