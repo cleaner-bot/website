@@ -17,6 +17,11 @@ export default function Blog() {
             <h1 className="text-2xl text-gray-200">
                 The `The Cleaner` Blog
             </h1>
+            <Link href={`/`}>
+                <a className="text-gray-200 hover:underline mt-4 block">
+                    &larr; Go home
+                </a>
+            </Link>
             <div className="grid md:grid-cols-2 gap-x-2 gap-y-8 mt-12">
                 {articles.map((article, index) => <Article key={article.key} article={article} className={index === 0 ? "md:col-span-2" : ""} />)}
             </div>
@@ -39,7 +44,7 @@ function Article({ article, className }) {
                 {article.preview}
             </p>
             <Link href={`/blog/${article.id}`}>
-                <a className="text-gray-200 text-sm hover:underline mt-4">
+                <a className="text-gray-200 text-sm hover:underline mt-2 block">
                     Continue reading &rarr;
                 </a>
             </Link>
