@@ -362,7 +362,10 @@ export default function Home() {
                                 <a className="hover:underline">Quick Start</a>
                             </Link>
                             <Link href="/docs">
-                                <a className="hover:underline">Full docs</a>
+                                <a className="hover:underline">Documentation</a>
+                            </Link>
+                            <Link href="/what">
+                                <a className="hover:underline">What?</a>
                             </Link>
                         </div>
                     </div>
