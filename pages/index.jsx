@@ -23,13 +23,30 @@ export default function Home() {
                 description="A bot built for keeping servers clean. Start protecting your server with The Cleaner now!"
             />
             <div className="-container">
-                <div className="flex justify-center mb-12">
-                    <h1 className="text-5xl sm:text-6xl font-extrabold -heading">
-                        <Image className="w-16 h-16 align-middle rounded-full hidden md:inline" src="https://cdn.discordapp.com/avatars/823533449717481492/64e20328c02c26f8da22e43b17f2d0db.png?size=256" width={256} height={256} alt="Avatar of The Cleaner." />
+                <div className="flex flex-wrap justify-center mb-12">
+                    <h1 className="text-5xl sm:text-6xl font-extrabold -heading px-2 flex-none">
+                        <Image className="w-16 h-16 align-middle rounded-full hidden md:inline-block" src="https://cdn.discordapp.com/avatars/823533449717481492/64e20328c02c26f8da22e43b17f2d0db.png?size=256" width={256} height={256} alt="Avatar of The Cleaner." />
                         <span className="align-middle px-2 hover:border-b-4 border-b-indigo-600">
                             The Cleaner
                         </span>
                     </h1>
+                    <div className="space-x-2 mt-8 md:mt-10 flex h-6">
+                        <Link href="/quickstart">
+                            <a className="inline-block align-bottom px-1 hover:border-b-2 border-b-indigo-600">
+                                Quickstart
+                            </a>
+                        </Link>
+                        <Link href="/discord">
+                            <a className="inline-block align-bottom px-1 hover:border-b-2 border-b-indigo-600">
+                                Discord
+                            </a>
+                        </Link>
+                        <Link href="/docs/">
+                            <a className="inline-block align-bottom px-1 hover:border-b-2 border-b-indigo-600">
+                                Documentation
+                            </a>
+                        </Link>
+                    </div>
                 </div>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-10">
                     <div className="m-auto">
