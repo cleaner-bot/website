@@ -33,13 +33,6 @@ Enables verification for your server by giving new members the verification role
 Resets verification setup. (does not delete the embed with buttons)
 
 
-#### /config logging
-
-/config verify [#channel]
-
-Sets the logging channel. If the channel is not specified, the channel is reset.
-
-
 #### /config modrole add
 
 /config modrole add @role
@@ -65,7 +58,20 @@ Removes moderator privileges to the role.
 
 /config linkchecker (enable|disable)
 
-Enables or disables link checker. (you need to setup a [logging channel](#config-logging) first)
+Enables or disables link checker. (you need to setup a [logging channel](#config-logging-channel) first)
+
+
+#### /config logging channel
+
+/config logging channel [#channel]
+
+Sets the logging channel. If the channel is not specified, the channel is reset.
+
+#### /config logging join
+
+/config logging join (enable|disable)
+
+Enables/disables on join log.
 
 
 #### /config exception add

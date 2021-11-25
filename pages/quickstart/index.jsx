@@ -383,11 +383,11 @@ const steps = {
                     </p>
                     <p>
                         <code>
-                            /config logging set #bot-log
+                            /config logging channel #bot-log
                         </code>
                     </p>
                     <p>
-                        You can also disable logging with <code>/config logging reset</code>
+                        You can also disable logging with <code>/config logging channel</code>
                     </p>
                     <h3>
                         3.3 Mark channels as exception
