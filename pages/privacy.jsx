@@ -55,7 +55,7 @@ export default function Privacy() {
 
                 <ul>
                     <li>unique user id (number).</li>
-                    <li>name oder pseudonym.</li>
+                    <li>name or pseudonym.</li>
                     <li>date of the account creation.</li>
                     <li>Server join time.</li>
                     <li>user flags</li>
