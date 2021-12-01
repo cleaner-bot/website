@@ -464,7 +464,7 @@ const steps = {
                         5.1 Disable a rule
                     </h3>
                     <p>
-                        Want to allow discord invites but messages keep getting deleted because of <code>advertisement.discord</code>?
+                        Want to allow Discord invites but messages keep getting deleted because of <code>advertisement.discord</code>?
                         Just disable that rule!
                     </p>
                     <p>

@@ -179,7 +179,7 @@ export default function Home() {
                             </div>
                         </div>
                         <div className="text-gray-400">
-                            <Image src="/img/home/feature_captcha.png" className="w-full" width={1250} height={777} alt="Image of the CAPTCHA challenge in discord" />
+                            <Image src="/img/home/feature_captcha.png" className="w-full" width={1250} height={777} alt="Image of the CAPTCHA challenge in Discord" />
                         </div>
                     </div>
                     <div className="mt-40 grid md:grid-cols-2 gap-y-10" data-aos="fade-up">

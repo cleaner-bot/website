@@ -81,7 +81,7 @@ export default function ProSite() {
                             Script size: 16kb
                         </Restriction>
                         <p className="text-sm mt-2">
-                            Need more? Contact us in the discord!
+                            Need more? Contact us in the Discord!
                         </p>
                     </div>
                     <div className="text-gray-400 md:order-first">

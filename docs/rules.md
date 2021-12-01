@@ -39,7 +39,7 @@ Action: `CHALLENGE`, `BLOCK`
 
 #### embed.asset
 
-Catches discord imposters by analyzing assets used in the embed.
+Catches Discord imposters by analyzing assets used in the embed.
 
 Action: `CHALLENGE`, `BLOCK`
 
