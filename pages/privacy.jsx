@@ -13,203 +13,205 @@ export default function Privacy() {
                     title="The Cleaner - Privacy Policy"
                     description="Privacy Policy for The Cleaner."
                 />
-
                 <h1>
-                    PRIVACY NOTICE
+                    Privacy Policy
                 </h1>
-                <p>
-                    Last updated November 21, 2021
-                </p>
-                <p>
-                    Thank you for choosing to be part of our community at The Cleaner ("Bot," "we," "us," or "our"). We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about this privacy notice or our practices with regard to your personal information, please contact us at leodeveloper@protonmail.com.
-                </p>
-                <p>
-                    This privacy notice describes how we might use your information if you:
-                </p>
-                <ol>
-                    <li>
-                        Visit our website at cleaner.leodev.xyz
-                    </li>
-                    <li>
-                        Participate in a Discord guild ("server") which has our Service added
-                    </li>
-                    <li>
-                        Engage with us in other related ways ― including any sales, marketing, or events
-                    </li>
-                </ol>
-                <p>
-                    In this privacy notice, if we refer to:
-                </p>
-                <ol>
-                    <li>
-                        <code>`Website,`</code> we are referring to any website of ours that references or links to this policy
-                    </li>
-                    <li>
-                        <code>`Services,`</code> we are referring to our Website, and other related services, including the Bot, any sales, marketing, or events
-                    </li>
-                    <li>
-                        <code>`Visitor,`</code> we are referring to anyone visiting our Website.
-                    </li>
-                    <li>
-                        <code>`User,`</code> we are referring to anyone in a Discord guild with our Bot.
-                    </li>
-                </ol>
 
                 <h2>
-                    1. WHAT INFORMATION DO WE COLLECT?
+                    Introduction
                 </h2>
+
+                <p>
+                    With the following privacy policy we would like to explain to you which types of your personal data (hereinafter also referred to as "data" for short) we process for which purposes and to what extent.
+                    This privacy policy applies to all processing of personal data carried out by us through the use of our application „The Cleaner“ and the associated systems (hereinafter collectively referred to as "Service").
+                </p>
+                <p>
+                    Last uptdated: 1. December 2021
+                </p>
+
+                <h2>
+                    Overview of the data processing
+                </h2>
+                <p>
+                    The following overview summarizes the types of data processed and the purposes of their processing and refers to the data subjects.
+                </p>
+                <p>
+                    „The Cleaner“ receives chat messages of Discord channels that use our Service and filters unwanted content. (i.e. spam or phishing).
+                    „The Cleaner“ deletes messages in the Discord channels, if the content is unwanted according to the <Link href="https://cleaner.leodev.xyz/docs/rules/"><a>filter rules</a></Link>.
+                    Additionally, users that repeatedly violate the filter rules, will be prevented from participating in the Discord channels.
+                </p>
+                <p>
+                    Users have to receive an invitation to the Discord channels first (closed user group).
+                    A Discord Account has to be created under the <Link href="https://discord.com/privacy"><a>Privacy Policy of Discord</a></Link> first for this.
+                </p>
+
                 <h3>
-                    Information collected of Visitors
+                    Categories of processed data
                 </h3>
                 <p>
-                    We do not collect any information of Visitors.
+                    Data categories are the message content and Discord user information.
+                    User information are:
                 </p>
-                <h3>
-                    Information collected of Users through Discord
-                </h3>
+
+                <ul>
+                    <li>unique user id (number).</li>
+                    <li>name oder pseudonym.</li>
+                    <li>date of the account creation.</li>
+                    <li>Server join time.</li>
+                    <li>user flags</li>
+                </ul>
                 <p>
-                    We collect personal information that you voluntarily provide to us when you participate in a Discord guild ("server") that has our Service added.
-                    The personal information we collect may include the following:
+                    For details, refer to <Link href="https://discord.com/developers/docs/resources/user#user-object"><a>https://discord.com/developers/docs/resources/user#user-object</a></Link>.
                 </p>
+                
+                <h3>
+                    Categories of affected users
+                </h3>
                 <ul>
                     <li>
-                        Message content (up to 10 minutes, possibly longer but anonymized)
-                    </li>
-                    <li>
-                        Which server you joined (up to 5 minutes)
-                    </li>
-                    <li>
-                        User identifier used to identify you
+                        Users of Discord.
                     </li>
                 </ul>
 
-                <h2>
-                    2. HOW DO WE USE YOUR INFORMATION?
-                </h2>
+                <h3>
+                    Purposes of processing
+                </h3>
                 <p>
-                    We use personal information collected via our Website for a variety of business purposes described below. We process your personal information for these purposes in reliance on our legitimate business interests, in order to enter into or perform a contract with you, with your consent, and/or for compliance with our legal obligations. We indicate the specific processing grounds we rely on next to each purpose listed below.
+                    Providing our service „The Cleaner“.
                 </p>
-                <p>
-                    We use the information we collect or receive:
-                </p>
-                <ol>
-                    <li>
-                        <bold>To send administrative information to you.</bold> We may use your personal information to send you product, service and new feature information and/or information about changes to our terms, conditions, and policies.
-                    </li>
-                    <li>
-                        <bold>To protect our Services.</bold> We may use your information as part of our efforts to keep our Website safe and secure (for example, for fraud monitoring and prevention).
-                    </li>
-                    <li>
-                        <bold>To provide our Services.</bold> We use your information to provide our service.
-                    </li>
-                    <li>
-                        <bold>To enforce our terms, conditions and policies for business purposes, to comply with legal and regulatory requirements or in connection with our contract.</bold>
-                    </li>
-                    <li>
-                        <bold>To respond to legal requests and prevent harm.</bold> If we receive a subpoena or other legal request, we may need to inspect the data we hold to determine how to respond.
-                    </li>
-                </ol>
 
-                <h2>
-                    3. WILL YOUR INFORMATION BE SHARED WITH ANYONE?
-                </h2>
+                <h3>
+                    Applicable legal bases
+                </h3>
                 <p>
-                    We may process or share your data that we hold based on the following legal basis:
+                Below you will find an overview of the legal basis, the GDPR, on the basis of which we process personal data. Please note that in addition to the provisions of the GDPR, national data protection requirements may apply in your or our country of residence or domicile. If more specific legal bases are relevant in individual cases, we will inform you of this in the privacy policy.
                 </p>
-                <ol>
+                <ul>
                     <li>
-                        <bold>Consent:</bold> We may process your data if you have given us specific consent to use your personal information for a specific purpose.
+                        <strong>
+                            Consent (Art. 6 Para. 1 S. 1 lit. a. GDPR)
+                        </strong>{" "}
+                        - The data subject has given their consent to the processing of their personal data for a specific purpose or for several specific purposes.
                     </li>
                     <li>
-                        <bold>Legitimate Interests:</bold> We may process your data when it is reasonably necessary to achieve our legitimate business interests.
+                        <strong>
+                            Fulfillment of the contract and pre-contractual inquiries (Art. 6 Para. 1 S. 1 lit. b. GDPR)
+                        </strong>{" "}
+                        - Processing is necessary for the performance of a contract to which the data subject is a party, or for the implementation of pre-contractual measures that are carried out at the request of the data subject.
                     </li>
                     <li>
-                        <bold>Performance of a Contract:</bold> Where we have entered into a contract with you, we may process your personal information to fulfill the terms of our contract.
+                        <strong>
+                            Legitimate interests (Art. 6 Para. 1 S. 1 lit. f. GDPR)
+                        </strong>{" "}
+                        - The processing is necessary to safeguard the legitimate interests of the person responsible or a third party, unless the interests or fundamental rights and freedoms of the person concerned, which require the protection of personal data, outweigh the above.
                     </li>
-                    <li>
-                        <bold>Legal Obligations:</bold> We may disclose your information where we are legally required to do so in order to comply with applicable law, governmental requests, a judicial proceeding, court order, or legal process, such as in response to a court order or a subpoena (including in response to public authorities to meet national security or law enforcement requirements).
-                    </li>
-                    <li>
-                        <bold>Vital Interests:</bold> We may disclose your information where we believe it is necessary to investigate, prevent, or take action regarding potential violations of our policies, suspected fraud, situations involving potential threats to the safety of any person and illegal activities, or as evidence in litigation in which we are involved.
-                    </li>
-                </ol>
-
-                <h2>
-                    4. HOW LONG DO WE KEEP YOUR INFORMATION?
-                </h2>
+                </ul>
                 <p>
-                    We will only keep your personal information for as long as it is necessary for the purposes set out in this privacy notice, unless a longer retention period is required or permitted by law (such as tax, accounting or other legal requirements). No purpose in this notice will require us keeping your personal information for longer than 14 days.
-                </p>
-                <p>
-                    When we have no ongoing legitimate business need to process your personal information, we will either delete or anonymize such information, or, if this is not possible (for example, because your personal information has been stored in backup archives), then we will securely store your personal information and isolate it from any further processing until deletion is possible.
+                    <strong>
+                        National data protection regulations in Germany:
+                    </strong>{" "}
+                    In addition to the data protection regulations of the General Data Protection Regulation, national data protection regulations apply in Germany. This includes in particular the law on the protection against misuse of personal data during data processing (Federal Data Protection Act - BDSG). In particular, the BDSG contains special regulations on the right to information, the right to erasure, the right to object, the processing of special categories of personal data, processing for other purposes and transmission as well as automated decision-making in individual cases, including profiling. Furthermore, it regulates data processing for the purposes of the employment relationship (Section 26 BDSG), in particular with regard to the establishment, implementation or termination of employment relationships and the consent of employees. In addition, the state data protection laws of the individual federal states can apply.
                 </p>
 
                 <h2>
-                    5. HOW DO WE KEEP YOUR INFORMATION SAFE?
+                    Security measures
                 </h2>
-                <p>
+                <p>                    
                     We have implemented appropriate technical and organizational security measures designed to protect the security of any personal information we process. However, despite our safeguards and efforts to secure your information, no electronic transmission over the Internet or information storage technology can be guaranteed to be 100% secure, so we cannot promise or guarantee that hackers, cybercriminals, or other unauthorized third parties will not be able to defeat our security, and improperly collect, access, steal, or modify your information. Although we will do our best to protect your personal information, transmission of personal information to and from our Website is at your own risk. You should only access the Website within a secure environment.
                 </p>
 
                 <h2>
-                    6. DO WE COLLECT INFORMATION FROM MINORS?
+                    Deletion of data
                 </h2>
                 <p>
-                    We do not knowingly solicit data from or market to children under 13 years of age. By using the Service, you represent that you are at least 13 or that you are the parent or guardian of such a minor and consent to such minor dependent’s use of the Service. If we learn that personal information from users less than 13 years of age has been collected, we will deactivate the account and take reasonable measures to promptly delete such data from our records. If you become aware of any data we may have collected from children under age 13, please contact us at leodeveloper@protonmail.com.
+                    The data processed by us will be deleted in accordance with the legal requirements as soon as the consent permitted for processing is revoked or other permissions are no longer applicable (e.g. if the purpose of processing this data is no longer applicable or is not required for the purpose).
+                </p>
+                <p>
+                    If the data are not deleted because they are required for other legally permissible purposes, their processing will be limited to these purposes. This means that the data is blocked and not processed for other purposes. This applies, for example, to data that must be stored for commercial or tax law reasons or whose storage is necessary to assert, exercise or defend legal claims or to protect the rights of another natural or legal person.
+                </p>
+                <p>
+                Our data protection information may also contain further information on the storage and deletion of data, which have priority for the respective processing.
+                </p>
+
+                <ul>
+                    <li>
+                        <strong>Messages:</strong>{" "}
+                        Generally messages are only kept for a minute but in special cases can be stored for up to 10 minutes. (anonymized messages may be kept for longer)
+                    </li>
+                    <li>
+                        <strong>Join information:</strong>{" "}
+                        We store anonymized join information for up to 10 minutes.
+                    </li>
+                    <li>
+                        <strong>Error logs:</strong>{" "}
+                        Error logs are kept for up to 2 weeks and then automatically deleted.
+                    </li>
+                </ul>
+
+                <h2>
+                    Change and update of this privacy policy
+                </h2>
+                <p>
+                    We ask you to inform yourself regularly about the content of our privacy policy. We will adapt this privacy policy as soon as the changes to the data processing carried out by us make this necessary. We will inform you as soon as the changes require your cooperation (e.g. consent) or other individual notification.
+                </p>
+                <p>
+                    If we provide addresses and contact information of companies and organizations in this privacy policy, please note that the addresses may change over time and ask you to check the information before contacting them.
                 </p>
 
                 <h2>
-                    7. WHAT ARE YOUR PRIVACY RIGHTS?
+                    Responsible Person
                 </h2>
                 <p>
-                    In some regions (like the EEA and UK), you have certain rights under applicable data protection laws. These may include the right (i) to request access and obtain a copy of your personal information, (ii) to request rectification or erasure; (iii) to restrict the processing of your personal information; and (iv) if applicable, to data portability. In certain circumstances, you may also have the right to object to the processing of your personal information. To make such a request, please use the contact details provided below. We will consider and act upon any request in accordance with applicable data protection laws.
-                </p>
-                <p>
-                    If we are relying on your consent to process your personal information, you have the right to withdraw your consent at any time. Please note however that this will not affect the lawfulness of the processing before its withdrawal, nor will it affect the processing of your personal information conducted in reliance on lawful processing grounds other than consent.
-                </p>
-                <p>
-                    If you are a resident in the EEA or UK and you believe we are unlawfully processing your personal information, you also have the right to complain to your local data protection supervisory authority. You can find their contact details here: <Link href="https://ec.europa.eu/justice/data-protection/bodies/authorities/index_en.htm"><a>https://ec.europa.eu/justice/data-protection/bodies/authorities/index_en.htm</a></Link>.
-                </p>
-                <p>
-                    If you are a resident in Switzerland, the contact details for the data protection authorities are available here: <Link href="https://www.edoeb.admin.ch/edoeb/en/home.html"><a>https://www.edoeb.admin.ch/edoeb/en/home.html</a></Link>.
+                    „The Cleaner“ is represented by <Link href="https://pointhope.de"><a>pointhope.de</a></Link>.
+                    Their contact information can be found <Link href="https://pointhope.de/en/impressum.htm"><a>here</a></Link>.
                 </p>
 
                 <h2>
-                    8. CONTROLS FOR DO-NOT-TRACK FEATURES
+                    Rights of data subjects
                 </h2>
                 <p>
-                    Most web browsers and some mobile operating systems and mobile applications include a Do-Not-Track ("DNT") feature or setting you can activate to signal your privacy preference not to have data about your online browsing activities monitored and collected. At this stage no uniform technology standard for recognizing and implementing DNT signals has been finalized. As such, we do not currently respond to DNT browser signals or any other mechanism that automatically communicates your choice not to be tracked online. If a standard for online tracking is adopted that we must follow in the future, we will inform you about that practice in a revised version of this privacy notice.
+                    As a data subject, you have various rights under the GDPR, which arise in particular from Art. 15 to 21 GDPR:
                 </p>
+                <ul>
+                    <li>
+                        <strong>Right to object:</strong>{" "}
+                        You have the right, for reasons that arise from your particular situation, to object at any time to the processing of your personal data, which is based on Art. 6 Para. 1 lit. e or f GDPR; this also applies to profiling based on these provisions. If the personal data relating to you are processed in order to operate direct mail, you have the right to object at any time to the processing of the personal data relating to you for the purpose of such advertising; this also applies to profiling insofar as it is associated with such direct mail.
+                    </li>
+                    <li>
+                        <strong>Right to withdraw consent:</strong>{" "}
+                        You have the right to withdraw your consent at any time.
+                    </li>
+                    <li>
+                        <strong>Right to requesting information:</strong>
+                        You have the right to request confirmation as to whether the data in question is being processed and to request information about this data as well as further information and a copy of the data in accordance with the legal requirements.
+                    </li>
+                    <li>
+                        <strong>Right to rectification:</strong>
+                        In accordance with the legal requirements, you have the right to request the completion of the data relating to you or the correction of incorrect data relating to you.
+                    </li>
+                    <li>
+                        <strong>Right to erasure and restriction of processing:</strong>
+                        In accordance with the legal requirements, you have the right to request that the data relating to you be deleted immediately or, alternatively, to request a restriction on the processing of the data in accordance with the legal requirements.
+                    </li>
+                    <li>
+                        <strong>Right to data portability:</strong>
+                        You have the right to receive data relating to you that you have provided to us in accordance with the legal requirements in a structured, common and machine-readable format or to request that it be transmitted to another person responsible.
+                    </li>
+                    <li>
+                        <strong>Complaint to the supervisory authority:</strong>
+                        Without prejudice to any other administrative or judicial remedy, you have the right to lodge a complaint with a supervisory authority, in particular in the member state of your habitual residence, your place of work or the place of the alleged violation, if you are of the opinion that the processing of your personal data violates the requirements of the GDPR.
+                    </li>
+                </ul>
 
-                <h2>
-                    9. DO CALIFORNIA RESIDENTS HAVE SPECIFIC PRIVACY RIGHTS?
-                </h2>
+                <p>Responsible supervisory authority for us:</p>
                 <p>
-                    California Civil Code Section 1798.83, also known as the "Shine The Light" law, permits our users who are California residents to request and obtain from us, once a year and free of charge, information about categories of personal information (if any) we disclosed to third parties for direct marketing purposes and the names and addresses of all third parties with which we shared personal information in the immediately preceding calendar year. If you are a California resident and would like to make such a request, please submit your request in writing to us using the contact information provided below.
-                </p>
-                <p>
-                    If you are under 18 years of age, reside in California, and have a registered account with the Website, you have the right to request removal of unwanted data that you publicly post on the Website. To request removal of such data, please contact us using the contact information provided below, and include the email address associated with your account and a statement that you reside in California. We will make sure the data is not publicly displayed on the Website, but please be aware that the data may not be completely or comprehensively removed from all our systems (e.g. backups, etc.).
-                </p>
-
-                <h2>
-                    10. DO WE MAKE UPDATES TO THIS NOTICE?     
-                </h2>
-                <p>
-                    We may update this privacy notice from time to time. The updated version will be indicated by an updated "Revised" date and the updated version will be effective as soon as it is accessible. If we make material changes to this privacy notice, we may notify you either by prominently posting a notice of such changes or by directly sending you a notification. We encourage you to review this privacy notice frequently to be informed of how we are protecting your information.
-                </p>
-
-                <h2>
-                    11. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?     
-                </h2>
-                <p>
-                    If you have questions or comments about this notice, you may email us at leodeveloper@protonmail.com.
-                </p>
-
-                <h2>
-                    12. HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU?     
-                </h2>
-                <p>
-                    Based on the applicable laws of your country, you may have the right to request access to the personal information we collect from you, change that information, or delete it in some circumstances. To request to review, update, or delete your personal information, please submit a request using the email above.
+                    Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen<br />
+                    Postfach 20 04 44<br />
+                    40102 Düsseldorf<br />
+                    <br />
+                    Tel.: 0211/38424-0<br />
+                    Fax: 0211/38424-999<br />
+                    E-Mail: poststelle@ldi.nrw.de
                 </p>
             </article>
             <Link href="/">
