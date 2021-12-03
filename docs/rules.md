@@ -44,6 +44,13 @@ Catches Discord imposters by analyzing assets used in the embed.
 Action: `CHALLENGE`, `BLOCK`
 
 
+#### self_bot.embed
+
+Catches selfbots.
+
+Action: `CHALLENGE`, `BLOCK`
+
+
 #### mass_ping.hidden
 
 Catches people abusing hidden pings. (the spoiler trick)
