@@ -23,21 +23,21 @@ Who is ignored by The Cleaner?
 Builtin rules are hardcoded, premade rules by the developers.
 
 
-#### heuristic.content
+#### phishing.content
 
 Catches suspicious messages with at least one url.
 
 Action: `CHALLENGE`, `BLOCK`
 
 
-#### heuristic.domain
+#### phishing.domain.heuristic
 
 Catches suspicious domain names.
 
 Action: `CHALLENGE`, `BLOCK`
 
 
-#### embed.asset
+#### phishing.embed
 
 Catches Discord imposters by analyzing assets used in the embed.
 
@@ -58,14 +58,21 @@ Catches people abusing hidden pings. (the spoiler trick)
 Action: `CHALLENGE`, `BLOCK`
 
 
-#### mass_ping.many
+#### mass_ping.roles
+
+Catches people pinging more than 5 roles.
+
+Action: `CHALLENGE`, `BLOCK`
+
+
+#### mass_ping.users.many
 
 Catches people pinging more than 15 users.
 
 Action: `CHALLENGE`, `BLOCK`
 
 
-#### mass_ping.few
+#### mass_ping.users.few
 
 Catches people pinging more than 5 users.
 
