@@ -25,7 +25,7 @@ export default function Home() {
             <div className="-container">
                 <div className="flex flex-wrap justify-center mb-12">
                     <h1 className="text-5xl sm:text-6xl font-extrabold -heading px-2 flex-none">
-                        <Image className="w-16 h-16 align-middle rounded-full hidden md:inline-block" src="https://cdn.discordapp.com/avatars/823533449717481492/8f9fa1d877c02711fe00a1c91fc2836d.png?size=256" width={256} height={256} alt="Avatar of The Cleaner." />
+                        <Image className="w-16 h-16 align-middle rounded-full hidden md:inline-block" src="/img/avatar.png" width={256} height={256} alt="Avatar of The Cleaner." />
                         <span className="align-middle px-2 hover:border-b-4 border-b-indigo-600">
                             The Cleaner
                         </span>
