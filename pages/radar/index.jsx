@@ -1,18 +1,21 @@
 
+import Link from "next/link";
+
 import MetaTags from "@/components/metatags.jsx";
 
+
 export default function Radar() {
-    const data = {'rules': {'phishing': {'instant': 89, 'not_instant': 11}, 'categories': {'Advertisement': 8, 'Phishing': 80, 'Other': 4, 'Antispam': 5, 'Selfbot': 3}}, 'challenges': {'action': {'captchas': 28, 'bans': 72}, 'categories': {'Phishing': 90, 'Antispam': 5, 'Advertisement': 1, 'Other': 1, 'Selfbot': 4}}, 'last_data': '2021-12-04T21:26:09'}
+    const data = {'rules': {'phishing': {'instant': 89, 'not_instant': 11}, 'categories': {'Advertisement': 10, 'Phishing': 37, 'Other': 2, 'Antispam': 49, 'Selfbot': 1}}, 'challenges': {'action': {'captchas': 12, 'bans': 88}, 'categories': {'Phishing': 44, 'Antispam': 51, 'Advertisement': 2, 'Other': 0, 'Selfbot': 2}}, 'raid': {'total': {'count': 5, 'total_participants': 188, 'average_participants': 38, 'average_duration': 195, 'average_participants_percent': 50, 'average_duration_percent': 47}, 'biggest': {'participants': 75, 'duration': 414}}, 'last_data': '2021-12-09T11:55:34'}
     const sorted_rules_categories = Object.keys(data.rules.categories).map(x => ({name: x, value: data.rules.categories[x]})).sort((a, b) => b.value - a.value);
     const sorted_challenge_categories = Object.keys(data.challenges.categories).map(x => ({name: x, value: data.challenges.categories[x]})).sort((a, b) => b.value - a.value);
     return (
-        <div className="-container">
+        <div className="-container py-6">
             <MetaTags
                 title="The Cleaner Radar"
                 description="Some statistics about The Cleaner."
             />
 
-            <h1 className="text-5xl font-bold mt-6 mb-4">
+            <h1 className="text-5xl font-bold mb-4">
                 The Cleaner Radar
             </h1>
             <p>
@@ -55,6 +58,11 @@ export default function Radar() {
                             <div className="border-b-4 rounded border-red-500" style={{width: `${data.rules.phishing.not_instant}%`}} />
                         </div>
                     </div>
+                    <Link href="/quickstart">
+                        <a className="-anim -btn bg-coolGray-750 hover:bg-blue-630 mt-12">
+                            Detect phishing with The Cleaner!
+                        </a>
+                    </Link>
                 </div>
                 <div>
                     <h3 className="text-xl font-semibold mb-2">
@@ -128,6 +136,87 @@ export default function Radar() {
                             </p>
                             <div className="border-b-4 rounded border-amber-600 ml-auto" style={{width: `${d.value}%`}} />
                         </div>)}
+                    </div>
+                </div>
+            </div>
+            <h2 className="text-2xl font-bold mt-20 mb-4">
+                Raids
+            </h2>
+            <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 className="text-xl font-semibold mb-2">
+                        Biggest raid
+                    </h3>
+                    <p className="text-gray-200 text-sm mb-4">
+                        Biggest raid we have encountered to this date.
+                    </p>
+                    <div>
+                        <div>
+                            <p className="text-gray-100">
+                                Participants
+                            </p>
+                            <p className="text-2xl font-bold">
+                                {data.raid.biggest.participants} accounts
+                            </p>
+                        </div>
+                        <div>
+                            <p className="text-gray-100">
+                                Duration
+                            </p>
+                            <p className="text-2xl font-bold">
+                                {data.raid.biggest.duration > 60 && <>
+                                    {Math.floor(data.raid.biggest.duration / 60)} minutes and{" "}
+                                </>}
+                                {data.raid.biggest.duration % 60} seconds
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 className="text-xl font-semibold mb-2">
+                        Total Raids
+                    </h3>
+                    <p className="text-gray-200 text-sm mb-4">
+                        Very small raids have been excluded.
+                    </p>
+                    <div>
+                        <div>
+                            <p className="text-gray-100">
+                                Total raids
+                            </p>
+                            <p className="text-2xl font-bold">
+                                {data.raid.total.count} raids
+                            </p>
+                        </div>
+                        <div>
+                            <p className="text-gray-100">
+                                Total participants
+                            </p>
+                            <p className="text-2xl font-bold">
+                                {data.raid.total.total_participants} accounts
+                            </p>
+                        </div>
+                        <div>
+                            <p className="text-gray-100">
+                                Average participants
+                            </p>
+                            <p className="text-2xl font-bold">
+                                {data.raid.total.average_participants} accounts
+                            </p>
+                            <div className="border-b-4 rounded border-amber-600 ml-auto" style={{width: `${data.raid.total.average_participants_percent}%`}} />
+                        </div>
+                        <div>
+                            <p className="text-gray-100">
+                                Average duration
+                            </p>
+                            <p className="text-2xl font-bold">
+                                {data.raid.total.average_duration > 60 && <>
+                                    {Math.floor(data.raid.total.average_duration / 60)} minutes and{" "}
+                                </>}
+                                {data.raid.total.average_duration % 60} seconds
+                            </p>
+                            <div className="border-b-4 rounded border-amber-600 ml-auto" style={{width: `${data.raid.total.average_duration_percent}%`}} />
+                        </div>
                     </div>
                 </div>
             </div>
