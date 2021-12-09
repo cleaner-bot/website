@@ -2,12 +2,17 @@
 import Link from "next/link";
 
 import MetaTags from "@/components/metatags.jsx";
+import { useEffect, useState } from "react";
 
 
 export default function Radar() {
     const data = {'rules': {'phishing': {'instant': 89, 'not_instant': 11}, 'categories': {'Advertisement': 10, 'Phishing': 37, 'Other': 2, 'Antispam': 49, 'Selfbot': 1}}, 'challenges': {'action': {'captchas': 12, 'bans': 88}, 'categories': {'Phishing': 44, 'Antispam': 51, 'Advertisement': 2, 'Other': 0, 'Selfbot': 2}}, 'raid': {'total': {'count': 5, 'total_participants': 188, 'average_participants': 38, 'average_duration': 195, 'average_participants_percent': 50, 'average_duration_percent': 47}, 'biggest': {'participants': 75, 'duration': 414}}, 'last_data': '2021-12-09T11:55:34'}
     const sorted_rules_categories = Object.keys(data.rules.categories).map(x => ({name: x, value: data.rules.categories[x]})).sort((a, b) => b.value - a.value);
     const sorted_challenge_categories = Object.keys(data.challenges.categories).map(x => ({name: x, value: data.challenges.categories[x]})).sort((a, b) => b.value - a.value);
+    const [lastUpdated, setLastUpdated] = useState("unknown");
+    useEffect(() => {
+        setLastUpdated(new Date(data.last_data).toLocaleString());
+    }, [data])
     return (
         <div className="-container py-6">
             <MetaTags
@@ -19,7 +24,7 @@ export default function Radar() {
                 The Cleaner Radar
             </h1>
             <p>
-                Last update: {new Date(data.last_data).toLocaleString()}
+                Last update: {lastUpdated}
             </p>
             <p className="mt-8">
                 The Cleaner is a Discord bot for keeping your servers clean.
@@ -171,6 +176,11 @@ export default function Radar() {
                             </p>
                         </div>
                     </div>
+                    <Link href="/quickstart">
+                        <a className="-anim -btn bg-coolGray-750 hover:bg-blue-630 mt-12">
+                            Protect your server with The Cleaner!
+                        </a>
+                    </Link>
                 </div>
                 <div>
                     <h3 className="text-xl font-semibold mb-2">
@@ -220,6 +230,16 @@ export default function Radar() {
                     </div>
                 </div>
             </div>
+            <Link href="/">
+                <a className="-anim -btn bg-blue-580 hover:bg-blue-630 mt-12 mx-auto max-w-[35rem]">
+                    <span className="hidden md:block">
+                        Discover how you can protect your Discord server with The Cleaner!
+                    </span>
+                    <span className="md:hidden">
+                        Features of The Cleaner
+                    </span>
+                </a>
+            </Link>
         </div>
     )
 }
