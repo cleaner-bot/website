@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 
 
 export default function Radar() {
-    const data = {'rules': {'phishing': {'instant': 89, 'not_instant': 11}, 'categories': {'Advertisement': 10, 'Phishing': 37, 'Other': 2, 'Antispam': 49, 'Selfbot': 1}}, 'challenges': {'action': {'captchas': 12, 'bans': 88}, 'categories': {'Phishing': 44, 'Antispam': 51, 'Advertisement': 2, 'Other': 0, 'Selfbot': 2}}, 'raid': {'total': {'count': 5, 'total_participants': 188, 'average_participants': 38, 'average_duration': 195, 'average_participants_percent': 50, 'average_duration_percent': 47}, 'biggest': {'participants': 75, 'duration': 414}}, 'last_data': '2021-12-09T11:55:34'}
+    const data = {'rules': {'phishing': {'instant': 92, 'not_instant': 8}, 'categories': {'Advertisement': 9, 'Phishing': 29, 'Other': 2, 'Antispam': 59, 'Selfbot': 1}}, 'challenges': {'action': {'captchas': 10, 'bans': 90}, 'categories': {'Phishing': 34, 'Antispam': 62, 'Advertisement': 3, 'Other': 1, 'Selfbot': 1}}, 'raid': {'total': {'count': 10, 'total_participants': 277, 'average_participants': 28, 'average_duration': 252, 'average_participants_percent': 37, 'average_duration_percent': 61}, 'biggest': {'participants': 75, 'duration': 414}}, 'last_data': '2021-12-12T21:03:41'}
     const sorted_rules_categories = Object.keys(data.rules.categories).map(x => ({name: x, value: data.rules.categories[x]})).sort((a, b) => b.value - a.value);
     const sorted_challenge_categories = Object.keys(data.challenges.categories).map(x => ({name: x, value: data.challenges.categories[x]})).sort((a, b) => b.value - a.value);
     const [lastUpdated, setLastUpdated] = useState("unknown");
