@@ -59,7 +59,7 @@ const steps = {
                 </h2>
                 <button className="-anim -btn w-60 bg-blue-580 hover:bg-blue-630" onClick={() => {
                     const isMobile = "ontouchstart" in window;
-                    const invite = "https://discord.com/oauth2/authorize?client_id=823533449717481492&scope=applications.commands%20bot&permissions=402664502";
+                    const invite = "https://discord.com/oauth2/authorize?client_id=823533449717481492&scope=applications.commands%20bot&permissions=292527565878";
                     if(isMobile) {
                         window.open(invite, "_blank");
                         setSkip(false);
