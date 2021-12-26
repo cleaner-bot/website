@@ -1,12 +1,14 @@
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { ChevronUpIcon, ChevronDownIcon, ChevronRightIcon } from "@heroicons/react/solid";
 
 import MetaTags from "@/components/metatags.jsx";
-import { useEffect, useState } from "react";
 
 
 export default function Radar() {
-    const data = {'rules': {'phishing': {'instant': 92, 'not_instant': 8}, 'categories': {'Advertisement': 9, 'Phishing': 29, 'Other': 2, 'Antispam': 59, 'Selfbot': 1}}, 'challenges': {'action': {'captchas': 10, 'bans': 90}, 'categories': {'Phishing': 34, 'Antispam': 62, 'Advertisement': 3, 'Other': 1, 'Selfbot': 1}}, 'raid': {'total': {'count': 10, 'total_participants': 277, 'average_participants': 28, 'average_duration': 252, 'average_participants_percent': 37, 'average_duration_percent': 61}, 'biggest': {'participants': 75, 'duration': 414}}, 'last_data': '2021-12-12T21:03:41'}
+    const data = {'trends': {'categories': {'Antispam': 174, 'Phishing': 137, 'Advertisement': 163, 'Other': 340}}, 'rules': {'phishing': {'instant': 95, 'not_instant': 5}, 'categories': {'Advertisement': 9, 'Phishing': 36, 'Other': 3, 'Antispam': 52}}, 'challenges': {'action': {'captchas': 7, 'bans': 93}, 'categories': {'Phishing': 47, 'Antispam': 48, 'Advertisement': 3, 'Other': 2}}, 'raid': {'total': {'count': 17, 'total_participants': 336, 'average_participants': 20, 'average_duration': 241, 'average_participants_percent': 26, 'average_duration_percent': 58}, 'biggest': {'participants': 75, 'duration': 414}}, 'last_data': '2021-12-26T20:01:13'}
+    const sorted_trend_rules_categories = Object.keys(data.trends.categories).map(x => ({name: x, value: data.trends.categories[x]})).sort((a, b) => b.value - a.value);
     const sorted_rules_categories = Object.keys(data.rules.categories).map(x => ({name: x, value: data.rules.categories[x]})).sort((a, b) => b.value - a.value);
     const sorted_challenge_categories = Object.keys(data.challenges.categories).map(x => ({name: x, value: data.challenges.categories[x]})).sort((a, b) => b.value - a.value);
     const [lastUpdated, setLastUpdated] = useState("unknown");
@@ -31,6 +33,39 @@ export default function Radar() {
                 The Cleaner Radar is powered by real data we collect anonymously to provide you (and us) with statistics.
                 This will stay relatively simple for now, because we do not have much data to show off.
             </p>
+            <h2 className="text-2xl font-bold mt-20 mb-4">
+                Trends
+            </h2>
+            <div>
+                <h3 className="text-xl font-semibold mb-2">
+                    Triggered rules trends
+            </h3>
+                <p className="text-gray-200 text-sm mb-4">
+                    Trends comparing the total number of rules triggered in the last 7 days to the 7 days before.
+                </p>
+                <div className="grid grid-cols-2 gap-8">
+                    {sorted_trend_rules_categories.map(d => <div key={d.name}>
+                            <p className="text-gray-100">
+                                {d.name}
+                            </p>
+                            <p className="flex items-baseline">
+                                {d.value == 100 && <>
+                                    No change - <span className="font-bold text-2xl mx-2">0%</span>
+                                    <ChevronRightIcon className="w-6 h-6 text-gray-400 inline self-center" />
+                                </>}
+                                {d.value > 100 && <>
+                                    Increased by <span className="font-bold text-2xl mx-2">{d.value - 100}%</span>
+                                    <ChevronUpIcon className="w-6 h-6 text-red-400 inline self-center" />
+                                </>}
+                                {d.value < 100 && <>
+                                    Decreased by <span className="font-bold text-2xl mx-2">{100 - d.value}%</span>
+                                    <ChevronDownIcon className="w-6 h-6 text-green-400 inline self-center" />
+                                </>}
+                            </p>
+                    </div>)}
+                </div>
+            </div>
+
             <h2 className="text-2xl font-bold mt-20 mb-4">
                 Rules
             </h2>
