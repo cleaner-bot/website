@@ -7,7 +7,7 @@ import MetaTags from "@/components/metatags.jsx";
 
 
 export default function Radar() {
-    const data = {'trends': {'categories': {'Antispam': 174, 'Phishing': 137, 'Advertisement': 163, 'Other': 340}}, 'rules': {'phishing': {'instant': 95, 'not_instant': 5}, 'categories': {'Advertisement': 9, 'Phishing': 36, 'Other': 3, 'Antispam': 52}}, 'challenges': {'action': {'captchas': 7, 'bans': 93}, 'categories': {'Phishing': 47, 'Antispam': 48, 'Advertisement': 3, 'Other': 2}}, 'raid': {'total': {'count': 17, 'total_participants': 336, 'average_participants': 20, 'average_duration': 241, 'average_participants_percent': 26, 'average_duration_percent': 58}, 'biggest': {'participants': 75, 'duration': 414}}, 'last_data': '2021-12-26T20:01:13'}
+    const data = {'trends': {'categories': {'Antispam': 174, 'Phishing': 137, 'Advertisement': 163, 'Other': 340}}, 'rules': {'phishing': {'instant': 98, 'not_instant': 2}, 'categories': {'Phishing': 47, 'Advertisement': 9, 'Antispam': 41, 'Other': 4}}, 'challenges': {'action': {'captchas': 7, 'bans': 93}, 'categories': {'Phishing': 69, 'Antispam': 25, 'Advertisement': 4, 'Other': 2}}, 'raid': {'total': {'count': 17, 'total_participants': 336, 'average_participants': 20, 'average_duration': 241, 'average_participants_percent': 26, 'average_duration_percent': 58}, 'biggest': {'participants': 75, 'duration': 414}}, 'last_data': '2021-12-26T20:01:13'}
     const sorted_trend_rules_categories = Object.keys(data.trends.categories).map(x => ({name: x, value: data.trends.categories[x]})).sort((a, b) => b.value - a.value);
     const sorted_rules_categories = Object.keys(data.rules.categories).map(x => ({name: x, value: data.rules.categories[x]})).sort((a, b) => b.value - a.value);
     const sorted_challenge_categories = Object.keys(data.challenges.categories).map(x => ({name: x, value: data.challenges.categories[x]})).sort((a, b) => b.value - a.value);
@@ -98,6 +98,9 @@ export default function Radar() {
                             <div className="border-b-4 rounded border-red-500" style={{width: `${data.rules.phishing.not_instant}%`}} />
                         </div>
                     </div>
+                    <p className="text-gray-200 text-sm mt-4">
+                        Timespan: Last 2 weeks.
+                    </p>
                     <Link href="/quickstart">
                         <a className="-anim -btn bg-coolGray-750 hover:bg-blue-630 mt-12">
                             Detect phishing with The Cleaner!
@@ -123,6 +126,9 @@ export default function Radar() {
                             <div className="border-b-4 rounded border-amber-600 ml-auto" style={{width: `${d.value}%`}} />
                         </div>)}
                     </div>
+                    <p className="text-gray-200 text-sm mt-4">
+                        Timespan: Last 2 weeks.
+                    </p>
                 </div>
             </div>
             <h2 className="text-2xl font-bold mt-20 mb-4">
@@ -157,6 +163,9 @@ export default function Radar() {
                             <div className="border-b-4 rounded border-amber-600" style={{width: `${data.challenges.action.captchas}%`}} />
                         </div>
                     </div>
+                    <p className="text-gray-200 text-sm mt-4">
+                        Timespan: All time.
+                    </p>
                 </div>
                 <div>
                     <h3 className="text-xl font-semibold mb-2">
@@ -177,6 +186,9 @@ export default function Radar() {
                             <div className="border-b-4 rounded border-amber-600 ml-auto" style={{width: `${d.value}%`}} />
                         </div>)}
                     </div>
+                    <p className="text-gray-200 text-sm mt-4">
+                        Timespan: Last 2 weeks.
+                    </p>
                 </div>
             </div>
             <h2 className="text-2xl font-bold mt-20 mb-4">
