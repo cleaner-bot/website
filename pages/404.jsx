@@ -19,14 +19,14 @@ export default function FourOFour() {
                 <p className="text-4xl font-bold text-gray-100 text-center mt-2">
                     Page not found
                 </p>
-                <button className="-anim -btn w-full bg-blue-580 hover:bg-blue-630 mt-8" onClick={() => {
+                <button className="-anim -btn w-full -link mt-8" onClick={() => {
                     window.history.back();
                 }}>
                     <ArrowLeftIcon className="w-6 h-6 mr-2" />
                     Go back
                 </button>
                 <Link href="/">
-                    <a className="-anim -btn w-full bg-blue-580 hover:bg-blue-630 mt-2">
+                    <a className="-anim -btn w-full -link mt-2">
                         Go to the Homepage
                         <ArrowRightIcon className="w-6 h-6 ml-2" />
                     </a>

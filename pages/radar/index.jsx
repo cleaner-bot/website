@@ -278,7 +278,7 @@ export default function Radar() {
                 </div>
             </div>
             <Link href="/">
-                <a className="-anim -btn bg-blue-580 hover:bg-blue-630 mt-12 mx-auto max-w-[35rem]">
+                <a className="-anim -btn -link mt-12 mx-auto max-w-[35rem]">
                     <span className="hidden md:block">
                         Discover how you can protect your Discord server with The Cleaner!
                     </span>

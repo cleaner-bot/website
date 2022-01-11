@@ -69,19 +69,19 @@ export default function Home() {
                         </div>
                         <div className="grid gap-2 sm:grid-cols-2 mt-2">
                             <Link href="/quickstart">
-                                <a className="-btn -anim bg-blue-580 hover:bg-blue-630 sm:col-span-2">
+                                <a className="-btn -anim -link sm:col-span-2">
                                     Quick Start
                                     <ArrowRightIcon className="h-6 w-6 inline ml-2" />
                                 </a>
                             </Link>
                             <Link href="/discord">
-                                <a className="-btn -anim bg-blue-580 hover:bg-blue-630">
+                                <a className="-btn -anim -link">
                                     Join the Discord
                                     <ExternalLinkIcon className="h-6 w-6 inline ml-2" />
                                 </a>
                             </Link>
                             <Link href="/docs/">
-                                <a className="-btn -anim bg-blue-580 hover:bg-blue-630">
+                                <a className="-btn -anim -link">
                                     Documentation
                                     <ArrowRightIcon className="h-6 w-6 inline ml-2" />
                                 </a>
@@ -243,7 +243,7 @@ export default function Home() {
                                 Want to disable some rules? Check out the command documentation on rules.
                             </p>
                             <Link href="/docs/commands/#rules">
-                                <a className="w-full sm:w-1/2 md:w-full lg:w-1/2 mt-6 -btn -anim bg-blue-580 hover:bg-blue-630">
+                                <a className="w-full sm:w-1/2 md:w-full lg:w-1/2 mt-6 -btn -anim -link">
                                     Rules Commands
                                     <ArrowRightIcon className="w-6 h-6 ml-2 inline" />
                                 </a>
@@ -265,7 +265,7 @@ export default function Home() {
                     Start protecting <span className="text-blue-330">your server</span> now
                 </h2>
                 <Link href="/quickstart">
-                    <a className="mx-auto max-w-[27rem] lg:max-w-[56rem] mt-12 -btn -anim bg-blue-580 hover:bg-blue-630">
+                    <a className="mx-auto max-w-[27rem] lg:max-w-[56rem] mt-12 -btn -anim -link">
                         Quick Start
                         <ArrowRightIcon className="h-6 w-6 inline ml-2" />
                     </a>

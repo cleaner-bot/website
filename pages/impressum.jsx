@@ -51,7 +51,7 @@ export default function Privacy() {
                 </p>
             </article>
             <Link href="/">
-                <a className="-anim -btn bg-blue-580 hover:bg-blue-630 w-full md:w-96 my-32">
+                <a className="-anim -btn -link w-full md:w-96 my-32">
                     Back to the homepage
                     <ArrowRightIcon className="h-6 w-6 inline ml-2" />
                 </a>

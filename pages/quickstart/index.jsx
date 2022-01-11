@@ -57,7 +57,7 @@ const steps = {
                 <h2 className="text-3xl font-semibold mb-8">
                     1. Invite The Cleaner
                 </h2>
-                <button className="-anim -btn w-60 bg-blue-580 hover:bg-blue-630" onClick={() => {
+                <button className="-anim -btn w-60 -link" onClick={() => {
                     const isMobile = "ontouchstart" in window;
                     const invite = "https://discord.com/oauth2/authorize?client_id=823533449717481492&scope=applications.commands%20bot&permissions=292527565878";
                     if(isMobile) {
@@ -455,7 +455,7 @@ const steps = {
                     5. Rules TL;DR
                 </h2>
                 <Link href="/docs/commands/#rules">
-                    <a className="-anim -btn md:w-96 bg-blue-580 hover:bg-blue-630">
+                    <a className="-anim -btn md:w-96 -link">
                         Not TL;DR version <ArrowRightIcon className="w-6 h-6 ml-2" />
                     </a>
                 </Link>
@@ -511,20 +511,20 @@ const steps = {
                     </p>
                 </article>
                 <Link href="/discord">
-                    <a className="-anim -btn bg-blue-580 hover:bg-blue-630 w-full lg:w-96 mt-4">
+                    <a className="-anim -btn -link w-full lg:w-96 mt-4">
                         Support Server
                         <ExternalLinkIcon className="h-6 w-6 inline ml-2" />
                     </a>
                 </Link>
                 <div className="grid grid-cols-1 gap-2 mt-8 w-full lg:w-96">
                     <Link href="/">
-                        <a className="-anim -btn bg-blue-580 hover:bg-blue-630">
+                        <a className="-anim -btn -link">
                             Back to the homepage
                             <ArrowRightIcon className="h-6 w-6 inline ml-2" />
                         </a>
                     </Link>
                     <Link href="/docs">
-                        <a className="-anim -btn bg-blue-580 hover:bg-blue-630">
+                        <a className="-anim -btn -link">
                             Read the docs
                             <ArrowRightIcon className="h-6 w-6 inline ml-2" />
                         </a>
