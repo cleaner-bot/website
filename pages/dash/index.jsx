@@ -8,6 +8,7 @@ import Image from "@/components/image.jsx";
 import { createOAuthRedirect, useGuilds } from "@/lib/api.js";
 import Skeleton from "@/components/skeleton.jsx";
 import { ExternalLink } from "@/components/buttons.jsx";
+import ErrorHandler from "@/components/dash/error.jsx";
 import { range } from "@/lib/helper.js";
 
 
@@ -30,33 +31,14 @@ export default function Dashboard() {
                 Your servers
             </h1>
             
-            {isError && (isError.response ? <>
-                {isError.response.status === 401 && <div className="flex">
-                    <button className="mx-auto --btn --btn-4 --btn-primary" onClick={() => {
-                        const url = createOAuthRedirect({});
-                        router.push(url);
-                    }}>
-                        Login using Discord
-                    </button>
-                </div>}
-                {isError.response.status === 429 && <div className="w-full px-4 mx-auto mt-20 sm:w-96">
-                    <h1 className="font-mono text-4xl font-bold text-center text-rose-400">
-                        Slow down!
-                    </h1>
-                    <p className="mt-6 text-gray-200">
-                        Your network is sending too many requests!
-                    </p>
-                    <p className="text-gray-200">
-                        It can take up to one minute to regain access.
-                    </p>
-                    <ExternalLink href="/discord" className="mt-12">
-                        Support (discord)
-                    </ExternalLink>
-                </div>}
-                {isError.response.status} {isError.response.data.detail}
-            </> : <div className="text-red-400">
-                An unknown error occured.
-            </div>)}
+            {isError && (isError.response && isError.response.status === 401 ? <div className="flex">
+                <button className="mx-auto --btn --btn-4 --btn-primary" onClick={() => {
+                    const url = createOAuthRedirect({});
+                    router.push(url);
+                }}>
+                    Login using Discord
+                </button>
+            </div> : <ErrorHandler error={isError} />)}
             {(isLoading || response) && <GuildList response={response} />}
             {response && <>
                 <h2 className="mt-20 mb-10 text-4xl font-bold text-center -heading">

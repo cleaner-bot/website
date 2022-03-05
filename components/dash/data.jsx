@@ -2,8 +2,9 @@
 import { useRouter } from "next/router";
 
 import Sidebar from "@/components/dash/sidebar.jsx";
-import { InternalLink, ExternalLink } from "@/components/buttons.jsx";
+import { InternalLink } from "@/components/buttons.jsx";
 import { createOAuthRedirect, useGuild } from "@/lib/api.js";
+import ErrorHandler from "./error";
 
 
 export function LoadingData() {
@@ -40,49 +41,11 @@ function GuildNotFound() {
 
 export function ErrorLoadingData({ guildId, current, error }) {
     const router = useRouter();
-    if(error.response) {
-        if(error.response.status === 401) {
-            router.push(createOAuthRedirect({ guild: guildId, component: current }));
-            return null;
-        } else if(error.response.status === 403) {
-        } else if(error.response.status === 404) {
-            return <GuildNotFound />
-        } else if(error.response.status === 429) {
-            return (
-                <div className="w-full px-4 mx-auto mt-20 sm:w-96">
-                    <h1 className="text-4xl font-medium text-center text-rose-400">
-                        Slow down!
-                    </h1>
-                    <p className="mt-6 text-center text-gray-200">
-                        Your network is sending too many requests!
-                    </p>
-                    <p className="text-center text-gray-200">
-                        It can take up to one minute to regain access.
-                    </p>
-                    <ExternalLink href="/discord" className="mt-12">
-                        Support (discord)
-                    </ExternalLink>
-                </div>
-            )
-        }
+    if(error.response && error.response.status === 401) {
+        router.push(createOAuthRedirect({ guild: guildId, component: current }));
+        return null;
     }
-
-    return (
-        <div className="w-full px-4 mx-auto mt-20 sm:w-96">
-            <h1 className="text-4xl font-medium text-center text-rose-400">
-                Loading failed!
-            </h1>
-            <p className="mt-2 text-center text-gray-200">
-                Please contact our support wizards!
-            </p>
-            {error && <p className="mt-6 font-mono text-gray-100">
-                <span className="text-gray-300">Error Code:</span> {error.message}
-            </p>}
-            <ExternalLink href="/discord" className="mt-12">
-                Support (discord)
-            </ExternalLink>
-        </div>
-    )
+    return <ErrorHandler error={error} />
 }
 
 export function DataWrapper({ guildId, current, Inner }) {
@@ -121,5 +84,4 @@ function DataWrapperWithGuildID({ guildId, current, Inner }) {
             <Inner data={response.data} />
         </Sidebar>
     )
-
 }

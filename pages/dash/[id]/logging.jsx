@@ -3,8 +3,8 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 
 import { DataWrapper } from "@/components/dash/data.jsx";
-import { Toggle, DropdownSearch, Upgrade, JustBlock, BlockRightSide } from "@/components/dash/ui.jsx";
-import { OptionalUpgrade } from "@/components/dash/ui.jsx";
+import { Toggle, OptionalUpgrade, DropdownSearch, JustBlock, BlockRightSide } from "@/components/dash/ui.jsx";
+import ErrorHandler from "@/components/dash/error.jsx";
 import { useLoggingDownloads } from "@/lib/api.js";
 
 export default function DashboardWrapper() {
@@ -98,9 +98,7 @@ function DownloadFiles({ data }) {
     const { data: response, error: isError } = useLoggingDownloads(data.guild.id);
     if(isError) {
         return (
-            <>
-                error: {isError.response ? `${isError.response.status} - ${isError.response.data && isError.response.data.detail}` : isError.message}
-            </>
+            <ErrorHandler error={isError} />
         )
     }
     if(!response) {
