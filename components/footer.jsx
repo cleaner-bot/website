@@ -17,9 +17,9 @@ const footer = [
     {
         name: "Features",
         links: [
-            { name: "Anti Spam", href: "/features#antispam" },
-            { name: "Anti Phishing", href: "/features#phishing" },
-            { name: "Verification", href: "/features#verification" },
+            { name: "Anti Spam", href: "/docs/features#raid-protection" },
+            { name: "Anti Phishing", href: "/docs/featuress#phishing-prevention" },
+            { name: "Verification", href: "/docs/challenges" },
         ]
     },
     {

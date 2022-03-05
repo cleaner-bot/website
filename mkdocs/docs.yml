@@ -8,6 +8,6 @@ nav:
     - Commands: commands.md
     - Rules: rules.md
     - Mitigation Strategies: mitigation.md
-    - CAPTCHAs: captchas.md
+    - Challenge: challenge.md
     - About: about.md
 theme: readthedocs
