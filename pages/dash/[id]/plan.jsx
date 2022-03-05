@@ -5,11 +5,17 @@ import { useRouter } from "next/router";
 import { CheckIcon, CheckCircleIcon, XIcon } from "@heroicons/react/solid";
 
 import { DataWrapper } from "@/components/dash/data.jsx";
+import MetaTags from "@/components/metatags.jsx";
 
 export default function DashboardWrapper() {
     const router = useRouter();
     return (
-        <DataWrapper guildId={router.isReady && router.query.id} Inner={PlanDashboard} current="plan" />
+        <>
+            <MetaTags
+                title="Plan | The Cleaner Dashboard"
+            />
+            <DataWrapper guildId={router.isReady && router.query.id} Inner={PlanDashboard} current="plan" />
+        </>
     )
 }
 

@@ -1,15 +1,20 @@
 
-import { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
 import { DataWrapper } from "@/components/dash/data.jsx";
 import { Unlocked, OptionalUpgrade, BlockRightSide } from "@/components/dash/ui.jsx";
+import MetaTags from "@/components/metatags.jsx";
 
 export default function DashboardWrapper() {
     const router = useRouter();
     return (
-        <DataWrapper guildId={router.isReady && router.query.id} Inner={ContactDashboard} current="contact" />
+        <>
+            <MetaTags
+                title="Contact | The Cleaner Dashboard"
+            />
+            <DataWrapper guildId={router.isReady && router.query.id} Inner={ContactDashboard} current="contact" />
+        </>
     )
 }
 

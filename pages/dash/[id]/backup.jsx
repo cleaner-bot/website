@@ -1,14 +1,18 @@
 
-import { useState } from "react";
 import { useRouter } from "next/router";
 
 import { DataWrapper } from "@/components/dash/data.jsx";
-import { Checkbox, Upgrade, BlockRightSide } from "@/components/dash/ui.jsx";
+import MetaTags from "@/components/metatags.jsx";
 
 export default function DashboardWrapper() {
     const router = useRouter();
     return (
-        <DataWrapper guildId={router.isReady && router.query.id} Inner={BackupDashboard} current="backup" />
+        <>
+            <MetaTags
+                title="Backup | The Cleaner Dashboard"
+            />
+            <DataWrapper guildId={router.isReady && router.query.id} Inner={BackupDashboard} current="backup" />
+        </>
     )
 }
 
@@ -19,7 +23,7 @@ function BackupDashboard({ data }) {
             <h1 className="text-2xl">
                 Backup
             </h1>
-            <p className="text-gray-300 mt-2">
+            <p className="mt-2 text-gray-300">
                 Backup settings.
             </p>
         </>

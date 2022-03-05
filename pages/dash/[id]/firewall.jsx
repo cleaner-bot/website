@@ -5,11 +5,17 @@ import { useRouter } from "next/router";
 import { doChange, patchConfig } from "@/lib/api.js";
 import { DataWrapper } from "@/components/dash/data.jsx";
 import { Dropdown, BlockRightSide } from "@/components/dash/ui.jsx";
+import MetaTags from "@/components/metatags.jsx";
 
 export default function DashboardWrapper() {
     const router = useRouter();
     return (
-        <DataWrapper guildId={router.isReady && router.query.id} Inner={FirewallDashboard} current="firewall" />
+        <>
+            <MetaTags
+                title="Firewall | The Cleaner Dashboard"
+            />
+            <DataWrapper guildId={router.isReady && router.query.id} Inner={FirewallDashboard} current="firewall" />
+        </>
     )
 }
 

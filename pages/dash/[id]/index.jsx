@@ -5,11 +5,17 @@ import { useRouter } from "next/router";
 import { DataWrapper } from "@/components/dash/data.jsx";
 import { InternalLink } from "@/components/buttons.jsx";
 import { Toggle, DropdownSearch, JustBlock, Attention, BlockRightSide } from "@/components/dash/ui.jsx";
+import MetaTags from "@/components/metatags.jsx";
 
 export default function DashboardWrapper() {
     const router = useRouter();
     return (
-        <DataWrapper guildId={router.isReady && router.query.id} Inner={Dashboard} current="" />
+        <>
+            <MetaTags
+                title="The Cleaner Dashboard"
+            />
+            <DataWrapper guildId={router.isReady && router.query.id} Inner={Dashboard} current="" />
+        </>
     )
 }
 

@@ -1,16 +1,22 @@
 
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import toast from "react-hot-toast";
 
 import { DataWrapper } from "@/components/dash/data.jsx";
-import { Toggle, Checkbox, Button, Modal, Dropdown, DropdownSearch, OptionalUpgrade, Slider, JustBlock, BlockRightSide, HorizontalRule } from "@/components/dash/ui.jsx";
+import { Toggle, Button, Dropdown, DropdownSearch, OptionalUpgrade, Slider, JustBlock, BlockRightSide, HorizontalRule } from "@/components/dash/ui.jsx";
+import MetaTags from "@/components/metatags.jsx";
 import { doChange, patchConfig } from "@/lib/api.js";
 
 export default function DashboardWrapper() {
     const router = useRouter();
     return (
-        <DataWrapper guildId={router.isReady && router.query.id} Inner={ChallengeDashboard} current="challenge" />
+        <>
+            <MetaTags
+                title="Challenge | The Cleaner Dashboard"
+            />
+            <DataWrapper guildId={router.isReady && router.query.id} Inner={ChallengeDashboard} current="challenge" />
+        </>
     )
 }
 

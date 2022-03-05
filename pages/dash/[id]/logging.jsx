@@ -5,12 +5,18 @@ import { useRouter } from "next/router";
 import { DataWrapper } from "@/components/dash/data.jsx";
 import { Toggle, OptionalUpgrade, DropdownSearch, JustBlock, BlockRightSide } from "@/components/dash/ui.jsx";
 import ErrorHandler from "@/components/dash/error.jsx";
+import MetaTags from "@/components/metatags.jsx";
 import { useLoggingDownloads } from "@/lib/api.js";
 
 export default function DashboardWrapper() {
     const router = useRouter();
     return (
-        <DataWrapper guildId={router.isReady && router.query.id} Inner={LoggingDashboard} current="logging" />
+        <>
+            <MetaTags
+                title="Logging | The Cleaner Dashboard"
+            />
+            <DataWrapper guildId={router.isReady && router.query.id} Inner={LoggingDashboard} current="logging" />
+        </>
     )
 }
 

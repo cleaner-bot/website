@@ -4,11 +4,17 @@ import { useRouter } from "next/router";
 
 import { DataWrapper } from "@/components/dash/data.jsx";
 import { Toggle, BlockRightSide, DropdownSearch, JustBlock } from "@/components/dash/ui.jsx";
+import MetaTags from "@/components/metatags.jsx";
 
 export default function DashboardWrapper() {
     const router = useRouter();
     return (
-        <DataWrapper guildId={router.isReady && router.query.id} Inner={SlowmodeDashboard} current="slowmode" />
+        <>
+            <MetaTags
+                title="Slowmode | The Cleaner Dashboard"
+            />
+            <DataWrapper guildId={router.isReady && router.query.id} Inner={SlowmodeDashboard} current="slowmode" />
+        </>
     )
 }
 

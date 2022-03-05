@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { doChange, patchConfig, patchEntitlement } from "@/lib/api.js";
 import { DataWrapper } from "@/components/dash/data.jsx";
 import { TextInput, NumberInput, Button, BlockRightSide } from "@/components/dash/ui.jsx";
+import MetaTags from "@/components/metatags";
 
 export default function DashboardWrapper() {
     const router = useRouter();
@@ -24,6 +25,9 @@ function DevDashboard({ data }) {
     const reactHooksConfig = Object.keys(data.config).map(key => useState(data.config[key]));
     return (
         <>
+            <MetaTags
+                title="Developer panel | The Cleaner Dashboard"
+            />
             <h1 className="text-2xl">
                 Developer panel
             </h1>
