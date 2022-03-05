@@ -64,7 +64,7 @@ export default function Footer({ className }) {
                 <p className="text-sm text-gray-200">
                     {foot.name}
                 </p>
-                <div className="">
+                <div>
                     {foot.links.map(link => <Link href={link.href} key={link.href}>
                         <a className="block hover:underline">
                             {link.name}
