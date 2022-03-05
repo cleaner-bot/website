@@ -1,3 +1,11 @@
+---
+title: About the Cleaner
+summary: The Cleaner is built for keeping servers clean.
+authors:
+    - Leo Developer
+date: 2022-03-05
+---
+
 
 # About The Cleaner
 
@@ -48,4 +56,4 @@ With time I improved the bot, added more detections and made The Cleaner even be
 
 ---
 
-[Ready to invite the Cleaner?](/quickstart/) | [Need Support Instead?](/discord)
+[Ready to invite the Cleaner?](/dash/) | [Need Support Instead?](/discord)

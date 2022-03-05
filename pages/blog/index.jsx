@@ -12,7 +12,7 @@ const articles = [
 
 export default function Blog() {
     return (
-        <div className="-container py-20">
+        <div className="--container py-20">
             <MetaTags title="The Cleaner - Blog" description="Blog of The Cleaner!" />
             <h1 className="text-2xl text-gray-200">
                 The `The Cleaner` Blog

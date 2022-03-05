@@ -1,13 +1,13 @@
 
 import Link from "next/link";
-import { ArrowRightIcon } from "@heroicons/react/outline";
 
 import MetaTags from "@/components/metatags.jsx";
+import { InternalLink } from "@/components/buttons.jsx";
 
 
 export default function What() {
     return (
-        <div className="-container">
+        <div className="--container">
             <MetaTags
                 title="What? Why? What now? Help?"
                 description="Human Verification? What? Why? What now? Help?"
@@ -78,12 +78,9 @@ export default function What() {
                 </p>
             </article>
 
-            <Link href="/">
-                <a className="-anim -btn -link w-full md:w-96 my-32">
-                    Back to the homepage
-                    <ArrowRightIcon className="h-6 w-6 inline ml-2" />
-                </a>
-            </Link>
+            <InternalLink href="/" className="w-full my-32 md:w-80">
+                Back to the Homepage
+            </InternalLink>
         </div>
     )
 }

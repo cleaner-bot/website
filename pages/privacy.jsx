@@ -1,13 +1,13 @@
 
 import Link from "next/link";
-import { ArrowRightIcon } from "@heroicons/react/outline";
 
 import MetaTags from "@/components/metatags.jsx";
+import { InternalLink } from "@/components/buttons.jsx";
 
 
 export default function Privacy() {
     return (
-        <div className="-container">
+        <div className="--container">
             <article>
                 <MetaTags
                     title="The Cleaner - Privacy Policy"
@@ -214,12 +214,9 @@ export default function Privacy() {
                     E-Mail: poststelle@ldi.nrw.de
                 </p>
             </article>
-            <Link href="/">
-                <a className="-anim -btn -link w-full md:w-96 my-32">
-                    Back to the homepage
-                    <ArrowRightIcon className="h-6 w-6 inline ml-2" />
-                </a>
-            </Link>
+            <InternalLink href="/" className="w-full my-32 md:w-80">
+                Back to the Homepage
+            </InternalLink>
         </div>
     )
 }

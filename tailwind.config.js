@@ -7,14 +7,15 @@ colors.purdigo = colorCross(colors.purple, colors.indigo);
 
 module.exports = {
     mode: "jit",
-    purge: [
+    content: [
         "./pages/**/*.{js,ts,jsx,tsx}",
-        "./components/**/*.{js,ts,jsx,tsx}"
+        "./components/**/*.{js,ts,jsx,tsx}",
+        "./lib/**/*.js"
     ],
     darkMode: "class", // or "media" or "class"
     theme: {
         extend: {
-            colors: colorFill(colors)
+            colors: colorFill(colors),
         }
     },
     variants: {
