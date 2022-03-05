@@ -106,7 +106,7 @@ Fax: 0211/38424-999
 E-Mail: poststelle@ldi.nrw.de
 
 
-## Contact
+## Contact us
 
 if you wish to contact us for questions about this policy or wish to exert your rights, you have the following options:
 

@@ -59,4 +59,4 @@ Detects attachment spam using filesize.  (3/30s)
 
 ---
 
-[Ready to invite the Cleaner?](/quickstart/) | [Need Support Instead?](/discord)
+[Ready to invite the Cleaner?](/dash/) | [Need Support Instead?](/discord)
