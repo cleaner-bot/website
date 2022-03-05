@@ -1,9 +1,6 @@
 export function onRequestGet({ env, request, params }) {
-    try {
-        let { path } = params;
-        path = path.slice(1).join("/");
-        return env.ASSETS.fetch(new Request(new URL("/dash/[id]/" + path, request.url).toString(), request))
-    } catch(e) {
-        return new Response(`${e.message} ${e.stack} ${typeof(params.path)} ${params.path}`)
-    }
+    let { path } = params;
+    path = path.slice(1).join("/");
+    return new Response(`${new URL("/dash/[id]/" + path, request.url).toString()} ${path}`)
+    // return env.ASSETS.fetch(new Request(new URL("/dash/[id]/" + path, request.url).toString(), request))
 }
