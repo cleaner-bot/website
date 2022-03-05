@@ -8,6 +8,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import Skeleton from "@/components/skeleton.jsx";
 import Footer from "@/components/footer.jsx";
 import Image from "@/components/image.jsx";
+import plans from "@/lib/plans.js";
 
 
 const navigation = [
@@ -104,21 +105,7 @@ export default function Sidebar({ current, data, guildId, children }) {
                                         ))}
                                     </nav>
                                 </div>
-                                <div className="flex flex-shrink-0 p-4 border-t border-gray-650">
-                                    <Link href="/dash/">
-                                        <a className="flex-shrink-0 block group">
-                                            <div className="flex items-center">
-                                                <div>
-                                                    {data ? <img src={data.user.avatar} alt="" className="inline-block w-10 h-10 rounded-full"/> : <Skeleton className="w-10 h-10 rounded-full" />}
-                                                </div>
-                                                <div className="ml-3">
-                                                    <p className="text-base font-medium text-white">{data && data.user.name}</p>
-                                                    <p className="text-sm font-medium text-gray-400 group-hover:text-gray-300">View servers</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </Link>
-                                </div>
+                                <Profile data={data} />
                             </div>
                         </Transition.Child>
                         <div className="flex-shrink-0 w-14">{/* Force sidebar to shrink to fit close icon */}</div>
@@ -156,21 +143,7 @@ export default function Sidebar({ current, data, guildId, children }) {
                                 ))}
                             </nav>
                         </div>
-                        <div className="flex flex-shrink-0 p-4 border-t border-gray-650">
-                            <Link href="/dash/">
-                                <a className="flex-shrink-0 block w-full group">
-                                    <div className="flex items-center">
-                                        <div>
-                                            {data ? <Image src={data.user.avatar} alt="" className="inline-block rounded-full h-9 w-9" /> : <Skeleton className="rounded-full h-9 w-9" />}
-                                        </div>
-                                        <div className="ml-3">
-                                            <p className="text-sm font-medium text-white truncate">{data && data.user.name}</p>
-                                            <p className="text-xs font-medium text-gray-300 group-hover:text-gray-200">View servers</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </Link>
-                        </div>
+                        <Profile data={data} />
                     </div>
                 </div>
                 <div className="flex flex-col flex-1 md:pl-64">
@@ -193,6 +166,39 @@ export default function Sidebar({ current, data, guildId, children }) {
                     </main>
                 </div>
             </div>
+        </>
+    )
+}
+
+function Profile({ data }) {
+    const options = [];
+    if(data && data.user.is_dev)
+        options.push({ name: "Developer options", text: "View developer panel", href: "/admin/", image: null });
+    if(data && data.entitlements && data.entitlements.plan > 0)
+        options.push({ name: "Current plan", text: plans[data.entitlements.plan]?.name || "Developer", href: `/dash/${data.guild.id}/plan`, image: null });
+    options.push({
+        name: data && data.user.name,
+        text: "View servers",
+        href: "/dash/",
+        image: data && data.user.avatar,
+    })
+    return (
+        <>
+            {options.map(opt => <div className="flex flex-shrink-0 p-4 border-t border-gray-650" key={opt.href}>
+                <Link href={opt.href}>
+                    <a className="flex-shrink-0 block w-full group">
+                        <div className="flex items-center">
+                            {opt.image !== null && <div>
+                                {opt.image ? <Image src={opt.image} alt="" className="inline-block rounded-full h-9 w-9" /> : <Skeleton className="rounded-full h-9 w-9" />}
+                            </div>}
+                            <div className={opt.image === null ? "ml-12" : "ml-3"}>
+                                <p className="text-sm font-medium text-white truncate">{opt.name}</p>
+                                <p className="text-xs font-medium text-gray-300 --anim group-hover:text-gray-200">{opt.text}</p>
+                            </div>
+                        </div>
+                    </a>
+                </Link>
+            </div>)}
         </>
     )
 }
