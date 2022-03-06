@@ -84,7 +84,7 @@ export default function Features() {
                         {feat.points.map(point => <Pro key={point}>{point}</Pro>)}
                     </div>
                 </div>
-                <div className={index % 2 === 0 && "lg:order-first"}>
+                <div className={index % 2 === 0 ? "lg:order-first" : ""}>
                     <Image className="w-full" valt="" {...feat.image} />
                 </div>
             </div>)}
