@@ -19,6 +19,13 @@ Catches suspicious messages with at least one url.
 Default action: `CHALLENGE`
 
 
+## phishing.domain.blacklisted
+
+Catches blacklisted domains.
+
+Default action: `CHALLENGE`
+
+
 ## phishing.domain.heuristic
 
 Catches suspicious domain names.
