@@ -78,7 +78,7 @@ export default function Sidebar({ current, data, guildId, children }) {
                                 </Transition.Child>
                                 <div className="flex-1 h-0 pt-5 pb-4 overflow-y-auto">
                                     <div className="flex items-center flex-shrink-0 gap-2 px-4 text-2xl font-semibold text-gray-200 truncate">
-                                        <Image src="/img/avatar.png" alt="" className="w-8 h-8" />
+                                        <Image src="/img/avatar.png" alt="" className="w-8 h-8 rounded-full bg-gray-750" />
                                         The Cleaner
                                     </div>
                                     <div className="px-4 mt-2 truncate">
@@ -119,7 +119,7 @@ export default function Sidebar({ current, data, guildId, children }) {
                     <div className="flex flex-col flex-1 min-h-0 bg-gray-800">
                         <div className="flex flex-col flex-1 pt-5 pb-4 overflow-y-auto">
                             <div className="flex items-center flex-shrink-0 gap-2 px-4 text-2xl font-semibold text-gray-200 truncate">
-                                <Image src="/img/avatar.png" alt="" className="w-8 h-8" />
+                                <Image src="/img/avatar.png" alt="" className="w-8 h-8 rounded-full bg-gray-750" />
                                 The Cleaner
                             </div>
                             <div className="px-4 mt-2 truncate">
@@ -176,7 +176,7 @@ function Profile({ data }) {
     if(data && data.user.is_dev)
         options.push({ name: "Developer options", text: "View developer panel", href: "/admin/", image: null });
     if(data && data.entitlements && data.entitlements.plan > 0)
-        options.push({ name: "Current plan", text: plans[data.entitlements.plan]?.name || "Developer", href: `/dash/${data.guild.id}/plan`, image: null });
+        options.push({ name: "Current plan", text: plans[data.entitlements.plan] || "Developer", href: `/dash/${data.guild.id}/plan`, image: null });
     options.push({
         name: data && data.user.name,
         text: "View servers",
@@ -190,7 +190,7 @@ function Profile({ data }) {
                     <a className="flex-shrink-0 block w-full group">
                         <div className="flex items-center">
                             {opt.image !== null && <div>
-                                {opt.image ? <Image src={opt.image} alt="" className="inline-block rounded-full h-9 w-9" /> : <Skeleton className="rounded-full h-9 w-9" />}
+                                {opt.image ? <Image src={opt.image} alt="" className="inline-block rounded-full h-9 w-9 bg-gray-750" /> : <Skeleton className="rounded-full h-9 w-9" />}
                             </div>}
                             <div className={opt.image === null ? "ml-12" : "ml-3"}>
                                 <p className="text-sm font-medium text-white truncate">{opt.name}</p>
