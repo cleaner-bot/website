@@ -29,7 +29,7 @@ export default function Dashboard() {
     
     return (
         <>
-            <div className="min-h-screen --container">
+            <div className="min-h-screen pb-40 --container">
                 {hasToLogin ? <div className="flex items-center justify-center h-screen">
                     <div>
                         <h1 className="mb-12 text-2xl font-bold text-center">
@@ -45,13 +45,13 @@ export default function Dashboard() {
                         </button>
                     </div>
                 </div> : <>
-                    <h1 className="pt-8 pb-4 mb-12 text-4xl font-bold text-center -heading">
+                    <h1 className="pt-8 pb-4 mb-12 text-4xl font-bold text-center">
                         Your servers
                     </h1>
                     {isError && <ErrorHandler error={isError} />}
                     {(isLoading || response) && <GuildList response={response} />}
                     {response && !isError && <>
-                        <h2 className="mt-20 mb-10 text-4xl font-bold text-center -heading">
+                        <h2 className="mt-20 mb-10 text-4xl font-bold text-center">
                             {response.data.length === 0 ? "No servers?" : "Missing a server?"}
                         </h2>
                         <p className="text-center text-gray-200">
@@ -63,7 +63,10 @@ export default function Dashboard() {
                     </>}
                 </>}
             </div>
-            <Footer className="--container" />
+            <div className="--container">
+                <div className="pb-8 border-t border-gray-550" />
+                <Footer />
+            </div>
         </>
     )
 }

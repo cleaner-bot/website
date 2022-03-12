@@ -25,10 +25,6 @@ input[type=number]::-webkit-inner-spin-button {
     @apply container px-4 mx-auto;
 }
 
-.-heading {
-    @apply leading-tight tracking-tight;
-}
-
 .--anim {
     @apply transition ease-in-out;
 }
