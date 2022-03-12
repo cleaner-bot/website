@@ -75,7 +75,7 @@ export function Upgrade({ plan, data }) {
     return (
         <Link href={`/dash/${data.guild.id}/plan`}>
             <a className="min-w-[8rem] --btn --btn-3 --btn-primary">
-                Upgrade to {plans[plan].name}
+                Upgrade to {plans[plan]}
             </a>
         </Link>
     )
