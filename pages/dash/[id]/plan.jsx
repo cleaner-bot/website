@@ -116,7 +116,7 @@ const plan_features = [
             {
                 title: "Workers",
                 tiers: [
-                    { title: "starter", value: false, value: "Sold seperately" },
+                    { title: "starter", value: false, value: false },
                     { title: "pro", featured: true, value: "Included" },
                     { title: "pro+", featured: true, value: "Included" },
                 ],
@@ -238,7 +238,7 @@ const plan_features = [
             {
                 title: "Workers",
                 tiers: [
-                    { title: "starter", value: false, value: "Sold seperately" },
+                    { title: "starter", value: false, value: false },
                     { title: "pro", featured: true, value: "Included" },
                     { title: "pro+", featured: true, value: "Included" },
                 ]
@@ -285,16 +285,6 @@ function PlanDashboard({ data }) {
                 {/* Overlapping background */}
                 <div className="absolute bottom-0 hidden w-full h-6 xl:block" />
 
-                <div className="relative max-w-2xl pt-16 mx-auto text-center sm:pt-32 sm:px-6 xl:max-w-7xl xl:px-8">
-                    <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-6xl">
-                        <span className="block xl:inline">Flawless protection,{" "}</span>
-                        <span className="block xl:inline">small price.</span>
-                    </h1>
-                    <p className="mt-4 text-xl text-emerald-50">
-                        Everything you need, nothing you don't. Pick a plan that best suits your server.
-                    </p>
-                </div>
-
                 {/* Toggle */}
                 <div className="relative flex justify-center mt-12 sm:mt-16">
                 <div className="bg-gray-800 p-0.5 rounded-lg flex">
@@ -316,14 +306,14 @@ function PlanDashboard({ data }) {
                 {/* Cards */}
                 <div className="relative max-w-2xl pb-8 mx-auto mt-8 sm:mt-12 sm:px-6 xl:max-w-7xl xl:px-8 xl:pb-0">
                 {/* Decorative background */}
-                    <div className="absolute inset-0 hidden bg-gray-600 rounded-tl-lg rounded-tr-lg top-4 bottom-6 left-8 right-8 xl:block"/>
+                    <div className="absolute inset-0 hidden bg-gray-800 rounded-tl-lg rounded-tr-lg top-4 bottom-6 left-8 right-8 xl:block"/>
 
                     <div className="relative space-y-6 xl:space-y-0 xl:grid xl:grid-cols-3">
                         {plans.map((plan) => (
                             <div
                                 key={plan.title}
                                 className={clsx(
-                                    plan.featured ? "bg-white ring-2 ring-emerald-600 shadow-md" : "bg-gray-600 xl:bg-transparent",
+                                    plan.featured ? "bg-white ring-2 ring-emerald-600 shadow-md" : "bg-gray-800 xl:bg-transparent",
                                     "pt-6 px-6 pb-3 rounded-lg xl:px-8 xl:pt-12 relative"
                                 )}
                             >
@@ -356,16 +346,16 @@ function PlanDashboard({ data }) {
                                                     EUR / mo
                                                 </p>
                                                 <p className={clsx(plan.featured ? "text-gray-500" : "text-gray-200", "text-sm")}>
-                                                    Billed {plan.priceMonthly === 0 ? "never" : isYearlyBilling ? <>yearly ({plan.priceYearly}€, save {plan.priceMonthly * 12 - plan.priceYearly}€)</> : <>monthly</>}
+                                                    Billed {plan.priceMonthly === 0 ? "never" : isYearlyBilling ? <>yearly ({plan.priceYearly}€<span className="hidden 2xl:inline">, save {plan.priceMonthly * 12 - plan.priceYearly}€</span>)</> : <>monthly</>}
                                                 </p>
                                             </div>
                                         </div>
                                         <button
                                             className={clsx(
-                                                plan.featured ? "bg-gray-600 text-white hover:bg-gray-600" : "bg-white text-black hover:bg-gray-50",
-                                                "mt-6 w-full inline-block py-2 px-8 border border-transparent rounded-md shadow-sm text-center text-sm font-medium sm:mt-0 sm:w-auto xl:mt-6 xl:w-full"
+                                                plan.featured ? "--btn-success" : "--btn-neutral",
+                                                "--btn --btn-3 xl:w-full mt-4"
                                             )}
-                                            disabled={plan.id == data.entitlements.plan}
+                                            disabled={plan.id === data.entitlements.plan}
                                             onClick={() => {
                                                 data.entitlements.plan = plan.id;
                                                 console.log(data)
@@ -385,15 +375,10 @@ function PlanDashboard({ data }) {
                                 >
                                     {plan.mainFeatures.map((mainFeature) => (
                                         <li key={mainFeature.id} className="flex items-center py-3">
-                                            <CheckIcon
-                                                className={clsx(
-                                                    plan.featured ? "text-emerald-500" : "text-emerald-200",
-                                                    "w-5 h-5 flex-shrink-0"
-                                                )}
-                                            />
+                                            <CheckIcon className="flex-shrink-0 w-5 h-5 text-emerald-500" />
                                             <span
                                                 className={clsx(
-                                                    plan.featured ? "text-gray-600" : "text-white",
+                                                    plan.featured ? "text-gray-800" : "text-gray-200",
                                                     "ml-3 text-sm font-medium"
                                                 )}
                                             >
@@ -596,58 +581,6 @@ function PlanDashboard({ data }) {
                     </p>
                 </div>
             </section>
-
-            <div className="pt-24 sm:pt-32 lg:pt-40">
-                <div className="text-center">
-                    <h2 className="text-3xl font-extrabold sm:text-4xl lg:text-5xl">Purchase workers separately</h2>
-                </div>
-            </div>
-            <div className="pb-16 mt-8 sm:mt-12 sm:pb-20 lg:pb-28">
-                <div className="max-w-lg mx-auto overflow-hidden rounded-lg shadow-lg lg:max-w-none lg:flex">
-                    <div className="flex-1 px-6 py-8 bg-gray-600 lg:p-12">
-                        <h3 className="text-2xl font-extrabold sm:text-3xl">Workers addon for Starter plan</h3>
-                        <p className="mt-6 text-base text-gray-200">
-                            Run your javascript code on every message.
-                            Enforce custom blacklist, make an auto responder, be creative and keep your server clean with your own custom rules.
-                        </p>
-                        <div className="mt-8">
-                            <div className="flex items-center">
-                                <h4 className="flex-shrink-0 pr-4 text-sm font-semibold tracking-wider uppercase text-emerald-300">
-                                    Specifications
-                                </h4>
-                                <div className="flex-1 border-t-2 border-gray-500" />
-                            </div>
-                            <ul role="list" className="mt-8 space-y-5 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:gap-y-5">
-                                {workersFeatures.map((feature) => (
-                                    <li key={feature} className="flex items-start lg:col-span-1">
-                                        <div className="flex-shrink-0">
-                                            <CheckCircleIcon className="w-5 h-5 text-green-400" />
-                                        </div>
-                                        <p className="ml-3 text-sm">{feature}</p>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="px-6 py-8 text-center bg-gray-50 lg:flex-shrink-0 lg:flex lg:flex-col lg:justify-center lg:p-12">
-                        <p className="text-lg font-medium leading-6 text-gray-900">Pay once, have it forever</p>
-                        <div className="flex items-center justify-center mt-4 text-5xl font-extrabold text-gray-900">
-                            <span>5€</span>
-                            <span className="ml-3 text-xl font-medium text-gray-500">EUR</span>
-                        </div>   
-                        <div className="mt-6">
-                            <div className="rounded-md shadow">
-                                <button
-                                    className="w-full font-medium bg-gray-800 --btn --btn-4 hover:bg-gray-900 disabled:hover:bg-gray-800 disabled:cursor-not-allowed"
-                                    disabled={data.entitlements.plan !== 0}
-                                >
-                                    {data.entitlements.plan === 0 ? (data.entitlements.workers === true ? "Already bought" : "Buy Workers") : "Included in your plan"}
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </>
     )
 }
