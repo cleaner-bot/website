@@ -33,7 +33,7 @@ export default function Dashboard() {
                 {hasToLogin ? <div className="flex items-center justify-center h-screen">
                     <div>
                         <h1 className="mb-12 text-2xl font-bold text-center">
-                            You must login with Discord to access your Dashboards.
+                            You must login with Discord to gain access to the Dashboard.
                         </h1>
                         <button className="mx-auto --btn --btn-4 --btn-primary" onClick={() => {
                             const url = createOAuthRedirect({});
