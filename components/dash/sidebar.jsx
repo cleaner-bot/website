@@ -9,6 +9,7 @@ import Skeleton from "@/components/skeleton.jsx";
 import Footer from "@/components/footer.jsx";
 import Image from "@/components/image.jsx";
 import plans from "@/lib/plans.js";
+import { Attention } from "@/components/dash/ui.jsx";
 
 
 const navigation = [
@@ -159,6 +160,18 @@ export default function Sidebar({ current, data, guildId, children }) {
                     </div>
                     <main className="flex-1 p-6 md:p-12 max-w-[1536px] mx-auto">
                         <div className="min-h-screen md:min-h-[calc(100vh-13rem)]">
+                            {data && data.entitlements && data.entitlements.suspended > 0 && <Attention className="mb-12">
+                                <p>
+                                    This server is currently suspended due to <Link href="/legal/terms#prohibited-activities">
+                                        <a className="hover:underline">
+                                            Terms of Service
+                                        </a>
+                                    </Link> violations.
+                                </p>
+                                <p>
+                                    Contact support for further information.
+                                </p>
+                            </Attention>}
                             {children}
                         </div>
                         <div className="pt-8 mt-40 border-t md:p-12 border-gray-550">

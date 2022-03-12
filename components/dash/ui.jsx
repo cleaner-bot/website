@@ -215,9 +215,9 @@ export function Unlocked() {
     )
 }
 
-export function Attention({ children }) {
+export function Attention({ children, className }) {
     return (
-        <div className="w-full px-8 py-4 border rounded-lg border-yellow-550">
+        <div className={clsx("w-full px-8 py-4 border rounded-lg border-yellow-550", className)}>
             <div className="flex">
                 <div className="flex-shrink-0">
                     <ExclamationIcon className="w-6 h-6 text-yellow-400" />
