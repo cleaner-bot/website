@@ -123,6 +123,8 @@ function ChallengeDashboard({ data }) {
                             text={challengeInteractiveTakeRole ? "Take role" : "Give role"}
                             className="mt-4"
                             onClick={() => {
+                                const success = await doChange(patchConfig(data.guild.id, {challenge_interactive_take_role: !challengeInteractiveTakeRole}));
+                                if(!success) return;
                                 setChallengeInteractiveTakeRole(!challengeInteractiveTakeRole);
                             }}
                         />
@@ -140,7 +142,7 @@ function ChallengeDashboard({ data }) {
                         </p>
                         <DropdownSearch
                             placeholder="Select a channel."
-                            values={data.guild.channels.filter(channel => data.guild.me.permissions.administrator || (channel.permissions.read_messages && channel.permissions.send_messages && channel.permissions.embed_links))}
+                            values={data.guild.channels.filter(channel => data.guild.me.permissions.administrator || (channel.permissions.read_messages && channel.permissions.send_messages && channel.permissions.embed_links))}
                             current={sendChallengeInteractiveEmbedChannel}
                             setCurrent={setSendChallengeInteractiveEmbedChannel} 
                         />
