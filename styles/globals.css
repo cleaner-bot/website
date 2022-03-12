@@ -16,17 +16,10 @@ input[type=number]::-webkit-inner-spin-button {
     @apply focus:outline-none;
 }
 
-.-gradient {
+.--gradient {
     @apply text-transparent bg-clip-text;
     background-clip: text;
     -webkit-background-clip: text;
-}
-
-.-highlight {
-    @apply text-blue-330 px-0.5;
-}
-.-highlight-hover {
-    @apply hover:text-blue-370;
 }
 .--container {
     @apply container px-4 mx-auto;
@@ -81,10 +74,6 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 
-.-link {
-    @apply bg-blue-580 hover:bg-blue-630 disabled:bg-gray-580 disabled:hover:bg-gray-630 disabled:cursor-not-allowed;
-}
-
 /* Scrollbar */
 ::-webkit-scrollbar {
     width: 10px;
@@ -103,7 +92,7 @@ input[type=number]::-webkit-inner-spin-button {
     overflow-x: hidden;
 }
 
-.skeleton {
+.--skeleton {
     -webkit-animation: animation-skeleton 1.2s ease-in-out infinite;
     animation: animation-skeleton 1.2s ease-in-out infinite;
     background-size: 200px 100%;

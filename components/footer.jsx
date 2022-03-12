@@ -39,7 +39,11 @@ export default function Footer({ className }) {
     return (
         <div className={clsx("grid grid-cols-3 lg:grid-cols-4 pb-10 gap-y-12", className)}>
             <div className="col-span-3 lg:col-span-1">
-                <Image className="w-24 h-24 col-span-2 mx-auto rounded-full bg-gray-710" src="/img/avatar.png" alt="The Cleaner Logo" />
+                <Link href="/">
+                    <a className="block w-24 h-24 col-span-2 mx-auto rounded-full bg-gray-710 hover:bg-gray-650 --anim">
+                        <Image className="" src="/img/avatar.png" alt="The Cleaner Logo" />
+                    </a>
+                </Link>
                 <div className="flex justify-center gap-4 mt-2">
                     <Link href="/legal/terms">
                         <a className="hover:underline">Terms</a>

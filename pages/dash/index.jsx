@@ -7,15 +7,14 @@ import { useRouter } from "next/router";
 import Image from "@/components/image.jsx";
 import { createOAuthRedirect, useGuilds } from "@/lib/api.js";
 import Skeleton from "@/components/skeleton.jsx";
-import { ExternalLink } from "@/components/buttons.jsx";
 import ErrorHandler from "@/components/dash/error.jsx";
 import { range } from "@/lib/helper.js";
 
 
 function GuildIcon({ icon, className }) {
     if(!icon)
-        return <QuestionMarkCircleIcon className={clsx("inline rounded-full bg-gray-800", className)} />;
-    return <Image src={icon} className={clsx("inline rounded-full bg-gray-800", className)} />;
+        return <QuestionMarkCircleIcon className={clsx("inline rounded-full bg-gray-810", className)} />;
+    return <Image src={icon} className={clsx("inline rounded-full bg-gray-810", className)} />;
 }
 
 
@@ -56,33 +55,41 @@ export default function Dashboard() {
 }
 
 function GuildList({ response }) {
-    const router = useRouter();
     const isLoading = !response;
     return (
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
-            {isLoading ? <>
-                {range(20, index => <Skeleton as="div" key={index} overrideDisplay="block h-[4.5rem] rounded-lg" />)}
-            </> : response.data.map(guild => <div className="relative pt-2 pb-4 bg-gray-800 rounded-lg" key={guild.id}>
-                <GuildIcon icon={guild.icon} className="flex w-16 h-16 mx-auto" />
-                <span className="absolute text-gray-300 top-2 left-2">
-                    {guild.is_owner ? "Owner" : "Manager"}
-                </span>
-                <p className="px-8 mt-2 text-center truncate">
-                    {guild.name}
-                </p>
-                {guild.is_added ? <Link href={`/dash/${guild.id}`}>
-                    <a className="mx-4 mt-4 --btn --btn-4 --btn-primary">
-                        Dashboard
-                    </a>
-                </Link> : <div className="mx-4 mt-4">
-                    <button className="w-full --btn --btn-4 --btn-success" onClick={() => {
-                        const url = createOAuthRedirect({ bot: true, guild: guild.id, with_admin: guild.is_admin });
-                        router.push(url);
-                    }}>
-                        Setup
-                    </button>
-                </div>}
-            </div>)}
+            {isLoading ? (
+                range(18, index => <Guild key={index} />)
+            ) : (
+                response.data.map(guild => <Guild guild={guild} key={guild.id} />)
+            )}
+        </div>
+    )
+}
+
+function Guild({ guild }) {
+    const router = useRouter();
+    return (
+        <div className="relative pt-2 pb-4 bg-gray-800 rounded-lg">
+            {guild ? <GuildIcon icon={guild.icon} className="flex w-16 h-16 mx-auto" /> : <Skeleton className="w-16 h-16 mx-auto rounded-full" />}
+            {guild && <span className="absolute text-gray-300 top-2 left-2">
+                {guild.is_owner ? "Owner" : guild.is_admin ? "Admin" : "Manager"}
+            </span>}
+            <div className="px-8 mt-2 text-center truncate">
+                {guild ? guild.name : <Skeleton className="h-6 rounded" />}
+            </div>
+            {guild ? (guild.is_added ? <Link href={`/dash/${guild.id}`}>
+                <a className="mx-4 mt-4 --btn --btn-4 --btn-primary">
+                    Dashboard
+                </a>
+            </Link> : <div className="mx-4 mt-4">
+                <button className="w-full --btn --btn-4 --btn-success" onClick={() => {
+                    const url = createOAuthRedirect({ bot: true, guild: guild.id, with_admin: guild.is_admin });
+                    router.push(url);
+                }}>
+                    Setup
+                </button>
+            </div>) : <Skeleton className="h-12 mx-4 mt-4 rounded-lg" />}
         </div>
     )
 }

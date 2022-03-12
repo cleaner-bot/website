@@ -81,9 +81,9 @@ export default function Sidebar({ current, data, guildId, children }) {
                                         <Image src="/img/avatar.png" alt="" className="w-8 h-8" />
                                         The Cleaner
                                     </div>
-                                    <p className="px-4 mt-2 truncate">
-                                        {data && data.guild ? data.guild.name : <Skeleton className="rounded" />}
-                                    </p>
+                                    <div className="px-4 mt-2 truncate">
+                                        {data && data.guild ? data.guild.name : <Skeleton className="h-6 rounded" />}
+                                    </div>
                                     <nav className="px-2 mt-5 space-y-1">
                                         {navigation.filter(x => !x.restricted || is_dev || x.id === current).map((item) => (
                                             <Link
@@ -122,9 +122,9 @@ export default function Sidebar({ current, data, guildId, children }) {
                                 <Image src="/img/avatar.png" alt="" className="w-8 h-8" />
                                 The Cleaner
                             </div>
-                            <p className="px-4 mt-2 truncate">
-                                {data && data.guild ? data.guild.name : <Skeleton className="rounded" />}
-                            </p>
+                            <div className="px-4 mt-2 truncate">
+                                {data && data.guild ? data.guild.name : <Skeleton className="h-6 rounded" />}
+                            </div>
                             <nav className="flex-1 px-2 mt-5 space-y-1">
                                 {navigation.filter(x => !x.restricted || is_dev || x.id === current).map(item => (
                                     <Link key={item.id} href={`/dash/${guildId}/${item.id}`}>

@@ -23,9 +23,9 @@ export default function Radar() {
             <h1 className="mb-4 text-5xl font-bold">
                 The Cleaner Radar
             </h1>
-            <p>
-                Last update: {response ? new Date(response.data.last_data).toLocaleString() : <Skeleton overrideDisplay="inline-block w-32 h-6 rounded-md" />}
-            </p>
+            <div>
+                Last update: {response ? new Date(response.data.last_data).toLocaleString() : <Skeleton className="inline-block w-32 h-6 rounded-md" />}
+            </div>
             <p className="mt-8">
                 The Cleaner is a Discord bot for keeping your servers clean.
                 The Cleaner Radar is powered by real data we collect anonymously to provide statistics.
@@ -92,7 +92,7 @@ export default function Radar() {
 function Stats({ stats }) {
     return (
         <dl className="grid grid-cols-1 gap-px mt-5 overflow-hidden bg-gray-800 rounded-lg shadow md:grid-cols-2 lg:grid-cols-4">
-            {stats.map(item => !item.stat ? <Skeleton key={item.name} overrideDisplay="inline-block h-28 md:h-32 lg:h-[6.75rem]" /> : (
+            {stats.map(item => !item.stat? <Skeleton key={item.name} className="h-28 md:h-32 lg:h-[6.75rem]" /> : (
                 <div key={item.name} className="px-4 py-5 sm:p-6 bg-gray-750">
                     <dt className="text-base font-normal text-gray-100">{item.name}</dt>
                     <dd className="flex items-baseline justify-between mt-1 md:block lg:flex">
