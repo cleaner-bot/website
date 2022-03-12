@@ -31,13 +31,13 @@ function Dashboard({ data }) {
             <div className="my-12 space-y-12">
                 {(data.config.logging_enabled === "no" || data.config.logging_channel === "0") && <Attention>
                     {data.config.logging_enabled === "no" ? "You do not have logging enabled!" : "You do not have a logging channel selected!"}
-                    <InternalLink href={`/dash/${data.guild.id}/logging`} className="mt-4 md:w-96">
+                    <InternalLink href={`/dash/${data.guild.id}/logging`} className="mt-4 lg:w-96">
                         Go to Logging
                     </InternalLink>
                 </Attention>}
                 {data.config.challenge_interactive_enabled === "yes" && data.config.challenge_interactive_role === "0" && <Attention>
                     You do not have a role for interactive challenges selected.
-                    <InternalLink href={`/dash/${data.guild.id}/challenge`} className="mt-4 md:w-96">
+                    <InternalLink href={`/dash/${data.guild.id}/challenge`} className="mt-4 lg:w-96">
                         Go to Challenge
                     </InternalLink>
                 </Attention>}

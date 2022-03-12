@@ -1,5 +1,4 @@
 
-import Link from "next/link";
 import { ArrowSmDownIcon, ArrowSmRightIcon, ArrowSmUpIcon } from "@heroicons/react/solid";
 import clsx from "clsx";
 
@@ -8,6 +7,7 @@ import MetaTags from "@/components/metatags.jsx";
 import Skeleton from "@/components/skeleton.jsx";
 import { range } from "@/lib/helper.js";
 import Footer from "@/components/footer.jsx";
+import ErrorHandler from "@/components/dash/error";
 
 
 export default function Radar() {
@@ -23,64 +23,68 @@ export default function Radar() {
             <h1 className="mb-4 text-5xl font-bold">
                 The Cleaner Radar
             </h1>
-            <div>
-                Last update: {response ? new Date(response.data.last_data).toLocaleString() : <Skeleton className="inline-block w-32 h-6 rounded-md" />}
+            <div className="flex">
+                Last update: {response ? new Date(response.data.last_data).toLocaleString() : <Skeleton className="inline-block w-32 h-5 ml-2 rounded-md" />}
             </div>
             <p className="mt-8">
                 The Cleaner is a Discord bot for keeping your servers clean.
                 The Cleaner Radar is powered by real data we collect anonymously to provide statistics.
             </p>
-            <h2 className="mt-20 mb-4 text-2xl font-bold">
-                Basic trends
-            </h2>
-            <p className="mb-4 text-sm text-gray-200">
-                Trends of triggered rules. Comparing last 30 days to the 30 days before.
-            </p>
-            <Stats
-                stats={[
-                    { name: "Phishing", stat: response && response.data.stats_phishing },
-                    { name: "Antispam", stat: response && response.data.stats_antispam },
-                    { name: "Advertisement", stat: response && response.data.stats_advertisement },
-                    { name: "Other", stat: response && response.data.stats_other },
-                ]}
-            />
+            {isError ? <>
+                <ErrorHandler error={isError} />
+            </> : <>
+                <h2 className="mt-20 mb-4 text-2xl font-bold">
+                    Basic trends
+                </h2>
+                <p className="mb-4 text-sm text-gray-200">
+                    Trends of triggered rules. Comparing last 30 days to the 30 days before.
+                </p>
+                <Stats
+                    stats={[
+                        { name: "Phishing", stat: response && response.data.stats_phishing },
+                        { name: "Antispam", stat: response && response.data.stats_antispam },
+                        { name: "Advertisement", stat: response && response.data.stats_advertisement },
+                        { name: "Other", stat: response && response.data.stats_other },
+                    ]}
+                />
 
-            <h2 className="mt-20 mb-4 text-2xl font-bold">
-                Deployed challenges
-            </h2>
-            <p className="mb-4 text-sm text-gray-200">
-                Trends of deployed challenges as a response to stop bad actors. Last 30 days.
-            </p>
-            <Stats
-                stats={[
-                    { name: "Ban", stat: response && response.data.challenges_ban },
-                    { name: "Discord Authentication", stat: response && response.data.challenges_auth },
-                    { name: "CAPTCHA", stat: response && response.data.challenges_captcha },
-                    { name: "Timeout", stat: response && response.data.challenges_timeout },
-                ]}
-            />
+                <h2 className="mt-20 mb-4 text-2xl font-bold">
+                    Deployed challenges
+                </h2>
+                <p className="mb-4 text-sm text-gray-200">
+                    Trends of deployed challenges as a response to stop bad actors. Last 30 days.
+                </p>
+                <Stats
+                    stats={[
+                        { name: "Ban", stat: response && response.data.challenges_ban },
+                        { name: "Discord Authentication", stat: response && response.data.challenges_auth },
+                        { name: "CAPTCHA", stat: response && response.data.challenges_captcha },
+                        { name: "Timeout", stat: response && response.data.challenges_timeout },
+                    ]}
+                />
 
-            <h2 className="mt-20 mb-4 text-2xl font-bold">
-                Triggered rules
-            </h2>
-            <p className="mb-4 text-sm text-gray-200">
-                All rules. Last 30 days.
-            </p>
+                <h2 className="mt-20 mb-4 text-2xl font-bold">
+                    Triggered rules
+                </h2>
+                <p className="mb-4 text-sm text-gray-200">
+                    All rules. Last 30 days.
+                </p>
 
-            {response ? <Stats
-                stats={Object.keys(response.data.rules).sort((a, b) => response.data.rules[b].now - response.data.rules[a].now).map(key => ({ name: key, stat: response.data.rules[key] }))}
-            /> : <Stats stats={range(12, index => ({ name: index }))} />}
+                {response ? <Stats
+                    stats={Object.keys(response.data.rules).sort((a, b) => response.data.rules[b].now - response.data.rules[a].now).map(key => ({ name: key, stat: response.data.rules[key] }))}
+                /> : <Stats stats={range(12, index => ({ name: index }))} />}
 
-            <h2 className="mt-20 mb-4 text-2xl font-bold">
-                Triggered antispam
-            </h2>
-            <p className="mb-4 text-sm text-gray-200">
-                All traffic rules. Last 30 days.
-            </p>
+                <h2 className="mt-20 mb-4 text-2xl font-bold">
+                    Triggered antispam
+                </h2>
+                <p className="mb-4 text-sm text-gray-200">
+                    All traffic rules. Last 30 days.
+                </p>
 
-            {response ? <Stats
-                stats={Object.keys(response.data.traffic).sort((a, b) => response.data.traffic[b].now - response.data.traffic[a].now).map(key => ({ name: key, stat: response.data.traffic[key] }))}
-            /> : <Stats stats={range(6, index => ({ name: index }))} />}
+                {response ? <Stats
+                    stats={Object.keys(response.data.traffic).sort((a, b) => response.data.traffic[b].now - response.data.traffic[a].now).map(key => ({ name: key, stat: response.data.traffic[key] }))}
+                /> : <Stats stats={range(6, index => ({ name: index }))} />}
+            </>}
             
             <div className="pt-8 mt-40 border-t border-gray-550" />
             <Footer />

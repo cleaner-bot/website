@@ -157,7 +157,7 @@ export default function Sidebar({ current, data, guildId, children }) {
                             <MenuIcon className="w-6 h-6" />
                         </button>
                     </div>
-                    <main className="flex-1 p-6 md:p-12">
+                    <main className="flex-1 p-6 md:p-12 max-w-[1536px] mx-auto">
                         <div className="min-h-screen md:min-h-[calc(100vh-13rem)]">
                             {children}
                         </div>
@@ -178,7 +178,7 @@ function Profile({ data }) {
     if(data && data.entitlements && data.entitlements.plan > 0)
         options.push({ name: "Current plan", text: plans[data.entitlements.plan] || "Developer", href: `/dash/${data.guild.id}/plan`, image: null });
     options.push({
-        name: data && data.user.name,
+        name: data ? data.user.name : "Loading name...",
         text: "View servers",
         href: "/dash/",
         image: data && data.user.avatar,

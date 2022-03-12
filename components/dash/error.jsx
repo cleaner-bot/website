@@ -22,7 +22,7 @@ const httpErrors = {
     401: function Error401({ error }) {
         localStorage.removeItem("token");
         return (
-            <GenericErrorHandler title="401: Unauthorized">
+            <GenericErrorHandler title="Unauthorized">
                 <p className="mt-6 text-center text-gray-200">
                     You are not authorization to access this ressource.
                 </p>
@@ -34,7 +34,7 @@ const httpErrors = {
     },
     403: function Error403({ error }) {
         return (
-            <GenericErrorHandler title="403: Forbidden">
+            <GenericErrorHandler title="Forbidden">
                 <p className="mt-6 text-center text-gray-200">
                     You are not allowed to access this ressource.
                 </p>
@@ -46,7 +46,7 @@ const httpErrors = {
     },
     404: function Error404({ error }) {
         return (
-            <GenericErrorHandler title="404: Not Found">
+            <GenericErrorHandler title="Not Found">
                 <p className="mt-6 text-center text-gray-200">
                     The ressource is not found or you have no access to it.
                 </p>
@@ -59,12 +59,12 @@ const httpErrors = {
     429: function Error429({ error }) {
         const retry_after_header = error.response.headers["retry-after"];
         return (
-            <GenericErrorHandler title="429: Too Many Requests" hasSupport={true}>
+            <GenericErrorHandler title="Too Many Requests" hasSupport={true}>
                 <p className="mt-6 text-center text-gray-200">
                     Your network is sending too many requests!
                 </p>
                 <p className="text-center text-gray-200">
-                    {retry_after_header ? `Please wait ${Math.floor(retry_after_header / 1000) + 2} seconds...` : "It can take up to one minute to regain access."}
+                    {retry_after_header ? `Please wait ${Math.floor(retry_after_header / 1000) + 2} seconds...` : "Your access has been banned. Please contact support."}
                 </p>
             </GenericErrorHandler>
         )
