@@ -155,7 +155,7 @@ function FirewallDashboard({ data }) {
             </h2>
             <div className="my-12 space-y-12">
                 <FirewallRule
-                    rule="advertisement.discord_invite"
+                    rule="advertisement.discord.server"
                     description="Catches any invites to discord servers."
                     data={data}
                     field="rules_advertisement_discord_server"
