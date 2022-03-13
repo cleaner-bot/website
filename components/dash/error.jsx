@@ -19,6 +19,18 @@ function GenericErrorHandler({ title, children, hasSupport }) {
 }
 
 const httpErrors = {
+    400: function Error400({ error }) {
+        return (
+            <GenericErrorHandler title="Bad Request" hasSupport={true}>
+                <p className="mt-6 text-center text-gray-200">
+                    Your browser sent an invalid request.
+                </p>
+                {error.response.data && error.response.data.detail && <p className="text-center text-gray-200">
+                    {error.response.data.detail}
+                </p>}
+            </GenericErrorHandler>
+        )
+    },
     401: function Error401({ error }) {
         localStorage.removeItem("token");
         return (
