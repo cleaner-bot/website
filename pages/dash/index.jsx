@@ -85,7 +85,6 @@ function GuildList({ response }) {
 }
 
 function Guild({ guild }) {
-    const router = useRouter();
     return (
         <div className="relative pt-2 pb-4 bg-gray-800 rounded-lg">
             {guild ? <GuildIcon icon={guild.icon} className="flex w-16 h-16 mx-auto" /> : <Skeleton className="w-16 h-16 mx-auto rounded-full" />}
@@ -106,6 +105,7 @@ function Guild({ guild }) {
 }
 
 function GuildButton({ guild }) {
+    const router = useRouter();
     if(guild.is_suspended)
         return (
             <Link href="/legal/terms#prohibited-activities">
