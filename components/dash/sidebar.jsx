@@ -1,7 +1,7 @@
 
 import clsx from "clsx";
 import Link from "next/link";
-import { ArchiveIcon, HomeIcon, ShieldCheckIcon, FilterIcon, FingerPrintIcon, CodeIcon, TrendingDownIcon, CreditCardIcon, FolderIcon, IdentificationIcon, MailIcon, CubeTransparentIcon, ExclamationIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
+import { ArchiveIcon, HomeIcon, ShieldCheckIcon, FilterIcon, FingerPrintIcon, CodeIcon, ClockIcon, CreditCardIcon, FolderIcon, IdentificationIcon, MailIcon, CubeTransparentIcon, ExclamationIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import { useState, Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
@@ -16,7 +16,7 @@ const navigation = [
     { name: "Overview", id: "", icon: HomeIcon },
     { name: "Firewall", id: "firewall", icon: FilterIcon },
     { name: "Anti Spam", id: "antispam", icon: ShieldCheckIcon },
-    { name: "Slowmode", id: "slowmode", icon: TrendingDownIcon },
+    { name: "Slowmode", id: "slowmode", icon: ClockIcon },
     { name: "Challenge", id: "challenge", icon: FingerPrintIcon },
     { name: "Logging", id: "logging", icon: ArchiveIcon },
     { name: "Impersonation", id: "impersonation", icon: IdentificationIcon, restricted: true },
