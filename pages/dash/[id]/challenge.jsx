@@ -122,7 +122,7 @@ function ChallengeDashboard({ data }) {
                         <Button
                             text={challengeInteractiveTakeRole ? "Take role" : "Give role"}
                             className="mt-4"
-                            onClick={() => {
+                            onClick={async () => {
                                 const success = await doChange(patchConfig(data.guild.id, {challenge_interactive_take_role: !challengeInteractiveTakeRole}));
                                 if(!success) return;
                                 setChallengeInteractiveTakeRole(!challengeInteractiveTakeRole);
