@@ -54,32 +54,35 @@ function CreateRemoteAuth() {
                 Generating link...
             </p>}
             {state.stage === 2 && <>
-                <p>
-                    Link: {state.showLink ? <Link href={makeLinkFromCode(state.code)}>
+                <h2 className="text-lg font-semibold text-center">
+                    Link:
+                </h2>
+                <p className="text-center">
+                    {state.showLink ? <Link href={makeLinkFromCode(state.code)}>
                         <a className="text-blue-200 break-all hover:underline">
                             {makeLinkFromCode(state.code)}
                         </a>
                     </Link> : <button className="text-blue-200 hover:underline" onClick={() => {
                         setState({...state, showLink: true})
                     }}>
-                        Show link
+                        Click to show link
                     </button>}
                 </p>
-                <p className="mt-6">
-                    QR Code:
-                    {state.showQr ? <QRCode
-                        value={makeLinkFromCode(state.code)}
-                        renderAs="svg"
-                        size={256}
-                        className="mx-auto mt-4"
-                    /> : <div className="flex justify-center mt-4">
-                        <button className="w-64 h-64 bg-gray-600 rounded-lg" onClick={() => {
-                            setState({...state, showQr: true})
-                        }}>
-                            Show QR-code
-                        </button>
-                    </div>}
-                </p>
+                <h2 className="mt-6 text-lg font-semibold text-center">
+                    QR-Code
+                </h2>
+                {state.showQr ? <QRCode
+                    value={makeLinkFromCode(state.code)}
+                    renderAs="svg"
+                    size={256}
+                    className="mx-auto mt-4"
+                /> : <div className="flex justify-center mt-4">
+                    <button className="w-64 h-64 bg-gray-600 rounded-lg" onClick={() => {
+                        setState({...state, showQr: true})
+                    }}>
+                        Click to show QR-code
+                    </button>
+                </div>}
             </>}
             {state.stage === 99 && <ErrorHandler error={state.error} />}
         </div>
