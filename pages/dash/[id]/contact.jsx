@@ -95,7 +95,7 @@ function ContactDashboard({ data }) {
                             <span className="mt-6 text-gray-300">
                                 Your contact email:{" "}
                             </span>
-                            <span className="hover:underline">
+                            <span className="break-all hover:underline">
                                 {getContactEmail(data.guild.id)}
                             </span>
                         </>}

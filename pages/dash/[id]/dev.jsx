@@ -52,7 +52,7 @@ function DevDashboard({ data }) {
                         }} />
                     </div>}
                 >
-                    <h2 className="text-2xl font-medium">
+                    <h2 className="text-2xl font-medium break-all">
                         {key}
                     </h2>
                     <p className="text-gray-200">
@@ -79,7 +79,7 @@ function DevDashboard({ data }) {
                         }} />
                     </div>}
                 >
-                    <h2 className="text-2xl font-medium">
+                    <h2 className="text-2xl font-medium break-all">
                         {key}
                     </h2>
                     <p className="text-gray-200">

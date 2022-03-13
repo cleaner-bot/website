@@ -51,7 +51,7 @@ function FirewallRule({ rule, description, field, data }) {
                 </div>
             </>}
         >
-            <h2 className="text-2xl font-medium">
+            <h2 className="text-2xl font-medium break-all">
                 {rule}
             </h2>
             <p className="text-gray-200">
