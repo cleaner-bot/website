@@ -73,12 +73,13 @@ export default function Dashboard() {
 
 function GuildList({ response }) {
     const isLoading = !response;
+    const servers = response && [...response.data].sort((a, b) => [b.is_suspended - a.is_suspended, b.is_added - a.is_added, b.is_owner - a.is_owner, b.is_admin - a.is_admin, b.name - a.name].find(x => x !== 0));
     return (
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
             {isLoading ? (
                 range(18, index => <Guild key={index} />)
             ) : (
-                response.data.map(guild => <Guild guild={guild} key={guild.id} />)
+                servers.map(guild => <Guild guild={guild} key={guild.id} />)
             )}
         </div>
     )
