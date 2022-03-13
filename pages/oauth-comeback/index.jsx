@@ -1,11 +1,13 @@
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
+import ErrorHandler from "@/components/dash/error.jsx";
 import { postOAuthCallback } from "@/lib/api.js";
 
 
 export default function OAuthComeback() {
+    const [error, setError] = useState();
     const router = useRouter();
     useEffect(async () => {
         if(!router.isReady) return;
@@ -16,8 +18,8 @@ export default function OAuthComeback() {
         let res;
         try {
             res = await postOAuthCallback(code, state);
-        } catch(e) {
-            return alert(`${e.response.status}: ${e.response.data.detail}`);
+        } catch (e) {
+            return setError(e);
         }
 
         const { token, redirect } = res.data;
@@ -26,13 +28,13 @@ export default function OAuthComeback() {
         router.push(redirect);
     }, [router]);
     return (
-        <div className="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 -mr-1/2">
-            <h1 className="font-mono text-4xl">
-                Please wait...
+        <div className="--container">
+            <h1 className="mt-20 mb-10 text-4xl font-bold text-center">
+                {error ? "Aw snap" : "Logging in..."}
             </h1>
-            <p className="mt-2 text-gray-200">
-                We are connecting your Discord account...
-            </p>
+            {error ? <ErrorHandler error={error} /> : <p className="mb-12 text-center">
+                Give us a bit... we're logging you in...
+            </p>}
         </div>
     )
 }
