@@ -82,7 +82,7 @@ Catches people pinging `@everyone` or `@here` without having permissions to do s
 Default action: `BLOCK`
 
 
-## advertisement.discord_invite
+## advertisement.discord.server
 
 Catches any discord invite.  
 We currently do not resolve invites for performance reason, so this will also trigger for invalid, expired or invites to the current server.
