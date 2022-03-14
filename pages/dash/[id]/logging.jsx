@@ -54,7 +54,7 @@ function LoggingDashboard({ data }) {
                         </p>
                         <DropdownSearch
                             placeholder="Select channel."
-                            values={data.guild.channels.filter(channel => data.guild.me.permissions.administrator || (channel.perms.read_messages && channel.perms.send_messages && channel.perms.embed_links))}
+                            values={data.guild.channels.filter(channel => data.guild.myself.permissions.ADMINISTRATOR || (channel.permissions.VIEW_CHANNEL && channel.permissions.SEND_MESSAGES && channel.permissions.EMBED_LINKS))}
                             current={loggingChannel}
                             setCurrent={setLoggingChannel}
                         />

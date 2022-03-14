@@ -142,7 +142,7 @@ function ChallengeDashboard({ data }) {
                         </p>
                         <DropdownSearch
                             placeholder="Select a channel."
-                            values={data.guild.channels.filter(channel => data.guild.me.permissions.administrator || (channel.permissions.read_messages && channel.permissions.send_messages && channel.permissions.embed_links))}
+                            values={data.guild.channels.filter(channel => data.guild.myself.permissions.ADMINISTRATOR || (channel.permissions.VIEW_CHANNEL && channel.permissions.SEND_MESSAGES && channel.permissions.EMBED_LINKS))}
                             current={sendChallengeInteractiveEmbedChannel}
                             setCurrent={setSendChallengeInteractiveEmbedChannel} 
                         />
