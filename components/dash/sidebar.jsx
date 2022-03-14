@@ -82,7 +82,7 @@ export default function Sidebar({ current, data, guildId, children }) {
                                         <Image src="/img/avatar.png" alt="" className="w-8 h-8 rounded-full bg-gray-750" />
                                         The Cleaner
                                     </div>
-                                    <div className="px-4 mt-2 truncate">
+                                    <div className="flex-shrink-0 px-4 mt-2 truncate">
                                         {data && data.guild ? data.guild.name : <Skeleton className="h-6 rounded" />}
                                     </div>
                                     <nav className="px-2 mt-5 space-y-1">
@@ -123,7 +123,7 @@ export default function Sidebar({ current, data, guildId, children }) {
                                 <Image src="/img/avatar.png" alt="" className="w-8 h-8 rounded-full bg-gray-750" />
                                 The Cleaner
                             </div>
-                            <div className="px-4 mt-2 truncate">
+                            <div className="flex-shrink-0 px-4 mt-2 truncate">
                                 {data && data.guild ? data.guild.name : <Skeleton className="h-6 rounded" />}
                             </div>
                             <nav className="flex-1 px-2 mt-5 space-y-1">
