@@ -158,7 +158,7 @@ export default function Sidebar({ current, data, guildId, children }) {
                             <MenuIcon className="w-6 h-6" />
                         </button>
                     </div>
-                    <main className="flex-1 p-6 md:p-12 max-w-[1536px] mx-auto">
+                    <main className="flex-1 p-6 md:p-12 w-full max-w-[1280px] mx-auto">
                         <div className="min-h-screen md:min-h-[calc(100vh-13rem)]">
                             {data && data.entitlements && data.entitlements.suspended > 0 && <Attention className="mb-12">
                                 <p>
