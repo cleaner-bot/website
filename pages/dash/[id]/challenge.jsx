@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 import { DataWrapper } from "@/components/dash/data.jsx";
 import { Toggle, Button, Dropdown, DropdownSearch, OptionalUpgrade, Slider, JustBlock, BlockRightSide, HorizontalRule } from "@/components/dash/ui.jsx";
 import MetaTags from "@/components/metatags.jsx";
-import { doChange, patchConfig } from "@/lib/api.js";
+import { doChange, patchConfig, postChallengeEmbed } from "@/lib/api.js";
 
 export default function DashboardWrapper() {
     const router = useRouter();
@@ -146,7 +146,11 @@ function ChallengeDashboard({ data }) {
                             current={sendChallengeInteractiveEmbedChannel}
                             setCurrent={setSendChallengeInteractiveEmbedChannel} 
                         />
-                        <Button text="Send embed" disabled={!sendChallengeInteractiveEmbedChannel} className="mt-4" />
+                        <Button text="Send embed" disabled={!sendChallengeInteractiveEmbedChannel} className="mt-4" onClick={async () => {
+                            const success = await doChange(postChallengeEmbed(data.guild.id, sendChallengeInteractiveEmbedChannel));
+                            if(!success) return;
+                            setSendChallengeInteractiveEmbedChannel(0);
+                        }} />
                         <p className="mt-6 text-sm text-gray-300">
                             Channel not listed? Make sure The Cleaner can send messages and embeds in it.
                         </p>
