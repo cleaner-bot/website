@@ -9,7 +9,7 @@ import Skeleton from "@/components/skeleton.jsx";
 import Footer from "@/components/footer.jsx";
 import Image from "@/components/image.jsx";
 import plans from "@/lib/plans.js";
-import { Attention } from "@/components/dash/ui.jsx";
+import { InternalLink } from "@/components/buttons.jsx";
 
 
 const navigation = [
@@ -32,6 +32,7 @@ export default function Sidebar({ current, data, guildId, children }) {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const isDev = data && data.user.is_dev;
 
+    const isSuspended = data && data?.entitlements?.suspended > 0 && !(isDev && current === "dev");
   
     return (
         <>
@@ -159,23 +160,11 @@ export default function Sidebar({ current, data, guildId, children }) {
                             <MenuIcon className="w-6 h-6" />
                         </button>
                     </div>
-                    <main className="flex-1 p-6 md:p-12 w-full max-w-[1280px] mx-auto">
-                        <div className="min-h-screen md:min-h-[calc(100vh-13rem)]">
-                            {data && data.entitlements && data.entitlements.suspended > 0 && <Attention className="mb-12">
-                                <p>
-                                    This server is currently suspended due to <Link href="/legal/terms#prohibited-activities">
-                                        <a className="hover:underline">
-                                            Terms of Service
-                                        </a>
-                                    </Link> violations.
-                                </p>
-                                <p>
-                                    Contact support for further information.
-                                </p>
-                            </Attention>}
-                            {children}
+                    <main className={clsx("flex-1 w-full max-w-[1280px] mx-auto", isSuspended && "bg-red-500")}>
+                        <div className="min-h-screen p-6 md:min-h-[calc(100vh-10rem)] md:p-12 pb-8 md:pb-20">
+                            {isSuspended ? <Suspended /> : children}
                         </div>
-                        <div className="pt-8 mt-40 border-t md:p-12 border-gray-550">
+                        <div className="p-6 mt-40 bg-gray-700 border-t md:p-12 border-gray-550">
                             <Footer />
                         </div>
                     </main>
@@ -215,5 +204,22 @@ function Profile({ data }) {
                 </Link>
             </div>)}
         </>
+    )
+}
+
+function Suspended() {
+    return (
+        <div className="flex flex-col items-center justify-center">
+            <ExclamationIcon className="w-32 h-32" />
+            <h1 className="text-5xl font-bold">
+                Guild is suspended
+            </h1>
+            <InternalLink href="/help/suspension#suspended-guild" color="--btn-neutral" className="mt-12 w-60">
+                Learn more
+            </InternalLink>
+            <InternalLink href="/discord" color="--btn-neutral" className="mt-2 w-60">
+                Support
+            </InternalLink>
+        </div>
     )
 }
