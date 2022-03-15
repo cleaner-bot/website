@@ -176,8 +176,8 @@ export default function Sidebar({ current, data, guildId, children }) {
 
 function Profile({ data }) {
     const options = [];
-    if(data && data.user.is_dev)
-        options.push({ name: "Developer options", text: "View developer panel", href: "/admin/", image: null });
+    if(data && data.entitlements && data.entitlements.suspended > 0)
+        options.push({ name: "Suspension", text: "Guild is suspended", href: "/help/suspension#suspended-guild", image: <ExclamationIcon className="text-red-500 w-9 h-9" /> });
     if(data && data.entitlements && data.entitlements.plan > 0)
         options.push({ name: "Current plan", text: plans[data.entitlements.plan] || "Developer", href: `/dash/${data.guild.id}/plan`, image: null });
     options.push({
@@ -192,9 +192,9 @@ function Profile({ data }) {
                 <Link href={opt.href}>
                     <a className="flex-shrink-0 block w-full group">
                         <div className="flex items-center">
-                            {opt.image !== null && <div>
+                            {opt.image !== null && typeof(opt.image) === "string" ? <div>
                                 {opt.image ? <Image src={opt.image} alt="" className="inline-block rounded-full h-9 w-9 bg-gray-750" /> : <Skeleton className="rounded-full h-9 w-9" />}
-                            </div>}
+                            </div> : opt.image}
                             <div className={opt.image === null ? "ml-12" : "ml-3"}>
                                 <p className="text-sm font-medium text-white truncate">{opt.name}</p>
                                 <p className="text-xs font-medium text-gray-300 --anim group-hover:text-gray-200">{opt.text}</p>
