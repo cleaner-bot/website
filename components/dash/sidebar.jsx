@@ -30,7 +30,8 @@ const navigation = [
 
 export default function Sidebar({ current, data, guildId, children }) {
     const [sidebarOpen, setSidebarOpen] = useState(false);
-    const is_dev = data && data.user.is_dev;
+    const isDev = data && data.user.is_dev;
+
   
     return (
         <>
@@ -86,7 +87,7 @@ export default function Sidebar({ current, data, guildId, children }) {
                                         {data && data.guild ? data.guild.name : <Skeleton className="h-6 rounded" />}
                                     </div>
                                     <nav className="px-2 mt-5 space-y-1">
-                                        {navigation.filter(x => !x.restricted || is_dev || x.id === current).map((item) => (
+                                        {navigation.filter(x => !x.restricted || isDev || x.id === current).map((item) => (
                                             <Link
                                                 key={item.name}
                                                 href={`/dash/${guildId}/${item.id}`}
@@ -127,7 +128,7 @@ export default function Sidebar({ current, data, guildId, children }) {
                                 {data && data.guild ? data.guild.name : <Skeleton className="h-6 rounded" />}
                             </div>
                             <nav className="flex-1 px-2 mt-5 space-y-1">
-                                {navigation.filter(x => !x.restricted || is_dev || x.id === current).map(item => (
+                                {navigation.filter(x => !x.restricted || isDev || x.id === current).map(item => (
                                     <Link key={item.id} href={`/dash/${guildId}/${item.id}`}>
                                         <a className={clsx(
                                             item.id === current ? "bg-gray-900 text-white" : "text-gray-300 hover:bg-gray-700 hover:text-white",
