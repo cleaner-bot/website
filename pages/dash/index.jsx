@@ -92,7 +92,7 @@ function Guild({ guild }) {
             {guild && <span className="absolute text-gray-300 top-2 left-2">
                 {guild.is_owner ? "Owner" : guild.is_admin ? "Admin" : "Manager"}
             </span>}
-            {guild && guild.is_suspended && <Link href="/legal/terms#prohibited-activities">
+            {guild && guild.is_suspended && <Link href="/help/suspension#suspended-guild">
                 <a className="absolute top-2 right-2">
                     <ExclamationCircleIcon className="w-6 h-6 text-red-500" />
                 </a>
@@ -109,7 +109,7 @@ function GuildButton({ guild }) {
     const router = useRouter();
     if(guild.is_suspended)
         return (
-            <Link href="/legal/terms#prohibited-activities">
+            <Link href="/help/suspension#suspended-guild">
                 <a className="mx-4 mt-4 --btn --btn-4 --btn-destructive">
                     Suspended
                 </a>
