@@ -9,9 +9,9 @@ const footer = [
     {
         name: "Quick access",
         links: [
-            { name: "Home", href: "/" },
             { name: "Dashboard", href: "/dash/" },
-            { name: "Discord", href: "/discord" }
+            { name: "Discord", href: "/discord" },
+            { name: "Help desk", href: "/help/" },
         ]
     },
     {
@@ -29,7 +29,7 @@ const footer = [
             { name: "Documentation", href: "/docs/" },
             { name: "Blog", href: "/blog/" },
             { name: "Radar", href: "/radar/" },
-            { name: "Status", href: "/status/" },
+            { name: "Status", href: "https://cleaner.instatus.com/" },
         ]
     }
 ]
