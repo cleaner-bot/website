@@ -123,7 +123,7 @@ function ChallengeDashboard({ data }) {
                             text={challengeInteractiveTakeRole ? "Take role" : "Give role"}
                             className="mt-4"
                             onClick={async () => {
-                                const success = await doChange(patchConfig(data.guild.id, {challenge_interactive_take_role: !challengeInteractiveTakeRole}));
+                                const success = await doChange(patchConfig(data.guild.id, {challenge_interactive_take_role: challengeInteractiveTakeRole ? "no" : "yes"}));
                                 if(!success) return;
                                 setChallengeInteractiveTakeRole(!challengeInteractiveTakeRole);
                             }}
@@ -168,16 +168,16 @@ function ChallengeDashboard({ data }) {
                             Challenge people based on risk rating when joining.
                         </p>
                         <Dropdown values={securityLevels} current={challengeInteractiveSecurityLevel} setCurrent={setChallengeInteractiveSecurityLevel} />
-                        {challengeInteractiveSecurityLevel < 5 && <p className="mt-2">
+                        {challengeInteractiveSecurityLevel > 0 && <p className="mt-2">
                             {challengeInteractiveSecurityLevel === 0 ? <>
                                 Currently nobody has to complete a challenge.
-                            </> : challengeInteractiveSecurityLevel < 4 ? <>
+                            </> : challengeInteractiveSecurityLevel < 5 ? <>
                                 Currently anyone with a risk rating above <b>{securityLevels[challengeInteractiveSecurityLevel].value}%</b> has to complete a challenge.
-                            </> : challengeInteractiveSecurityLevel === 4 && <>
+                            </> : challengeInteractiveSecurityLevel === 5 && <>
                                 Currently everyone has to complete a challenge.
                             </>}
                         </p>}
-                        {challengeInteractiveSecurityLevel === 5 && <>
+                        {challengeInteractiveSecurityLevel === 0 && <>
                             <p className="my-2">
                                 {challengeInteractiveJoinRisk === 0 ? <>
                                     Currently everyone has to complete a challenge.
