@@ -196,6 +196,13 @@ function ChallengeDashboard({ data }) {
                                 </>}
                             </p>
                             <Slider value={challengeInteractiveJoinRisk} setValue={setChallengeInteractiveJoinRisk} minValue={0} maxValue={100} step={1} />
+                            <Button
+                                text="Save"
+                                disabled={challengeInteractiveJoinRisk === +data.config.challenge_interactive_joinrisk_custom}
+                                onClick={async () => {
+                                    await doChange(patchConfig(data.guild.id, {challenge_interactive_joinrisk_custom: challengeInteractiveJoinRisk}));
+                                }}
+                            />
                         </>}
                     </BlockRightSide>
 
