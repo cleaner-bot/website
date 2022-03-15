@@ -167,7 +167,15 @@ function ChallengeDashboard({ data }) {
                         <p className="mb-2 text-gray-200">
                             Challenge people based on risk rating when joining.
                         </p>
-                        <Dropdown values={securityLevels} current={challengeInteractiveSecurityLevel} setCurrent={setChallengeInteractiveSecurityLevel} />
+                        <Dropdown
+                            values={securityLevels}
+                            current={challengeInteractiveSecurityLevel}
+                            setCurrent={async new_value => {
+                                const success = await doChange(patchConfig(data.guild.id, {challenge_interactive_level: new_value}));
+                                if(!success) return;
+                                setChallengeInteractiveSecurityLevel(new_value);
+                            }}
+                        />
                         {challengeInteractiveSecurityLevel > 0 && <p className="mt-2">
                             {challengeInteractiveSecurityLevel === 0 ? <>
                                 Currently nobody has to complete a challenge.
