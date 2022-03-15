@@ -36,7 +36,7 @@ const httpErrors = {
         return (
             <GenericErrorHandler title="Unauthorized">
                 <p className="mt-6 text-center text-gray-200">
-                    You are not authorization to access this ressource.
+                    You are not authorized to access this ressource.
                 </p>
                 {error.response.data && error.response.data.detail && <p className="text-center text-gray-200">
                     {error.response.data.detail}
