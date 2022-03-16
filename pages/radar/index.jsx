@@ -23,9 +23,6 @@ export default function Radar() {
             <h1 className="mb-4 text-5xl font-bold">
                 The Cleaner Radar
             </h1>
-            <div className="flex">
-                Last update: {response ? new Date(response.data.last_data).toLocaleString() : <Skeleton className="inline-block w-32 h-5 ml-2 rounded-md" />}
-            </div>
             <p className="mt-8">
                 The Cleaner is a Discord bot for keeping your servers clean.
                 The Cleaner Radar is powered by real data we collect anonymously to provide statistics.
@@ -41,10 +38,10 @@ export default function Radar() {
                 </p>
                 <Stats
                     stats={[
-                        { name: "Phishing", stat: response && response.data.stats_phishing },
-                        { name: "Antispam", stat: response && response.data.stats_antispam },
-                        { name: "Advertisement", stat: response && response.data.stats_advertisement },
-                        { name: "Other", stat: response && response.data.stats_other },
+                        { name: "Phishing", stat: response && response.data.categories.phishing },
+                        { name: "Antispam", stat: response && response.data.categories.antispam },
+                        { name: "Advertisement", stat: response && response.data.categories.advertisement },
+                        { name: "Other", stat: response && response.data.categories.other },
                     ]}
                 />
 
@@ -56,10 +53,10 @@ export default function Radar() {
                 </p>
                 <Stats
                     stats={[
-                        { name: "Ban", stat: response && response.data.challenges_ban },
-                        { name: "Discord Authentication", stat: response && response.data.challenges_auth },
-                        { name: "CAPTCHA", stat: response && response.data.challenges_captcha },
-                        { name: "Timeout", stat: response && response.data.challenges_timeout },
+                        { name: "Ban", stat: response && response.data.challenges.ban },
+                        { name: "Kick", stat: response && response.data.challenges.kick },
+                        { name: "Interactive challenge", stat: response && response.data.challenges.role },
+                        { name: "Timeout", stat: response && response.data.challenges.timeout },
                     ]}
                 />
 
