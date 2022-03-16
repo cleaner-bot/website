@@ -109,7 +109,7 @@ function GuildButton({ guild }) {
     const router = useRouter();
     if(guild.is_suspended)
         return (
-            <Link href="/help/suspension#suspended-guild">
+            <Link href={`/dash/${guild.id}`}>
                 <a className="mx-4 mt-4 --btn --btn-4 --btn-destructive">
                     Suspended
                 </a>
