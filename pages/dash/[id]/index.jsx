@@ -50,7 +50,7 @@ function Dashboard({ data }) {
                         Moderators will be not affected by the security solutions. (firewall, antispam, workers, ...)
                     </p>
                     <p className="text-gray-300">
-                        Members with <b>administrator</b> or <b>manage server</b> permission and the <b>server owner</b> will always be ignored.
+                        Members with <b>administrator</b> or <b>manage server</b> permission, the <b>server owner</b>, and <b>bots</b> will always be ignored.
                     </p>
                     <div className="flex gap-2 my-2">
                         Roles: 
