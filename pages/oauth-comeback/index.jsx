@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 import ErrorHandler from "@/components/dash/error.jsx";
+import MetaTags from "@/components/metatags.jsx";
 import { postOAuthCallback } from "@/lib/api.js";
 
 
@@ -29,6 +30,9 @@ export default function OAuthComeback() {
     }, [router]);
     return (
         <div className="--container">
+            <MetaTags
+                title="OAuth comeback"
+            />
             <h1 className="mt-20 mb-10 text-4xl font-bold text-center">
                 {error ? "Aw snap" : "Logging in..."}
             </h1>

@@ -5,8 +5,9 @@ import { useEffect, useState } from "react";
 import clsx from "clsx";
 
 import { getChallenge, createOAuthRedirect, postChallenge } from "@/lib/api.js";
+import MetaTags from "@/components/metatags.jsx";
 import { InternalLink } from "@/components/buttons.jsx";
-import ErrorHandler from "@/components/dash/error";
+import ErrorHandler from "@/components/dash/error.jsx";
 
 
 export default function ChallengeWrapper() {
@@ -48,6 +49,9 @@ export default function ChallengeWrapper() {
 
     return (
         <div className="h-screen bg-center bg-no-repeat bg-cover" style={{backgroundImage: state?.response?.data?.splash && `url("${state.response.data.splash}")`}}>
+            <MetaTags
+                title="Challenge"
+            />
             <div className="py-20 md:py-40 --container">
                 <ol role="list" className={clsx("p-8 mb-20 space-y-4 bg-gray-700 rounded-lg md:flex md:space-y-0 md:space-x-8", state?.response?.data?.splash && "shadow-2xl")}>
                     {steps.map(step => (

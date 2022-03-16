@@ -6,9 +6,22 @@ import QRCode from "qrcode.react";
 
 import { createRemoteAuth, postRemoteAuth } from "@/lib/api.js";
 import ErrorHandler from "@/components/dash/error.jsx";
+import MetaTags from "@/components/metatags.jsx";
 
 
 export default function RemoteAuth() {
+    return (
+        <>
+            <MetaTags
+                title="Remote authentication"
+            />
+            <RemoteAuthWrapper />
+        </>
+    )
+}
+
+
+function RemoteAuthWrapper() {
     const router = useRouter();
     if(!router.isReady)
         return (

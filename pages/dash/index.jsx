@@ -8,6 +8,7 @@ import Image from "@/components/image.jsx";
 import Skeleton from "@/components/skeleton.jsx";
 import ErrorHandler from "@/components/dash/error.jsx";
 import Footer from "@/components/footer.jsx";
+import MetaTags from "@/components/metatags.jsx";
 import { createOAuthRedirect, useGuilds } from "@/lib/api.js";
 import { range } from "@/lib/helper.js";
 
@@ -29,6 +30,9 @@ export default function Dashboard() {
     
     return (
         <>
+            <MetaTags
+                title="Dashboard"
+            />
             <div className="min-h-screen pb-40 --container">
                 {hasToLogin ? <div className="flex items-center justify-center h-screen">
                     <div>
@@ -49,7 +53,7 @@ export default function Dashboard() {
                         Your servers
                     </h1>
                     {isError && <ErrorHandler error={isError} />}
-                    {(isLoading || response) && <GuildList response={response} />}
+                    {(isLoading || response) && !isError && <GuildList response={response} />}
                     {response && !isError && <>
                         <h2 className="mt-20 mb-10 text-4xl font-bold text-center">
                             {response.data.length === 0 ? "No servers?" : "Missing a server?"}
