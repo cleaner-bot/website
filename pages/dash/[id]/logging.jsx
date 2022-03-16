@@ -6,7 +6,7 @@ import { DataWrapper } from "@/components/dash/data.jsx";
 import { Toggle, OptionalUpgrade, DropdownSearch, JustBlock, BlockRightSide } from "@/components/dash/ui.jsx";
 import ErrorHandler from "@/components/dash/error.jsx";
 import MetaTags from "@/components/metatags.jsx";
-import { useLoggingDownloads } from "@/lib/api.js";
+import { doChange, patchConfig, useLoggingDownloads } from "@/lib/api.js";
 
 export default function DashboardWrapper() {
     const router = useRouter();
@@ -56,7 +56,11 @@ function LoggingDashboard({ data }) {
                             placeholder="Select channel."
                             values={data.guild.channels.filter(channel => data.guild.myself.permissions.ADMINISTRATOR || (channel.permissions.VIEW_CHANNEL && channel.permissions.SEND_MESSAGES && channel.permissions.EMBED_LINKS))}
                             current={loggingChannel}
-                            setCurrent={setLoggingChannel}
+                            setCurrent={async new_value => {
+                                const success = await doChange(patchConfig(data.guild.id, {logging_channel: new_value}));
+                                if(!success) return;
+                                setLoggingChannel(new_value);
+                            }}
                         />
                     </JustBlock>
                     <BlockRightSide

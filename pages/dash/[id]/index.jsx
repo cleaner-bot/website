@@ -6,6 +6,7 @@ import { DataWrapper } from "@/components/dash/data.jsx";
 import { InternalLink } from "@/components/buttons.jsx";
 import { Toggle, DropdownSearch, JustBlock, Attention, BlockRightSide } from "@/components/dash/ui.jsx";
 import MetaTags from "@/components/metatags.jsx";
+import { doChange, patchConfig } from "@/lib/api";
 
 export default function DashboardWrapper() {
     const router = useRouter();
@@ -57,11 +58,13 @@ function Dashboard({ data }) {
                             No roles.
                         </span> : overviewModroles.split(",").map(x => <span key={x} className="inline-flex items-center justify-center pl-3 pr-1 rounded-full bg-coolGray-800">
                             {data.guild.roles.find(y => x === y.id)?.name || `Deleted role: ${x}`}
-                            <button className="w-4 h-4 ml-2 text-gray-400" onClick={() => {
+                            <button className="w-4 h-4 ml-2 text-gray-400" onClick={async () => {
                                 const modroles = overviewModroles.length > 0 ? overviewModroles.split(",") : [];
                                 const index = modroles.indexOf(x);
                                 if(index >= 0)
                                     modroles.splice(index, 1);
+                                const success = await doChange(patchConfig(data.guild.id, {overview_modroles: modroles.join(",")}));
+                                if(!success) return;
                                 setOverviewModroles(modroles.join(","));
                             }}>
                                 <svg className="w-2 h-2 stroke-current" fill="none" viewBox="0 0 8 8">
@@ -74,9 +77,11 @@ function Dashboard({ data }) {
                         placeholder="Select a role to add as moderator."
                         values={data.guild.roles.filter(x => !x.is_managed && overviewModroles.split(",").indexOf(x.id) === -1)}
                         current=""
-                        setCurrent={(value) => {
+                        setCurrent={async (value) => {
                             const modroles = overviewModroles.length > 0 ? overviewModroles.split(",") : [];
                             modroles.push(value);
+                            const success = await doChange(patchConfig(data.guild.id, {overview_modroles: modroles.join(",")}));
+                            if(!success) return;
                             setOverviewModroles(modroles.join(","));
                         }}
                     />
