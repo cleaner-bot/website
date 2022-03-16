@@ -211,7 +211,7 @@ function Suspended() {
     return (
         <div className="flex flex-col items-center justify-center">
             <ExclamationIcon className="w-32 h-32" />
-            <h1 className="text-5xl font-bold">
+            <h1 className="text-5xl font-bold text-center">
                 Guild is suspended
             </h1>
             <InternalLink href="/help/suspension#suspended-guild" color="--btn-neutral" className="mt-12 w-60">
