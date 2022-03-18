@@ -167,7 +167,7 @@ function FirewallDashboard({ data }) {
             </h2>
             <div className="my-12 space-y-12">
                 <FirewallRule
-                    rule="self_bot.embed"
+                    rule="selfbot.embed"
                     description="Self bot detection using embeds."
                     data={data}
                     field="rules_selfbot_embed"

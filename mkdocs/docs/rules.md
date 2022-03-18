@@ -40,7 +40,7 @@ Catches Discord imposters by analyzing assets used in the embed.
 Default action: `CHALLENGE`
 
 
-## self_bot.embed
+## selfbot.embed
 
 Catches selfbots.
 
