@@ -109,18 +109,6 @@ export function TextInput({ placeholder, value, setValue, changeOnInput, classNa
         </>
     )
 }
-export function NumberInput({ value, setValue, className }) {
-    return (
-        <>
-            <input
-                type="number"
-                value={value}
-                onChange={event => setValue(event.target.value)}
-                className={clsx("bg-gray-800 hover:bg-gray-750 focus:bg-gray-750 px-3 py-1 rounded-lg w-full", className)}
-            />
-        </>
-    )
-}
 
 export function Dropdown({ values, current, setCurrent, className }) {
     return (

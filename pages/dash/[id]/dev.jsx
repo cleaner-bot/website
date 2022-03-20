@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 
 import { doChange, patchConfig, patchEntitlement } from "@/lib/api.js";
 import { DataWrapper } from "@/components/dash/data.jsx";
-import { TextInput, NumberInput, Button, BlockRightSide } from "@/components/dash/ui.jsx";
+import { TextInput, Button, BlockRightSide } from "@/components/dash/ui.jsx";
 import MetaTags from "@/components/metatags";
 
 export default function DashboardWrapper() {
@@ -42,7 +42,7 @@ function DevDashboard({ data }) {
                 {Object.keys(data.entitlements).map((key, index) => <BlockRightSide
                     key={key}
                     rightSide={<div>
-                        <NumberInput value={reactHooksEntitlements[index][0]} setValue={reactHooksEntitlements[index][1]} />
+                        <TextInput value={reactHooksEntitlements[index][0]} setValue={reactHooksEntitlements[index][1]} />
                         <Button text="Save" className="w-full mt-2" onClick={async () => {
                             const new_value = reactHooksEntitlements[index][0];
                             const success = await doChange(patchEntitlement(data.guild.id, {[key]: new_value}));
@@ -56,7 +56,7 @@ function DevDashboard({ data }) {
                         {key}
                     </h2>
                     <p className="text-gray-200">
-                        Current value: {data.entitlements[key]}
+                        Current value: {data.entitlements[key].toString()}
                     </p>
                 </BlockRightSide>)}
             </div>
@@ -83,7 +83,7 @@ function DevDashboard({ data }) {
                         {key}
                     </h2>
                     <p className="text-gray-200">
-                        Current value: {data.config[key]}
+                        Current value: {data.config[key].toString()}
                     </p>
                 </BlockRightSide>)}
             </div>
