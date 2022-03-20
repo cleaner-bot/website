@@ -35,9 +35,9 @@ for the service "Dashboard" we optiain the following data:
 - name or pseudonym.
 - date of the account creation.
 - user flags.
-- Link to avatar.
-- Usage of Discord Nitro/Premium status.
-- List of used GUILD server.
+- link to avatar.
+- Discord premium (Nitro) status
+- list of the user's guilds (servers)
 
 For details, refer to https://discord.com/developers/docs/resources/user#user-object.
 
