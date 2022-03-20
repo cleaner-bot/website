@@ -14,11 +14,13 @@ The following overview summarizes the types of data processed and the purposes o
 
 „The Cleaner“ receives chat messages of Discord channels that use our Service and filters unwanted content. (i.e. spam or phishing). „The Cleaner“ deletes messages in the Discord channels, if the content is unwanted according to the filter rules. Additionally, users that repeatedly violate the filter rules, will be prevented from participating in the Discord channels.
 
+The Service "Dashboard" is a website frontend to administer technical parameters by administrators of the service "The Cleaner".
+
 Users have to receive an invitation to the Discord channels first (closed user group). A Discord Account has to be created under the [Privacy Policy of Discord first](https://discord.com/privacy) for this.
 
 ### Categories of processed data
 
-Data categories are the message content and Discord user information. User information are:
+Data categories are the message content and Discord user information. User information fpr "The Cleaner" are:
 
 - unique user id (number).
 - name or pseudonym.
@@ -26,15 +28,27 @@ Data categories are the message content and Discord user information. User infor
 - server join time.
 - user flags.
 
+for the service "Dashboard" we optiain the following data:
+
+- IP address.
+- unique user id (number).
+- name or pseudonym.
+- date of the account creation.
+- user flags.
+- Link to avatar.
+- Usage of Discord Nitro/Premium status.
+- List of used GUILD server.
+
 For details, refer to https://discord.com/developers/docs/resources/user#user-object.
 
 ### Categories of affected users
 
 - Users of Discord.
+- Administrators of service "Dashboard".
 
 ### Purposes of processing
 
-Providing our service „The Cleaner“.
+Providing and adminstering our service „The Cleaner“.
 
 ### Applicable legal bases
 
