@@ -12,6 +12,11 @@ import { InternalLink, ExternalLink } from "@/components/buttons.jsx";
 import Footer from "@/components/footer.jsx";
 import Features from "@/components/features.jsx";
 
+const trustedBy = [
+    { name: "Servers", count: "80+" },
+    { name: "Users", count: "150,000+" },
+]
+
 
 export default function Home() {
     useEffect(() => {
@@ -31,7 +36,7 @@ export default function Home() {
                             The Cleaner
                         </span>
                     </h1>
-                    <div className="flex h-6 mt-8 space-x-2 md:mt-10">
+                    <div className="flex h-6 mt-2 space-x-2 md:mt-10">
                         <Link href="/dash">
                             <a className="inline-block px-1 align-bottom hover:border-b-2 border-b-indigo-600">
                                 Dashboard
@@ -49,9 +54,9 @@ export default function Home() {
                         </Link>
                     </div>
                 </div>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-10">
+                <div className="grid grid-cols-1 gap-10 xl:grid-cols-2">
                     <div className="m-auto">
-                        <h2 className="text-5xl font-extrabold leading-10">
+                        <h2 className="text-5xl font-extrabold leading-10 text-center sm:text-left">
                             A bot built for keeping servers clean
                         </h2>
                         <p className="mt-6 text-gray-100">
@@ -59,13 +64,13 @@ export default function Home() {
                         </p>
                         <div className="my-4 space-y-1">
                             <Pro>
-                                Raid detection within seconds.
+                                Spam detection within seconds.
                             </Pro>
                             <Pro>
                                 Instant phishing link detection with the help of heuristics, a database of old links and shared knowledge between servers.
                             </Pro>
                             <Pro>
-                                Filter bots out with CAPTCHAs.
+                                Enable Verification to filter out all bots.
                             </Pro>
                         </div>
                         <div className="grid gap-2 mt-2 md:grid-cols-2">
@@ -78,7 +83,25 @@ export default function Home() {
                         </div>
                     </div>
                     <div className="m-auto">
-                        <Image src="/img/home/feature_phishing.gif" className="w-full" width={600} height={300} alt="GIF of phishing protection in action" />
+                        <h2 className="text-5xl font-extrabold leading-10 text-center">
+                            Trusted by the community
+                        </h2>
+                        <p className="mt-6 text-gray-100">
+                            The Cleaner is trusted by many servers and users to keep their environment clean.
+                        </p>
+                        <p className="font-bold text-gray-300 hover:underline">
+                            <Link href="/radar">
+                                <a>
+                                    Find the exact numbers and more statistics here.
+                                </a>
+                            </Link>
+                        </p>
+                        <div className="grid px-4 mt-12 text-center sm:grid-cols-2 sm:text-left">
+                            {trustedBy.map(({ name, count }) => <div>
+                                <p className="text-lg font-medium text-gray-400">{name}</p>
+                                <p className="text-5xl font-extrabold text-blue-400">{count}</p>
+                            </div>)}
+                        </div>
                     </div>
                 </div>
             </div>
