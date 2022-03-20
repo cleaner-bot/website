@@ -20,7 +20,7 @@ Users have to receive an invitation to the Discord channels first (closed user g
 
 ### Categories of processed data
 
-Data categories are the message content and Discord user information. User information fpr "The Cleaner" are:
+Data categories are the message content and Discord user information. User information for "The Cleaner" are:
 
 - unique user id (number).
 - name or pseudonym.
