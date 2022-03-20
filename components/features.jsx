@@ -4,10 +4,10 @@ import Image from "@/components/image.jsx";
 
 const features = [
     {
-        name: "Automatic Raid Prevention",
+        name: "Automatic Spam Prevention",
         description: <>
             <p>
-                Automatically detects raids and deploys on-the-fly rules to detect it.
+                Automatically detects spam using industry leading techniques.
             </p>
             <p>
                 Automatically chooses the best Discord feature combat the spam. (timeout, kick, ban, etc)
@@ -19,9 +19,9 @@ const features = [
             "Automatic adjustments to channel slowmode.",
         ],
         image: {
-            src: "/img/home/feature_antiraid.png",
-            width: 1260,
-            height: 764,
+            src: "/img/features/antispam.png",
+            width: 1270,
+            height: 1632,
         },
     },
     {
@@ -33,23 +33,22 @@ const features = [
             "Preview embed detection",
         ],
         image: {
-            src: "/img/home/feature_phishing.png",
-            width: 1221,
-            height: 539,
+            src: "/img/features/phishing.png",
+            width: 1270,
+            height: 544,
         },
     },
     {
-        name: "Challenges",
-        description: "Actions taken against violators.",
+        name: "Verification",
+        description: "Verification for new or bad behaving members.",
         points: [
-            "Discord Timeout",
-            "Discord Account Verification (interactive challenge)",
-            "CAPTCHA Verification (interactive challenge)",
+            "Discord Account Verification",
+            "CAPTCHA Verification",
         ],
         image: {
-            src: "/img/home/feature_captcha.png",
-            width: 1250,
-            height: 777
+            src: "/img/features/verification.png",
+            width: 1270,
+            height: 702
         },
     },
     {
@@ -62,9 +61,9 @@ const features = [
             "Protection against broad pings. (@here and @everyone)",
         ],
         image: {
-            src: "/img/home/feature_clean.png",
-            width: 1177,
-            height: 797,
+            src: "/img/features/miscellaneous.png",
+            width: 1270,
+            height: 1464,
         },
     }
 ]
