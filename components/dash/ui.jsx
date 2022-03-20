@@ -31,17 +31,17 @@ export function Checkbox({ enabled, setEnabled, onChange, labelOn, labelOff }) {
 }
 
 export function Toggle({ data, field, onToggle }) {
-    const [enabled, setEnabled] = useState(data.config[field] === "yes");
+    const [enabled, setEnabled] = useState(data.config[field]);
     const [updating, setUpdating] = useState(false);
     return (
         <button className={clsx("w-32 --btn --btn-3", enabled ? "--btn-success" : "--btn-destructive")} disabled={updating} onClick={async () => {
             setUpdating(true);
-            const success = await doChange(patchConfig(data.guild.id, {[field]: enabled ? "no" : "yes"}));
+            const success = await doChange(patchConfig(data.guild.id, {[field]: !enabled}));
             setUpdating(false);
             if(!success) return;
             setUpdating(false);
             setEnabled(!enabled);
-            data.config[field] = enabled ? "no" : "yes";
+            data.config[field] = !enabled;
             if(onToggle) onToggle(!enabled);
         }}>
             {enabled ? "Enabled" : "Disabled"}

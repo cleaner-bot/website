@@ -73,11 +73,11 @@ function FirewallDashboard({ data }) {
             </p>
             <p className="mt-8 text-gray-100">
                 <b>Challenge:</b>{" "}
-                {data.config.challenge_timeout_enabled === "yes" && data.config.challenge_interactive_enabled === "yes" && "User is put in timeout or has to solve an interactive challenge."}
-                {data.config.challenge_timeout_enabled === "yes" && data.config.challenge_interactive_enabled === "no" && "User is put in timeout."}
-                {data.config.challenge_timeout_enabled === "no" && data.config.challenge_interactive_enabled === "yes" && "User has to solve an interactive challenge."}
-                {data.config.challenge_timeout_enabled === "no" && data.config.challenge_interactive_enabled === "no" && "User is immediately banned."}
-                {(data.config.challenge_timeout_enabled === "yes" || data.config.challenge_interactive_enabled === "yes") && " (under certain conditions this might turn into an immediate kick or ban)"}
+                {data.config.challenge_timeout_enabled && data.config.challenge_interactive_enabled && "User is put in timeout or has to solve an interactive challenge."}
+                {data.config.challenge_timeout_enabled && !data.config.challenge_interactive_enabled && "User is put in timeout."}
+                {!data.config.challenge_timeout_enabled && data.config.challenge_interactive_enabled && "User has to solve an interactive challenge."}
+                {!data.config.challenge_timeout_enabled && !data.config.challenge_interactive_enabled && "User is immediately banned."}
+                {(data.config.challenge_timeout_enabled || data.config.challenge_interactive_enabled) && " (under certain conditions this might turn into an immediate kick or ban)"}
             </p>
             <p className="mt-2 text-gray-100">
                 <b>Block:</b> Message is deleted. After 3 blocks in an hour, the user is challenged.

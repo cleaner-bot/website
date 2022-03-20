@@ -44,7 +44,7 @@ function LoggingDashboard({ data }) {
                         Logging allows you to get notified in your discord about actions The Cleaner took.
                     </p>
                 </BlockRightSide>
-                {data.config.logging_enabled === "yes" && <>
+                {data.config.logging_enabled && <>
                     <JustBlock>
                         <h2 className="text-2xl font-medium">
                             Logging channel
@@ -91,7 +91,7 @@ function LoggingDashboard({ data }) {
                         <p className="text-gray-200">
                             Your logs expire after <b>{data.entitlements.logging_retention}</b> month{data.entitlements.logging_retention !== 1 && "s"}.
                         </p>
-                        {(data.entitlements.plan >= data.entitlements.logging_downloads && data.config.logging_downloads_enabled === "yes") && <>
+                        {(data.entitlements.plan >= data.entitlements.logging_downloads && data.config.logging_downloads_enabled) && <>
                             <h2 className="mt-12 mb-6 text-2xl">
                                 Files
                             </h2>

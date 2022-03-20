@@ -1,12 +1,11 @@
 
-import { useState } from "react";
 import { useRouter } from "next/router";
 
 import { DataWrapper } from "@/components/dash/data.jsx";
 import { InternalLink } from "@/components/buttons.jsx";
 import { Toggle, DropdownSearch, JustBlock, Attention, BlockRightSide } from "@/components/dash/ui.jsx";
 import MetaTags from "@/components/metatags.jsx";
-import { doChange, patchConfig } from "@/lib/api";
+import { doChange, patchConfig } from "@/lib/api.js";
 
 export default function DashboardWrapper() {
     const router = useRouter();
@@ -22,7 +21,6 @@ export default function DashboardWrapper() {
 
 
 function Dashboard({ data }) {
-    const [overviewModroles, setOverviewModroles] = useState(data.config.overview_modroles);
     return (
         <>
             <h1 className="text-2xl">
@@ -30,13 +28,13 @@ function Dashboard({ data }) {
             </h1>
 
             <div className="my-12 space-y-12">
-                {(data.config.logging_enabled === "no" || data.config.logging_channel === "0") && <Attention>
+                {(!data.config.logging_enabled || data.config.logging_channel === "0") && <Attention>
                     {data.config.logging_enabled === "no" ? "You do not have logging enabled!" : "You do not have a logging channel selected!"}
                     <InternalLink href={`/dash/${data.guild.id}/logging`} className="mt-4 lg:w-96">
                         Go to Logging
                     </InternalLink>
                 </Attention>}
-                {data.config.challenge_interactive_enabled === "yes" && data.config.challenge_interactive_role === "0" && <Attention>
+                {data.config.challenge_interactive_enabled && data.config.challenge_interactive_role === "0" && <Attention>
                     You do not have a role for interactive challenges selected.
                     <InternalLink href={`/dash/${data.guild.id}/challenge`} className="mt-4 lg:w-96">
                         Go to Challenge
@@ -54,18 +52,18 @@ function Dashboard({ data }) {
                     </p>
                     <div className="flex gap-2 my-2">
                         Roles: 
-                        {overviewModroles.length === 0 ? <span>
+                        {data.config.overview_modroles.length === 0 ? <span>
                             No roles.
-                        </span> : overviewModroles.split(",").map(x => <span key={x} className="inline-flex items-center justify-center pl-3 pr-1 rounded-full bg-coolGray-800">
+                        </span> : data.config.overview_modroles.map(x => <span key={x} className="inline-flex items-center justify-center pl-3 pr-1 rounded-full bg-coolGray-800">
                             {data.guild.roles.find(y => x === y.id)?.name || `Deleted role: ${x}`}
                             <button className="w-4 h-4 ml-2 text-gray-400" onClick={async () => {
-                                const modroles = overviewModroles.length > 0 ? overviewModroles.split(",") : [];
+                                const modroles = [...data.config.overview_modroles];
                                 const index = modroles.indexOf(x);
                                 if(index >= 0)
                                     modroles.splice(index, 1);
-                                const success = await doChange(patchConfig(data.guild.id, {overview_modroles: modroles.join(",")}));
+                                const success = await doChange(patchConfig(data.guild.id, {overview_modroles: modroles}));
                                 if(!success) return;
-                                setOverviewModroles(modroles.join(","));
+                                data.config.overview_modroles = modroles;
                             }}>
                                 <svg className="w-2 h-2 stroke-current" fill="none" viewBox="0 0 8 8">
                                     <path strokeLinecap="round" strokeWidth="1.5" d="M1 1l6 6m0-6L1 7" />
@@ -75,14 +73,14 @@ function Dashboard({ data }) {
                     </div>
                     <DropdownSearch
                         placeholder="Select a role to add as moderator."
-                        values={data.guild.roles.filter(x => !x.is_managed && overviewModroles.split(",").indexOf(x.id) === -1)}
+                        values={data.guild.roles.filter(x => !x.is_managed && data.config.overview_modroles.indexOf(x.id) === -1)}
                         current=""
-                        setCurrent={async (value) => {
-                            const modroles = overviewModroles.length > 0 ? overviewModroles.split(",") : [];
+                        setCurrent={async value => {
+                            const modroles = [...data.config.overview_modroles];
                             modroles.push(value);
-                            const success = await doChange(patchConfig(data.guild.id, {overview_modroles: modroles.join(",")}));
+                            const success = await doChange(patchConfig(data.guild.id, {overview_modroles: modroles}));
                             if(!success) return;
-                            setOverviewModroles(modroles.join(","));
+                            data.config.overview_modroles = modroles;
                         }}
                     />
                 </JustBlock>

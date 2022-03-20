@@ -23,9 +23,9 @@ export default function DashboardWrapper() {
 
 function ChallengeDashboard({ data }) {
     const [challengeInteractiveRoleID, setChallengeInteractiveRoleID] = useState(data.config.challenge_interactive_role);
-    const [challengeInteractiveTakeRole, setChallengeInteractiveTakeRole] = useState(data.config.challenge_interactive_take_role === "yes");
-    const [challengeInteractiveSecurityLevel, setChallengeInteractiveSecurityLevel] = useState(+data.config.challenge_interactive_level)
-    const [challengeInteractiveJoinRisk, setChallengeInteractiveJoinRisk] = useState(+data.config.challenge_interactive_joinrisk_custom);
+    const [challengeInteractiveTakeRole, setChallengeInteractiveTakeRole] = useState(data.config.challenge_interactive_take_role);
+    const [challengeInteractiveSecurityLevel, setChallengeInteractiveSecurityLevel] = useState(data.config.challenge_interactive_level);
+    const [challengeInteractiveJoinRisk, setChallengeInteractiveJoinRisk] = useState(data.config.challenge_interactive_joinrisk_custom);
 
     const [sendChallengeInteractiveEmbedChannel, setSendChallengeInteractiveEmbedChannel] = useState("");
 
@@ -95,7 +95,7 @@ function ChallengeDashboard({ data }) {
                         This means they have to authenticate using discord and under special circumstances solve a CAPTCHA.
                     </p>
                 </BlockRightSide>
-                {data.config.challenge_interactive_enabled === "yes" && <>
+                {data.config.challenge_interactive_enabled && <>
                     <JustBlock>
                         <h2 className="text-2xl font-medium">
                             Interactive role settings
@@ -123,7 +123,7 @@ function ChallengeDashboard({ data }) {
                             text={challengeInteractiveTakeRole ? "Take role" : "Give role"}
                             className="mt-4"
                             onClick={async () => {
-                                const success = await doChange(patchConfig(data.guild.id, {challenge_interactive_take_role: challengeInteractiveTakeRole ? "no" : "yes"}));
+                                const success = await doChange(patchConfig(data.guild.id, {challenge_interactive_take_role: !challengeInteractiveTakeRole}));
                                 if(!success) return;
                                 setChallengeInteractiveTakeRole(!challengeInteractiveTakeRole);
                             }}
@@ -198,7 +198,7 @@ function ChallengeDashboard({ data }) {
                             <Slider value={challengeInteractiveJoinRisk} setValue={setChallengeInteractiveJoinRisk} minValue={0} maxValue={100} step={1} />
                             <Button
                                 text="Save"
-                                disabled={challengeInteractiveJoinRisk === +data.config.challenge_interactive_joinrisk_custom}
+                                disabled={challengeInteractiveJoinRisk === data.config.challenge_interactive_joinrisk_custom}
                                 onClick={async () => {
                                     await doChange(patchConfig(data.guild.id, {challenge_interactive_joinrisk_custom: challengeInteractiveJoinRisk}));
                                 }}
