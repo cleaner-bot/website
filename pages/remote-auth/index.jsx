@@ -119,7 +119,7 @@ function UseRemoteAuth({ code }) {
             } catch (e) {
                 return setError(e);
             }
-            localStorage.setItem("token", response.data);
+            localStorage.setItem("token", response.data.token);
             router.push("/dash");
         })();
     }, [code]);
