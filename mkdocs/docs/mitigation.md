@@ -3,40 +3,28 @@
 
 
 Mitigation strategies analyze recent messages (traffic) and looks for patterns.
-If a pattern is found, a [dynamic rule](rules.md#dynamic-rules) will be deployed to block messages matching that pattern.
+If a pattern is found, we will automatically block all messages matching that pattern.
 
-Dynamic rules disappear after they haven't been triggered for the specified time.
+Dynamic rules automatically expire after they haven't been triggered for some time.
 
 This is the primary defense against raids or other kinds of spam that is directed to only one guild.
 
 
 #### traffic.similar
 
-Detects similar messages. This is the most basic defense.
-
-
-- Action: `BLOCK`
-- Expires: 120s (2m)
+Detects similar messages. This is the most basic defense. (5/30s/user, 12/30s/guild)
 
 
 #### traffic.token
 
-Detects repeated tokens in messages.
+Detects repeating parts ("tokens") in messages.
 This tries to detect the "goal" of the spam.
-
-
-- Action: `BLOCK`
-- Expires: 120s (2m)
 
 
 #### traffic.exact
 
-Detects exact messages across multiple channels.
+Detects exact messages across multiple channels. (3/30s)
 This is intended for catching bots that send the same message into every channel.
-
-
-- Action: `CHALLENGE`, `BLOCK`
-- Expires: 300s (5m)
 
 
 #### traffic.sticker
@@ -44,17 +32,9 @@ This is intended for catching bots that send the same message into every channel
 Detects sticker spam. (3/30s)
 
 
-- Action: `BLOCK`
-- Expires: INSTANTLY  (does not deploy rule)
-
-
 #### traffic.attachment
 
 Detects attachment spam using filesize.  (3/30s)
-
-
-- Action: `BLOCK`
-- Expires: INSTANTLY  (does not deploy rule)
 
 
 ---

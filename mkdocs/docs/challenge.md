@@ -19,4 +19,4 @@ CAPTCHA challenges are part of interactive challenges and are required for users
 
 ---
 
-[Ready to invite the Cleaner?](/quickstart/) | [Need Support Instead?](/discord)
+[Ready to invite the Cleaner?](/dash/) | [Need Support Instead?](/discord)

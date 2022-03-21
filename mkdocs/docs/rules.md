@@ -47,35 +47,35 @@ Catches selfbots.
 Default action: `CHALLENGE`
 
 
-## mass_ping.hidden
+## ping.hidden
 
 Catches people abusing hidden pings. (the spoiler trick)
 
 Default action: `CHALLENGE`
 
 
-## mass_ping.roles
+## ping.roles
 
 Catches people pinging more than 5 roles.
 
 Default action: `CHALLENGE`
 
 
-## mass_ping.users.many
+## ping.users.many
 
 Catches people pinging more than 15 users.
 
 Default action: `CHALLENGE`
 
 
-## mass_ping.users.few
+## ping.users.few
 
 Catches people pinging more than 5 users.
 
 Default action: `BLOCK`
 
 
-## mass_ping.broad
+## ping.broad
 
 Catches people pinging `@everyone` or `@here` without having permissions to do so.
 

@@ -37,6 +37,7 @@ Website (I **love** Cloudflare):
   
 - Frontend hosted on [Cloudflare Pages](https://pages.cloudflare.com)
 - Backend hosted on my Raspberry Pi (using Cloudflare Tunnel)
+  - Backend written using FastAPI
 
 
 ## Story
