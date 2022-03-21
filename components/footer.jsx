@@ -41,7 +41,7 @@ export default function Footer({ className }) {
             <div className="col-span-3 lg:col-span-1">
                 <Link href="/">
                     <a className="block w-24 h-24 col-span-2 mx-auto rounded-full bg-gray-710 hover:bg-gray-650 --anim">
-                        <Image className="" src="/img/avatar.png" alt="The Cleaner Logo" />
+                        <Image src="/img/avatar@96x96.png" alt="The Cleaner Logo" width={96} height={96} />
                     </a>
                 </Link>
                 <div className="flex justify-center gap-4 mt-2">
