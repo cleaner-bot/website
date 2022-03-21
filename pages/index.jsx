@@ -122,7 +122,7 @@ export default function Home() {
             </div>
             <div className="--container" data-aos="fade-up">
                 <h2 className="text-6xl font-bold leading-[3rem] text-center max-w-[30rem] lg:max-w-none mx-auto">
-                    Start protecting <span className="text-blue-330">your server</span> now
+                    Start protecting <span className="text-blue-300">your server</span> now
                 </h2>
                 <InternalLink href="/dash" className="mx-auto max-w-[27rem] lg:max-w-[56rem] mt-12">
                     Dashboard
