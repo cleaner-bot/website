@@ -75,9 +75,6 @@ Our data protection information may also contain further information on the stor
 
 - **Messages**: Generally messages are only kept for a minute but in special cases can be stored for up to 10 minutes. (anonymized messages may be kept for longer)
 
-- **Join information**: We store anonymized join information for up to 10 minutes.
-
-- **Error logs**: Error logs are kept for up to 2 weeks and then automatically deleted.
 
 ## Change and update of this privacy policy
 
