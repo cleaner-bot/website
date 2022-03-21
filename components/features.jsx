@@ -22,6 +22,7 @@ const features = [
             src: "/img/features/antispam.png",
             width: 1270,
             height: 1632,
+            alt: "Image of antispam in action."
         },
     },
     {
@@ -36,6 +37,7 @@ const features = [
             src: "/img/features/phishing.png",
             width: 1270,
             height: 544,
+            alt: "Image of a message deleted by phishing prevention."
         },
     },
     {
@@ -48,7 +50,8 @@ const features = [
         image: {
             src: "/img/features/verification.png",
             width: 1270,
-            height: 702
+            height: 702,
+            alt: "Image of the 'Verification required' embed"
         },
     },
     {
@@ -64,6 +67,7 @@ const features = [
             src: "/img/features/miscellaneous.png",
             width: 1270,
             height: 1464,
+            image: "Image of various deleted messages."
         },
     }
 ]
