@@ -115,8 +115,8 @@ Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen
 Postfach 20 04 44  
 40102 Düsseldorf
 
-Tel.: 0211/38424-0
-Fax: 0211/38424-999
+Tel.: 0211/38424-0  
+Fax: 0211/38424-999  
 E-Mail: poststelle@ldi.nrw.de
 
 
