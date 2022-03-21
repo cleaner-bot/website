@@ -98,7 +98,7 @@ export default function Home() {
                         </p>
                         <div className="grid px-4 mt-12 text-center sm:grid-cols-2 sm:text-left">
                             {trustedBy.map(({ name, count }) => <div>
-                                <p className="text-lg font-medium text-gray-400">{name}</p>
+                                <p className="text-lg font-medium text-gray-350">{name}</p>
                                 <p className="text-5xl font-extrabold text-blue-400">{count}</p>
                             </div>)}
                         </div>
