@@ -67,7 +67,7 @@ const features = [
             src: "/img/features/miscellaneous.png",
             width: 1270,
             height: 1464,
-            image: "Image of various deleted messages."
+            alt: "Image of various deleted messages."
         },
     }
 ]
