@@ -20,7 +20,9 @@ Users have to receive an invitation to the Discord channels first (closed user g
 
 ### Categories of processed data
 
-Data categories are the message content and Discord user information. User information for "The Cleaner" are:
+Data categories are the message content and Discord user information.
+
+User information for "The Cleaner" are:
 
 - unique user id (number).
 - name or pseudonym.
@@ -28,7 +30,7 @@ Data categories are the message content and Discord user information. User infor
 - server join time.
 - user flags.
 
-for the service "Dashboard" we optiain the following data:
+User information for "Dashboard" and "Challenge" are:
 
 - IP address.
 - unique user id (number).
@@ -39,12 +41,18 @@ for the service "Dashboard" we optiain the following data:
 - Discord premium (Nitro) status
 - list of the user's guilds (servers)
 
+User information for "Radar" is:
+
+- IP address
+
 For details, refer to https://discord.com/developers/docs/resources/user#user-object.
 
 ### Categories of affected users
 
 - Users of Discord.
+- Challenged Discord users.
 - Administrators of service "Dashboard".
+- Visitors of "Radar".
 
 ### Purposes of processing
 
