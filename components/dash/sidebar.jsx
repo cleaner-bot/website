@@ -184,7 +184,7 @@ function Profile({ data }) {
         name: data ? data.user.name : "Loading name...",
         text: "View servers",
         href: "/dash/",
-        image: data && data.user.avatar,
+        image: data && <UserIcon user={data.user} />,
     })
     return (
         <>
@@ -192,9 +192,9 @@ function Profile({ data }) {
                 <Link href={opt.href}>
                     <a className="flex-shrink-0 block w-full group">
                         <div className="flex items-center">
-                            {opt.image !== null && typeof(opt.image) === "string" ? <div>
-                                {opt.image ? <Image src={opt.image} alt="" className="inline-block rounded-full h-9 w-9 bg-gray-750" /> : <Skeleton className="rounded-full h-9 w-9" />}
-                            </div> : opt.image}
+                            {opt.image !== null && <div>
+                                {opt.image || <Skeleton className="rounded-full h-9 w-9" />}
+                            </div>}
                             <div className={opt.image === null ? "ml-12" : "ml-3"}>
                                 <p className="text-sm font-medium text-white truncate">{opt.name}</p>
                                 <p className="text-xs font-medium text-gray-300 --anim group-hover:text-gray-200">{opt.text}</p>
@@ -204,6 +204,16 @@ function Profile({ data }) {
                 </Link>
             </div>)}
         </>
+    )
+}
+
+function UserIcon({ user }) {
+    const CDN_BASE = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}`;
+    return (
+        <picture>
+            <source type="image/webp" data-srcset={`${CDN_BASE}.webp?size=64`} />
+            <img data-src={`${CDN_BASE}.png?size=64`} alt="" className="flex rounded-full w-9 h-9 lazyload bg-gray-810" />
+        </picture>
     )
 }
 

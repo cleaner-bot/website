@@ -3,7 +3,6 @@ import { QuestionMarkCircleIcon, ExclamationCircleIcon } from "@heroicons/react/
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import Image from "@/components/image.jsx";
 import Skeleton from "@/components/skeleton.jsx";
 import ErrorHandler from "@/components/dash/error.jsx";
 import Footer from "@/components/footer.jsx";
@@ -12,10 +11,16 @@ import { createOAuthRedirect, useGuilds } from "@/lib/api.js";
 import { range } from "@/lib/helper.js";
 
 
-function GuildIcon({ icon }) {
-    if(!icon)
+function GuildIcon({ guild }) {
+    if(!guild.icon)
         return <QuestionMarkCircleIcon className="w-16 h-16 mx-auto rounded-full bg-gray-810" />;
-    return <Image src={icon} className="flex w-16 h-16 mx-auto rounded-full bg-gray-810" />;
+    const CDN_BASE = `https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}`;
+    return (
+        <picture>
+            <source type="image/webp" data-srcset={`${CDN_BASE}.webp?size=128`} />
+            <img data-src={`${CDN_BASE}.png?size=128`} alt="" className="flex w-16 h-16 mx-auto rounded-full lazyload bg-gray-810" />
+        </picture>
+    )
 }
 
 
@@ -91,7 +96,7 @@ function GuildList({ response }) {
 function Guild({ guild }) {
     return (
         <div className="relative pt-2 pb-4 bg-gray-800 rounded-lg">
-            {guild ? <GuildIcon icon={guild.icon} /> : <Skeleton className="w-16 h-16 mx-auto rounded-full" />}
+            {guild ? <GuildIcon guild={guild} /> : <Skeleton className="w-16 h-16 mx-auto rounded-full" />}
             {guild && <span className="absolute text-gray-300 top-2 left-2">
                 {guild.is_owner ? "Owner" : guild.is_admin ? "Admin" : "Manager"}
             </span>}
