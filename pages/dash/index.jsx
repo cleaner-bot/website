@@ -1,5 +1,4 @@
 
-import clsx from "clsx";
 import { QuestionMarkCircleIcon, ExclamationCircleIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -13,10 +12,10 @@ import { createOAuthRedirect, useGuilds } from "@/lib/api.js";
 import { range } from "@/lib/helper.js";
 
 
-function GuildIcon({ icon, className }) {
+function GuildIcon({ icon }) {
     if(!icon)
-        return <QuestionMarkCircleIcon className={clsx("inline rounded-full bg-gray-810", className)} />;
-    return <Image src={icon} className={clsx("inline rounded-full bg-gray-810", className)} />;
+        return <QuestionMarkCircleIcon className="w-16 h-16 mx-auto rounded-full bg-gray-810" />;
+    return <Image src={icon} className="flex w-16 h-16 mx-auto rounded-full bg-gray-810" />;
 }
 
 
@@ -92,7 +91,7 @@ function GuildList({ response }) {
 function Guild({ guild }) {
     return (
         <div className="relative pt-2 pb-4 bg-gray-800 rounded-lg">
-            {guild ? <GuildIcon icon={guild.icon} className="flex w-16 h-16 mx-auto" /> : <Skeleton className="w-16 h-16 mx-auto rounded-full" />}
+            {guild ? <GuildIcon icon={guild.icon} /> : <Skeleton className="w-16 h-16 mx-auto rounded-full" />}
             {guild && <span className="absolute text-gray-300 top-2 left-2">
                 {guild.is_owner ? "Owner" : guild.is_admin ? "Admin" : "Manager"}
             </span>}
