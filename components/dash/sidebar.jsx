@@ -208,11 +208,13 @@ function Profile({ data }) {
 }
 
 function UserIcon({ user }) {
+    if(!user.avatar)
+        return <Image src={`https://cdn.discordapp.com/embed/avatars/${user.discriminator % 5}.png`} className="rounded-full w-9 h-9 bg-gray-810" />
     const CDN_BASE = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}`;
     return (
         <picture>
             <source type="image/webp" data-srcset={`${CDN_BASE}.webp?size=64`} />
-            <img data-src={`${CDN_BASE}.png?size=64`} alt="" className="flex rounded-full w-9 h-9 lazyload bg-gray-810" />
+            <img data-src={`${CDN_BASE}.png?size=64`} alt="" className="rounded-full w-9 h-9 lazyload bg-gray-810" />
         </picture>
     )
 }
