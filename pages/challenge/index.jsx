@@ -8,6 +8,7 @@ import { getChallenge, createOAuthRedirect, postChallenge } from "@/lib/api.js";
 import MetaTags from "@/components/metatags.jsx";
 import { InternalLink } from "@/components/buttons.jsx";
 import ErrorHandler from "@/components/dash/error.jsx";
+import { DiscordIconWhite } from "@/components/discord";
 
 
 export default function ChallengeWrapper() {
@@ -94,9 +95,13 @@ export default function ChallengeWrapper() {
                         <p className="mt-6 text-center text-gray-200">
                             Please authorize our application to confirm you are not a robot.
                         </p>
-                        <InternalLink href={createOAuthRedirect({ flow: router.query.flow })} className="mt-12">
-                            Authorize
-                        </InternalLink>
+                        <button className="w-full mt-12 --btn --btn-4 --btn-primary" onClick={() => {
+                            const url = createOAuthRedirect({ flow: router.query.flow });
+                            router.push(url);
+                        }}>
+                            <DiscordIconWhite className="w-6 h-6 mr-4" />
+                            Authorize with Discord
+                        </button>
                     </>}
                     {state.stage === 2 && <>
                         <h1 className="text-4xl font-bold text-center">
