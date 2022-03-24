@@ -125,9 +125,11 @@ function Guild({ guild }) {
 
 function GuildButton({ guild }) {
     const router = useRouter();
+    const isComponentAllowed = ["antispam", "backup", "bot", "challenge", "contact", "dev", "firewall", "impersonation", "logging", "plan", "slowmode", "workers"].includes(router.query.component);
+    const link = `/dash/${guild.id}` + (isComponentAllowed ? `/${router.query.component}` : "")
     if(guild.is_suspended)
         return (
-            <Link href={`/dash/${guild.id}`}>
+            <Link href={link}>
                 <a className="mx-4 mt-4 --btn --btn-4 --btn-destructive">
                     Suspended
                 </a>
@@ -135,7 +137,7 @@ function GuildButton({ guild }) {
         )
     if(guild.is_added)
         return (
-            <Link href={`/dash/${guild.id}`}>
+            <Link href={link}>
                 <a className="mx-4 mt-4 --btn --btn-4 --btn-primary">
                     Dashboard
                 </a>
