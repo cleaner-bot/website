@@ -18,18 +18,6 @@ export default function DashboardWrapper() {
     )
 }
 
-
-function getContactEmail(guildId) {
-    const chars = [];
-    guildId = BigInt(guildId);
-    for(let i = 0; i < 8; i++) {
-        chars.push(guildId & 0xffn);
-        guildId = guildId >> 8n;
-    }
-    const encoded_guildId = btoa(chars.reverse().map(x => String.fromCharCode(Number(x))).join());
-    return `c-${encoded_guildId}@leodev.xyz`
-}
-
 function ContactDashboard({ data }) {
     return (
         <>
@@ -56,6 +44,9 @@ function ContactDashboard({ data }) {
                     <p className="mt-2 text-gray-300">
                         Join the official Discord and receive help by the community.
                     </p>
+                    <p className="text-gray-300">
+                        Staff may also respond, but not guaranteed.
+                    </p>
                 </BlockRightSide>
                 {data.user.is_dev && <>
                     <BlockRightSide
@@ -74,7 +65,7 @@ function ContactDashboard({ data }) {
                         </h2>
                         <p className="mt-2 text-gray-300">
                             Join the official Discord and receive help by the staff team.
-                            Check the #pro-support channel for more information.
+                            Check the #unlock channel for more information.
                         </p>
                     </BlockRightSide>
                     <BlockRightSide
@@ -91,12 +82,12 @@ function ContactDashboard({ data }) {
                             Contact the staff team directly via E-Mail.
                         </p>
 
-                        {((data.entitlements.contact_email === true || data.entitlements.contact_email <= data.entitlements.plan) && data.entitlements.contact_email !== false) && <>
+                        {data.entitlements.plan >= data.entitlements.contact_email && <>
                             <span className="mt-6 text-gray-300">
                                 Your contact email:{" "}
                             </span>
                             <span className="break-all hover:underline">
-                                {getContactEmail(data.guild.id)}
+                                cleaner+{data.entitlements.partnered ? "partners" : "support"}@leodev.xyz
                             </span>
                         </>}
                     </BlockRightSide>

@@ -86,7 +86,7 @@ function LoggingDashboard({ data }) {
                             Downloads
                         </h2>
                         <p className="text-gray-200">
-                            We'll save all your logs and you can download it here anytime.
+                            We'll save all your logs and you can download them here until they expire.
                         </p>
                         <p className="text-gray-200">
                             Your logs expire after <b>{data.entitlements.logging_retention}</b> month{data.entitlements.logging_retention !== 1 && "s"}.
