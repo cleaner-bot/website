@@ -19,7 +19,7 @@ const navigation = [
     { name: "Slowmode", id: "slowmode", icon: ClockIcon },
     { name: "Challenge", id: "challenge", icon: FingerPrintIcon },
     { name: "Logging", id: "logging", icon: ArchiveIcon },
-    { name: "Impersonation", id: "impersonation", icon: IdentificationIcon, restricted: true },
+    { name: "Impersonation", id: "impersonation", icon: IdentificationIcon },
     { name: "Workers", id: "workers", icon: CodeIcon, restricted: true },
     { name: "Backup", id: "backup", icon: FolderIcon, restricted: true },
     { name: "Bot", id: "bot", icon: CubeTransparentIcon, restricted: true },
