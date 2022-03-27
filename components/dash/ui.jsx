@@ -93,15 +93,14 @@ export function Button({ text, onClick, disabled, className }) {
     )
 }
 
-export function TextInput({ placeholder, value, setValue, changeOnInput, className }) {
+export function TextInput({ placeholder, value, setValue, className }) {
     return (
         <>
             <input
                 type="text"
                 value={value}
                 placeholder={placeholder}
-                onChange={!changeOnInput && (event => setValue(event.target.value)) || undefined}
-                onInput={changeOnInput && (event => setValue(event.target.value)) || undefined}
+                onChange={event => setValue(event.target.value)}
                 className={clsx("bg-gray-800 hover:bg-gray-750 focus:bg-gray-750 px-3 py-1 rounded-lg w-full", className)}
             />
         </>
