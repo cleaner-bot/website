@@ -4,6 +4,7 @@ import { CheckCircleIcon, CheckIcon, MinusIcon } from "@heroicons/react/solid";
 import Link from "next/link";
 
 import Footer from "@/components/footer.jsx";
+import MetaTags from "@/components/metatags.jsx";
 
 
 const includedFeatures = [
@@ -58,6 +59,10 @@ const sections = [
 export default function Pricing() {
     return (
         <div className="py-16 --container">
+            <MetaTags
+                title="The Cleaner Pricing"
+                description="You aren't supposed to see this yet :eyes:"
+            />
             <h2 className="text-2xl font-extrabold text-center text-gray-100 sm:text-4xl lg:text-5xl">
                 Support The Cleaner
             </h2>
