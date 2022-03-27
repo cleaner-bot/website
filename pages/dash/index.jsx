@@ -95,7 +95,7 @@ function GuildList({ response }) {
     return (
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
             {isLoading ? (
-                range(18, index => <Guild key={index} />)
+                range(12, index => <Guild key={index} />)
             ) : (
                 servers.map(guild => <Guild guild={guild} key={guild.id} />)
             )}
