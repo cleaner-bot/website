@@ -50,7 +50,7 @@ function SlowmodeDashboard({ data }) {
                         Channels marked as exception will have a lot less slowmode.
                         This also affects Anti Spam and disables the emoji.mass Firewall rule.
                     </p>
-                    <div className="flex gap-2 my-2">
+                    <div className="flex flex-wrap gap-2 my-8">
                         Channels: 
                         {data.config.slowmode_exceptions.length === 0 ? <span>
                             No channels.

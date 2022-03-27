@@ -50,7 +50,7 @@ function Dashboard({ data }) {
                     <p className="text-gray-300">
                         Members with <b>administrator</b> or <b>manage server</b> permission, the <b>server owner</b>, and <b>bots</b> will always be ignored.
                     </p>
-                    <div className="flex gap-2 my-2">
+                    <div className="flex flex-wrap gap-2 my-8">
                         Roles: 
                         {data.config.overview_modroles.length === 0 ? <span>
                             No roles.
