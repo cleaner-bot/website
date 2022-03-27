@@ -39,6 +39,7 @@ const sections = [
         features: [
             { name: "Automatic dehoisting", tiers: { free: true, pro: true } },
             { name: "Discord impersonation", tiers: { free: true, pro: true } },
+            { name: "Advanced impersonation", tiers: { pro: true } },
             { name: "Support", tiers: { free: "Community", pro: "Dedicated (E-Mail, tickets, ...)" } },
             { name: "Log file downloads", tiers: { pro: true } },
             { name: "Custom risk score / disabling security level", tiers: { pro: true } },
@@ -50,7 +51,6 @@ const sections = [
         features: [
             { name: "Workers", tiers: { pro: "Coming soon" } },
             { name: "Backups", tiers: { free: "Coming soon", pro: "Coming soon" } },
-            { name: "Advanced impersonation", tiers: { pro: "Coming soon" } },
             { name: "Custom bot", tiers: { pro: "Coming soon" } },
         ]
     }
