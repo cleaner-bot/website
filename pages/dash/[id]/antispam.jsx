@@ -1,101 +1,55 @@
 
-import { useRouter } from "next/router";
 import Link from "next/link";
 
-import { DataWrapper } from "@/components/dash/data.jsx";
-import { Toggle, BlockRightSide } from "@/components/dash/ui.jsx";
+import { useData } from "@/components/dash/data.jsx";
+import { Page, Header, Section } from "@/components/dash/dash.jsx";
+import { ToggleBlock } from "@/components/dash/block.jsx";
 import MetaTags from "@/components/metatags.jsx";
 
 export default function DashboardWrapper() {
-    const router = useRouter();
+    const data = useData();
     return (
         <>
             <MetaTags
-                title="Antispam | The Cleaner Dashboard"
+                title="Anti Spam | The Cleaner Dashboard"
             />
-            <DataWrapper guildId={router.isReady && router.query.id} Inner={AntispamDashboard} current="antispam" />
+            <Page page="antispam" {...data}>
+                <AntispamDashboard {...data} />
+            </Page>
         </>
     )
 }
 
+const rules = [
+    { name: "traffic.similar", description: "Most basic spam detection by comparing the similarity of messages." },
+    { name: "traffic.exact", description: "Detects identical messages sent in multiple channels. Intended as last resort against phishing." },
+    { name: "traffic.token", description: "Detects repeating elements of messages. This antispam rule is harder to trigger but will catch more sophisticated spam." },
+    { name: "traffic.sticker", description: "Detects sticker spam." },
+    { name: "traffic.attachment", description: "Detects attachment spam. For performance reasons this only checks filesize." },
+]
 
-function AntispamDashboard({ data }) {
+
+function AntispamDashboard({ config, setConfig, guildId }) {
     return (
         <>
-            <h1 className="text-2xl">
-                Anti Spam
-            </h1>
-            <p className="mt-2 text-gray-300">
-                Spam mitigation solutions.
-            </p>
-            <p className="mt-2 text-gray-200">
-                If you have spam channels, make sure to add them as exception channels in the <Link href={`/dash/${data.guild.id}/slowmode`}>
-                <a className="hover:underline">Slowmode</a>
-                </Link> settings.
-            </p>
-            <div className="my-12 space-y-12">
-                <BlockRightSide
-                    rightSide={<>
-                        <Toggle data={data} field="antispam_similar" />
-                    </>}
-                >
-                    <h2 className="text-2xl font-medium">
-                        traffic.similar
-                    </h2>
-                    <p className="text-gray-200">
-                        Most basic spam detection by comparing the similarity of messages.
-                    </p>
-                </BlockRightSide>
-                <BlockRightSide
-                    rightSide={<>
-                        <Toggle data={data} field="antispam_exact" />
-                    </>}
-                >
-                    <h2 className="text-2xl font-medium">
-                        traffic.exact
-                    </h2>
-                    <p className="text-gray-200">
-                        Detects identical messages sent in multiple channels.
-                        Intended as last resort against phishing.
-                    </p>
-                </BlockRightSide>
-                <BlockRightSide
-                    rightSide={<>
-                        <Toggle data={data} field="antispam_token" />
-                    </>}
-                >
-                    <h2 className="text-2xl font-medium">
-                        traffic.token
-                    </h2>
-                    <p className="text-gray-200">
-                        Detects repeating elements of messages. This antispam rule is harder to trigger but will catch more sophisticated spam.
-                    </p>
-                </BlockRightSide>
-                <BlockRightSide
-                    rightSide={<>
-                        <Toggle data={data} field="antispam_sticker" />
-                    </>}
-                >
-                    <h2 className="text-2xl font-medium">
-                        traffic.sticker
-                    </h2>
-                    <p className="text-gray-200">
-                        Detects sticker spam.
-                    </p>
-                </BlockRightSide>
-                <BlockRightSide
-                    rightSide={<>
-                        <Toggle data={data} field="antispam_attachment" />
-                    </>}
-                >
-                    <h2 className="text-2xl font-medium">
-                        traffic.attachment
-                    </h2>
-                    <p className="text-gray-200">
-                        Detects attachment spam. For performance reasons this only checks filesize and filename.
-                    </p>
-                </BlockRightSide>
-            </div>
+            <Header name="Anti Spam">
+                <p>Spam mitigation solutions.</p>
+                <p>
+                    If you have spam channels, make sure to add them as exception channels in the <Link href={`/dash/${guildId}/slowmode`}>
+                        <a className="hover:underline">Slowmode</a>
+                    </Link> settings.
+                </p>
+            </Header>
+            <Section>
+                {rules.map(traffic => <ToggleBlock
+                    {...traffic}
+                    config={config}
+                    setConfig={setConfig}
+                    guildId={guildId}
+                    field={`antispam_${traffic.name.substring(8)}`}
+                    key={traffic.name}
+                />)}
+            </Section>
         </>
     )
 }

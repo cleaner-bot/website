@@ -1,123 +1,101 @@
 
-import { useState } from "react";
-import { useRouter } from "next/router";
-
-import { DataWrapper } from "@/components/dash/data.jsx";
-import { Toggle, OptionalUpgrade, DropdownSearch, JustBlock, BlockRightSide } from "@/components/dash/ui.jsx";
-import ErrorHandler from "@/components/dash/error.jsx";
 import MetaTags from "@/components/metatags.jsx";
+import { useData } from "@/components/dash/data.jsx";
+import { Page, Header, Section } from "@/components/dash/dash.jsx";
+import { PlainBlock, ToggleBlock, BlockWithPanel } from "@/components/dash/block.jsx";
+import { DropdownSearch } from "@/components/dash/ui.jsx";
 import { doChange, patchConfig, useLoggingDownloads } from "@/lib/api.js";
 
 export default function DashboardWrapper() {
-    const router = useRouter();
+    const data = useData();
     return (
         <>
             <MetaTags
                 title="Logging | The Cleaner Dashboard"
             />
-            <DataWrapper guildId={router.isReady && router.query.id} Inner={LoggingDashboard} current="logging" />
+            <Page page="logging" {...data}>
+                <LoggingDashboard {...data} />
+            </Page>
         </>
     )
 }
 
 
-function LoggingDashboard({ data }) {
-    const [loggingChannel, setLoggingChannel] = useState(data.config.logging_channel);
+function LoggingDashboard({ config, setConfig, entitlements, guild, guildId }) {
     return (
         <>
-            <h1 className="text-2xl">
-                Logging
-            </h1>
-            <p className="mt-2 mb-16 text-gray-300">
-                Logging settings.
-            </p>
-            <div className="my-12 space-y-12">
-                <BlockRightSide
-                    rightSide={<>
-                        <Toggle data={data} field="logging_enabled" />
-                    </>}
-                >
-                    <h2 className="text-2xl font-medium">
-                        Logging master switch
-                    </h2>
-                    <p className="text-gray-200">
-                        Logging allows you to get notified in your discord about actions The Cleaner took.
-                    </p>
-                </BlockRightSide>
-                {data.config.logging_enabled && <>
-                    <JustBlock>
-                        <h2 className="text-2xl font-medium">
-                            Logging channel
-                        </h2>
-                        <p className="mb-2 text-gray-200">
-                            Select the channel where logs will be sent to.
-                        </p>
+            <Header name="Logging" />
+            <Section>
+                <ToggleBlock
+                    name="Enable logging"
+                    description="Logging allows you to get notified about actions The Cleaner is doing."
+                    field="logging_enabled"
+                    config={config}
+                    setConfig={setConfig}
+                    guildId={guildId}
+                />
+                {config.logging_enabled && <>
+                    <PlainBlock
+                        name="Logging channel"
+                        description="Select the channel where logs will be sent to."
+                    >
                         <DropdownSearch
                             placeholder="Select channel."
-                            values={data.guild.channels.filter(channel => data.guild.myself.permissions.ADMINISTRATOR || (channel.permissions.VIEW_CHANNEL && channel.permissions.SEND_MESSAGES && channel.permissions.EMBED_LINKS))}
-                            current={loggingChannel}
+                            values={guild.channels.filter(channel => guild.myself.permissions.ADMINISTRATOR || (channel.permissions.VIEW_CHANNEL && channel.permissions.SEND_MESSAGES && channel.permissions.EMBED_LINKS))}
+                            current={config.logging_channel}
                             setCurrent={async new_value => {
-                                const success = await doChange(patchConfig(data.guild.id, {logging_channel: new_value}));
+                                const success = await doChange(patchConfig(guildId, {logging_channel: new_value}));
                                 if(!success) return;
-                                setLoggingChannel(new_value);
+                                setConfig({...config, logging_channel: new_value});
                             }}
                         />
-                    </JustBlock>
-                    <BlockRightSide
-                        rightSide={<>
-                            <Toggle data={data} field="logging_option_join" />
+                    </PlainBlock>
+                    <ToggleBlock
+                        name="Join log"
+                        description="Logs member join with account age and risk rating information."
+                        field="logging_option_join"
+                        config={config}
+                        setConfig={setConfig}
+                        guildId={guildId}
+                    />
+                    <ToggleBlock
+                        name="Downloads"
+                        description={<>
+                            <p>We'll save all your logs and you can download them here until they expire.</p>
+                            <p>Your logs expire after <b>{entitlements.logging_retention}</b> month{entitlements.logging_retention !== 1 && "s"}.</p>
                         </>}
+                        field="logging_downloads_enabled"
+                        config={config}
+                        setConfig={setConfig}
+                        guildId={guildId}
+                        entitlement={entitlements.logging_downloads}
+                        entitlements={entitlements}
                     >
-                        <h2 className="text-2xl font-medium">
-                            Join log
-                        </h2>
-                        <p className="text-gray-200">
-                            Logs member join with account age and risk rating information.
-                        </p>
-                    </BlockRightSide>
-                    <BlockRightSide
-                        rightSide={<>
-                            <OptionalUpgrade data={data} required={data.entitlements.logging_downloads}>
-                                <Toggle data={data} field="logging_downloads_enabled" />
-                            </OptionalUpgrade>
-                        </>}
-                    >
-                        <h2 className="text-2xl font-medium">
-                            Downloads
-                        </h2>
-                        <p className="text-gray-200">
-                            We'll save all your logs and you can download them here until they expire.
-                        </p>
-                        <p className="text-gray-200">
-                            Your logs expire after <b>{data.entitlements.logging_retention}</b> month{data.entitlements.logging_retention !== 1 && "s"}.
-                        </p>
-                        {(data.entitlements.plan >= data.entitlements.logging_downloads && data.config.logging_downloads_enabled) && <>
-                            <h2 className="mt-12 mb-6 text-2xl">
+                        {(entitlements.plan >= entitlements.logging_downloads && config.logging_downloads_enabled) && <>
+                            <h2 className="mt-12 mb-6 text-2xl font-medium">
                                 Files
                             </h2>
-                            <DownloadFiles data={data} />
+                            <DownloadFiles guildId={guildId} />
                         </>}
-                    </BlockRightSide>
+                    </ToggleBlock>
                 </>}
-            </div>
+            </Section>
         </>
     )
 }
 
-function DownloadFiles({ data }) {
-    const { data: response, error: isError } = useLoggingDownloads(data.guild.id);
-    if(isError) {
+function DownloadFiles({ guildId }) {
+    const { data: response, error: isError } = useLoggingDownloads(guildId);
+    if(isError)
         return (
             <ErrorHandler error={isError} />
         )
-    }
-    if(!response) {
+    if(!response)
         return (
             <>
                 Loading....
             </>
         )
-    }
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     return (
         <table className="divide-y divide-gray-550">

@@ -2,97 +2,79 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
 
-import { DataWrapper } from "@/components/dash/data.jsx";
-import { Unlocked, OptionalUpgrade, BlockRightSide } from "@/components/dash/ui.jsx";
+import { useData } from "@/components/dash/data.jsx";
+import { Page, Header, Section } from "@/components/dash/dash.jsx";
+import { BlockWithPanel } from "@/components/dash/block.jsx";
+import { Unlocked, OptionalUpgrade } from "@/components/dash/ui.jsx";
 import MetaTags from "@/components/metatags.jsx";
 
 export default function DashboardWrapper() {
-    const router = useRouter();
+    const data = useData();
     return (
         <>
             <MetaTags
                 title="Contact | The Cleaner Dashboard"
             />
-            <DataWrapper guildId={router.isReady && router.query.id} Inner={ContactDashboard} current="contact" />
+            <Page page="contact" {...data}>
+                <ContactDashboard {...data} />
+            </Page>
         </>
     )
 }
 
-function ContactDashboard({ data }) {
+function ContactDashboard({ user, entitlements, guildId }) {
     return (
         <>
-            <h1 className="text-2xl">
-                Contact
-            </h1>
-            <p className="mt-2 text-gray-300">
+            <Header name="Contact">
                 How to contact us.
-            </p>
+            </Header>
 
-            <div className="my-12 space-y-12">
-                <BlockRightSide
-                    rightSide={<>
+            <Section>
+                <BlockWithPanel
+                    name="Community Support"
+                    description="Join the official Discord and receive help by the community. (staff may also respond, but no guarantees)"
+                    panel={(
                         <Link href="/discord">
                             <a className="--btn --btn-3 --btn-primary">
                                 Join Discord
                             </a>
                         </Link>
-                    </>}
-                >
-                    <h2 className="text-2xl font-medium">
-                        Community Support
-                    </h2>
-                    <p className="mt-2 text-gray-300">
-                        Join the official Discord and receive help by the community.
-                    </p>
-                    <p className="text-gray-300">
-                        Staff may also respond, but not guaranteed.
-                    </p>
-                </BlockRightSide>
-                {data.user.is_dev && <>
-                    <BlockRightSide
-                        rightSide={<>
-                            <OptionalUpgrade data={data} required={data.entitlements.contact_standard}>
+                    )}
+                />
+                {user.is_dev && <>
+                    <BlockWithPanel
+                        name="Standard Support"
+                        description="Join the official Discord and receive help by the staff team. Check the #unlock channel for more information."
+                        panel={(
+                            <OptionalUpgrade entitlements={entitlements} guildId={guildId} required={entitlements.contact_standard}>
                                 <Link href="/discord">
                                     <a className="--btn --btn-3 --btn-primary">
                                         Join Discord
                                     </a>
                                 </Link>
                             </OptionalUpgrade>
-                        </>}
-                    >
-                        <h2 className="text-2xl font-medium">
-                            Standard Support
-                        </h2>
-                        <p className="mt-2 text-gray-300">
-                            Join the official Discord and receive help by the staff team.
-                            Check the #unlock channel for more information.
-                        </p>
-                    </BlockRightSide>
-                    <BlockRightSide
-                        rightSide={<>
-                            <OptionalUpgrade data={data} required={data.entitlements.contact_email}>
+                        )}
+                    />
+                    <BlockWithPanel
+                        name="E-Mail Support"
+                        description="Contact the staff team directly via E-Mail."
+                        panel={(
+                            <OptionalUpgrade entitlements={entitlements} guildId={guildId} required={entitlements.contact_email}>
                                 <Unlocked />
                             </OptionalUpgrade>
-                        </>}
+                        )}
                     >
-                        <h2 className="text-2xl font-medium">
-                            E-Mail Support
-                        </h2>
-                        <p className="mt-2 text-gray-300">
-                            Contact the staff team directly via E-Mail.
-                        </p>
-
-                        {data.entitlements.plan >= data.entitlements.contact_email && <>
+                        {entitlements.plan >= entitlements.contact_email && <>
                             <span className="mt-6 text-gray-300">
                                 Your contact email:{" "}
                             </span>
                             <span className="break-all hover:underline">
-                                cleaner+{data.entitlements.partnered ? "partners" : "support"}@leodev.xyz
+                                cleaner+{entitlements.partnered ? "partners" : "support"}@leodev.xyz
                             </span>
                         </>}
-                    </BlockRightSide>
+                    </BlockWithPanel>
                 </>}
-            </div>
+            </Section>
         </>
     )
 }

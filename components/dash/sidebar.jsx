@@ -28,11 +28,11 @@ const navigation = [
     { name: "Developer panel", id: "dev", icon: ExclamationIcon, restricted: true },
 ]
 
-export default function Sidebar({ current, data, guildId, children }) {
+export default function Sidebar({ current, user, guild, entitlements, guildId, children }) {
     const [sidebarOpen, setSidebarOpen] = useState(false);
-    const isDev = data && data.user.is_dev;
+    const isDev = user?.is_dev;
 
-    const isSuspended = data && data?.entitlements?.suspended > 0 && !(isDev && current === "dev");
+    const isSuspended = entitlements?.suspended > 0 && !(isDev && current === "dev");
   
     return (
         <>
@@ -85,7 +85,7 @@ export default function Sidebar({ current, data, guildId, children }) {
                                         The Cleaner
                                     </div>
                                     <div className="flex-shrink-0 px-4 mt-2 truncate">
-                                        {data && data.guild ? data.guild.name : <Skeleton className="h-6 rounded" />}
+                                        {guild ? guild.name : <Skeleton className="h-6 rounded" />}
                                     </div>
                                     <nav className="px-2 mt-5 space-y-1">
                                         {navigation.filter(x => !x.restricted || isDev || x.id === current).map((item) => (
@@ -109,7 +109,7 @@ export default function Sidebar({ current, data, guildId, children }) {
                                         ))}
                                     </nav>
                                 </div>
-                                <Profile data={data} />
+                                <Profile user={user} guildId={guildId} entitlements={entitlements} />
                             </div>
                         </Transition.Child>
                         <div className="flex-shrink-0 w-14">{/* Force sidebar to shrink to fit close icon */}</div>
@@ -126,7 +126,7 @@ export default function Sidebar({ current, data, guildId, children }) {
                                 The Cleaner
                             </div>
                             <div className="flex-shrink-0 px-4 mt-2 truncate">
-                                {data && data.guild ? data.guild.name : <Skeleton className="h-6 rounded" />}
+                                {guild ? guild.name : <Skeleton className="h-6 rounded" />}
                             </div>
                             <nav className="flex-1 px-2 mt-5 space-y-1">
                                 {navigation.filter(x => !x.restricted || isDev || x.id === current).map(item => (
@@ -147,7 +147,7 @@ export default function Sidebar({ current, data, guildId, children }) {
                                 ))}
                             </nav>
                         </div>
-                        <Profile data={data} />
+                        <Profile user={user} guildId={guildId} entitlements={entitlements} />
                     </div>
                 </div>
                 <div className="flex flex-col flex-1 md:pl-64">
@@ -174,17 +174,17 @@ export default function Sidebar({ current, data, guildId, children }) {
     )
 }
 
-function Profile({ data }) {
+function Profile({ user, guildId, entitlements }) {
     const options = [];
-    if(data && data.entitlements && data.entitlements.suspended > 0)
+    if(entitlements && entitlements.suspended > 0)
         options.push({ name: "Suspension", text: "Guild is suspended", href: "/help/suspension#suspended-guild", image: <ExclamationIcon className="text-red-500 w-9 h-9" /> });
-    if(data && data.entitlements && data.entitlements.plan > 0)
-        options.push({ name: "Current plan", text: plans[data.entitlements.plan] || "Developer", href: `/dash/${data.guild.id}/plan`, image: null });
+    if(entitlements && entitlements.plan > 0)
+        options.push({ name: "Current plan", text: plans[entitlements.plan] || "Developer", href: `/dash/${guildId}/plan`, image: null });
     options.push({
-        name: data ? data.user.name : "Loading name...",
+        name: user ? user.name : "Loading name...",
         text: "View servers",
         href: "/dash/",
-        image: data && <UserIcon user={data.user} />,
+        image: user && <UserIcon user={user} />,
     })
     return (
         <>

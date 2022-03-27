@@ -2,91 +2,77 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 
+import MetaTags from "@/components/metatags.jsx";
+import { useData } from "@/components/dash/data.jsx";
+import { Page, Header, Section } from "@/components/dash/dash.jsx";
+import { BlockWithPanel } from "@/components/dash/block.jsx";
+import { TextInput, Button } from "@/components/dash/ui.jsx";
 import { doChange, patchConfig, patchEntitlement } from "@/lib/api.js";
-import { DataWrapper } from "@/components/dash/data.jsx";
-import { TextInput, Button, BlockRightSide } from "@/components/dash/ui.jsx";
-import MetaTags from "@/components/metatags";
 
 export default function DashboardWrapper() {
-    const router = useRouter();
+    const data = useData();
     return (
-        <DataWrapper guildId={router.isReady && router.query.id} Inner={DevDashboard} current="dev" />
+        <Page page="dev" {...data}>
+            <DevDashboard {...data} />
+        </Page>
     )
 }
 
 
-function DevDashboard({ data }) {
+function DevDashboard({ user, config, setConfig, entitlements, setEntitlements, guildId }) {
     const router = useRouter();
-    if(!data.user.is_dev) {
-        router.push(`/dash/${data.guild.id}`);
+    if(!user.is_dev) {
+        router.push(`/dash/${guildId}`);
         return null;
     }
-    const reactHooksEntitlements = Object.keys(data.entitlements).map(key => useState(data.entitlements[key]));
-    const reactHooksConfig = Object.keys(data.config).map(key => useState(data.config[key]));
+    const reactHooksEntitlements = Object.keys(entitlements).map(key => useState(entitlements[key]));
+    const reactHooksConfig = Object.keys(config).map(key => useState(config[key]));
     return (
         <>
             <MetaTags
                 title="Developer panel | The Cleaner Dashboard"
             />
-            <h1 className="text-2xl">
-                Developer panel
-            </h1>
-            <p className="mt-2 text-gray-300">
-                The developer panel.
-            </p>
+            <Header name="Developer panel">
+                The developer panel. There are no secrets hidden here.
+            </Header>
 
-            <h2 className="mt-20 text-2xl">
-                Entitlements
-            </h2>
-            <div className="my-12 space-y-12">
-                {Object.keys(data.entitlements).map((key, index) => <BlockRightSide
-                    key={key}
-                    rightSide={<div>
-                        <TextInput value={reactHooksEntitlements[index][0]} setValue={reactHooksEntitlements[index][1]} />
-                        <Button text="Save" className="w-full mt-2" onClick={async () => {
-                            const new_value = reactHooksEntitlements[index][0];
-                            const success = await doChange(patchEntitlement(data.guild.id, {[key]: new_value}));
-                            if(!success) return;
-                            data.entitlements[key] = new_value;
-                            reactHooksEntitlements[index][1](new_value);
-                        }} />
-                    </div>}
-                >
-                    <h2 className="text-2xl font-medium break-all">
-                        {key}
-                    </h2>
-                    <p className="text-gray-200">
-                        Current value: {data.entitlements[key].toString()}
-                    </p>
-                </BlockRightSide>)}
-            </div>
+            <Section name="Entitlements">
+                {Object.keys(entitlements).map((key, index) => (
+                    <BlockWithPanel
+                        name={key}
+                        description={`Current value: ${entitlements[key].toString()}`}
+                        panel={<div>
+                            <TextInput value={reactHooksEntitlements[index][0]} setValue={reactHooksEntitlements[index][1]} />
+                            <Button text="Save" className="w-full mt-2" onClick={async () => {
+                                const new_value = reactHooksEntitlements[index][0];
+                                const success = await doChange(patchEntitlement(guildId, {[key]: new_value}));
+                                if(!success) return;
+                                setEntitlements({...entitlements, [key]: new_value});
+                            }} />
+                        </div>}
+                        key={key}
+                    />
+                ))}
+            </Section>
 
-            <h2 className="mt-20 text-2xl">
-                Config
-            </h2>
-            <div className="my-12 space-y-12">
-                {Object.keys(data.config).map((key, index) => <BlockRightSide
-                    key={key}
-                    rightSide={<div>
-                        <TextInput value={reactHooksConfig[index][0]} setValue={reactHooksConfig[index][1]} />
-                        <Button text="Save" className="w-full mt-2" onClick={async () => {
-                            const new_value = reactHooksConfig[index][0];
-
-                            const success = await doChange(patchConfig(data.guild.id, {[key]: new_value}));
-                            if(!success) return;
-                            data.config[key] = new_value;
-                            reactHooksConfig[index][1](new_value);
-                        }} />
-                    </div>}
-                >
-                    <h2 className="text-2xl font-medium break-all">
-                        {key}
-                    </h2>
-                    <p className="text-gray-200">
-                        Current value: {data.config[key].toString()}
-                    </p>
-                </BlockRightSide>)}
-            </div>
+            <Section name="Config">
+                {Object.keys(config).map((key, index) => (
+                    <BlockWithPanel
+                        name={key}
+                        description={`Current value: ${config[key].toString()}`}
+                        panel={<div>
+                            <TextInput value={reactHooksConfig[index][0]} setValue={reactHooksConfig[index][1]} />
+                            <Button text="Save" className="w-full mt-2" onClick={async () => {
+                                const new_value = reactHooksConfig[index][0];
+                                const success = await doChange(patchConfig(guildId, {[key]: new_value}));
+                                if(!success) return;
+                                setConfig({...config, [key]: new_value});
+                            }} />
+                        </div>}
+                        key={key}
+                    />
+                ))}
+            </Section>
         </>
     )
 }

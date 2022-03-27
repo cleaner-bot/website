@@ -1,46 +1,45 @@
 
 import { useRouter } from "next/router";
 
-import { DataWrapper } from "@/components/dash/data.jsx";
+import { useData } from "@/components/dash/data.jsx";
+import { Page, Header, Section } from "@/components/dash/dash.jsx";
+import { PlainBlock, ToggleBlock } from "@/components/dash/block.jsx";
 import { Toggle, OptionalUpgrade, BlockRightSide } from "@/components/dash/ui.jsx";
 import MetaTags from "@/components/metatags.jsx";
+import { setConfig } from "next/config";
 
 export default function DashboardWrapper() {
-    const router = useRouter();
+    const data = useData();
     return (
         <>
             <MetaTags
                 title="Workers | The Cleaner Dashboard"
             />
-            <DataWrapper guildId={router.isReady && router.query.id} Inner={WorkersDashboard} current="workers" />
+            <Page page="workers" {...data}>
+                <WorkersDashboard {...data} />
+            </Page>
         </>
     )
 }
 
 
-function WorkersDashboard({ data }) {
+function WorkersDashboard({ config, setConfig, entitlements, guildId }) {
     return (
         <>
-            <h1 className="text-2xl">
-                Workers
-            </h1>
-            <p className="mt-2 mb-16 text-gray-300">
-                Manage your workers.
-            </p>
-            <BlockRightSide
-                rightSide={<>
-                    <OptionalUpgrade data={data} required={data.entitlements.workers}>
-                        <Toggle data={data} field="workers_enabled" />
-                    </OptionalUpgrade>
-                </>}
-            >
-                <h2 className="text-2xl font-medium">
-                    Workers master switch
-                </h2>
-                <p>
-                    Enable workers.
-                </p>
-            </BlockRightSide>
+            <Header name="Workers">
+                Manage your worker.
+            </Header>
+            <Section>
+                <ToggleBlock
+                    name="Enable workers"
+                    description="Enable workers."
+                    config={config}
+                    setConfig={setConfig}
+                    guildId={guildId}
+                    entitlement={entitlements.workers}
+                    entitlements={entitlements}
+                />
+            </Section>
         </>
     )
 }

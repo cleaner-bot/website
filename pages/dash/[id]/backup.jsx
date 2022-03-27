@@ -1,31 +1,27 @@
 
-import { useRouter } from "next/router";
-
-import { DataWrapper } from "@/components/dash/data.jsx";
+import { useData } from "@/components/dash/data.jsx";
+import { Page, Header, Section } from "@/components/dash/dash.jsx";
 import MetaTags from "@/components/metatags.jsx";
 
 export default function DashboardWrapper() {
-    const router = useRouter();
+    const data = useData();
     return (
         <>
             <MetaTags
                 title="Backup | The Cleaner Dashboard"
             />
-            <DataWrapper guildId={router.isReady && router.query.id} Inner={BackupDashboard} current="backup" />
+            <Page page="backup" {...data}>
+                <BackupDashboard {...data} />
+            </Page>
         </>
     )
 }
 
 
-function BackupDashboard({ data }) {
+function BackupDashboard() {
     return (
         <>
-            <h1 className="text-2xl">
-                Backup
-            </h1>
-            <p className="mt-2 text-gray-300">
-                Backup settings.
-            </p>
+            <Header name="Backup" />
         </>
     )
 }

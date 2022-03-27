@@ -219,7 +219,7 @@ export default function Pricing() {
                                                     )}
 
                                                     <span className="sr-only">
-                                                        {feature.tiers[tier] === true ? 'Included' : 'Not included'} in {tier.name}
+                                                        {feature.tiers[tier] === true ? 'Included' : 'Not included'} in {tier}
                                                     </span>
                                                 </>
                                             )}

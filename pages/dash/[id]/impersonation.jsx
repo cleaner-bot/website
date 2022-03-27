@@ -1,20 +1,23 @@
 
 import { useState } from "react";
-import { useRouter } from "next/router";
 
-import { DataWrapper } from "@/components/dash/data.jsx";
 import MetaTags from "@/components/metatags.jsx";
-import { JustBlock, BlockRightSide, Toggle, OptionalUpgrade, TextInput } from "@/components/dash/ui.jsx";
-import { doChange, patchConfig } from "@/lib/api";
+import { useData } from "@/components/dash/data.jsx";
+import { Page, Header, Section } from "@/components/dash/dash.jsx";
+import { PlainBlock, ToggleBlock } from "@/components/dash/block.jsx";
+import { TextInput } from "@/components/dash/ui.jsx";
+import { doChange, patchConfig } from "@/lib/api.js";
 
 export default function DashboardWrapper() {
-    const router = useRouter();
+    const data = useData();
     return (
         <>
             <MetaTags
                 title="Impersonation | The Cleaner Dashboard"
             />
-            <DataWrapper guildId={router.isReady && router.query.id} Inner={ImpersonationDashboard} current="impersonation" />
+            <Page page="impersonation" {...data}>
+                <ImpersonationDashboard {...data} />
+            </Page>
         </>
     )
 }
@@ -31,96 +34,77 @@ function containsAll(array1, array2) {
 }
 
 
-function ImpersonationDashboard({ data }) {
+function ImpersonationDashboard({ config, setConfig, entitlements, guildId }) {
     return (
         <>
-            <h1 className="text-2xl">
-                Impersonation
-            </h1>
-            <p className="mt-2 text-gray-300">
-                Impersonation prevention settings.
-            </p>
-            <p className="text-gray-300">
-                All names are normalized before checking. This includes font/unicode normalization.
-            </p>
-            <div className="my-12 space-y-12">
-                <BlockRightSide
-                    rightSide={<>
-                        <Toggle data={data} field="impersonation_discord" />
+            <Header name="Impersonation">
+                <p>Impersonation prevention settings.</p>
+                <p>All names are normalized before checking. This includes font/unicode normalization.</p>
+            </Header>
+
+            <Section>
+                <ToggleBlock
+                    name="Discord impersonation"
+                    description={<>
+                        <p>Automatically kicks people trying to impersonate Discord staff.</p>
+                        <p>This is a managed blocklist (automatically updated). Contains words like `discord`, `hypesquad`, `moderator` etc.</p>
+                        <p>This will only act on a 100% match.</p>
                     </>}
-                >
-                    <h2 className="text-2xl font-medium">
-                        Discord impersonation
-                    </h2>
-                    <p className="mt-2 text-gray-300">
-                        Automatically kicks people trying to impersonate Discord staff.
-                    </p>
-                    <p className="text-gray-300">
-                        This is a managed blocklist (automatically updated). Contains words like `discord`, `hypesquad`, `moderator` etc.
-                    </p>
-                    <p className="text-gray-300">
-                        This will only act on a 100% match.
-                    </p>
-                </BlockRightSide>
-                <BlockRightSide
-                    rightSide={<>
-                        <OptionalUpgrade data={data} required={data.entitlements.impersonation_advanced}>
-                            <Toggle data={data} field="impersonation_advanced_enabled" />
-                        </OptionalUpgrade>
+                    field="impersonation_discord_enabled"
+                    config={config}
+                    setConfig={setConfig}
+                    guildId={guildId}
+                />
+                <ToggleBlock
+                    name="Advanced impersonation settings"
+                    description={<>
+                        <p>Fine tune your own blacklist to prevent bot attacks.</p>
+                        <p>You can add, your own server name, parts of it or anything that is related to your project and could be exploited to gain trust, to the blacklist.</p>
                     </>}
-                >
-                    <h2 className="text-2xl font-medium">
-                        Advanced impersonation settings
-                    </h2>
-                    <p className="mt-2 text-gray-300">
-                        Fine tune your own blacklist to prevent bot attacks.
-                    </p>
-                    <p className="text-gray-300">
-                        You can add, your own server name, parts of it or anything that is related to your project and could be exploited to gain trust, to the blacklist.
-                    </p>
-                </BlockRightSide>
-                {data.config.impersonation_advanced_enabled && <>
+                    field="impersonation_advanced_enabled"
+                    config={config}
+                    setConfig={setConfig}
+                    guildId={guildId}
+                    entitlement={entitlements.impersonation_advanced}
+                    entitlements={entitlements}
+                />
+                {config.impersonation_advanced_enabled && <>
                     <Blacklist
-                        data={data}
                         name="Blacklist: Partial words"
                         description={<>
-                            <p className="mt-2 text-gray-300">
-                                Partial words matches partial words (aka substrings).
-                            </p>
-                            <p className="text-gray-300">
-                                Example: `mod` blocks `moderator`, `moderation`, `automod`.
-                            </p>
+                            <p>Partial words matches partial words (aka substrings).</p>
+                            <p>Example: `mod` blocks `moderator`, `moderation`, `automod`.</p>
                         </>}
                         field="impersonation_advanced_subwords"
                         defaultBlacklist={defaultAdvancedSubwords}
+                        config={config}
+                        setConfig={setConfig}
+                        guildId={guildId}
                     />
                     <Blacklist
-                        data={data}
                         name="Blacklist: Full words"
                         description={<>
-                            <p className="mt-2 text-gray-300">
-                                Fill words matches full words.
-                            </p>
-                            <p className="text-gray-300">
-                                Example: `mod` blocks `mod`, but not `moderator`.
-                            </p>
+                            <p>Fill words matches full words.</p>
+                            <p>Example: `mod` blocks `mod`, but not `moderator`.</p>
                         </>}
                         field="impersonation_advanced_words"
                         defaultBlacklist={defaultAdvancedWords}
+                        config={config}
+                        setConfig={setConfig}
+                        guildId={guildId}
                     />
                 </>}
-            </div>
+            </Section>
         </>
     )
 }
 
-function Blacklist({ data, name, description, field, defaultBlacklist }) {
-    const [blacklist, setBlacklist] = useState(data.config[field]);
+function Blacklist({ config, setConfig, guildId, name, description, field, defaultBlacklist }) {
     const [hasChanged, setChanged] = useState(false);
     const [value, setValue] = useState("");
 
     return (
-        <JustBlock>
+        <PlainBlock name={name} description={description}>
             <h2 className="text-2xl font-medium">
                 {name}
             </h2>
@@ -128,18 +112,18 @@ function Blacklist({ data, name, description, field, defaultBlacklist }) {
 
             <div className="flex flex-wrap gap-2 my-8">
                 Blacklist:
-                {blacklist.length === 0 ? <span>
+                {config[field].length === 0 ? <span>
                     Nothing blacklisted currently.
-                </span> : blacklist.map(x => <span key={x} className="inline-flex items-center justify-center pl-3 pr-1 rounded-full bg-coolGray-800">
+                </span> : config[field].map(x => <span key={x} className="inline-flex items-center justify-center pl-3 pr-1 rounded-full bg-coolGray-800">
                     {x}
                     <button 
                         className="w-4 h-4 ml-2 text-gray-400"
                         onClick={() => {
-                            const blacklistCopy = [...blacklist];
+                            const blacklistCopy = [...config[field]];
                             const index = blacklistCopy.indexOf(x);
                             if(index >= 0)
                                 blacklistCopy.splice(index, 1);
-                            setBlacklist(blacklistCopy);
+                            setConfig({...config, [field]: blacklistCopy});
                             setChanged(true);
                         }}>
                         <svg className="w-2 h-2 stroke-current" fill="none" viewBox="0 0 8 8">
@@ -151,12 +135,12 @@ function Blacklist({ data, name, description, field, defaultBlacklist }) {
             <form
                 onSubmit={(ev) => {
                     ev.preventDefault();
-                    const blacklistCopy = [...blacklist];
+                    const blacklistCopy = [...config[field]];
                     if(blacklistCopy.indexOf(value) === -1) {
                         blacklistCopy.push(value);
                         setValue("");
                     }
-                    setBlacklist(blacklistCopy);
+                    setConfig({...config, [field]: blacklistCopy});
                     setChanged(true);
                 }}
             >
@@ -172,29 +156,28 @@ function Blacklist({ data, name, description, field, defaultBlacklist }) {
                     disabled={!hasChanged}
                     onClick={async () => {
                         setChanged(false);
-                        const success = await doChange(patchConfig(data.guild.id, {[field]: blacklist}));
+                        const success = await doChange(patchConfig(guildId, {[field]: config[field]}));
                         if(!success) return setChanged(true);
-                        data.config[field] = blacklist;
                     }}
                 >
                     Save
                 </button>
                 <button
                     className="--btn --btn-3 --btn-primary"
-                    disabled={containsAll(blacklist, defaultBlacklist)}
+                    disabled={containsAll(config[field], defaultBlacklist)}
                     onClick={() => {
-                        const blacklistCopy = [...blacklist];
+                        const blacklistCopy = [...config[field]];
                         for(const word of defaultBlacklist) {
                             if(blacklistCopy.indexOf(word) === -1)
                                 blacklistCopy.push(word);
                         }
-                        setBlacklist(blacklistCopy);
+                        setConfig({...config, [field]: blacklistCopy});
                         setChanged(true);
                     }}
                 >
                     Add default blacklist
                 </button>
             </div>
-        </JustBlock>
+        </PlainBlock>
     )
 }

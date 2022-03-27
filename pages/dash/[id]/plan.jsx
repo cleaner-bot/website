@@ -1,71 +1,64 @@
 
-import { useRouter } from "next/router";
 import Link from "next/link";
 
-import { DataWrapper } from "@/components/dash/data.jsx";
 import MetaTags from "@/components/metatags.jsx";
-import { BlockRightSide, Button, OptionalUpgrade, Unlocked } from "@/components/dash/ui.jsx";
+import { useData } from "@/components/dash/data.jsx";
+import { Page, Header, Section } from "@/components/dash/dash.jsx";
+import { BlockWithPanel } from "@/components/dash/block.jsx";
+import { Button, OptionalUpgrade, Unlocked } from "@/components/dash/ui.jsx";
 
 export default function DashboardWrapper() {
-    const router = useRouter();
+    const data = useData();
     return (
         <>
             <MetaTags
                 title="Plan | The Cleaner Dashboard"
             />
-            <DataWrapper guildId={router.isReady && router.query.id} Inner={Plan} current="plan" />
+            <Page page="plan" {...data}>
+                <Plan {...data} />
+            </Page>
         </>
     )
 }
 
 
-function Plan({ data }) {
+function Plan({ entitlements, guildId }) {
     return (
         <>
-            <h1 className="text-2xl">
-                Plan
-            </h1>
-            <div className="my-12 space-y-12">
-                <BlockRightSide
-                    rightSide={<>
+            <Header name="Plan" />
+            <Section>
+                <BlockWithPanel
+                    name="Professional"
+                    description="Subscribe to The Cleaner Professional for 30€/yr."
+                    panel={(
                         <Button
-                            text={["Upgrade", "Current plan"][data.entitlements.plan] || "Downgrade"}
-                            disabled={data.entitlements === 1}
+                            text={["Subscribe", "Current plan"][entitlements.plan] || "Downgrade"}
+                            disabled={entitlements.plan === 1}
                         />
-                    </>}
+                    )}
                 >
-                    <h2 className="text-2xl font-medium">
-                        Professional
-                    </h2>
-                    <p className="text-gray-200">
-                        Subscribe to The Cleaner Professional for 30€/yr.
-                    </p>
                     <Link href="/pricing">
                         <a className="hover:underline">
                             Click here for more information.
                         </a>
                     </Link>
-                </BlockRightSide>
-                <BlockRightSide
-                    rightSide={<>
-                        <OptionalUpgrade data={data} required={2}>
+                </BlockWithPanel>
+                <BlockWithPanel
+                    name="Partner programme"
+                    description="Apply for the partner programme."
+                    panel={(
+                        <OptionalUpgrade entitlements={entitlements} guildId={guildId} required={2}>
                             <Unlocked />
                         </OptionalUpgrade>
-                    </>}
+                    )}
                 >
-                    <h2 className="text-2xl font-medium">
-                        Partner programme
-                    </h2>
-                    <p className="text-gray-200">
-                        Apply for the partner programme.
-                    </p>
                     <Link href="/pricing">
                         <a className="hover:underline">
                             Click here for more information.
                         </a>
                     </Link>
-                </BlockRightSide>
-            </div>
+                </BlockWithPanel>
+            </Section>
         </>
     )
 }

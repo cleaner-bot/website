@@ -1,5 +1,6 @@
 
 import { ExternalLink } from "@/components/buttons.jsx";
+import { useEffect } from "react";
 
 
 function GenericErrorHandler({ title, children, hasSupport }) {
@@ -70,13 +71,18 @@ const httpErrors = {
     },
     429: function Error429({ error }) {
         const retry_after_header = error.response.headers["retry-after"];
+        useEffect(() => {
+            if(!retry_after_header) return;
+            const id = setTimeout(() => window.location.reload(), +retry_after_header + 2000);
+            return () => clearTimeout(id);
+        }, [retry_after_header])
         return (
             <GenericErrorHandler title="Too Many Requests" hasSupport={true}>
                 <p className="mt-6 text-center text-gray-200">
                     Your network is sending too many requests!
                 </p>
                 <p className="text-center text-gray-200">
-                    {retry_after_header ? `Please wait ${Math.floor(retry_after_header / 1000) + 2} seconds...` : "Your access has been banned. Please contact support."}
+                    {retry_after_header ? `This page will refresh after ${Math.floor(retry_after_header / 1000) + 2} seconds...` : "Your access has been banned. Please contact support."}
                 </p>
             </GenericErrorHandler>
         )

@@ -30,18 +30,16 @@ export function Checkbox({ enabled, setEnabled, onChange, labelOn, labelOff }) {
     )
 }
 
-export function Toggle({ data, field, onToggle }) {
-    const [enabled, setEnabled] = useState(data.config[field]);
+export function Toggle({ config, setConfig, guildId, field, onToggle }) {
+    const enabled = config[field];
     const [updating, setUpdating] = useState(false);
     return (
         <button className={clsx("w-32 --btn --btn-3", enabled ? "--btn-success" : "--btn-destructive")} disabled={updating} onClick={async () => {
             setUpdating(true);
-            const success = await doChange(patchConfig(data.guild.id, {[field]: !enabled}));
+            const success = await doChange(patchConfig(guildId, {[field]: !enabled}));
             setUpdating(false);
             if(!success) return;
-            setUpdating(false);
-            setEnabled(!enabled);
-            data.config[field] = !enabled;
+            setConfig({...config, [field]: !enabled});
             if(onToggle) onToggle(!enabled);
         }}>
             {enabled ? "Enabled" : "Disabled"}
@@ -63,17 +61,17 @@ export function Slider({ value, setValue, minValue, maxValue, step }) {
     )
 }
 
-export function Upgrade({ plan, data }) {
+export function Upgrade({ plan, guildId }) {
     if(!plan || plan >= plans.length)
         return (
-            <Link href={`/dash/${data.guild.id}/contact`}>
+            <Link href={`/dash/${guildId}/contact`}>
                 <a className="w-32 --btn --btn-3 --btn-primary">
                     Contact us
                 </a>
             </Link>
         )
     return (
-        <Link href={`/dash/${data.guild.id}/plan`}>
+        <Link href={`/dash/${guildId}/plan`}>
             <a className="min-w-[8rem] --btn --btn-3 --btn-primary">
                 Upgrade to {plans[plan]}
             </a>
@@ -81,9 +79,9 @@ export function Upgrade({ plan, data }) {
     )
 }
 
-export function OptionalUpgrade({ data, required, children }) {
-    if(required > data.entitlements.plan)
-        return <Upgrade plan={required} data={data}/>
+export function OptionalUpgrade({ entitlements, guildId, required, children }) {
+    if(required > entitlements.plan)
+        return <Upgrade plan={required} guildId={guildId} />
     return children || null;
 }
 
@@ -165,33 +163,6 @@ export function Modal({ title, children, isOpen, setOpen, initialFocus }) {
                 </div>
             </div>
         </Dialog>
-    )
-}
-
-export function JustBlock({ children, className }) {
-    return (
-        <div className={clsx("w-full border border-gray-550 rounded-lg px-8 py-4", className)}>
-            {children}
-        </div>
-    )
-}
-
-export function BlockRightSide({ children, rightSide, className }) {
-    return (
-        <div className={clsx("flex w-full border border-gray-550 rounded-lg flex-wrap lg:flex-nowrap", className)}>
-            <div className="flex-auto px-8 py-4">
-                {children}
-            </div>
-            <div className="flex items-center justify-center flex-none w-full px-12 py-6 border-t lg:p-12 lg:w-64 w lg:border-t-0 lg:border-l border-gray-550">
-                {rightSide}
-            </div>
-        </div>
-    )
-}
-
-export function HorizontalRule() {
-    return (
-        <div className="border-t border-gray-550" />
     )
 }
 
