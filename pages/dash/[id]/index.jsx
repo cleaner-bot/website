@@ -96,18 +96,6 @@ function Dashboard({ data }) {
                         Automatically dehoists members that put special characters in front of their name to appear higher in the memberlist.
                     </p>
                 </BlockRightSide>
-                <BlockRightSide
-                    rightSide={<>
-                        <Toggle data={data} field="overview_discordimpersonation_enabled" />
-                    </>}
-                >
-                    <h2 className="text-2xl font-medium">
-                        Discord impersonation
-                    </h2>
-                    <p className="mt-2 text-gray-300">
-                        Automatically kicks people trying to impersonate Discord staff.
-                    </p>
-                </BlockRightSide>
             </div>
         </>
     )
