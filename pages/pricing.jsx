@@ -44,6 +44,7 @@ const sections = [
             { name: "Log file downloads", tiers: { pro: true } },
             { name: "Custom risk score / disabling security level", tiers: { pro: true } },
             { name: "Custom challenge branding", tiers: { pro: true } },
+            { name: "Anti Raid", tiers: { free: "Early access", pro: "Early access" } },
         ],
     },
     {
@@ -52,8 +53,7 @@ const sections = [
             { name: "Workers", tiers: { pro: "Coming soon" } },
             { name: "Backups", tiers: { free: "Coming soon", pro: "Coming soon" } },
             { name: "Custom bot", tiers: { pro: "Coming soon" } },
-            { name: "Anti Raid", tiers: { free: "Coming soon", pro: "Coming soon" } },
-            { name: "Advanced Anti Raid", tiers: { pro: "Coming soon" } },
+            { name: "Advanced Verification", tiers: { pro: "Coming soon" } },
         ]
     }
 ]
