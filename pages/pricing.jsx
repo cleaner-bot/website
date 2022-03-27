@@ -52,6 +52,8 @@ const sections = [
             { name: "Workers", tiers: { pro: "Coming soon" } },
             { name: "Backups", tiers: { free: "Coming soon", pro: "Coming soon" } },
             { name: "Custom bot", tiers: { pro: "Coming soon" } },
+            { name: "Anti Raid", tiers: { free: "Coming soon", pro: "Coming soon" } },
+            { name: "Advanced Anti Raid", tiers: { pro: "Coming soon" } },
         ]
     }
 ]
@@ -111,6 +113,14 @@ export default function Pricing() {
                             Select server
                         </a>
                     </Link>
+                    <div className="mt-6 text-center text-gray-800">
+                        <p>
+                            We accept
+                        </p>
+                        <p>
+                            Stripe & Crypto (ETH, BTC)
+                        </p>
+                    </div>
                 </div>
             </div>
             <div className="my-16 lg:flex">
