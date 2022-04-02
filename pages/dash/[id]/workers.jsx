@@ -29,6 +29,7 @@ function WorkersDashboard({ config, setConfig, entitlements, guildId }) {
                 <ToggleBlock
                     name="Enable workers"
                     description="Enable workers."
+                    field="workers_enabled"
                     config={config}
                     setConfig={setConfig}
                     guildId={guildId}

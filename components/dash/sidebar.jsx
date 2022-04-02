@@ -1,7 +1,7 @@
 
 import clsx from "clsx";
 import Link from "next/link";
-import { ArchiveIcon, HomeIcon, UsersIcon, ShieldCheckIcon, FilterIcon, FingerPrintIcon, CodeIcon, ClockIcon, CreditCardIcon, FolderIcon, IdentificationIcon, MailIcon, CubeTransparentIcon, ExclamationIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
+import { ArchiveIcon, HomeIcon, UsersIcon, ShieldCheckIcon, FilterIcon, FingerPrintIcon, LockClosedIcon, CodeIcon, ClockIcon, CreditCardIcon, FolderIcon, IdentificationIcon, MailIcon, CubeTransparentIcon, ExclamationIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import { useState, Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
@@ -19,6 +19,7 @@ const navigation = [
     { name: "Anti Raid", id: "antiraid", icon: UsersIcon, restricted: true },
     { name: "Slowmode", id: "slowmode", icon: ClockIcon },
     { name: "Challenge", id: "challenge", icon: FingerPrintIcon },
+    { name: "Verification", id: "verification", icon: LockClosedIcon },
     { name: "Logging", id: "logging", icon: ArchiveIcon },
     { name: "Impersonation", id: "impersonation", icon: IdentificationIcon },
     { name: "Workers", id: "workers", icon: CodeIcon, restricted: true },
