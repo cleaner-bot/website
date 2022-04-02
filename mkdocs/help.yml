@@ -7,4 +7,5 @@ nav:
     - Role Hierarchy: hierarchy.md
     - Suspension: suspension.md
     - Verification: verification.md
+    - Role Restrictions: role-restrictions.md
 theme: readthedocs
