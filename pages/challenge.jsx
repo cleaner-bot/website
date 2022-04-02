@@ -6,9 +6,8 @@ import clsx from "clsx";
 
 import { getChallenge, createOAuthRedirect, postChallenge } from "@/lib/api.js";
 import MetaTags from "@/components/metatags.jsx";
-import { InternalLink } from "@/components/buttons.jsx";
 import ErrorHandler from "@/components/dash/error.jsx";
-import { DiscordIconWhite } from "@/components/discord";
+import { DiscordIconWhite } from "@/components/discord.jsx";
 
 
 export default function ChallengeWrapper() {
@@ -18,8 +17,7 @@ export default function ChallengeWrapper() {
     useEffect(async () => {
         if(!router.isReady) return;
         const { flow } = router.query;
-        if(!flow)
-            return router.push("/");
+        if(!flow) return router.push("/");
 
         let response;
         try {
