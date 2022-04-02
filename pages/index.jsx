@@ -31,7 +31,7 @@ export default function Home() {
             <div className="--container">
                 <div className="flex flex-wrap justify-center mb-12">
                     <h1 className="flex-none px-2 text-5xl font-extrabold sm:text-6xl">
-                        <Image className="hidden w-16 h-16 align-middle rounded-full md:inline-block" src="/img/avatar.png" width={256} height={256} alt="Avatar of The Cleaner." />
+                        <Image className="hidden w-16 h-16 align-middle rounded-full md:inline-block" src="/img/avatar.png" width={256} height={256} alt="" />
                         <span className="px-2 align-middle hover:border-b-4 border-b-indigo-600">
                             The Cleaner
                         </span>
