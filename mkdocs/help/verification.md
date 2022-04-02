@@ -42,7 +42,7 @@ prevent unverified people from accessing the server and member's dms.
 
 Example: `https://cleaner.leodev.xyz/verify?guild=123456789012345678`
 
-- `8.` Set the verification level of your Discord server to `High` **IMPORTANT!**
+- `8.` Set the verification level of your Discord server to `High` (**IMPORTANT!**)
 
 ![](/img/help/verification_level.png)
 

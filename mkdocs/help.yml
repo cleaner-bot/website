@@ -4,7 +4,6 @@ docs_dir: "help"
 site_dir: "../out/help"
 use_directory_urls: false
 nav:
-    - Role Hierarchy: hierarchy.md
     - Suspension: suspension.md
     - Verification: verification.md
     - Role Restrictions: role-restrictions.md
