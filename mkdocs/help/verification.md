@@ -39,7 +39,7 @@ prevent unverified people from accessing the server.
 6. Select your verified role
 7. Send a message in the channel that only people without the verified role can access with the link you'll see on the Dashboard
 
-Example: `https://cleaner.leodev.xyz/verification?guild=123456789012345678`
+Example: `https://cleaner.leodev.xyz/verify?guild=123456789012345678`
 
 8. Set the verification level of your Discord server to `High` **IMPORTANT!**
 
