@@ -13,6 +13,7 @@ The issue with conventional reaction or button based verification is that
 it doesn't prevent new members from dming other members.
 
 There are 2 Discord features that can prevent new members from sending dms:
+
 - Membership screening (bypassed very easily)
 - Verification level (members can't react or press buttons)
 
@@ -22,26 +23,26 @@ members to a link/website that will verify them.
 So, we set the verification level to "High" which means members have to be in
 the Discord for 10 minutes to send dms, react or click buttons.
 To prevent people from just waiting the 10 minutes out instead of verifying
-we automatically kick members if they ahven't verified after 8-9 minutes to
-prevent unverified people from accessing the server.
+we automatically kick members if they haven't verified after 8-9 minutes to
+prevent unverified people from accessing the server and member's dms.
 
 
 ## Setup
 
-1. Create a Discord role that will be given to verified people (eg `Member` or `Verified`)
-2. Create a channel on your Discord that only people without the verified role can access
-3. Prevent people without the verified role to access all other channels
+- 1. Create a Discord role that will be given to verified people (eg `Member` or `Verified`)
+- 2. Create a channel on your Discord that only people without the verified role can access
+- 3. Prevent people without the verified role to access all other channels
 
 ![](/img/help/restricted_to_verified.png)
 
-4. Go to `/dash/?component=verification` and select a server
-5. Enable verification
-6. Select your verified role
-7. Send a message in the channel that only people without the verified role can access with the link you'll see on the Dashboard
+- 4. Go to [the Dashboard](/dash/?component=verification) and select a server
+- 5. Enable verification
+- 6. Select your verified role
+- 7. Send a message in the channel that only people without the verified role can access with the link you'll see on the Dashboard
 
 Example: `https://cleaner.leodev.xyz/verify?guild=123456789012345678`
 
-8. Set the verification level of your Discord server to `High` **IMPORTANT!**
+- 8. Set the verification level of your Discord server to `High` **IMPORTANT!**
 
 ![](/img/help/verification_level.png)
 
