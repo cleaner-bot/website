@@ -4,7 +4,6 @@ import { useRouter } from "next/router"
 import { useEffect, useState } from "react";
 
 import { DiscordIconWhite } from "@/components/discord.jsx";
-import {  } from "@/lib/api.js";
 import ErrorHandler from "@/components/dash/error.jsx";
 import { AXIOS } from "@/lib/api.js";
 
