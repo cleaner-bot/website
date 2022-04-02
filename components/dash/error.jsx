@@ -94,7 +94,7 @@ const httpErrors = {
                     Access to this ressource failed.
                 </p>
                 {error.response.data && error.response.data.detail && <p className="text-center text-gray-200">
-                    {error.response.data.detail}
+                    {typeof(error.response.data.detail) === "string" ? error.response.data.detail : JSON.stringify(error.response.data.detail)}
                 </p>}
             </GenericErrorHandler>
         )
