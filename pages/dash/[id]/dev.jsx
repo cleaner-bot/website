@@ -40,7 +40,9 @@ function DevDashboard({ user, config, setConfig, entitlements, setEntitlements, 
                 {Object.keys(entitlements).map((key, index) => (
                     <BlockWithPanel
                         name={key}
-                        description={`Current value: ${entitlements[key].toString()}`}
+                        description={<span className="break-all">
+                            Current value: {entitlements[key].toString()}
+                        </span>}
                         panel={<div>
                             <TextInput value={reactHooksEntitlements[index][0]} setValue={reactHooksEntitlements[index][1]} />
                             <Button text="Save" className="w-full mt-2" onClick={async () => {
@@ -59,7 +61,9 @@ function DevDashboard({ user, config, setConfig, entitlements, setEntitlements, 
                 {Object.keys(config).map((key, index) => (
                     <BlockWithPanel
                         name={key}
-                        description={`Current value: ${config[key].toString()}`}
+                        description={<span className="break-all">
+                            Current value: {config[key].toString()}
+                        </span>}
                         panel={<div>
                             <TextInput value={reactHooksConfig[index][0]} setValue={reactHooksConfig[index][1]} />
                             <Button text="Save" className="w-full mt-2" onClick={async () => {
