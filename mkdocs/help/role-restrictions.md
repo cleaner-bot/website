@@ -11,21 +11,24 @@ Roles cannot be given or taken if ANY of the following is true:
 
 ## Dangerous permissions
 
-All permissions that require 2FA in a server with 2FA requirement are deemed
-dangerous, that includes:
+The following permissions are considered to be "dangerous" and no role with them can be given or taken:
 
-- `ADMINISTRATOR`
-- `MANAGE SERVER`
-- `MANAGE CHANNELS`
-- `MANAGE ROLES`
-- `BAN MEMBERS`
 - `KICK MEMBERS`
+- `BAN MEMBERS`
+- `ADMINISTRATOR`
+- `MANAGE CHANNELS`
+- `MANAGE SERVER`
 - `MANAGE MESSAGES`
+- `MUTE MEMBERS`
+- `DEAFEN MEMBERS`
+- `MOVE MEMBERS`
+- `MANAGE NICKNAMES`
+- `MANAGE ROLES`
+- `MANAGE WEBHOOKS`
 - `MANAGE EMOJIS AND STICKERS`
+- `MANAGE EVENTS`
 - `MANAGE THREADS`
 - `MODERATE MEMBERS`
-
-Roles used for verification or challenges should not have any of the above permissions.
 
 ## Hierarchy
 
