@@ -1,13 +1,13 @@
 
 import { useState } from "react";
+import Link from "next/link";
 
 import { useData } from "@/components/dash/data.jsx";
 import { Page, Header, Section } from "@/components/dash/dash.jsx";
-import { ToggleBlock } from "@/components/dash/block.jsx";
+import { ToggleBlock, PlainBlock } from "@/components/dash/block.jsx";
 import MetaTags from "@/components/metatags.jsx";
-import { PlainBlock } from "@/components/dash/block";
-import { TextInput } from "@/components/dash/ui.jsx";
-import { doChange, patchConfig } from "@/lib/api";
+import { TextInput, Attention } from "@/components/dash/ui.jsx";
+import { doChange, patchConfig } from "@/lib/api.js";
 
 export default function DashboardWrapper() {
     const data = useData();
@@ -23,23 +23,29 @@ export default function DashboardWrapper() {
     )
 }
 
-function AntiRaidDashboard({ config, setConfig, guildId }) {
+function AntiRaidDashboard({ config, setConfig, guild, guildId }) {
     const [antiRaidLimit, setAntiRaidLimit] = useState(config.antiraid_limit);
 
     return (
         <>
             <Header name="Anti Raid">
                 Anti Raid settings.
+                This is recommended for small. Big servers should take a look at <Link href={`/dash/${guildId}/verification`}><a className="hover:underline">Verification</a></Link>
             </Header>
             <Section>
                 <ToggleBlock
                     name="Enable Anti Raid"
-                    description="Enable raid protection."
+                    description="Enable raid protection. Kicks new members after a threshold has been reached."
                     config={config}
                     setConfig={setConfig}
                     guildId={guildId}
                     field="antiraid_enabled"
-                />
+                >
+                    {!(guild.myself.permissions.ADMINISTRATOR || guild.myself.permissions.KICK_MEMBERS) && <Attention>
+                        Missing permission to kick members!
+                        This feature will not work without it.
+                    </Attention>}
+                </ToggleBlock>
                 {config.antiraid_enabled && <>
                     <PlainBlock
                         name="Join limit"

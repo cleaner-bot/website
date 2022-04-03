@@ -88,7 +88,12 @@ function Dashboard({ config, setConfig, guild, guildId }) {
                     setConfig={setConfig}
                     guildId={guildId}
                     field="overview_dehoisting_enabled"
-                />
+                >
+                    {!(guild.myself.permissions.ADMINISTRATOR || guild.myself.permissions.MANAGE_NICKNAMES) && <Attention>
+                        Missing permission to manage nicknames!
+                        This feature will not work without it.
+                    </Attention>}
+                </ToggleBlock>
             </Section>
         </>
     )

@@ -1,10 +1,11 @@
 
 import { useState } from "react";
+import Link from "next/link";
 
 import { useData } from "@/components/dash/data.jsx";
 import { Page, Header, Section } from "@/components/dash/dash.jsx";
 import { PlainBlock, BlockWithPanel, ToggleBlock } from "@/components/dash/block.jsx";
-import { Upgrade, Button, Dropdown, DropdownSearch, OptionalUpgrade, Slider } from "@/components/dash/ui.jsx";
+import { Upgrade, Button, Dropdown, DropdownSearch, OptionalUpgrade, Slider, Attention } from "@/components/dash/ui.jsx";
 import MetaTags from "@/components/metatags.jsx";
 import { doChange, patchConfig, postChallengeEmbed } from "@/lib/api.js";
 
@@ -25,6 +26,7 @@ export default function DashboardWrapper() {
 
 function ChallengeDashboard({ config, setConfig, entitlements, guild, guildId }) {
     const [sendChallengeInteractiveEmbedChannel, setSendChallengeInteractiveEmbedChannel] = useState("");
+    const interactiveRole = guild.roles.find(role => role.id === config.challenge_interactive_role);
 
     return (
         <>
@@ -42,7 +44,18 @@ function ChallengeDashboard({ config, setConfig, entitlements, guild, guildId })
                         <p>This cannot be disabled.</p>
                     </>}
                     panel={<div className="w-32 cursor-not-allowed --btn --btn-3 bg-gray-580">Enabled</div>}
-                />
+                >
+                    <div className="space-y-2">
+                        {!(guild.myself.permissions.ADMINISTRATOR || guild.myself.permissions.BAN_MEMBERS) && <Attention>
+                            Missing permission to ban members!
+                            This will drastically negatively impact my performance during raids.
+                        </Attention>}
+                        {!(guild.myself.permissions.ADMINISTRATOR || guild.myself.permissions.KICK_MEMBERS) && <Attention>
+                            Missing permission to kick members!
+                            This will drastically negatively impact my performance during raids.
+                        </Attention>}
+                    </div>
+                </BlockWithPanel>
                 <ToggleBlock
                     name="Timeout challenges"
                     description="Disruptive users will be put in timeout whenever possible."
@@ -61,7 +74,12 @@ function ChallengeDashboard({ config, setConfig, entitlements, guild, guildId })
                     config={config}
                     setConfig={setConfig}
                     guildId={guildId}
-                />
+                >
+                    {!(guild.myself.permissions.ADMINISTRATOR || guild.myself.permissions.MANAGE_ROLES) && <Attention>
+                        Missing permission to manage roles!
+                        I cannot give or take roles.
+                    </Attention>}
+                </ToggleBlock>
                 {config.challenge_interactive_enabled && <>
                     <PlainBlock
                         name="Interactive role settings"
@@ -91,9 +109,16 @@ function ChallengeDashboard({ config, setConfig, entitlements, guild, guildId })
                                 setConfig({...config, challenge_interactive_take_role: !config.challenge_interactive_take_role})
                             }}
                         />
-                        <p className="mt-6 text-sm text-gray-300">
+                        <p className="my-6 text-sm text-gray-300">
                             Role not listed? Make sure The Cleaner is above it in the role hierarchy.
                         </p>
+                        {!interactiveRole && <Attention>
+                            The role has been deleted. Please select a new one.
+                        </Attention>}
+                        {interactiveRole && !interactiveRole.can_control && <Attention>
+                            The Cleaner can not control the current role.{" "}
+                            <Link href="/help/role-restrictions"><a className="font-bold text-gray-300 hover:underline">Find out why.</a></Link>
+                        </Attention>}
                     </PlainBlock>
                     <PlainBlock
                         name="Send challenge embed"

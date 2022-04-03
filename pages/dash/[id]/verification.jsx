@@ -24,10 +24,11 @@ export default function DashboardWrapper() {
 
 
 function VerificationDashboard({ config, setConfig, guild, guildId }) {
+    const verifiedRole = guild.roles.find(role => role.id === config.verification_role);
     return (
         <>
             <Header name="Verification">
-                Manage your worker.
+                Manage verification settings.
             </Header>
             <Section>
                 <Attention>
@@ -35,12 +36,17 @@ function VerificationDashboard({ config, setConfig, guild, guildId }) {
                 </Attention>
                 <ToggleBlock
                     name="Enable verification"
-                    description="Enable verification."
+                    description="Enable verification. This will automatically kick members after 8 minutes if they have not verified."
                     field="verification_enabled"
                     config={config}
                     setConfig={setConfig}
                     guildId={guildId}
-                />
+                >
+                    {!(guild.myself.permissions.ADMINISTRATOR || guild.myself.permissions.KICK_MEMBERS) && <Attention>
+                        Missing permission to kick members!
+                        This feature will not work without it.
+                    </Attention>}
+                </ToggleBlock>
                 {config.verification_enabled && <>
                     <PlainBlock
                         name="Verified role"
@@ -56,9 +62,22 @@ function VerificationDashboard({ config, setConfig, guild, guildId }) {
                                 setConfig({...config, verification_role: new_value});
                             }}
                         />
-                        <p className="mt-6 text-sm text-gray-300">
+                        <p className="my-6 text-sm text-gray-300">
                             Role not listed? Make sure The Cleaner is above it in the role hierarchy.
                         </p>
+                        <div className="space-y-2">
+                            {!(guild.myself.permissions.ADMINISTRATOR || guild.myself.permissions.MANAGE_ROLES) && <Attention>
+                                Missing permission to manage roles!
+                                This feature will not work without it.
+                            </Attention>}
+                            {!verifiedRole && <Attention>
+                                The role has been deleted. Please select a new one.
+                            </Attention>}
+                            {verifiedRole && !verifiedRole.can_control && <Attention>
+                                The Cleaner can not control the current role.{" "}
+                                <Link href="/help/role-restrictions"><a className="font-bold text-gray-300 hover:underline">Find out why.</a></Link>
+                            </Attention>}
+                        </div>
                     </PlainBlock>
                 </>}
             </Section>

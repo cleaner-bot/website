@@ -2,8 +2,8 @@
 import MetaTags from "@/components/metatags.jsx";
 import { useData } from "@/components/dash/data.jsx";
 import { Page, Header, Section } from "@/components/dash/dash.jsx";
-import { PlainBlock, ToggleBlock, BlockWithPanel } from "@/components/dash/block.jsx";
-import { DropdownSearch } from "@/components/dash/ui.jsx";
+import { PlainBlock, ToggleBlock } from "@/components/dash/block.jsx";
+import { DropdownSearch, Attention } from "@/components/dash/ui.jsx";
 import { doChange, patchConfig, useLoggingDownloads } from "@/lib/api.js";
 
 export default function DashboardWrapper() {
@@ -22,6 +22,7 @@ export default function DashboardWrapper() {
 
 
 function LoggingDashboard({ config, setConfig, entitlements, guild, guildId }) {
+    const loggingChannel = guild.channels.find(channel => channel.id === config.logging_channel);
     return (
         <>
             <Header name="Logging" />
@@ -49,6 +50,15 @@ function LoggingDashboard({ config, setConfig, entitlements, guild, guildId }) {
                                 setConfig({...config, logging_channel: new_value});
                             }}
                         />
+                        <p className="my-6 text-sm text-gray-300">
+                            Channel not listed? Make sure The Cleaner can send messages and embeds in it.
+                        </p>
+                        {!loggingChannel && <Attention>
+                            The logging channel has been deleted. Please select a new one.
+                        </Attention>}
+                        {loggingChannel && !(loggingChannel.permissions.ADMINISTRATOR || (loggingChannel.permissions.VIEW_CHANNEL && loggingChannel.permissions.SEND_MESSAGES && loggingChannel.permissions.EMBED_LINKS)) && <Attention>
+                            The Cleaner can not send messages and embeds in the current logging channel. Please select a new one or give me the missing permissions.
+                        </Attention>}
                     </PlainBlock>
                     <ToggleBlock
                         name="Join log"

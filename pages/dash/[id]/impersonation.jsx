@@ -5,7 +5,7 @@ import MetaTags from "@/components/metatags.jsx";
 import { useData } from "@/components/dash/data.jsx";
 import { Page, Header, Section } from "@/components/dash/dash.jsx";
 import { PlainBlock, ToggleBlock } from "@/components/dash/block.jsx";
-import { TextInput } from "@/components/dash/ui.jsx";
+import { TextInput, Attention } from "@/components/dash/ui.jsx";
 import { doChange, patchConfig } from "@/lib/api.js";
 
 export default function DashboardWrapper() {
@@ -34,7 +34,7 @@ function containsAll(array1, array2) {
 }
 
 
-function ImpersonationDashboard({ config, setConfig, entitlements, guildId }) {
+function ImpersonationDashboard({ config, setConfig, entitlements, guild, guildId }) {
     return (
         <>
             <Header name="Impersonation">
@@ -54,7 +54,12 @@ function ImpersonationDashboard({ config, setConfig, entitlements, guildId }) {
                     config={config}
                     setConfig={setConfig}
                     guildId={guildId}
-                />
+                >
+                    {!(guild.myself.permissions.ADMINISTRATOR || guild.myself.permissions.KICK_MEMBERS) && <Attention>
+                        Missing permission to kick members!
+                        This feature will not work without it.
+                    </Attention>}
+                </ToggleBlock>
                 <ToggleBlock
                     name="Advanced impersonation settings"
                     description={<>
@@ -67,7 +72,12 @@ function ImpersonationDashboard({ config, setConfig, entitlements, guildId }) {
                     guildId={guildId}
                     entitlement={entitlements.impersonation_advanced}
                     entitlements={entitlements}
-                />
+                    >
+                    {!(guild.myself.permissions.ADMINISTRATOR || guild.myself.permissions.KICK_MEMBERS) && <Attention>
+                        Missing permission to kick members!
+                        This feature will not work without it.
+                    </Attention>}
+                </ToggleBlock>
                 {config.impersonation_advanced_enabled && <>
                     <Blacklist
                         name="Blacklist: Partial words"
