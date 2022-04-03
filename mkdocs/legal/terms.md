@@ -1,11 +1,11 @@
 
 # Terms of Service
 
-Last updated March 15, 2022
+Last updated April 03, 2022
 
 ## AGREEMENT TO TERMS
 
-These Terms of Service constitute a legally binding agreement made between you, whether personally or on behalf of an entity (“you”) and The Cleaner (“we", “us", or “our”), concerning your access to and use of the https://cleaner.leodev.xyz website as well as any other media form, media channel, mobile website or mobile application related, linked, or otherwise connected thereto (collectively, the “Site”). You agree that by accessing the Site, you have read, understood, and agreed to be bound by all of these Terms of Service. IF YOU DO NOT AGREE WITH ALL OF THESE Terms of Service, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SITE AND YOU MUST DISCONTINUE USE IMMEDIATELY.
+These Terms of Service constitute a legally binding agreement made between you, whether personally or on behalf of an entity (“you”) and The Cleaner (“we", “us", or “our”), concerning your access to and use of the https://cleaner.leodev.xyz website as well as any other media form, media channel, mobile website or mobile application related, linked, or otherwise connected thereto (collectively, the “Site”). You agree that by accessing the Site, you have read, understood, and agreed to be bound by all of these Terms of Service. IF YOU DO NOT AGREE WITH ALL OF THESE TERMS, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SITE AND YOU MUST DISCONTINUE USE IMMEDIATELY.
 
 Supplemental terms and conditions or documents that may be posted on the Site from time to time are hereby expressly incorporated herein by reference. We reserve the right, in our sole discretion, to make changes or modifications to these Terms of Service from time to time. We will alert you about any changes by updating the “Last updated” date of these Terms of Service, and you waive any right to receive specific notice of each such change. Please ensure that you check the applicable Terms every time you use our Site so that you understand which Terms apply. You will be subject to, and will be deemed to have been made aware of and to have accepted, the changes in any revised Terms of Service by your continued use of the Site after the date such revised Terms of Service are posted.
 
