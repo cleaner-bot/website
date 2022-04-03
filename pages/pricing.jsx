@@ -11,6 +11,7 @@ const includedFeatures = [
     "Support (Discord & Mail)",
     "Advanced settings + custom branding",
     "Log file downloads",
+    "More than 100,000 members",
     "Workers*",
 ]
 const eligible = [
@@ -29,8 +30,10 @@ const sections = [
             { name: "Automatic Slowmode", tiers: { free: true, pro: true } },
             { name: "Dashboard", tiers: { free: true, pro: true } },
             { name: "Logging", tiers: { free: true, pro: true } },
+            { name: "Anti Raid", tiers: { free: "Early access", pro: "Early access" } },
             { name: "Challenge & timeouts", tiers: { free: true, pro: true } },
-            { name: "Multiple languages", tiers: { free: true, pro: true } },
+            { name: "Super Verification", tiers: { free: "Early access", pro: "Early access" } },
+            { name: "Multiple languages", tiers: { free: true, pro: true }, link: { text: "Help us", href: "/docs/i18n" } },
             { name: "Member limit", tiers: { free: "100,000 members *", pro: "Unlimited" } },
         ],
     },
@@ -44,16 +47,15 @@ const sections = [
             { name: "Log file downloads", tiers: { pro: true } },
             { name: "Custom risk score / disabling security level", tiers: { pro: true } },
             { name: "Custom challenge branding", tiers: { pro: true } },
-            { name: "Anti Raid", tiers: { free: "Early access", pro: "Early access" } },
+            { name: "Custom Super Verification branding", tiers: { pro: "Early access" } },
         ],
     },
     {
         name: "Upcoming features",
         features: [
-            { name: "Workers", tiers: { pro: "Coming soon" } },
             { name: "Backups", tiers: { free: "Coming soon", pro: "Coming soon" } },
+            { name: "Workers", tiers: { pro: "Coming soon" } },
             { name: "Custom bot", tiers: { pro: "Coming soon" } },
-            { name: "Advanced Verification", tiers: { pro: "Coming soon" } },
         ]
     }
 ]
@@ -205,6 +207,11 @@ export default function Pricing() {
                                 <tr key={feature.name}>
                                     <th className="px-6 py-5 text-sm font-normal text-left text-gray-100" scope="row">
                                         {feature.name}
+                                        {feature.link && <Link href={feature.link.href}>
+                                            <a className="px-2 py-0.5 ml-4 text-sm uppercase bg-gray-900 hover:bg-gray-800 --anim rounded-full">
+                                                {feature.link.text}
+                                            </a>
+                                        </Link>}
                                     </th>
                                     {["free", "pro"].map(tier => (
                                         <td key={tier} className="px-6 py-5">
@@ -232,7 +239,7 @@ export default function Pricing() {
                 </tbody>
             </table>
             <p className="mt-6 text-xs text-gray-300">
-                * We will automatically active a <b>free four week trial</b> upon surpassing 100,000 members.
+                * We will automatically active a <b>free four week trial</b> if your server has more than 100,000 members.
             </p>
             <div className="pb-8 mt-20 border-t border-gray-550" />
             <Footer />
