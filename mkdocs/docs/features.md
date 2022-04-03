@@ -45,7 +45,7 @@ Messages with more than 15 pings are blocked and result in a challenge. ([ping.u
 
 ### Discord invites
 
-Discord invites are automatically deleted by default with the [`advertisement.discord_invite`](rules.md#advertisementdiscord_invite) rule.
+Discord invites are automatically deleted by default with the [`advertisement.discord.invite`](rules.md#advertisementdiscordinvite) rule.
 
 
 
