@@ -63,7 +63,8 @@ function VerificationDashboard({ config, setConfig, guild, guildId }) {
                             }}
                         />
                         <p className="my-6 text-sm text-gray-300">
-                            Role not listed? Make sure The Cleaner is above it in the role hierarchy.
+                            Role not listed?{" "}
+                            <Link href="/help/role-restrictions"><a className="font-bold text-gray-300 hover:underline">Find out why.</a></Link>
                         </p>
                         <div className="space-y-2">
                             {!(guild.myself.permissions.ADMINISTRATOR || guild.myself.permissions.MANAGE_ROLES) && <Attention>

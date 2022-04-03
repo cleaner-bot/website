@@ -110,7 +110,8 @@ function ChallengeDashboard({ config, setConfig, entitlements, guild, guildId })
                             }}
                         />
                         <p className="my-6 text-sm text-gray-300">
-                            Role not listed? Make sure The Cleaner is above it in the role hierarchy.
+                            Role not listed?{" "}
+                            <Link href="/help/role-restrictions"><a className="font-bold text-gray-300 hover:underline">Find out why.</a></Link>
                         </p>
                         {!interactiveRole && <Attention>
                             The role has been deleted. Please select a new one.
