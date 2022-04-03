@@ -1,6 +1,7 @@
 
 import { Pro } from "@/components/featurelist.jsx";
 import Image from "@/components/image.jsx";
+import { ExternalLink } from "@/components/buttons.jsx";
 
 const features = [
     {
@@ -55,6 +56,19 @@ const features = [
         },
     },
     {
+        name: "Super Verification",
+        description: "Prevents bots and raids from doing any harm.",
+        points: [
+            "Prevents DMs while pending verification",
+            "Prevents all raids",
+            "No false positive kicks or bans during raids",
+        ],
+        links: [
+            { name: "Demo", href: "/demo/verification" },
+            { name: "Documentation", href: "/help/verification" },
+        ]
+    },
+    {
         name: "Just... keep it clean",
         description: "Keep a lot of unsocialized content out of your server - by default.",
         points: [
@@ -62,6 +76,7 @@ const features = [
             "Protection against mass pings.",
             "Protection against Discord invites.",
             "Protection against broad pings. (@here and @everyone)",
+            "Prevent mass emoji usage. (disabled by default)",
         ],
         image: {
             src: "/img/features/miscellaneous.png",
@@ -88,7 +103,15 @@ export default function Features() {
                     </div>
                 </div>
                 <div className={index % 2 === 0 ? "lg:order-first" : ""}>
-                    <Image className="w-full" valt="" {...feat.image} />
+                    {feat.image ? (
+                        <Image className="w-full" valt="" {...feat.image} />
+                    ) : feat.links ? (
+                        <div className="m-auto space-y-2 w-96">
+                            {feat.links.map(link => <ExternalLink href={link.href}>
+                                {link.name}
+                            </ExternalLink>)}
+                        </div>
+                    ) : null}
                 </div>
             </div>)}
         </div>
