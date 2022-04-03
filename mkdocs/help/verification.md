@@ -1,5 +1,5 @@
 
-# Verification
+# Super Verification
 
 > **Note**: The Verification plugin is intended only for high-risk servers
 that are frequently hit by bot attacks.

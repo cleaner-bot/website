@@ -27,7 +27,7 @@ function VerificationDashboard({ config, setConfig, guild, guildId }) {
     const verifiedRole = guild.roles.find(role => role.id === config.verification_role);
     return (
         <>
-            <Header name="Verification">
+            <Header name="Super Verification">
                 Manage verification settings.
             </Header>
             <Section>

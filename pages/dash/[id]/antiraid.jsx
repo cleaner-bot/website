@@ -30,7 +30,7 @@ function AntiRaidDashboard({ config, setConfig, guild, guildId }) {
         <>
             <Header name="Anti Raid">
                 Anti Raid settings.
-                This is recommended for small. Big servers should take a look at <Link href={`/dash/${guildId}/verification`}><a className="hover:underline">Verification</a></Link>
+                This is recommended for small server. Big servers should take a look at <Link href={`/dash/${guildId}/verification`}><a className="font-bold hover:underline">Super Verification</a></Link>.
             </Header>
             <Section>
                 <ToggleBlock
