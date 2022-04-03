@@ -54,7 +54,7 @@ export default function Home() {
                         </Link>
                     </div>
                 </div>
-                <div className="grid grid-cols-1 gap-10 xl:grid-cols-2">
+                <div className="grid grid-cols-1 gap-10 mt-20 sm:mt-40 xl:grid-cols-2">
                     <div className="m-auto">
                         <h2 className="text-5xl font-extrabold leading-10 text-center sm:text-left">
                             A bot built for keeping servers clean
@@ -105,7 +105,7 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-            <div className="text-gray-750">
+            <div className="text-gray-750 mt-[50vh]">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" fill="currentColor">
                     <path fillOpacity="1" d="M0,224L48,197.3C96,171,192,117,288,80C384,43,480,21,576,32C672,43,768,85,864,122.7C960,160,1056,192,1152,197.3C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
                 </svg>
