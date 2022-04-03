@@ -9,5 +9,6 @@ nav:
     - Rules: rules.md
     - Mitigation Strategies: mitigation.md
     - Challenge: challenge.md
+    - Multiple Languages: i18n.md
     - About: about.md
 theme: readthedocs
