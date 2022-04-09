@@ -33,7 +33,7 @@ const sections = [
             { name: "Anti Raid", tiers: { free: "Early access", pro: "Early access" } },
             { name: "Challenge & timeouts", tiers: { free: true, pro: true } },
             { name: "Super Verification", tiers: { free: "Early access", pro: "Early access" } },
-            { name: "Multiple languages", tiers: { free: true, pro: true }, link: { text: "Help us", href: "/docs/i18n" } },
+            { name: "Multiple languages", tiers: { free: true, pro: true }, link: { text: "More", href: "/docs/i18n" } },
             { name: "Member limit", tiers: { free: "100,000 members *", pro: "Unlimited" } },
         ],
     },
@@ -46,7 +46,7 @@ const sections = [
             { name: "Support", tiers: { free: "Community", pro: "Dedicated (E-Mail, tickets, ...)" } },
             { name: "Log file downloads", tiers: { pro: true } },
             { name: "Custom risk score / disabling security level", tiers: { pro: true } },
-            { name: "Custom challenge branding", tiers: { pro: true } },
+            { name: "Custom challenge branding", tiers: { pro: "Early access" } },
             { name: "Custom Super Verification branding", tiers: { pro: "Early access" } },
         ],
     },
@@ -70,9 +70,6 @@ export default function Pricing() {
             <h2 className="text-2xl font-extrabold text-center text-gray-100 sm:text-4xl lg:text-5xl">
                 Support The Cleaner
             </h2>
-            <p className="mt-4 text-xl text-center text-gray-300">
-                If you're not satisfied, contact us within the first 14 days and we'll send you a full refund.
-            </p>
             <div className="my-16 lg:flex">
                 <div className="flex-1 p-6 bg-gray-800 rounded-t-lg lg:p-12 lg:rounded-tr-none lg:rounded-l-lg">
                     <h2 className="mb-6 text-3xl font-extrabold text-gray-400">
