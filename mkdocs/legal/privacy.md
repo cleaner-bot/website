@@ -14,11 +14,15 @@ The following overview summarizes the types of data processed and the purposes o
 
 „The Cleaner“ receives chat messages of Discord channels that use our Service and filters unwanted content. (i.e. spam or phishing). „The Cleaner“ deletes messages in the Discord channels, if the content is unwanted according to the filter rules. Additionally, users that repeatedly violate the filter rules, will be prevented from participating in the Discord channels.
 
+The Service "Dashboard" is a website frontend to administer technical parameters by administrators of the service "The Cleaner".
+
 Users have to receive an invitation to the Discord channels first (closed user group). A Discord Account has to be created under the [Privacy Policy of Discord first](https://discord.com/privacy) for this.
 
 ### Categories of processed data
 
-Data categories are the message content and Discord user information. User information are:
+Data categories are the message content and Discord user information.
+
+User information for "The Cleaner" are:
 
 - unique user id (number).
 - name or pseudonym.
@@ -26,15 +30,33 @@ Data categories are the message content and Discord user information. User infor
 - server join time.
 - user flags.
 
+User information for "Dashboard" and "Challenge" are:
+
+- IP address.
+- unique user id (number).
+- name or pseudonym.
+- date of the account creation.
+- user flags.
+- link to avatar.
+- Discord premium (Nitro) status
+- list of the user's guilds (servers)
+
+User information for "Radar" is:
+
+- IP address
+
 For details, refer to https://discord.com/developers/docs/resources/user#user-object.
 
 ### Categories of affected users
 
 - Users of Discord.
+- Challenged Discord users.
+- Administrators of service "Dashboard".
+- Visitors of "Radar".
 
 ### Purposes of processing
 
-Providing our service „The Cleaner“.
+Providing and adminstering our service „The Cleaner“.
 
 ### Applicable legal bases
 
@@ -61,9 +83,6 @@ Our data protection information may also contain further information on the stor
 
 - **Messages**: Generally messages are only kept for a minute but in special cases can be stored for up to 10 minutes. (anonymized messages may be kept for longer)
 
-- **Join information**: We store anonymized join information for up to 10 minutes.
-
-- **Error logs**: Error logs are kept for up to 2 weeks and then automatically deleted.
 
 ## Change and update of this privacy policy
 
@@ -101,8 +120,8 @@ Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen
 Postfach 20 04 44  
 40102 Düsseldorf
 
-Tel.: 0211/38424-0
-Fax: 0211/38424-999
+Tel.: 0211/38424-0  
+Fax: 0211/38424-999  
 E-Mail: poststelle@ldi.nrw.de
 
 
