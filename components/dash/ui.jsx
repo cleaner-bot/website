@@ -4,7 +4,6 @@ import Link from "next/link";
 import { Dialog, Listbox, Switch } from "@headlessui/react";
 import { ExclamationIcon } from "@heroicons/react/solid";
 import { Fragment, useState } from "react";
-import toast from "react-hot-toast";
 
 import plans from "@/lib/plans.js";
 import { doChange, patchConfig } from "@/lib/api.js";
@@ -134,7 +133,7 @@ export function DropdownSearch({ placeholder, values, current, setCurrent }) {
         <div className="relative group">
             <TextInput placeholder={placeholder} value={query} setValue={setQuery} changeOnInput={true} />
             <div className="hidden group-focus-within:block absolute z-20 top-[110%] bg-gray-800 w-full rounded-lg px-3 py-2 shadow">
-                {values.map(({ name, id }) => <button
+                {values.filter(({ name }) => name.indexOf(query) !== -1).map(({ name, id }) => <button
                     className={clsx("block w-full text-left rounded px-2 py-0.5", id === current ? "bg-coolGray-700" : "hover:bg-coolGray-700")}
                     onClick={() => {
                         setCurrent(id);
