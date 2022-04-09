@@ -22,8 +22,8 @@ export default function DashboardWrapper() {
 
 const rules = [
     { name: "traffic.similar", description: "Most basic spam detection by comparing the similarity of messages." },
-    { name: "traffic.exact", description: "Detects identical messages sent in multiple channels. Intended as last resort against phishing." },
     { name: "traffic.token", description: "Detects repeating elements of messages. This antispam rule is harder to trigger but will catch more sophisticated spam." },
+    { name: "traffic.exact", description: "Detects identical messages sent in multiple channels. Intended as last resort against phishing." },
     { name: "traffic.sticker", description: "Detects sticker spam." },
     { name: "traffic.attachment", description: "Detects attachment spam. For performance reasons this only checks filesize." },
 ]
