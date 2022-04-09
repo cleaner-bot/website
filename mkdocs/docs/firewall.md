@@ -7,9 +7,10 @@ Who is ignored by The Cleaner?
 
 - the server owner
 - members with `ADMINSTRATOR` or `MANAGE SERVER` permission
-- moderator roles added on the dashboard
+- moderator roles added on the [Dashboard](/dash/?component=firewall)
+- bots
 
-You can change the action of each rule on the Dashboard.
+You can change the action of each rule on the [Dashboard](/dash/?component=firewall).
 
 
 ## phishing.content

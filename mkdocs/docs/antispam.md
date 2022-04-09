@@ -1,11 +1,10 @@
 
-# Mitigation Strategies
+# Anti Spam
 
-
-Mitigation strategies analyze recent messages (traffic) and looks for patterns.
+Analyzes recent messages (traffic) and looks for patterns.
 If a pattern is found, we will automatically block all messages matching that pattern.
 
-Dynamic rules automatically expire after they haven't been triggered for some time.
+Patters expire after they haven't been triggered for a while.
 
 This is the primary defense against raids or other kinds of spam that is directed to only one guild.
 
@@ -29,12 +28,12 @@ This is intended for catching bots that send the same message into every channel
 
 #### traffic.sticker
 
-Detects sticker spam. (3/30s)
+Detects spam of the same sticker. (3/30s)
 
 
 #### traffic.attachment
 
-Detects attachment spam using filesize.  (3/30s)
+Detects spam of the same attachment (only compares filesize).  (3/30s)
 
 
 ---
