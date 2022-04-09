@@ -5,6 +5,5 @@ site_dir: "../out/help"
 use_directory_urls: false
 nav:
     - Suspension: suspension.md
-    - Verification: verification.md
     - Role Restrictions: role-restrictions.md
 theme: readthedocs

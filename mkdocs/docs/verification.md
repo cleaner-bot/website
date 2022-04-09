@@ -33,7 +33,7 @@ prevent unverified people from accessing the server and member's dms.
 - `2.` Create a channel on your Discord that only people without the verified role can access
 - `3.` Prevent people without the verified role to access all other channels
 
-![](/img/help/restricted_to_verified.png)
+![](/img/docs/restricted_to_verified.png)
 
 - `4.` Go to [the Dashboard](/dash/?component=verification) and select a server
 - `5.` Enable verification
@@ -44,5 +44,5 @@ Example: `https://cleaner.leodev.xyz/verify?guild=123456789012345678`
 
 - `8.` Set the verification level of your Discord server to `High` (**IMPORTANT!**)
 
-![](/img/help/verification_level.png)
+![](/img/docs/verification_level.png)
 

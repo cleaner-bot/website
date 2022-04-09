@@ -65,7 +65,7 @@ const features = [
         ],
         links: [
             { name: "Demo", href: "/demo/verification" },
-            { name: "Documentation", href: "/help/verification" },
+            { name: "Documentation", href: "/docs/verification" },
         ]
     },
     {

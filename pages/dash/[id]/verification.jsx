@@ -32,7 +32,7 @@ function VerificationDashboard({ config, setConfig, guild, guildId }) {
             </Header>
             <Section>
                 <Attention>
-                    Read the <Link href="/help/verification"><a className="hover:underline">help article</a></Link> for more information.
+                    Read the <Link href="/docs/verification"><a className="font-bold text-gray-300 hover:underline">documentation</a></Link> for more information.
                 </Attention>
                 <ToggleBlock
                     name="Enable verification"
