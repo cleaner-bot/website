@@ -19,7 +19,7 @@ const navigation = [
     { name: "Anti Raid", id: "antiraid", icon: UsersIcon, restricted: true },
     { name: "Slowmode", id: "slowmode", icon: ClockIcon },
     { name: "Challenge", id: "challenge", icon: FingerPrintIcon },
-    { name: "Super Verification", id: "verification", icon: LockClosedIcon },
+    { name: "Super Verification", id: "verification", icon: LockClosedIcon, restricted: true },
     { name: "Logging", id: "logging", icon: ArchiveIcon },
     { name: "Impersonation", id: "impersonation", icon: IdentificationIcon },
     { name: "Workers", id: "workers", icon: CodeIcon, restricted: true },
