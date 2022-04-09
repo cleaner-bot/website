@@ -6,7 +6,7 @@
 With the following privacy policy we would like to explain to you which types of your personal data (hereinafter also referred to as "data" for short) we process for which purposes and to what extent. This privacy policy applies to all processing of personal data carried out by us through the use of our application „The Cleaner“ and the associated systems (hereinafter collectively referred to as "Service").
 
 
-Last updated March 05, 2022
+Last updated April 09, 2022
 
 ## Overview of the data processing
 
@@ -29,8 +29,9 @@ User information for "The Cleaner" are:
 - date of the account creation.
 - server join time.
 - user flags.
+- language.
 
-User information for "Dashboard" and "Challenge" are:
+User information for "Dashboard", "Challenge" and "Verification" are:
 
 - IP address.
 - unique user id (number).
@@ -40,23 +41,25 @@ User information for "Dashboard" and "Challenge" are:
 - link to avatar.
 - Discord premium (Nitro) status
 - list of the user's guilds (servers)
+- language.
 
 User information for "Radar" is:
 
 - IP address
 
-For details, refer to https://discord.com/developers/docs/resources/user#user-object.
+For more details, refer to https://discord.com/developers/docs/resources/user#user-object.
 
 ### Categories of affected users
 
 - Users of Discord.
 - Challenged Discord users.
+- Users who wish to verify.
 - Administrators of service "Dashboard".
 - Visitors of "Radar".
 
 ### Purposes of processing
 
-Providing and adminstering our service „The Cleaner“.
+Providing, adminstering and protecting our service „The Cleaner“.
 
 ### Applicable legal bases
 
