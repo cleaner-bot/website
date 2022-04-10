@@ -163,7 +163,7 @@ export default function Sidebar({ current, user, guild, entitlements, guildId, c
                         </button>
                     </div>
                     <main className="flex-1 w-full">
-                        <div className={clsx("min-h-screen p-6 md:min-h-[calc(100vh-10rem)] md:p-12 pb-8 md:pb-20", isSuspended && "bg-red-500")}>
+                        <div className={clsx("min-h-screen p-6 md:p-12 pb-8 md:pb-20", isSuspended && "bg-red-500")}>
                             <div className="max-w-[1280px] mx-auto">
                                 {isSuspended ? <Suspended /> : children}
                             </div>
