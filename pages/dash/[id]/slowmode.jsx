@@ -25,7 +25,7 @@ export default function DashboardWrapper() {
 function SlowmodeDashboard({ config, setConfig, guild, guildId }) {
     return (
         <>
-            <Header name="Overview">
+            <Header name="Slowmode">
                 Manage slowmode settings and channels.
             </Header>
             

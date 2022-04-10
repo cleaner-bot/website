@@ -13,7 +13,7 @@ import { InternalLink } from "@/components/buttons.jsx";
 
 
 const navigation = [
-    { name: "Overview", id: "", icon: HomeIcon },
+    { name: "General", id: "", icon: HomeIcon },
     { name: "Firewall", id: "firewall", icon: FilterIcon },
     { name: "Anti Spam", id: "antispam", icon: ShieldCheckIcon },
     { name: "Anti Raid", id: "antiraid", icon: UsersIcon, restricted: true },
