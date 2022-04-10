@@ -71,7 +71,10 @@ function VerificationDashboard({ config, setConfig, guild, guildId }) {
                                 Missing permission to manage roles!
                                 This feature will not work without it.
                             </Attention>}
-                            {!verifiedRole && <Attention>
+                            {config.verification_role === "0" && <Attention>
+                                No role selected.
+                            </Attention>}
+                            {!verifiedRole && config.verification_role !== "0" && <Attention>
                                 The role has been deleted. Please select a new one.
                             </Attention>}
                             {verifiedRole && !verifiedRole.can_control && <Attention>
