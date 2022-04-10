@@ -7,7 +7,15 @@ import "../styles/globals.css";
 export default function MyCustomApp({ Component, pageProps }) {
     return (
         <>
-            <Toaster position="top-right" />
+            <Toaster
+                position="top-right"
+                toastOptions={{
+                    style: {
+                        color: "#fff",
+                        background: "#111827"
+                    }
+                }}
+            />
             <Component {...pageProps} />
         </>
     )
