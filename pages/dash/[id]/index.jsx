@@ -28,7 +28,7 @@ function Dashboard({ config, setConfig, guild, guildId }) {
             <Header name="General" />
             <Section>
                 {(!config.logging_enabled || config.logging_channel === "0") && <Attention>
-                    {config.logging_enabled === "no" ? "You do not have logging enabled!" : "You do not have a logging channel selected!"}
+                    {!config.logging_enabled ? "You do not have logging enabled!" : "You do not have a logging channel selected!"}
                     <InternalLink href={`/dash/${guildId}/logging`} className="mt-4 lg:w-96">
                         Go to Logging
                     </InternalLink>
