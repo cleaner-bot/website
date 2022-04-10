@@ -29,7 +29,7 @@ function LoggingDashboard({ config, setConfig, entitlements, guild, guildId }) {
             <Section>
                 <ToggleBlock
                     name="Enable logging"
-                    description="Logging allows you to get notified about actions The Cleaner is doing."
+                    description="Logging allows you to get notified about actions The Cleaner is performing."
                     field="logging_enabled"
                     config={config}
                     setConfig={setConfig}
@@ -53,7 +53,10 @@ function LoggingDashboard({ config, setConfig, entitlements, guild, guildId }) {
                         <p className="my-6 text-sm text-gray-300">
                             Channel not listed? Make sure The Cleaner can send messages and embeds in it.
                         </p>
-                        {!loggingChannel && <Attention>
+                        {config.logging_channel === "0" && <Attention>
+                            No logging channel selected.
+                        </Attention>}
+                        {!loggingChannel && config.logging_channel !== "0" && <Attention>
                             The logging channel has been deleted. Please select a new one.
                         </Attention>}
                         {loggingChannel && !(loggingChannel.permissions.ADMINISTRATOR || (loggingChannel.permissions.VIEW_CHANNEL && loggingChannel.permissions.SEND_MESSAGES && loggingChannel.permissions.EMBED_LINKS)) && <Attention>
