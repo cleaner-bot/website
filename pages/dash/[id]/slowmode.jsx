@@ -32,7 +32,7 @@ function SlowmodeDashboard({ config, setConfig, guild, guildId }) {
             <Section>
                 <ToggleBlock
                     name="Enable slowmode"
-                    description="Automatically dehoists members that put special characters in front of their name to appear higher in the memberlist."
+                    description="Enable slowmode automatic slowmode adjustments. Channels with more than 10s slowmode will not be adjusted."
                     config={config}
                     setConfig={setConfig}
                     guildId={guildId}
