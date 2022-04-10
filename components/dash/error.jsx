@@ -87,6 +87,19 @@ const httpErrors = {
             </GenericErrorHandler>
         )
     },
+    503: function Error503({ error }) {
+        window.location.reload();
+        return (
+            <GenericErrorHandler title="Too Many Requests" hasSupport={true}>
+                <p className="mt-6 text-center text-gray-200">
+                    Temporarily unavailable
+                </p>
+                <p className="text-center text-gray-200">
+                    Your browser will automatically refresh.
+                </p>
+            </GenericErrorHandler>
+        )
+    },
     fallback: function ErrorFallback({ error }) {
         return (
             <GenericErrorHandler title={`${error.response.status}: ${error.response.statusText}`} hasSupport={true}>
