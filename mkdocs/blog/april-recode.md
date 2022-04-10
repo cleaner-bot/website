@@ -37,7 +37,7 @@ We are still working on adding more languages, but we currently support:
 - German
 - Polish
 
-Want to contribute? https://crowdin.com/project/the-cleaner
+Wish to contribute? [https://crowdin.com/project/the-cleaner](https://crowdin.com/project/the-cleaner)
 
 ## Coming soon!
 
