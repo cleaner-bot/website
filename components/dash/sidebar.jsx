@@ -163,9 +163,9 @@ export default function Sidebar({ current, user, guild, entitlements, guildId, c
                         </button>
                     </div>
                     <main className={clsx("flex-1 w-full max-w-[1280px] mx-auto", isSuspended && "bg-red-500")}>
-                        <div className="min-h-screen p-6 md:min-h-[calc(100vh-10rem)] md:p-12 pb-8 md:pb-20">
-                            {isSuspended ? <Suspended /> : children}
-                        </div>
+                        {isSuspended ? <Suspended /> : <div className="min-h-screen p-6 md:min-h-[calc(100vh-10rem)] md:p-12 pb-8 md:pb-20">
+                            {children}
+                        </div>}
                         <div className="p-6 mt-40 bg-gray-700 border-t md:p-12 border-gray-550">
                             <Footer />
                         </div>
@@ -223,7 +223,7 @@ function UserIcon({ user }) {
 
 function Suspended() {
     return (
-        <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center p-12">
             <ExclamationIcon className="w-32 h-32" />
             <h1 className="text-5xl font-bold text-center">
                 Guild is suspended
