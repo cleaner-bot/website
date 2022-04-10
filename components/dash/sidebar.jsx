@@ -162,16 +162,16 @@ export default function Sidebar({ current, user, guild, entitlements, guildId, c
                             <MenuIcon className="w-6 h-6" />
                         </button>
                     </div>
-                    <div className={isSuspended && "bg-red-500"}>
-                        <main className="flex-1 w-full max-w-[1280px] mx-auto">
-                            <div className="min-h-screen p-6 md:min-h-[calc(100vh-10rem)] md:p-12 pb-8 md:pb-20">
+                    <main className="flex-1 w-full">
+                        <div className={clsx("min-h-screen p-6 md:min-h-[calc(100vh-10rem)] md:p-12 pb-8 md:pb-20", isSuspended && "bg-red-500")}>
+                            <div className="max-w-[1280px] mx-auto">
                                 {isSuspended ? <Suspended /> : children}
                             </div>
-                            <div className="p-6 mt-40 bg-gray-700 border-t md:p-12 border-gray-550">
-                                <Footer />
-                            </div>
-                        </main>
-                    </div>
+                        </div>
+                        <div className="p-6 mt-40 bg-gray-700 border-t md:p-12 border-gray-550 max-w-[1280px] mx-auto">
+                            <Footer />
+                        </div>
+                    </main>
                 </div>
             </div>
         </>
