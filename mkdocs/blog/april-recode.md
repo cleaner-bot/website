@@ -39,7 +39,15 @@ We are still working on adding more languages, but we currently support:
 
 Wish to contribute? [https://crowdin.com/project/the-cleaner](https://crowdin.com/project/the-cleaner)
 
-## Coming soon!
+## Bye link checker
+
+We are removing link checker because it was barely used and the way it was
+implemented was very terrible.
+
+We currently have no plans to introduce it again.
+Very sorry about that :/
+
+## We got more coming...
 
 We are still working on some sweet new features that are coming soon!
 
@@ -67,3 +75,6 @@ Features that are planned but still take a bit:
 
 - Workers
     - Run your javascript code
+
+- Statistics
+    - Basically /radar but restricted to your server
