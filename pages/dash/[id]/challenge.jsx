@@ -113,7 +113,10 @@ function ChallengeDashboard({ config, setConfig, entitlements, guild, guildId })
                             Role not listed?{" "}
                             <Link href="/help/role-restrictions"><a className="font-bold text-gray-300 hover:underline">Find out why.</a></Link>
                         </p>
-                        {!interactiveRole && <Attention>
+                        {config.challenge_interactive_role === "0" && <Attention>
+                            No role selected.
+                        </Attention>}
+                        {!interactiveRole && config.challenge_interactive_role !== "0" && <Attention>
                             The role has been deleted. Please select a new one.
                         </Attention>}
                         {interactiveRole && !interactiveRole.can_control && <Attention>
