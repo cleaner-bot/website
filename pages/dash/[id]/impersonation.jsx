@@ -115,11 +115,6 @@ function Blacklist({ config, setConfig, guildId, name, description, field, defau
 
     return (
         <PlainBlock name={name} description={description}>
-            <h2 className="text-2xl font-medium">
-                {name}
-            </h2>
-            {description}
-
             <div className="flex flex-wrap gap-2 my-8">
                 Blacklist:
                 {config[field].length === 0 ? <span>
