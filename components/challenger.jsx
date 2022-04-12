@@ -64,7 +64,7 @@ export default function Challenger({ baseUrl, field, createOAuthRedirect, single
                                 return setState({ ...state, stage: 3 });
                             setState({ ...state, stage: 4 });
                             try {
-                                await AXIOS.post(baseUrl, undefined, { params: { [field]: router.query[field] } });
+                                await AXIOS.post(baseUrl, {}, { params: { [field]: router.query[field] } });
                             } catch (e) {
                                 return setState({ ...state, stage: 4, error: e });
                             }
