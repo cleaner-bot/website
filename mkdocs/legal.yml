@@ -1,0 +1,10 @@
+site_name: Legal stuff
+site_url: https://cleaner.leodev.xyz/legal/
+docs_dir: "legal"
+site_dir: "../out/legal"
+use_directory_urls: false
+nav:
+    - Terms: terms.md
+    - Privacy: privacy.md
+    - Impressum: impressum.md
+theme: readthedocs

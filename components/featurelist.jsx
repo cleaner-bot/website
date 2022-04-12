@@ -30,7 +30,7 @@ export function Contra({ children, size, className }) {
 export function Restriction({ children, size, className }) {
     return (
         <div className={clsx("flex flex-nowrap", sizes[size || "default"].text, className)}>
-            <XIcon className={clsx("inline text-coolGray-400 mr-2 flex-none", sizes[size || "default"].icon)} />
+            <XIcon className={clsx("inline text-gray-400 mr-2 flex-none", sizes[size || "default"].icon)} />
             {children}
         </div>
     )

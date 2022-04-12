@@ -1,0 +1,15 @@
+site_name: The Cleaner Documentation
+site_url: https://cleaner.leodev.xyz/docs/
+docs_dir: "docs"
+site_dir: "../out/docs"
+use_directory_urls: false
+nav:
+    - Features: features.md
+    - Commands: commands.md
+    - Anti Spam: antispam.md
+    - Firewall: firewall.md
+    - Challenge: challenge.md
+    - Super Verification: verification.md
+    - Multiple Languages: i18n.md
+    - About: about.md
+theme: readthedocs

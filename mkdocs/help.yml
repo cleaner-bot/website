@@ -1,0 +1,9 @@
+site_name: Help Desk
+site_url: https://cleaner.leodev.xyz/help/
+docs_dir: "help"
+site_dir: "../out/help"
+use_directory_urls: false
+nav:
+    - Suspension: suspension.md
+    - Role Restrictions: role-restrictions.md
+theme: readthedocs
