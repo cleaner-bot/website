@@ -10,23 +10,24 @@ import { postOAuthCallback } from "@/lib/api.js";
 export default function OAuthComeback() {
     const [error, setError] = useState();
     const router = useRouter();
-    useEffect(async () => {
+    useEffect(() => {
         if(!router.isReady) return;
         const { code, state } = router.query;
-        if(!code || !state)
-            return router.push("/");
+        if(!code || !state) return router.push("/");
         
-        let res;
-        try {
-            res = await postOAuthCallback(code, state);
-        } catch (e) {
-            return setError(e);
-        }
-
-        const { token, redirect } = res.data;
-        if(token)
-            localStorage.setItem("token", token);
-        router.push(redirect);
+        (async () => {
+            let res;
+            try {
+                res = await postOAuthCallback(code, state);
+            } catch (e) {
+                return setError(e);
+            }
+    
+            const { token, redirect } = res.data;
+            if(token)
+                localStorage.setItem("token", token);
+            router.push(redirect);
+        })()
     }, [router]);
     return (
         <div className="--container">

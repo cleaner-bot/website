@@ -12,21 +12,23 @@ export default function Challenger({ baseUrl, field, createOAuthRedirect, single
     const router = useRouter();
     const [state, setState] = useState({ stage: 0 });
 
-    useEffect(async () => {
+    useEffect(() => {
         if(!router.isReady) return;
         const value = router.query[field];
         if(!value) return router.push("/");
 
-        let response;
-        try {
-            response = await AXIOS.get(baseUrl, { params: { [field]: value } });
-        } catch(e) {
-            if(e.response && e.response.status === 401) {
-                return setState({ stage: 1 })
+        (async () => {
+            let response;
+            try {
+                response = await AXIOS.get(baseUrl, { params: { [field]: value } });
+            } catch(e) {
+                if(e.response && e.response.status === 401) {
+                    return setState({ stage: 1 })
+                }
+                return setState({ ...state, error: e });
             }
-            return setState({ ...state, error: e });
-        }
-        setState({ stage: response.data.is_valid ? 2 : 6, ...response.data });
+            setState({ stage: response.data.is_valid ? 2 : 6, ...response.data });
+        })()
     }, [router]);
 
     const overlayStyle = state.splash ? "p-8 bg-gray-700 rounded-lg shadow-xl" : "";
