@@ -1,7 +1,9 @@
 
 import HCaptcha from "@hcaptcha/react-hcaptcha";
-import { useRouter } from "next/router"
 import { useEffect, useState } from "react";
+import clsx from "clsx";
+import Link from "next/link";
+import { useRouter } from "next/router"
 
 import { DiscordIconWhite } from "@/components/discord.jsx";
 import ErrorHandler from "@/components/dash/error.jsx";
@@ -43,15 +45,30 @@ export default function Challenger({ baseUrl, field, createOAuthRedirect, single
                 </div>}
                 {state.stage === 1 && <div className={overlayStyle}>
                     <h1 className="text-4xl font-extrabold text-center">
-                        Discord authentication
+                        Login with Discord
                     </h1>
-                    <button className="w-full mt-12 --btn --btn-4 --btn-primary" onClick={() => {
+                    <button className="w-full mx-auto mt-12 sm:w-80 --btn --btn-4 --btn-primary" onClick={() => {
                         const url = createOAuthRedirect(router.query[field]);
                         router.push(url);
                     }}>
                         <DiscordIconWhite className="w-6 h-6 mr-4" />
                         Authorize with Discord
                     </button>
+                    <p className="mt-6 text-center">
+                        By logging in you agree to our{" "}
+                        <Link href="/legal/terms">
+                            <a className="font-bold text-gray-300 hover:underline whitespace-nowrap">
+                                Terms of Service
+                            </a>
+                        </Link>
+                        {" "}and{" "}
+                        <Link href="/legal/terms">
+                            <a className="font-bold text-gray-300 hover:underline whitespace-nowrap">
+                                Privacy Policy
+                            </a>
+                        </Link>
+                        {" "}.
+                    </p>
                 </div>}
                 {state.stage === 2 && <div className={overlayStyle}>
                     <h1 className="text-4xl font-extrabold text-center">
@@ -108,14 +125,25 @@ export default function Challenger({ baseUrl, field, createOAuthRedirect, single
                         Submitting...
                     </h1>}
                 </div>}
-                {state.stage === 5 && <div className={overlayStyle}>
-                    <h1 className="text-4xl font-extrabold text-center">
-                        Verified!
-                    </h1>
-                    <p className="mt-6 text-center">
-                        You can now close this tab and return to Discord.
-                    </p>
-                </div>}
+                {state.stage === 5 && <>
+                    <div className={overlayStyle}>
+                        <h1 className="text-4xl font-extrabold text-center">
+                            Verified!
+                        </h1>
+                        <p className="mt-6 text-center">
+                            You can now close this tab and return to Discord.
+                        </p>
+                    </div>
+                    <div className={clsx(overlayStyle, "mt-12")}>
+                        <p className="text-center">
+                            Protection provided by <Link href="/">
+                                <a className="font-bold text-gray-300 hover:underline">
+                                    The Cleaner
+                                </a>
+                            </Link>.
+                        </p>
+                    </div>
+                </>}
                 {state.stage === 6 && <div className={overlayStyle}>
                     <h1 className="text-4xl font-extrabold text-center">
                         {singleAccount ? "Wrong account?" : "No verification required"}

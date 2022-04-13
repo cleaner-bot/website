@@ -45,7 +45,7 @@ export default function Dashboard() {
                         <h1 className="mb-12 text-2xl font-bold text-center">
                             You must login with Discord to gain access to the Dashboard.
                         </h1>
-                        <button className="mx-auto --btn --btn-4 --btn-primary w-80" onClick={() => {
+                        <button className="w-full mx-auto --btn --btn-4 --btn-primary sm:w-80" onClick={() => {
                             const url = createOAuthRedirect({});
                             router.push(url);
                         }}>
@@ -54,13 +54,28 @@ export default function Dashboard() {
                             Login with Discord
                         </button>
                         <Or />
-                        <button className="mx-auto --btn --btn-4 --btn-primary w-80" onClick={() => {
+                        <button className="w-full mx-auto --btn --btn-4 --btn-primary sm:w-80" onClick={() => {
                             const url = createOAuthRedirect({ bot: true });
                             router.push(url);
                         }}>
                             <DiscordIconWhite className="w-6 h-6 mr-4" />
                             Direct bot invite
                         </button>
+                        <p className="mt-6 text-center">
+                            By logging in you agree to our{" "}
+                            <Link href="/legal/terms">
+                                <a className="font-bold text-gray-300 hover:underline whitespace-nowrap">
+                                    Terms of Service
+                                </a>
+                            </Link>
+                            {" "}and{" "}
+                            <Link href="/legal/terms">
+                                <a className="font-bold text-gray-300 hover:underline whitespace-nowrap">
+                                    Privacy Policy
+                                </a>
+                            </Link>
+                            {" "}.
+                        </p>
                     </div>
                 </div> : <>
                     <h1 className="pt-8 pb-4 mb-12 text-4xl font-bold text-center">
