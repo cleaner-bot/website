@@ -77,7 +77,7 @@ function BrandingDashboard({ config, setConfig, entitlements, guildId }) {
                                         setState(success ? 3 : 4);
                                     })()
                                 });
-                                reader.readAsText(selected);
+                                reader.readAsText(file);
                             }}
                         />
                     </>}
