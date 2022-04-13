@@ -135,7 +135,7 @@ export default function Challenger({ baseUrl, field, createOAuthRedirect, single
                         </p>
                     </div>
                     <div className={clsx(overlayStyle, "mt-12")}>
-                        <p className="text-center">
+                        <p className="text-sm text-center">
                             Protection provided by <Link href="/">
                                 <a className="font-bold text-gray-300 hover:underline">
                                     The Cleaner
