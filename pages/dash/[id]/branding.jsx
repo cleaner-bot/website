@@ -59,7 +59,7 @@ function BrandingDashboard({ config, setConfig, entitlements, guildId }) {
                             type="file"
                             ref={fileInputRef}
                             className="hidden"
-                            onChange={() => {
+                            onInput={() => {
                                 const file = fileInputRef.current.files[0];
                                 console.log("file", file);
                                 if(!file) return;
