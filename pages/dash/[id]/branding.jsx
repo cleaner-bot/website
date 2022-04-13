@@ -1,10 +1,12 @@
 
+import { useRef, useState } from "react";
+
 import { useData } from "@/components/dash/data.jsx";
 import { Page, Header, Section } from "@/components/dash/dash.jsx";
 import { ToggleBlock } from "@/components/dash/block.jsx";
 import MetaTags from "@/components/metatags.jsx";
 import { ExternalLink } from "@/components/buttons.jsx";
-import { useRef } from "react";
+import { doChange, uploadGuildAsset } from "@/lib/api.js";
 
 export default function DashboardWrapper() {
     const data = useData();
@@ -22,6 +24,7 @@ export default function DashboardWrapper() {
 
 
 function BrandingDashboard({ config, setConfig, entitlements, guildId }) {
+    const [state, setState] = useState(0);
     const fileInputRef = useRef();
     return (
         <>
@@ -40,18 +43,34 @@ function BrandingDashboard({ config, setConfig, entitlements, guildId }) {
                     entitlements={entitlements}
                 >
                     {entitlements.plan >= entitlements.branding_splash && <>
-                        <ExternalLink href={`https://cleaner-cdn.leodev.xyz/splash/${guildId}`}>
+                        <ExternalLink href={`https://cleaner-cdn.leodev.xyz/splash/${guildId}`} className="w-full sm:w-80">
                             View current splash
                         </ExternalLink>
                         <button
-                            className="--btn --btn-3 --btn-primary"
+                            className="w-full mt-6 --btn --btn-3 --btn-primary sm:w-80"
                             onClick={() => {
-                                fileInputRef.current.trigger("click");
+                                fileInputRef.current.click();
+                                const file = fileInputRef.current.files[0];
+                                if(!file) return;
+
+                                setState(1);
+
+                                let reader = new FileReader();
+                                reader.addEventListener("loadend", () => {
+                                    setState(2);
+                                    (async () => {
+                                        const success = await doChange(uploadGuildAsset("splash", guildId, reader.result));
+                                        setState(success ? 3 : 4);
+                                    })()
+                                });
+                                reader.readAsText(selected);
+
                             }}
+                            disabled={state === 1 || state === 2}
                         >
-                            Upload new image
+                            {state === 0 ? "Upload new image" : state === 1 ? "Reading..." : state === 2 ? "Uploading..." : state === 3 ? "Uploaded!" : "Error :("}
                         </button>
-                        <input type="file" ref={fileInputRef} />
+                        <input type="file" ref={fileInputRef} className="hidden" />
                     </>}
                 </ToggleBlock>
                 <ToggleBlock
