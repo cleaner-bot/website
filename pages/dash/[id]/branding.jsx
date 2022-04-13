@@ -75,6 +75,7 @@ function BrandingDashboard({ config, setConfig, entitlements, guildId }) {
                                         console.log("api call")
                                         const success = await doChange(uploadGuildAsset("splash", guildId, reader.result));
                                         setState(success ? 3 : 4);
+                                        fileInputRef.current.value = "";
                                     })()
                                 });
                                 reader.readAsText(file);
