@@ -50,27 +50,36 @@ function BrandingDashboard({ config, setConfig, entitlements, guildId }) {
                             className="w-full mt-6 --btn --btn-3 --btn-primary sm:w-80"
                             onClick={() => {
                                 fileInputRef.current.click();
-                                const file = fileInputRef.current.files[0];
-                                if(!file) return;
-
-                                setState(1);
-
-                                let reader = new FileReader();
-                                reader.addEventListener("loadend", () => {
-                                    setState(2);
-                                    (async () => {
-                                        const success = await doChange(uploadGuildAsset("splash", guildId, reader.result));
-                                        setState(success ? 3 : 4);
-                                    })()
-                                });
-                                reader.readAsText(selected);
-
                             }}
                             disabled={state === 1 || state === 2}
                         >
                             {state === 0 ? "Upload new image" : state === 1 ? "Reading..." : state === 2 ? "Uploading..." : state === 3 ? "Uploaded!" : "Error :("}
                         </button>
-                        <input type="file" ref={fileInputRef} className="hidden" />
+                        <input
+                            type="file"
+                            ref={fileInputRef}
+                            className="hidden"
+                            onChange={() => {
+                                const file = fileInputRef.current.files[0];
+                                console.log("file", file);
+                                if(!file) return;
+
+                                setState(1);
+
+                                let reader = new FileReader();
+                                console.log("starting reader", reader)
+                                reader.addEventListener("loadend", () => {
+                                    console.log("reader end")
+                                    setState(2);
+                                    (async () => {
+                                        console.log("api call")
+                                        const success = await doChange(uploadGuildAsset("splash", guildId, reader.result));
+                                        setState(success ? 3 : 4);
+                                    })()
+                                });
+                                reader.readAsText(selected);
+                            }}
+                        />
                     </>}
                 </ToggleBlock>
                 <ToggleBlock
