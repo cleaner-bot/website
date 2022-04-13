@@ -46,8 +46,6 @@ const sections = [
             { name: "Support", tiers: { free: "Community", pro: "Dedicated (E-Mail, tickets, ...)" } },
             { name: "Log file downloads", tiers: { pro: true } },
             { name: "Custom risk score / disabling security level", tiers: { pro: true } },
-            { name: "Custom challenge branding", tiers: { pro: "Early access" } },
-            { name: "Custom Super Verification branding", tiers: { pro: "Early access" } },
         ],
     },
     {
@@ -56,6 +54,7 @@ const sections = [
             { name: "Backups", tiers: { free: "Coming soon", pro: "Coming soon" } },
             { name: "Workers", tiers: { pro: "Coming soon" } },
             { name: "Custom bot", tiers: { pro: "Coming soon" } },
+            { name: "Branding", tiers: { pro: "Coming soon" } },
         ]
     }
 ]

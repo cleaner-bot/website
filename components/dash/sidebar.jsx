@@ -1,7 +1,7 @@
 
 import clsx from "clsx";
 import Link from "next/link";
-import { ArchiveIcon, HomeIcon, UsersIcon, ShieldCheckIcon, FilterIcon, FingerPrintIcon, LockClosedIcon, CodeIcon, ClockIcon, CreditCardIcon, FolderIcon, IdentificationIcon, MailIcon, CubeTransparentIcon, ExclamationIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
+import { ArchiveIcon, HomeIcon, UsersIcon, ShieldCheckIcon, FilterIcon, FingerPrintIcon, LockClosedIcon, SparklesIcon, CodeIcon, ClockIcon, CreditCardIcon, FolderIcon, IdentificationIcon, MailIcon, CubeTransparentIcon, ExclamationIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import { useState, Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
@@ -25,6 +25,7 @@ const navigation = [
     { name: "Workers", id: "workers", icon: CodeIcon, restricted: true },
     { name: "Backup", id: "backup", icon: FolderIcon, restricted: true },
     { name: "Bot", id: "bot", icon: CubeTransparentIcon, restricted: true },
+    { name: "Branding", id: "branding", icon: SparklesIcon, restricted: true },
     { name: "Plan", id: "plan", icon: CreditCardIcon, restricted: true },
     { name: "Contact", id: "contact", icon: MailIcon, restricted: true },
     { name: "Developer panel", id: "dev", icon: ExclamationIcon, restricted: true },

@@ -167,21 +167,12 @@ function ChallengeDashboard({ config, setConfig, entitlements, guild, guildId })
                     name="Custom content"
                     description="Customize messages, images and other content."
                 >
-                <BlockWithPanel
-                    name="Custom challenge embed"
-                    description="Customize the text in the challenge embed."
-                    panel={<OptionalUpgrade entitlements={entitlements} guildId={guildId} required={entitlements.challenge_interactive_custom_embed}>
-                        <button className="w-32 --btn --btn-3 --btn-primary" disabled>Coming soon!</button>
-                    </OptionalUpgrade>}
-                />
-                <BlockWithPanel
-                    name="Custom interactive webpage"
-                    description="Customize the contents on the webpage of interactive challenges."
-                    panel={<OptionalUpgrade entitlements={entitlements} guildId={guildId} required={entitlements.challenge_interactive_custom_webpage}>
-                        <button className="w-32 --btn --btn-3 --btn-primary" disabled>Coming soon!</button>
-                    </OptionalUpgrade>}
-                />
-            </Section>
+                    This has been moved to <Link href={`/dash/${guildId}/branding`}>
+                        <a className="font-bold text-gray-300 hover:underline">
+                            branding
+                        </a>
+                    </Link>.
+                </Section>
             )}
         </>
     )
