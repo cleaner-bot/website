@@ -110,9 +110,9 @@ function Stats({ stats }) {
                     </dt>
                     <dd className="flex items-baseline justify-between mt-1 md:block lg:flex">
                         <div className="flex items-baseline text-2xl font-semibold text-indigo-400">
-                            {typeof(item.stat) === "number" ? item.stat : <>
-                                {item.stat.now}
-                                <span className="ml-2 text-sm font-medium text-gray-400">from {item.stat.previous}</span>
+                            {typeof(item.stat) === "number" ? formatNumber(item.stat) : <>
+                                {formatNumber(item.stat.now)}
+                                <span className="ml-2 text-sm font-medium text-gray-400">from {formatNumber(item.stat.previous)}</span>
                             </>}
                         </div>
 
@@ -138,4 +138,10 @@ function Stats({ stats }) {
             ))}
         </dl>
     )
+}
+
+function formatNumber(number) {
+    let [whole, fraction] = number.toString().split(".");
+    whole = whole.split("").reverse().map((char, i) => i % 3 === 2 ? `,${char}` : char).reverse().join("").replace(/^,/g, "");
+    return fraction && fraction.length > 0 ? `${whole}.${fraction}` : whole;
 }
