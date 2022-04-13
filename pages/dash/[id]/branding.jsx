@@ -43,7 +43,7 @@ function BrandingDashboard({ config, setConfig, entitlements, guildId }) {
                     entitlements={entitlements}
                 >
                     {entitlements.plan >= entitlements.branding_splash && <>
-                        <ExternalLink href={`https://cleaner-cdn.leodev.xyz/splash/${guildId}`} className="w-full sm:w-80">
+                        <ExternalLink href={`https://cleaner-cdn.leodev.xyz/splash/${guildId}`} className="w-full sm:w-80" style="--btn-3">
                             View current splash
                         </ExternalLink>
                         <button
@@ -61,18 +61,14 @@ function BrandingDashboard({ config, setConfig, entitlements, guildId }) {
                             className="hidden"
                             onInput={() => {
                                 const file = fileInputRef.current.files[0];
-                                console.log("file", file);
                                 if(!file) return;
 
                                 setState(1);
 
                                 let reader = new FileReader();
-                                console.log("starting reader", reader)
                                 reader.addEventListener("loadend", () => {
-                                    console.log("reader end")
                                     setState(2);
                                     (async () => {
-                                        console.log("api call")
                                         const success = await doChange(uploadGuildAsset("splash", guildId, reader.result));
                                         setState(success ? 3 : 4);
                                         fileInputRef.current.value = "";
