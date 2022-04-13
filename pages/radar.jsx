@@ -103,7 +103,7 @@ export default function Radar() {
 function Stats({ stats }) {
     return (
         <dl className="grid grid-cols-1 gap-px mt-5 overflow-hidden bg-gray-800 rounded-lg shadow md:grid-cols-2 lg:grid-cols-4">
-            {stats.map(item => item ? <div /> : !item.stat ? <Skeleton key={item.name} className="h-28 md:h-32 lg:h-[6.75rem]" /> : (
+            {stats.map(item => !item ? <div /> : !item.stat ? <Skeleton key={item.name} className="h-28 md:h-32 lg:h-[6.75rem]" /> : (
                 <div key={item.name} className="px-4 py-5 sm:p-6 bg-gray-750">
                     <dt className="flex text-base font-normal text-gray-100">
                         {item.icon && <item.icon className="w-5 h-5 mr-2" />}
