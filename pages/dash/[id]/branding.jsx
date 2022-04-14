@@ -51,7 +51,7 @@ function BrandingDashboard({ config, setConfig, entitlements, guildId }) {
                             onClick={() => {
                                 fileInputRef.current.click();
                             }}
-                            disabled={state === 1 || state === 2}
+                            disabled={state === 1}
                         >
                             {state === 0 ? "Upload new image" : state === 1 ? "Uploading..." : state === 2 ? "Uploaded!" : "Error :("}
                         </button>
