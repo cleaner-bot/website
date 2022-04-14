@@ -53,12 +53,13 @@ function BrandingDashboard({ config, setConfig, entitlements, guildId }) {
                             }}
                             disabled={state === 1 || state === 2}
                         >
-                            {state === 0 ? "Upload new image" : state === 1 ? "Reading..." : state === 2 ? "Uploading..." : state === 3 ? "Uploaded!" : "Error :("}
+                            {state === 0 ? "Upload new image" : state === 1 ? "Uploading..." : state === 2 ? "Uploaded!" : "Error :("}
                         </button>
                         <input
                             type="file"
                             ref={fileInputRef}
                             className="hidden"
+                            accept="image/*"
                             onInput={() => {
                                 const file = fileInputRef.current.files[0];
                                 if(!file) return;
@@ -66,10 +67,10 @@ function BrandingDashboard({ config, setConfig, entitlements, guildId }) {
                                 const formData = new FormData();
                                 formData.append(file.name, file);
 
-                                setState(2);
+                                setState(1);
                                 (async () => {
                                     const success = await doChange(uploadGuildAsset("splash", guildId, formData));
-                                    setState(success ? 3 : 4);
+                                    setState(success ? 2 : 3);
                                     fileInputRef.current.value = "";
                                 })()
                             }}
