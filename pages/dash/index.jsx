@@ -1,4 +1,5 @@
 
+import { useState } from "react";
 import { QuestionMarkCircleIcon, ExclamationCircleIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -9,6 +10,7 @@ import Footer from "@/components/footer.jsx";
 import MetaTags from "@/components/metatags.jsx";
 import Or from "@/components/or.jsx";
 import { DiscordIconWhite } from "@/components/discord.jsx";
+import { TextInput } from "@/components/dash/ui.jsx";
 import { createOAuthRedirect, useGuilds } from "@/lib/api.js";
 import { range } from "@/lib/helper.js";
 
@@ -29,6 +31,8 @@ function GuildIcon({ guild }) {
 export default function Dashboard() {
     const { data: response, error: isError } = useGuilds();
     const router = useRouter();
+    const [query, setQuery] = useState("");
+
     const isLoading = !response && !isError;
     const hasToLogin = isError && isError.response && isError.response.status === 401;
     if(hasToLogin)
@@ -82,7 +86,15 @@ export default function Dashboard() {
                         Your servers
                     </h1>
                     {isError && <ErrorHandler error={isError} />}
-                    {(isLoading || response) && !isError && <GuildList response={response} />}
+                    {(isLoading || response) && !isError && <>
+                        <TextInput
+                            value={query}
+                            setValue={setQuery}
+                            placeholder="Search"
+                            className={query ? "" : "md:hidden"}
+                        />
+                        <GuildList response={response} query={query} />
+                    </>}
                     {response && !isError && <>
                         <h2 className="mt-20 mb-10 text-4xl font-bold text-center">
                             {response.data.length === 0 ? "No servers?" : "Missing a server?"}
@@ -104,7 +116,7 @@ export default function Dashboard() {
     )
 }
 
-function GuildList({ response }) {
+function GuildList({ response, query }) {
     const isLoading = !response;
     const servers = response && [...response.data].sort((a, b) => [b.is_suspended - a.is_suspended, b.is_added - a.is_added, b.is_owner - a.is_owner, b.is_admin - a.is_admin, b.name - a.name].find(x => x !== 0));
     return (
@@ -112,7 +124,7 @@ function GuildList({ response }) {
             {isLoading ? (
                 range(12, index => <Guild key={index} />)
             ) : (
-                servers.map(guild => <Guild guild={guild} key={guild.id} />)
+                servers.filter(guild => query ? guild.name.toLowerCase().indexOf(query.toLowerCase()) >= 0 : true).map(guild => <Guild guild={guild} key={guild.id} />)
             )}
         </div>
     )
