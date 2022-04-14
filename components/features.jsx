@@ -107,7 +107,7 @@ export default function Features() {
                         <Image className="w-full" valt="" {...feat.image} />
                     ) : feat.links ? (
                         <div className="m-auto space-y-2 w-96">
-                            {feat.links.map(link => <ExternalLink href={link.href}>
+                            {feat.links.map(link => <ExternalLink key={link.href} href={link.href}>
                                 {link.name}
                             </ExternalLink>)}
                         </div>
