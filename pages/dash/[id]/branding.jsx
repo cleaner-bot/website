@@ -55,6 +55,9 @@ function BrandingDashboard({ config, setConfig, entitlements, guildId }) {
                         >
                             {state === 0 ? "Upload new image" : state === 1 ? "Uploading..." : state === 2 ? "Uploaded!" : "Error :("}
                         </button>
+                        <p className="mt-6 text-sm text-gray-300">
+                            Max allowed filesize is 25mb.
+                        </p>
                         <input
                             type="file"
                             ref={fileInputRef}
@@ -72,7 +75,7 @@ function BrandingDashboard({ config, setConfig, entitlements, guildId }) {
                                     const success = await doChange(uploadGuildAsset("splash", guildId, formData));
                                     setState(success ? 2 : 3);
                                     fileInputRef.current.value = "";
-                                })()
+                                })();
                             }}
                         />
                     </>}
