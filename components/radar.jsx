@@ -41,8 +41,8 @@ export function Stats({ stats }) {
                                 {formatNumber(Math.abs(item.stat.now - item.stat.previous))}
                             </div>}
                         </div>
-                        {typeof(item.stat) !== "number" && <div className="text-sm font-medium text-gray-400">
-                            Total {formatNumber(item.stat.total)}
+                        {typeof(item.stat) !== "number" && <div className="mt-2 text-xs font-medium text-right text-gray-400">
+                            All time total {formatNumber(item.stat.total)}
                         </div>}
                     </dd>
                 </div>
