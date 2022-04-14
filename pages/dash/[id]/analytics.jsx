@@ -3,6 +3,7 @@ import { useData } from "@/components/dash/data.jsx";
 import { Page, Header } from "@/components/dash/dash.jsx";
 import MetaTags from "@/components/metatags.jsx";
 import ErrorHandler from "@/components/dash/error.jsx";
+import { Stats } from "@/components/radar.jsx";
 import { useAnalytics } from "@/lib/api.js";
 import { range } from "@/lib/helper.js";
 

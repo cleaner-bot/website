@@ -6,6 +6,7 @@ import MetaTags from "@/components/metatags.jsx";
 import { range } from "@/lib/helper.js";
 import Footer from "@/components/footer.jsx";
 import ErrorHandler from "@/components/dash/error.jsx";
+import { Stats } from "@/components/radar.jsx";
 
 
 export default function Radar() {
