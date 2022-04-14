@@ -38,10 +38,10 @@ export function Stats({ stats }) {
                                 )}
 
                                 <span className="sr-only">{item.stat.now > item.stat.previous ? "Increased" : "Decreased"} by</span>
-                                {Math.abs(item.stat.now - item.stat.previous)}
+                                {formatNumber(Math.abs(item.stat.now - item.stat.previous))}
                             </div>}
                         </div>
-                        {typeof(item.stat) !== "number" && <div className="flex items-baseline mt-2 text-2xl font-semibold text-indigo-400">
+                        {typeof(item.stat) !== "number" && <div className="text-sm font-medium text-gray-400">
                             Total {formatNumber(item.stat.total)}
                         </div>}
                     </dd>
