@@ -63,18 +63,15 @@ function BrandingDashboard({ config, setConfig, entitlements, guildId }) {
                                 const file = fileInputRef.current.files[0];
                                 if(!file) return;
 
-                                setState(1);
+                                const formData = new FormData();
+                                formData.append(file.name, file);
 
-                                let reader = new FileReader();
-                                reader.addEventListener("loadend", () => {
-                                    setState(2);
-                                    (async () => {
-                                        const success = await doChange(uploadGuildAsset("splash", guildId, reader.result));
-                                        setState(success ? 3 : 4);
-                                        fileInputRef.current.value = "";
-                                    })()
-                                });
-                                reader.readAsText(file);
+                                setState(2);
+                                (async () => {
+                                    const success = await doChange(uploadGuildAsset("splash", guildId, formData));
+                                    setState(success ? 3 : 4);
+                                    fileInputRef.current.value = "";
+                                })()
                             }}
                         />
                     </>}
