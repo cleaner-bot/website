@@ -3,7 +3,8 @@ import { useRef, useState } from "react";
 
 import { useData } from "@/components/dash/data.jsx";
 import { Page, Header, Section } from "@/components/dash/dash.jsx";
-import { ToggleBlock } from "@/components/dash/block.jsx";
+import { ToggleBlock, PlainBlock, BlockWithPanel } from "@/components/dash/block.jsx";
+import { Upgrade } from "@/components/dash/ui.jsx";
 import MetaTags from "@/components/metatags.jsx";
 import { ExternalLink } from "@/components/buttons.jsx";
 import { doChange, uploadGuildAsset } from "@/lib/api.js";
@@ -90,6 +91,22 @@ function BrandingDashboard({ config, setConfig, entitlements, guildId }) {
                     entitlement={entitlements.branding_splash}
                     entitlements={entitlements}
                 />
+                {entitlements.plan >= entitlements.branding_vanity ? (
+                    <PlainBlock
+                        name="Vanity"
+                        description="Allows the use of a custom string in verification links instead of a guild id."
+                    >
+                        TODO
+                    </PlainBlock>
+                ) : (
+                    <BlockWithPanel
+                        name="Vanity"
+                        description="Allows the use of a custom string in verification links instead of a guild id."
+                        panel={(
+                            <Upgrade plan={entitlements.branding_vanity} guildId={guildId} />
+                        )}
+                    />
+                )}
             </Section>
         </>
     )
