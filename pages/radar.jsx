@@ -7,7 +7,7 @@ import MetaTags from "@/components/metatags.jsx";
 import Skeleton from "@/components/skeleton.jsx";
 import { range } from "@/lib/helper.js";
 import Footer from "@/components/footer.jsx";
-import ErrorHandler from "@/components/dash/error";
+import ErrorHandler from "@/components/dash/error.jsx";
 
 
 export default function Radar() {
