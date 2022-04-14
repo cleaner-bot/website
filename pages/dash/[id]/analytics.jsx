@@ -33,6 +33,21 @@ function AnalyticsDashboard({ config, setConfig, entitlements, guildId }) {
                 <ErrorHandler error={isError} /> 
             ) : <>
                 <h2 className="mt-20 mb-4 text-2xl font-bold">
+                    Basic trends
+                </h2>
+                <p className="mb-4 text-sm text-gray-200">
+                    Trends of triggered rules. Comparing last 30 days to the 30 days before.
+                </p>
+                <Stats
+                    stats={[
+                        { name: "Phishing", stat: response && response.data.categories.phishing },
+                        { name: "Antispam", stat: response && response.data.categories.antispam },
+                        { name: "Advertisement", stat: response && response.data.categories.advertisement },
+                        { name: "Other", stat: response && response.data.categories.other },
+                    ]}
+                />
+                
+                <h2 className="mt-20 mb-4 text-2xl font-bold">
                     Deployed challenges
                 </h2>
                 <p className="mb-4 text-sm text-gray-200">
