@@ -36,7 +36,7 @@ export default function Challenger({ baseUrl, field, createOAuthRedirect, single
     const overlayStyle = state.splash ? "p-8 bg-gray-700 rounded-lg shadow-xl" : "";
 
     return (
-        <div className="h-screen bg-no-repeat bf-cover" style={{backgroundImage: state.splash && `url("${state.splash}")`}}>
+        <div className="h-screen bg-no-repeat bg-cover" style={{backgroundImage: state.splash && `url("${state.splash}")`}}>
             <div className="flex flex-col items-center justify-center h-full --container">
                 {state.stage === 0 && <div className={overlayStyle}>
                     {state.error ? <ErrorHandler error={state.error} /> : <h1 className="text-4xl font-extrabold">
