@@ -153,7 +153,7 @@ function Guild({ guild }) {
 
 function GuildButton({ guild }) {
     const router = useRouter();
-    const isComponentAllowed = ["antispam", "antiraid", "backup", "bot", "branding", "challenge", "contact", "dev", "firewall", "impersonation", "logging", "plan", "slowmode", "verification", "workers"].includes(router.query.component);
+    const isComponentAllowed = ["analytics", "antispam", "antiraid", "backup", "bot", "branding", "challenge", "contact", "dev", "firewall", "impersonation", "logging", "plan", "slowmode", "verification", "workers"].includes(router.query.component);
     const link = `/dash/${guild.id}` + (isComponentAllowed ? `/${router.query.component}` : "")
     if(guild.is_suspended)
         return (

@@ -1,7 +1,7 @@
 
 import clsx from "clsx";
 import Link from "next/link";
-import { ArchiveIcon, HomeIcon, UsersIcon, ShieldCheckIcon, FilterIcon, FingerPrintIcon, LockClosedIcon, SparklesIcon, CodeIcon, ClockIcon, CreditCardIcon, FolderIcon, IdentificationIcon, MailIcon, CubeTransparentIcon, ExclamationIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
+import { ArchiveIcon, HomeIcon, UsersIcon, ChartBarIcon, ShieldCheckIcon, FilterIcon, FingerPrintIcon, LockClosedIcon, SparklesIcon, CodeIcon, ClockIcon, CreditCardIcon, FolderIcon, IdentificationIcon, MailIcon, CubeTransparentIcon, ExclamationIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import { useState, Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
@@ -14,6 +14,7 @@ import { InternalLink } from "@/components/buttons.jsx";
 
 const navigation = [
     { name: "General", id: "", icon: HomeIcon },
+    { name: "Analytics", id: "analytics", icon: ChartBarIcon, restricted: true },
     { name: "Firewall", id: "firewall", icon: FilterIcon },
     { name: "Anti Spam", id: "antispam", icon: ShieldCheckIcon },
     { name: "Anti Raid", id: "antiraid", icon: UsersIcon, restricted: true },
