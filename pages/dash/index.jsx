@@ -3,6 +3,7 @@ import { useState } from "react";
 import { QuestionMarkCircleIcon, ExclamationCircleIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import clsx from "clsx";
 
 import Skeleton from "@/components/skeleton.jsx";
 import ErrorHandler from "@/components/dash/error.jsx";
@@ -91,7 +92,7 @@ export default function Dashboard() {
                             value={query}
                             setValue={setQuery}
                             placeholder="Search"
-                            className={query ? "" : "md:hidden"}
+                            className={clsx(query ? "" : "md:hidden", "mb-8")}
                         />
                         <GuildList response={response} query={query} />
                     </>}
