@@ -30,6 +30,7 @@ const sections = [
             { name: "Automatic Slowmode", tiers: { free: true, pro: true } },
             { name: "Dashboard", tiers: { free: true, pro: true } },
             { name: "Logging", tiers: { free: true, pro: true } },
+            { name: "Statistics", tiers: { free: true, pro: true } },
             { name: "Anti Raid", tiers: { free: "Early access", pro: "Early access" } },
             { name: "Challenge & timeouts", tiers: { free: true, pro: true } },
             { name: "Super Verification", tiers: { free: "Early access", pro: "Early access" } },
@@ -51,7 +52,6 @@ const sections = [
     {
         name: "Upcoming features",
         features: [
-            { name: "Statistics", tiers: { free: "Coming soon", pro: "Coming soon" } },
             { name: "Backups", tiers: { free: "Coming soon", pro: "Coming soon" } },
             { name: "Workers", tiers: { pro: "Coming soon" } },
             { name: "Custom bot", tiers: { pro: "Coming soon" } },
