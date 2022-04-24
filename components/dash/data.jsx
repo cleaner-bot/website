@@ -61,11 +61,12 @@ export function DataWrapper({ guildId, current, Inner }) {
 }
 
 export function useData() {
-    const router = useRouter({});
+    const router = useRouter();
+    const [guildId, setGuildId] = useState(null);
+    const result = useGuild(guildId);
     const [error, setError] = useState();
     const [user, setUser] = useState();
     const [guild, setGuild] = useState();
-    const [guildId, setGuildId] = useState();
     const [config, setConfig] = useState();
     const [entitlements, setEntitlements] = useState();
     useEffect(() => {
@@ -74,24 +75,22 @@ export function useData() {
         setGuildId(guildId);
     }, [router]);
     useEffect(() => {
-        if(!guildId) return;
-        getGuild(guildId)
-            .then(response => {
-                unstable_batchedUpdates(() => {
-                    setError(undefined);
-                    setUser(response.data.user);
-                    setGuild(response.data.guild);
-                    setConfig(response.data.config);
-                    setEntitlements(response.data.entitlements);
-                });
-            })
-            .catch(setError)
-    }, [guildId])
+        if(!guildId || !result) return;
+        const { data: response, error: newError } = result;
+        if(error !== newError)
+            setError(newError);
+        if(response?.data.user.id !== user?.id)
+            setUser(response?.data.user);
+        if(response?.data.guild.id !== guild?.id) {
+            setGuild(response?.data.guild);
+            setConfig(response?.data.config);
+            setEntitlements(response?.data.entitlements);
+        }
+    }, [result])
     return { error, setError, user, setUser, guild, setGuild, guildId, setGuildId, config, setConfig, entitlements, setEntitlements };
 }
 
 function DataWrapperWithGuildID({ guildId, current, Inner }) {
-    const { data: response, error: isError } = useGuild(guildId);
     const isLoading = !response && !isError;
     if(isLoading)
         return (
