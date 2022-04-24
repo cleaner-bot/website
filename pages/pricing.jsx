@@ -51,7 +51,7 @@ const sections = [
     {
         name: "Upcoming features",
         features: [
-            { name: "Analytics", tiers: { free: "Coming soon", pro: "Coming soon" } },
+            { name: "Statistics", tiers: { free: "Coming soon", pro: "Coming soon" } },
             { name: "Backups", tiers: { free: "Coming soon", pro: "Coming soon" } },
             { name: "Workers", tiers: { pro: "Coming soon" } },
             { name: "Custom bot", tiers: { pro: "Coming soon" } },

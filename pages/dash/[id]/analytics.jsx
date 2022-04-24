@@ -4,7 +4,7 @@ import { Page, Header } from "@/components/dash/dash.jsx";
 import MetaTags from "@/components/metatags.jsx";
 import ErrorHandler from "@/components/dash/error.jsx";
 import { Stats } from "@/components/radar.jsx";
-import { useAnalytics } from "@/lib/api.js";
+import { useStatistics } from "@/lib/api.js";
 import { range } from "@/lib/helper.js";
 
 export default function DashboardWrapper() {
@@ -12,22 +12,22 @@ export default function DashboardWrapper() {
     return (
         <>
             <MetaTags
-                title="Analytics | The Cleaner Dashboard"
+                title="Statistics | The Cleaner Dashboard"
             />
-            <Page page="analytics" {...data}>
-                <AnalyticsDashboard {...data} />
+            <Page page="statistics" {...data}>
+                <StatisticsDashboard {...data} />
             </Page>
         </>
     )
 }
 
 
-function AnalyticsDashboard({ config, setConfig, entitlements, guildId }) {
-    const { data: response, error: isError } = useAnalytics(guildId);
+function StatisticsDashboard({ guildId }) {
+    const { data: response, error: isError } = useStatistics(guildId);
     return (
         <>
-            <Header name="Analytics">
-                Look at your analytics.
+            <Header name="Statistics">
+                Look at your statistics.
             </Header>
             {isError ? (
                 <ErrorHandler error={isError} /> 

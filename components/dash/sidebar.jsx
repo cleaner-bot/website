@@ -14,7 +14,7 @@ import { InternalLink } from "@/components/buttons.jsx";
 
 const navigation = [
     { name: "General", id: "", icon: HomeIcon },
-    { name: "Analytics", id: "analytics", icon: ChartBarIcon, restricted: true },
+    { name: "Statistics", id: "statistics", icon: ChartBarIcon, restricted: true },
     { name: "Firewall", id: "firewall", icon: FilterIcon },
     { name: "Anti Spam", id: "antispam", icon: ShieldCheckIcon },
     { name: "Anti Raid", id: "antiraid", icon: UsersIcon, restricted: true },
