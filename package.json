@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "@hcaptcha/react-hcaptcha": "0.3.7",
-    "@headlessui/react": "1.5.0",
+    "@headlessui/react": "1.6.0",
     "@heroicons/react": "1.0.6",
     "aos": "2.3.4",
     "autoprefixer": "10.4.5",
