@@ -36,7 +36,7 @@ export default function Radar() {
                     stats={[
                         null,
                         { name: "Guilds", icon: HomeIcon, stat: response && response.data.stats.guild_count },
-                        { name: "Users", icon: UsersIcon, stat: response && response.data.stats.user_count },
+                        { name: "Users (approximate)", icon: UsersIcon, stat: response && response.data.stats.user_count },
                     ]}
                 />
                 <h2 className="mt-20 mb-4 text-2xl font-bold">
