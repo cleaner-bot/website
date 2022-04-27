@@ -21,17 +21,15 @@ export default function DashboardWrapper() {
 }
 
 
-function ReportDashboard({ config, setConfig, entitlements, guildId }) {
+function ReportDashboard({ config, setConfig, entitlements, guild, guildId }) {
     const reportChannel = guild.channels.find(channel => channel.id === config.report_channel);
     return (
         <>
-            <Header name="Report">
-                Manage your reporting.
-            </Header>
+            <Header name="Report" />
             <Section>
                 <ToggleBlock
                     name="Enable report"
-                    description="Enable report."
+                    description="Enable report. Users will be able to report messages."
                     field="report_enabled"
                     config={config}
                     setConfig={setConfig}
