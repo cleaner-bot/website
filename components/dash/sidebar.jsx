@@ -1,7 +1,7 @@
 
 import clsx from "clsx";
 import Link from "next/link";
-import { ArchiveIcon, HomeIcon, UsersIcon, ChartBarIcon, ShieldCheckIcon, DocumentSearchIcon, FilterIcon, FingerPrintIcon, LockClosedIcon, SparklesIcon, CodeIcon, ClockIcon, CreditCardIcon, FolderIcon, IdentificationIcon, MailIcon, CubeTransparentIcon, ExclamationIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
+import { ArchiveIcon, HomeIcon, UsersIcon, ChartBarIcon, ShieldCheckIcon, ClipboardCopyIcon, FilterIcon, FingerPrintIcon, LockClosedIcon, SparklesIcon, CodeIcon, ClockIcon, CreditCardIcon, FolderIcon, IdentificationIcon, MailIcon, CubeTransparentIcon, ExclamationIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import { useState, Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
@@ -23,7 +23,7 @@ const navigation = [
     { name: "Super Verification", id: "verification", icon: LockClosedIcon, restricted: true },
     { name: "Logging", id: "logging", icon: ArchiveIcon },
     { name: "Impersonation", id: "impersonation", icon: IdentificationIcon },
-    { name: "Report", id: "report", icon: DocumentSearchIcon, restricted: true },
+    { name: "Report", id: "report", icon: ClipboardCopyIcon, restricted: true },
     { name: "Workers", id: "workers", icon: CodeIcon, restricted: true },
     { name: "Backup", id: "backup", icon: FolderIcon, restricted: true },
     { name: "Bot", id: "bot", icon: CubeTransparentIcon, restricted: true },
