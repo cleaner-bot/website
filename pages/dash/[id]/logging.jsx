@@ -72,6 +72,22 @@ function LoggingDashboard({ config, setConfig, entitlements, guild, guildId }) {
                         setConfig={setConfig}
                         guildId={guildId}
                     />
+                    {/* <ToggleBlock
+                        name="Leave log"
+                        description="Logs member leaves."
+                        field="logging_option_leave"
+                        config={config}
+                        setConfig={setConfig}
+                        guildId={guildId}
+                    /> */}
+                    <ToggleBlock
+                        name="Verify log"
+                        description="Logs member who verify (super verification and challenges)."
+                        field="logging_option_verify"
+                        config={config}
+                        setConfig={setConfig}
+                        guildId={guildId}
+                    />
                     <ToggleBlock
                         name="Downloads"
                         description={<>
