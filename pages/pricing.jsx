@@ -98,11 +98,11 @@ export default function Pricing() {
                         * Early access, please contact us.
                     </p>
                 </div>
-                <div className="flex-shrink-0 p-6 bg-gray-100 rounded-b-lg lg:p-12 lg:rounded-bl-none lg:rounded-r-lg lg:w-80">
-                    <p className="text-lg font-medium text-center text-gray-900">
+                <div className="flex-shrink-0 p-6 text-gray-900 bg-gray-100 rounded-b-lg lg:p-12 lg:rounded-bl-none lg:rounded-r-lg lg:w-80">
+                    <p className="text-lg font-medium text-center">
                         Pay yearly
                     </p>
-                    <div className="flex items-center justify-center mt-4 text-5xl font-extrabold text-gray-900">
+                    <div className="flex items-center justify-center mt-4 text-5xl font-extrabold">
                         <span>30€</span>
                         <span className="flex flex-col ml-3 text-sm font-medium leading-3 text-gray-600">
                             <span>EUR</span>
@@ -115,10 +115,10 @@ export default function Pricing() {
                         </p>
                     </div>
                     <Or />
-                    <p className="mt-2 text-lg font-medium text-center text-gray-900">
+                    <p className="mt-2 text-lg font-medium text-center">
                         Pay monthly
                     </p>
-                    <div className="flex items-center justify-center mt-4 text-5xl font-extrabold text-gray-900">
+                    <div className="flex items-center justify-center mt-4 text-5xl font-extrabold">
                         <span>4€</span>
                         <span className="flex flex-col ml-3 text-sm font-medium leading-3 text-gray-600">
                             <span>EUR</span>
@@ -164,10 +164,10 @@ export default function Pricing() {
                     </p>
                 </div>
                 <div className="flex-shrink-0 p-6 bg-gray-100 rounded-b-lg lg:p-12 lg:rounded-bl-none lg:rounded-r-lg lg:w-80">
-                    <p className="text-lg font-medium text-center text-gray-900">
+                    <p className="text-lg font-medium text-center">
                         Pay <span className="line-through">yearly</span> never
                     </p>
-                    <div className="flex items-center justify-center mt-4 text-5xl font-extrabold text-gray-900">
+                    <div className="flex items-center justify-center mt-4 text-5xl font-extrabold">
                         <span>0€</span>
                         <span className="flex flex-col ml-3 text-sm font-medium leading-3 text-gray-600 line-through">
                             <span>EUR</span>
