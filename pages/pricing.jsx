@@ -34,7 +34,7 @@ const sections = [
             { name: "Anti Raid", tiers: { free: "Early access", pro: "Early access" } },
             { name: "Challenge & timeouts", tiers: { free: true, pro: true } },
             { name: "Super Verification", tiers: { free: "Early access", pro: "Early access" } },
-            { name: "Multiple languages", tiers: { free: true, pro: true }, link: { text: "More", href: "/docs/i18n" } },
+            { name: "Multiple languages", tiers: { free: true, pro: true } },
             { name: "Member limit", tiers: { free: "100,000 members *", pro: "Unlimited" } },
         ],
     },
@@ -204,11 +204,6 @@ export default function Pricing() {
                                 <tr key={feature.name}>
                                     <th className="px-6 py-5 text-sm font-normal text-left text-gray-100" scope="row">
                                         {feature.name}
-                                        {feature.link && <Link href={feature.link.href}>
-                                            <a className="px-2 py-0.5 ml-4 text-sm uppercase bg-gray-900 hover:bg-gray-800 --anim rounded-full">
-                                                {feature.link.text}
-                                            </a>
-                                        </Link>}
                                     </th>
                                     {["free", "pro"].map(tier => (
                                         <td key={tier} className="px-6 py-5">
