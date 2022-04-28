@@ -108,19 +108,31 @@ export default function Pricing() {
                             <span>per year</span>
                         </span>
                     </div>
+                    <div className="mt-6 text-center text-gray-800">
+                        <p>
+                            Stripe & Crypto (ETH, BTC)
+                        </p>
+                    </div>
+                    <p className="text-lg font-medium text-center text-gray-900">
+                        Pay monthly
+                    </p>
+                    <div className="flex items-center justify-center mt-4 text-5xl font-extrabold text-gray-900">
+                        <span>4€</span>
+                        <span className="flex flex-col ml-3 text-sm font-medium leading-3 text-gray-600">
+                            <span>EUR</span>
+                            <span>per month</span>
+                        </span>
+                    </div>
+                    <div className="mt-6 text-center text-gray-800">
+                        <p>
+                            Only Stripe
+                        </p>
+                    </div>
                     <Link href="/dash?component=plan">
                         <a className="mt-8 --btn --btn-4 --btn-neutral">
                             Select server
                         </a>
                     </Link>
-                    <div className="mt-6 text-center text-gray-800">
-                        <p>
-                            We accept
-                        </p>
-                        <p>
-                            Stripe & Crypto (ETH, BTC)
-                        </p>
-                    </div>
                 </div>
             </div>
             <div className="my-16 lg:flex">
