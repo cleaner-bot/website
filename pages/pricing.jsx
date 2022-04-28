@@ -5,6 +5,7 @@ import Link from "next/link";
 
 import Footer from "@/components/footer.jsx";
 import MetaTags from "@/components/metatags.jsx";
+import Or from "@/components/or.jsx";
 
 
 const includedFeatures = [
@@ -113,7 +114,8 @@ export default function Pricing() {
                             Stripe & Crypto (ETH, BTC)
                         </p>
                     </div>
-                    <p className="text-lg font-medium text-center text-gray-900">
+                    <Or />
+                    <p className="mt-2 text-lg font-medium text-center text-gray-900">
                         Pay monthly
                     </p>
                     <div className="flex items-center justify-center mt-4 text-5xl font-extrabold text-gray-900">
