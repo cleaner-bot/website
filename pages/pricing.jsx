@@ -12,7 +12,7 @@ const includedFeatures = [
     "Support (Discord & Mail)",
     "Advanced settings + custom branding",
     "Log file downloads",
-    "More than 100,000 members",
+    "More than 20,000 members",
     "Workers*",
 ]
 const eligible = [
@@ -37,7 +37,7 @@ const sections = [
             { name: "Super Verification", tiers: { free: "Early access", pro: "Early access" } },
             { name: "Report to server staff", tiers: { free: "Early access", pro: "Early access" } },
             { name: "Multiple languages", tiers: { free: true, pro: true } },
-            { name: "Member limit", tiers: { free: "100,000 members *", pro: "Unlimited" } },
+            { name: "Member limit", tiers: { free: "20,000 members *", pro: "Unlimited" } },
         ],
     },
     {
@@ -246,7 +246,7 @@ export default function Pricing() {
                 </tbody>
             </table>
             <p className="mt-6 text-xs text-gray-300">
-                * We will automatically active a <b>free four week trial</b> if your server has more than 100,000 members.
+                * We will automatically active a <b>free four week trial</b> if your server has more than 20,000 members.
             </p>
             <div className="pb-8 mt-20 border-t border-gray-550" />
             <Footer />
