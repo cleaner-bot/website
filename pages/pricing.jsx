@@ -34,6 +34,7 @@ const sections = [
             { name: "Anti Raid", tiers: { free: "Early access", pro: "Early access" } },
             { name: "Challenge & timeouts", tiers: { free: true, pro: true } },
             { name: "Super Verification", tiers: { free: "Early access", pro: "Early access" } },
+            { name: "Report to server staff", tiers: { free: "Early access", pro: "Early access" } },
             { name: "Multiple languages", tiers: { free: true, pro: true } },
             { name: "Member limit", tiers: { free: "100,000 members *", pro: "Unlimited" } },
         ],
