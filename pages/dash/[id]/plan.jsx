@@ -9,7 +9,7 @@ import MetaTags from "@/components/metatags.jsx";
 import { useData } from "@/components/dash/data.jsx";
 import { Page, Header, Section } from "@/components/dash/dash.jsx";
 import { PlainBlock, BlockWithPanel } from "@/components/dash/block.jsx";
-import { OptionalUpgrade, Unlocked } from "@/components/dash/ui.jsx";
+import { Unlocked } from "@/components/dash/ui.jsx";
 import { getStripeCheckoutURL, doChange, getStripePortalURL } from "@/lib/api.js";
 
 export default function DashboardWrapper() {
