@@ -37,7 +37,7 @@ const httpErrors = {
         return (
             <GenericErrorHandler title="Unauthorized">
                 <p className="mt-6 text-center text-gray-200">
-                    You are not authorized to access this ressource.
+                    You are not authorized to access this resource.
                 </p>
                 {error.response.data && error.response.data.detail && <p className="text-center text-gray-200">
                     {error.response.data.detail}
@@ -49,7 +49,7 @@ const httpErrors = {
         return (
             <GenericErrorHandler title="Forbidden">
                 <p className="mt-6 text-center text-gray-200">
-                    You are not allowed to access this ressource.
+                    You are not allowed to access this resource.
                 </p>
                 {error.response.data && error.response.data.detail && <p className="text-center text-gray-200">
                     {error.response.data.detail}
@@ -61,7 +61,7 @@ const httpErrors = {
         return (
             <GenericErrorHandler title="Not Found">
                 <p className="mt-6 text-center text-gray-200">
-                    The ressource is not found or you have no access to it.
+                    The resource is not found or you have no access to it.
                 </p>
                 {error.response.data && error.response.data.detail && <p className="text-center text-gray-200">
                     {error.response.data.detail}
@@ -104,7 +104,7 @@ const httpErrors = {
         return (
             <GenericErrorHandler title={`${error.response.status}: ${error.response.statusText}`} hasSupport={true}>
                 <p className="mt-6 text-center text-gray-200">
-                    Access to this ressource failed.
+                    Access to this resource failed.
                 </p>
                 {error.response.data && error.response.data.detail && <p className="text-center text-gray-200">
                     {typeof(error.response.data.detail) === "string" ? error.response.data.detail : JSON.stringify(error.response.data.detail)}
