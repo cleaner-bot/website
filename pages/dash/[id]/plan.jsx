@@ -10,7 +10,7 @@ import { useData } from "@/components/dash/data.jsx";
 import { Page, Header, Section } from "@/components/dash/dash.jsx";
 import { PlainBlock, BlockWithPanel } from "@/components/dash/block.jsx";
 import { Unlocked } from "@/components/dash/ui.jsx";
-import { getStripeCheckoutURL, doChange, getStripePortalURL } from "@/lib/api.js";
+import { doChange, getStripeCheckoutURL, getStripePortalURL, getCoinbaseChargeURL } from "@/lib/api.js";
 
 export default function DashboardWrapper() {
     const data = useData();
@@ -28,7 +28,7 @@ export default function DashboardWrapper() {
 
 const plans = [
     { name: "Monthly", cycle: "/mo", price: 4, stripe: true },
-    { name: "Yearly", cycle: "/yr", price: 30, stripe: true, crypto: true }
+    { name: "Yearly", cycle: "/yr", price: 30, stripe: true, coinbase: true }
 ]
 
 
@@ -67,7 +67,7 @@ function Plan({ entitlements, guildId }) {
                                                             <p className="inline-flex space-x-1">
                                                                 <span>Pay with:</span>
                                                                 {plan.stripe && <span className="hover:underline">Stripe</span>}
-                                                                {plan.crypto && <span className="hover:underline">Crypto</span>}
+                                                                {plan.coinbase && <span className="hover:underline">Coinbase</span>}
                                                             </p>{" "}
                                                         </RadioGroup.Description>
                                                     </div>
@@ -110,11 +110,20 @@ function Plan({ entitlements, guildId }) {
                                     Stripe
                                 </button>
                             )}
-                            {plans[selectedPlan].crypto && (
+                            {plans[selectedPlan].coinbase && (
                                 <button
                                     className="w-32 --btn --btn-2 --btn-primary"
+                                    onClick={async () => {
+                                        const response = await doChange(getCoinbaseChargeURL({ guild_id: guildId }), {
+                                            loading: "Preparing checkout...",
+                                            success: "Redirecting...",
+                                            error: "Checkout failed: "
+                                        });
+                                        if(!response) return;
+                                        router.push(response.data);
+                                    }}
                                 >
-                                    Crypto
+                                    Coinbase
                                 </button>
                             )}
                         </div>

@@ -111,7 +111,7 @@ export default function Pricing() {
                     </div>
                     <div className="mt-6 text-center text-gray-800">
                         <p>
-                            Stripe & Crypto (ETH, BTC)
+                            Stripe & Coinbase
                         </p>
                     </div>
                     <Or />
