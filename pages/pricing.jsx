@@ -164,19 +164,9 @@ export default function Pricing() {
                     </p>
                 </div>
                 <div className="flex-shrink-0 p-6 bg-gray-100 rounded-b-lg lg:p-12 lg:rounded-bl-none lg:rounded-r-lg lg:w-80">
-                    <p className="text-lg font-medium text-center">
-                        Pay <span className="line-through">yearly</span> never
-                    </p>
-                    <div className="flex items-center justify-center mt-4 text-5xl font-extrabold">
-                        <span>0€</span>
-                        <span className="flex flex-col ml-3 text-sm font-medium leading-3 text-gray-600 line-through">
-                            <span>EUR</span>
-                            <span>per year</span>
-                        </span>
-                    </div>
-                    <Link href="/dash?component=plan">
+                    <Link href="/discord">
                         <a className="mt-8 --btn --btn-4 --btn-neutral">
-                            Select server
+                            Apply
                         </a>
                     </Link>
                 </div>
