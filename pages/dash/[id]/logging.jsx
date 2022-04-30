@@ -1,11 +1,12 @@
 
+import Link from "next/link";
+
 import MetaTags from "@/components/metatags.jsx";
 import { useData } from "@/components/dash/data.jsx";
 import { Page, Header, Section } from "@/components/dash/dash.jsx";
 import { PlainBlock, ToggleBlock } from "@/components/dash/block.jsx";
 import { DropdownSearch, Attention } from "@/components/dash/ui.jsx";
-import { doChange, patchConfig, useLoggingDownloads } from "@/lib/api.js";
-import ErrorHandler from "@/components/dash/error.jsx";
+import { doChange, patchConfig } from "@/lib/api.js";
 
 export default function DashboardWrapper() {
     const data = useData();
