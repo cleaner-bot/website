@@ -102,61 +102,22 @@ function LoggingDashboard({ config, setConfig, entitlements, guild, guildId }) {
                         entitlements={entitlements}
                     >
                         {(entitlements.plan >= entitlements.logging_downloads && config.logging_downloads_enabled) && <>
-                            <h2 className="mt-12 mb-6 text-2xl font-medium">
-                                Files
-                            </h2>
-                            <DownloadFiles guildId={guildId} />
+                            <p>
+                                We are collecting your logs now!
+                            </p>
+                            <p>
+                                Due to architectural constraints, we can't provide a direct download.{" "}
+                                <Link href={`/dash/${guildId}/contact`}>
+                                    <a className="hover:underline">
+                                        Contact us
+                                    </a>
+                                </Link>{" "}
+                                for downloads.
+                            </p>
                         </>}
                     </ToggleBlock>
                 </>}
             </Section>
         </>
-    )
-}
-
-function DownloadFiles({ guildId }) {
-    const { data: response, error: isError } = useLoggingDownloads(guildId);
-    if(isError)
-        return (
-            <ErrorHandler error={isError} />
-        )
-    if(!response)
-        return (
-            <>
-                Loading....
-            </>
-        )
-    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    return (
-        <table className="divide-y divide-gray-550">
-            <thead>
-                <tr>
-                    <th className="px-2 text-xs font-medium tracking-wider text-left uppercase">
-                        Year
-                    </th>
-                    <th className="text-xs font-medium tracking-wider text-left uppercase">
-                        Month
-                    </th>
-                </tr>
-            </thead>
-            <tbody className="divide-y divide-gray-550">
-                {response.data.map(x => <tr key={`${x.year}-${x.month}`}>
-                    <td className="w-32 px-2 py-2">
-                        {x.year}
-                    </td>
-                    <td className="w-32 py-2">
-                        {months[x.month - 1]}
-                    </td>
-                    <td className="w-64 py-2">
-                        <button
-                            className="--btn --btn-2 --btn-primary w-60"
-                            disabled={x.expired}
-                        >
-                            {x.expired ? "Download expired" : "Download"}
-                        </button>
-                    </td>
-                </tr>)}
-            </tbody>
-        </table>
     )
 }
