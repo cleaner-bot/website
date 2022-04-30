@@ -91,8 +91,12 @@ function LoggingDashboard({ config, setConfig, entitlements, guild, guildId }) {
                     <ToggleBlock
                         name="Downloads"
                         description={<>
-                            <p>We'll save all your logs and you can download them here until they expire.</p>
-                            <p>Your logs expire after <b>{entitlements.logging_retention}</b> month{entitlements.logging_retention !== 1 && "s"}.</p>
+                            <p>
+                                We'll save all your logs and you can download them here until they expire.
+                            </p>
+                            <p>
+                                We guarantee your logs to be available for <b>{entitlements.logging_retention}</b> month{entitlements.logging_retention !== 1 && "s"}, after that they may be removed to save storage.
+                            </p>
                         </>}
                         field="logging_downloads_enabled"
                         config={config}
