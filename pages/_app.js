@@ -4,6 +4,7 @@ import { Toaster } from "react-hot-toast";
 
 import "../styles/globals.css";
 import BSOD from "@/components/bsod.jsx";
+import MetaTags from "@/components/metatags";
 
 class ErrorBoundary extends React.Component {
     constructor(props) {
@@ -15,7 +16,14 @@ class ErrorBoundary extends React.Component {
     }
     render() {
         if (this.state.hasError) {
-            return <BSOD error={this.state.hasError} />
+            return (
+                <>
+                    <MetaTags
+                        title="This website ran into a problem and needs to be reloaded."
+                    />
+                    <BSOD error={this.state.hasError} />
+                </>
+            )
         }
         return this.props.children
     }
