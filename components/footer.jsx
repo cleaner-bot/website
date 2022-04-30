@@ -63,6 +63,9 @@ export default function Footer({ className }) {
                         Leo Developer
                     </a>
                 </Link>
+                <p className="mt-2 text-center text-gray-200">
+                    Not affiliated with Discord
+                </p>
             </div>
             {footer.map(foot => <div key={foot.name} className="mx-auto">
                 <p className="text-sm text-gray-200">
