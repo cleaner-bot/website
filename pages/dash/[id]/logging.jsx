@@ -93,7 +93,7 @@ function LoggingDashboard({ config, setConfig, entitlements, guild, guildId }) {
                         name="Downloads"
                         description={<>
                             <p>
-                                We'll save all your logs and you can download them here until they expire.
+                                We'll save all your logs, so they can be inspected even if the Discord log becomes unavailable.
                             </p>
                             <p>
                                 We guarantee your logs to be available for <b>{entitlements.logging_retention}</b> month{entitlements.logging_retention !== 1 && "s"}, after that they may be removed to save storage.
