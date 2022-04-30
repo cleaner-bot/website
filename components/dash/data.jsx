@@ -79,9 +79,9 @@ export function useData() {
         const { data: response, error: newError } = result;
         if(error !== newError)
             setError(newError);
-        if(response?.data.user.id !== user?.id)
+        if(response?.data.user?.id !== user?.id)
             setUser(response?.data.user);
-        if(response?.data.guild.id !== guild?.id) {
+        if(response?.data.guild?.id !== guild?.id) {
             setGuild(response?.data.guild);
             setConfig(response?.data.config);
             setEntitlements(response?.data.entitlements);
