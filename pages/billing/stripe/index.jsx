@@ -3,9 +3,8 @@ import { useRouter } from "next/router";
 import MetaTags from "@/components/metatags.jsx";
 import { doChange, getStripePortalURL } from "@/lib/api.js";
 
-export default function Cancelled() {
+export default function Index() {
     const router = useRouter();
-    const { guild } = router.query;
     return (
         <div className="flex items-center justify-center h-screen mx-4">
             <MetaTags title="Payment successful | Stripe" />

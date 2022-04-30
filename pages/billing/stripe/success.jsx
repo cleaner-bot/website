@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { InternalLink } from "@/components/buttons.jsx";
 import MetaTags from "@/components/metatags.jsx";
 
-export default function Cancelled() {
+export default function Success() {
     const router = useRouter();
     const { guild } = router.query;
     return (
