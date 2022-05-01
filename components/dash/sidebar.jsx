@@ -23,7 +23,7 @@ const navigation = [
     { name: "Super Verification", id: "verification", icon: LockClosedIcon, restricted: true },
     { name: "Logging", id: "logging", icon: ArchiveIcon },
     { name: "Impersonation", id: "impersonation", icon: IdentificationIcon },
-    { name: "Report", id: "report", icon: ClipboardCopyIcon, restricted: true },
+    { name: "Report", id: "report", icon: ClipboardCopyIcon },
     { name: "Workers", id: "workers", icon: CodeIcon, restricted: true },
     { name: "Backup", id: "backup", icon: FolderIcon, restricted: true },
     { name: "Bot", id: "bot", icon: CubeTransparentIcon, restricted: true },
