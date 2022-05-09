@@ -7,7 +7,7 @@ import { ToggleBlock, PlainBlock, BlockWithPanel } from "@/components/dash/block
 import { Upgrade, TextInput } from "@/components/dash/ui.jsx";
 import MetaTags from "@/components/metatags.jsx";
 import { ExternalLink } from "@/components/buttons.jsx";
-import { doChange, uploadGuildAsset } from "@/lib/api.js";
+import { doChange, uploadGuildAsset, putGuildVanity } from "@/lib/api.js";
 
 export default function DashboardWrapper() {
     const data = useData();
@@ -114,7 +114,7 @@ function BrandingDashboard({ config, setConfig, entitlements, setEntitlements, g
                                 });
                             }}
                         >
-
+                            Save
                         </button>
                     </PlainBlock>
                 ) : (
