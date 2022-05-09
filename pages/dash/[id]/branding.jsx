@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import { useData } from "@/components/dash/data.jsx";
 import { Page, Header, Section } from "@/components/dash/dash.jsx";
 import { ToggleBlock, PlainBlock, BlockWithPanel } from "@/components/dash/block.jsx";
-import { Upgrade } from "@/components/dash/ui.jsx";
+import { Upgrade, TextInput } from "@/components/dash/ui.jsx";
 import MetaTags from "@/components/metatags.jsx";
 import { ExternalLink } from "@/components/buttons.jsx";
 import { doChange, uploadGuildAsset } from "@/lib/api.js";
