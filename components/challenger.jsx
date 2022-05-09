@@ -17,7 +17,10 @@ export default function Challenger({ baseUrl, field, createOAuthRedirect, single
     useEffect(() => {
         if(!router.isReady) return;
         const value = router.query[field];
-        if(!value) return router.push("/");
+        if(!value) {
+            router.push("/");
+            return;
+        }
 
         (async () => {
             let response;

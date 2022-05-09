@@ -13,7 +13,10 @@ export default function OAuthComeback() {
     useEffect(() => {
         if(!router.isReady) return;
         const { code, state } = router.query;
-        if(!code || !state) return router.push("/");
+        if(!code || !state) {
+            router.push("/")
+            return;
+        }
         
         (async () => {
             let res;
