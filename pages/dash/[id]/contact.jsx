@@ -69,7 +69,7 @@ function ContactDashboard({ user, entitlements, guildId }) {
                                 Your contact email:{" "}
                             </span>
                             <span className="break-all hover:underline">
-                                cleaner+{entitlements.partnered ? "partners" : "support"}@leodev.xyz
+                                {entitlements.partnered ? "partners" : "support"}@cleanerbot.xyz
                             </span>
                         </>}
                     </BlockWithPanel>

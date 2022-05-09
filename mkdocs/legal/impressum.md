@@ -27,5 +27,5 @@ You can find our current privacy policy [here](/legal/privacy).
 
 if you wish to contact us for questions about this policy, you have the following options:
 
-- email us at cleaner+impressum@leodev.xyz.
+- email us at impressum@cleanerbot.xyz.
 - join our [Discord server](/discord) and contact staff.

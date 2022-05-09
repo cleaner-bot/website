@@ -44,7 +44,7 @@ function BrandingDashboard({ config, setConfig, entitlements, guildId }) {
                     entitlements={entitlements}
                 >
                     {entitlements.plan >= entitlements.branding_splash && <>
-                        <ExternalLink href={`https://cleaner-cdn.leodev.xyz/splash/${guildId}`} className="w-full sm:w-80" style="--btn-3">
+                        <ExternalLink href={`https://cdn.cleanerbot.xyz/splash/${guildId}`} className="w-full sm:w-80" style="--btn-3">
                             View current splash
                         </ExternalLink>
                         <button

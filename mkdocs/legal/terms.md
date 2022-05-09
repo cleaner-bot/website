@@ -161,6 +161,6 @@ These Terms of Service and any policies or operating rules posted by us on the S
 
 In order to resolve a complaint regarding the Site or to receive further information regarding use of the Site, please contact us:
 
-- email us at cleaner+terms@leodev.xyz.
+- email us at terms@cleanerbot.xyz.
 - join our [Discord server](/discord) and contact staff.
 - contact the responsible person listed in our [privacy policy](/legal/privacy).

@@ -132,6 +132,6 @@ E-Mail: poststelle@ldi.nrw.de
 
 if you wish to contact us for questions about this policy or wish to exert your rights, you have the following options:
 
-- email us at cleaner+privacy@leodev.xyz.
+- email us at privacy@cleanerbot.xyz.
 - join our [Discord server](/discord) and contact staff.
 - contact the responsible person listed above.

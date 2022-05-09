@@ -5,5 +5,5 @@ Welcome to the legal stuff.
 
 Have questions?
 
-- cleaner+legal@leodev.xyz
+- legal@cleanerbot.xyz
 - our [Discord server](/discord)
