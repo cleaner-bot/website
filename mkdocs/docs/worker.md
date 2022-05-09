@@ -113,17 +113,18 @@ without losing information.
 
 Possible actions:
 
-- `delete`, deletes the message
-- `block`, blocks the author \* \*\*
-- `challenge`, challenges the author \*\*
-- `log:message`, logs the message \*\*\*
-- `announcement:message`, sends the message in the channel (prefixed by `[WORKER]`) \*\*\* \*\*\*\*
+- `delete:reason`, deletes the message
+- `block:reason`, blocks the author \* \*\*
+- `challenge:reason`, challenges the author \*\*
+- `log:message`, logs the message
+- `announcement:message`, sends the message in the channel (prefixed by `[WORKER]`)\*\*\*\*
 
 `*` 3 blocks in an hour result in a challenge and might immediately issue a
 challenge in raid conditions.  
 `**` Does NOT delete the message.  
-`***` Message is limited to 500 characters.  
-`****` Announcement may not be sent in raid conditions.
+`***` Announcement may not be sent in raid conditions.
+
+Note: reason/message is limited to 500 characters.
 
 ## Example
 
@@ -131,7 +132,7 @@ challenge in raid conditions.
 
 ```lua
 return function(event)
-    if event.content and event.content:match("http://") or event.content:match("https://") then
+    if event.content and (event.content:match("http://") or event.content:match("https://")) then
         return { "delete", "block" }
     end
 end
