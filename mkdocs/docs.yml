@@ -10,6 +10,7 @@ nav:
     - Firewall: firewall.md
     - Challenge: challenge.md
     - Super Verification: verification.md
+    - Worker: worker.md
     - Multiple Languages: i18n.md
     - About: about.md
 theme: readthedocs
