@@ -55,7 +55,7 @@ without losing information.
 
 <details>
   <summary>
-    Typescript Defintions for [TypescriptToLua](https://typescripttolua.github.io/)
+    Typescript Defintions for <a href="https://typescripttolua.github.io/">TypescriptToLua</a>
   </summary>
 ```ts
 declare type integer = number // will only ever be a whole number
