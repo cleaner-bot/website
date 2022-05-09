@@ -1,5 +1,5 @@
 site_name: Legal stuff
-site_url: https://cleaner.leodev.xyz/legal/
+site_url: https://cleanerbot.xyz/legal/
 docs_dir: "legal"
 site_dir: "../out/legal"
 use_directory_urls: false

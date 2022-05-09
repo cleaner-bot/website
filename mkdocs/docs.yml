@@ -1,5 +1,5 @@
 site_name: The Cleaner Documentation
-site_url: https://cleaner.leodev.xyz/docs/
+site_url: https://cleanerbot.xyz/docs/
 docs_dir: "docs"
 site_dir: "../out/docs"
 use_directory_urls: false

@@ -1,5 +1,5 @@
 site_name: The Cleaner Blog
-site_url: https://cleaner.leodev.xyz/blog/
+site_url: https://cleanerbot.xyz/blog/
 docs_dir: "blog"
 site_dir: "../out/blog"
 use_directory_urls: false

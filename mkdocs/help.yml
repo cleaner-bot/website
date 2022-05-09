@@ -1,5 +1,5 @@
 site_name: Help Desk
-site_url: https://cleaner.leodev.xyz/help/
+site_url: https://cleanerbot.xyz/help/
 docs_dir: "help"
 site_dir: "../out/help"
 use_directory_urls: false
