@@ -117,7 +117,7 @@ Possible actions:
 - `block:reason`, blocks the author \* \*\*
 - `challenge:reason`, challenges the author \*\*
 - `log:message`, logs the message
-- `announcement:message`, sends the message in the channel (prefixed by `[WORKER]`)\*\*\*\*
+- `announcement:message`, sends the message in the channel (prefixed by `[WORKER]`)\*\*\*
 
 `*` 3 blocks in an hour result in a challenge and might immediately issue a
 challenge in raid conditions.  
