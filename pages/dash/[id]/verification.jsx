@@ -23,7 +23,7 @@ export default function DashboardWrapper() {
 }
 
 
-function VerificationDashboard({ config, setConfig, guild, guildId }) {
+function VerificationDashboard({ config, setConfig, entitlements, guild, guildId }) {
     const verifiedRole = guild.roles.find(role => role.id === config.verification_role);
     return (
         <>
@@ -42,6 +42,13 @@ function VerificationDashboard({ config, setConfig, guild, guildId }) {
                     setConfig={setConfig}
                     guildId={guildId}
                 >
+                    <p>
+                        Your url is:
+                        <span className="font-bold text-gray-300">
+                            https://verify.cleanerbot.xyz/
+                            {entitlements.plan >= entitlements.branding_vanity && entitlements.branding_vanity_url !== "" ? entitlements.branding_vanity_url : guildId}
+                        </span>
+                    </p>
                     {!(guild.myself.permissions.ADMINISTRATOR || guild.myself.permissions.KICK_MEMBERS) && <Attention>
                         Missing permission to kick members!
                         This feature will not work without it.
