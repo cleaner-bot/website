@@ -24,9 +24,11 @@ export default function DashboardWrapper() {
 }
 
 
-function BrandingDashboard({ config, setConfig, entitlements, guildId }) {
+function BrandingDashboard({ config, setConfig, entitlements, setEntitlements, guildId }) {
     const [state, setState] = useState(0);
     const fileInputRef = useRef();
+    const [vanity, setVanity] = useState(entitlements.branding_vanity_url);
+    const [vanityDisabled, setVanityDisabled] = useState(false);
     return (
         <>
             <Header name="Branding">
@@ -96,7 +98,24 @@ function BrandingDashboard({ config, setConfig, entitlements, guildId }) {
                         name="Vanity"
                         description="Allows the use of a custom string in verification links instead of a guild id."
                     >
-                        TODO
+                        <TextInput value={vanity} setValue={setVanity} />
+                        <button
+                            className="w-full mt-6 --btn --btn-3 --btn-primary sm:w-80"
+                            disabled={vanity === entitlements.branding_vanity_url || vanityDisabled}
+                            onClick={async () => {
+                                setVanityDisabled(true);
+                                const success = await doChange(putGuildVanity(guildId, vanity));
+                                setVanityDisabled(false);
+                                if(!success) return;
+
+                                setEntitlements({
+                                    ...entitlements,
+                                    branding_vanity_url: vanity
+                                });
+                            }}
+                        >
+
+                        </button>
                     </PlainBlock>
                 ) : (
                     <BlockWithPanel
