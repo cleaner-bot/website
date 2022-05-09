@@ -44,7 +44,7 @@ function VerificationDashboard({ config, setConfig, entitlements, guild, guildId
                 >
                     <p>
                         Your url is:{" "}
-                        <span className="font-bold text-gray-300">
+                        <span className="font-bold text-gray-300 break-all">
                             https://verify.cleanerbot.xyz/
                             {entitlements.plan >= entitlements.branding_vanity && entitlements.branding_vanity_url !== "" ? entitlements.branding_vanity_url : guildId}
                         </span>
