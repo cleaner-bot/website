@@ -17,15 +17,15 @@ const navigation = [
     { name: "Statistics", id: "statistics", icon: ChartBarIcon },
     { name: "Firewall", id: "firewall", icon: FilterIcon },
     { name: "Anti Spam", id: "antispam", icon: ShieldCheckIcon },
-    { name: "Anti Raid", id: "antiraid", icon: UsersIcon, restricted: true },
+    { name: "Anti Raid", id: "antiraid", icon: UsersIcon, entitlement: "antiraid" },
     { name: "Slowmode", id: "slowmode", icon: ClockIcon },
     { name: "Challenge", id: "challenge", icon: FingerPrintIcon },
-    { name: "Super Verification", id: "verification", icon: LockClosedIcon, restricted: true },
+    { name: "Super Verification", id: "verification", icon: LockClosedIcon, entitlement: "verification" },
     { name: "Logging", id: "logging", icon: ArchiveIcon },
     { name: "Impersonation", id: "impersonation", icon: IdentificationIcon },
     { name: "Report", id: "report", icon: ClipboardCopyIcon },
-    { name: "Workers", id: "workers", icon: CodeIcon, restricted: true },
-    { name: "Backup", id: "backup", icon: FolderIcon, restricted: true },
+    { name: "Workers", id: "workers", icon: CodeIcon, entitlement: "workers" },
+    { name: "Backup", id: "backup", icon: FolderIcon, entitlement: "backup" },
     { name: "Bot", id: "bot", icon: CubeTransparentIcon, restricted: true },
     { name: "Branding", id: "branding", icon: SparklesIcon, restricted: true },
     { name: "Plan", id: "plan", icon: CreditCardIcon, restricted: true },
@@ -38,6 +38,7 @@ export default function Sidebar({ current, user, guild, entitlements, guildId, c
     const isDev = user?.is_dev;
 
     const isSuspended = entitlements?.suspended > 0 && !(isDev && current === "dev");
+    const nav = navigation.filter(x => !x.restricted || (x.entitlement && entitlements.plan >= entitlements[x.entitlement]) || isDev || x.id === current);
   
     return (
         <>
@@ -93,7 +94,7 @@ export default function Sidebar({ current, user, guild, entitlements, guildId, c
                                         {guild ? guild.name : <Skeleton className="h-6 rounded" />}
                                     </div>
                                     <nav className="px-2 mt-5 space-y-1">
-                                        {navigation.filter(x => !x.restricted || isDev || x.id === current).map((item) => (
+                                        {nav.map((item) => (
                                             <Link
                                                 key={item.name}
                                                 href={`/dash/${guildId}/${item.id}`}
@@ -134,7 +135,7 @@ export default function Sidebar({ current, user, guild, entitlements, guildId, c
                                 {guild ? guild.name : <Skeleton className="h-6 rounded" />}
                             </div>
                             <nav className="flex-1 px-2 mt-5 space-y-1">
-                                {navigation.filter(x => !x.restricted || isDev || x.id === current).map(item => (
+                                {nav.map(item => (
                                     <Link key={item.id} href={`/dash/${guildId}/${item.id}`}>
                                         <a className={clsx(
                                             item.id === current ? "bg-gray-900 text-white" : "text-gray-300 hover:bg-gray-700 hover:text-white",
