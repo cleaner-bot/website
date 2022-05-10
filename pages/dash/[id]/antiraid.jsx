@@ -25,6 +25,7 @@ export default function DashboardWrapper() {
 
 function AntiRaidDashboard({ config, setConfig, guild, guildId }) {
     const [antiRaidLimit, setAntiRaidLimit] = useState(config.antiraid_limit);
+    const [updating, setUpdating] = useState(false);
 
     return (
         <>
@@ -78,6 +79,29 @@ function AntiRaidDashboard({ config, setConfig, guild, guildId }) {
                             Save
                         </button>
                     </PlainBlock>
+                    <BlockWithPanel
+                        name="Anti Raid mode"
+                        description={<>
+                            <p>
+                                Restrict the join limit to a group of people who created their Discord in a certain timespan.
+                            </p>
+                            <p>
+                                For example, setting the limit to 5/5 and the mode to "Within one day" will kick when 5 people who created their account on the same day join within 5 seconds.
+                            </p>
+                        </>}
+                        panel={<Dropdown
+                            values={["All time", "Within one day", "Within 3 days", "Within one week"]}
+                        />}
+                        current={config.antiraid_mode}
+                        setCurrent={async new_value => {
+                            setUpdating(true);
+                            const success = await doChange(patchConfig(guildId, {antiraid_mode: new_value}));
+                            setUpdating(false);
+                            if(!success) return;
+                            setConfig({...config, antiraid_mode: new_value})
+                        }}
+                        disabled={updating}
+                    />
                 </>}
             </Section>
         </>
