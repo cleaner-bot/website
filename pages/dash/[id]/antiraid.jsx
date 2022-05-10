@@ -105,6 +105,7 @@ function AntiRaidDashboard({ config, setConfig, guild, guildId }) {
                                 setConfig({...config, antiraid_mode: new_value})
                             }}
                             disabled={updating}
+                            className="w-40"
                         />}
                     />
                 </>}
