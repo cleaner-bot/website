@@ -18,3 +18,8 @@ If the nickname consists of only "!"s, the nickname will be set to the username
 If the username also only consists of "!"s, the nickname is changed to "dehoisted".
 
 - `!!!!` -> `!!!!` (username) -> `dehoisted`
+
+
+---
+
+[Ready to invite the Cleaner?](/dash/) | [Need Support Instead?](/discord)

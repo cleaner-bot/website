@@ -3,7 +3,7 @@
 
 ## Spam Protection
 
-Spam is mitigated by [Mitigation Rules](mitigation.md).
+Spam is mitigated by our [Antispam](antispam.md) engine.
 
 
 ## Automatic slow mode
@@ -34,6 +34,7 @@ And the following mitigation rule:
 ### Automatic de-hoisting
 
 This automatically removes starting `!` from member's nicknames.
+See [dehoisting](dehoisting.md) for more information.
 
 
 ### Mass ping

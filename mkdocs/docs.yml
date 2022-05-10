@@ -12,6 +12,7 @@ nav:
     - Dehoisting: dehoisting.md
     - Worker: worker.md
     - Multiple Languages: i18n.md
+    - Risk: risk.md
     - Commands: commands.md
     - About: about.md
 theme: readthedocs
