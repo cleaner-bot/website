@@ -38,7 +38,7 @@ export default function Sidebar({ current, user, guild, entitlements, guildId, c
     const isDev = user?.is_dev;
 
     const isSuspended = entitlements?.suspended > 0 && !(isDev && current === "dev");
-    const nav = navigation.filter(x => (!x.restricted && (x.entitlement && entitlements && entitlements.plan >= entitlements[x.entitlement])) || isDev || x.id === current);
+    const nav = navigation.filter(x => x.id === current || (x.restricted ? isDev : x.entitlement ? entitlements && entitlements.plan >= entitlements[x.entitlement] : true));
   
     return (
         <>
