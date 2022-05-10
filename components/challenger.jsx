@@ -102,7 +102,7 @@ export default function Challenger({ baseUrl, field, createOAuthRedirect, single
                         </button>
                         {!singleAccount && (
                             <button className="--btn --btn-neutral --btn-3" onClick={() => {
-                                const url = createOAuthRedirect(router.query[field]);
+                                const url = createOAuthRedirect(router.query[field], true);
                                 router.push(url);
                             }}>
                                 <DiscordIconWhite className="w-6 h-6 mr-4" />
@@ -164,7 +164,7 @@ export default function Challenger({ baseUrl, field, createOAuthRedirect, single
                         If not, change your account below.
                     </p>
                     <button className="w-full mt-12 --btn --btn-neutral --btn-3" onClick={() => {
-                        const url = createOAuthRedirect(router.query[field]);
+                        const url = createOAuthRedirect(router.query[field], true);
                         router.push(url);
                     }}>
                         <DiscordIconWhite className="w-6 h-6 mr-4" />

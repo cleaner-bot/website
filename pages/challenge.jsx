@@ -10,7 +10,7 @@ export default function Verify() {
             <Challenger
                 baseUrl="/challenge"
                 field="flow"
-                createOAuthRedirect={flow => createOAuthRedirect({ flow })}
+                createOAuthRedirect={(flow, change) => createOAuthRedirect({ flow, change })}
                 singleAccount={true}
             />
         </>
