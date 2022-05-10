@@ -46,3 +46,7 @@ Example: `https://cleanerbot.xyz/verify?guild=123456789012345678`
 
 ![](/img/docs/verification_level.png)
 
+
+## Demo
+
+We have a demo server you can [checkout here](/verification/demo).
