@@ -96,16 +96,16 @@ function AntiRaidDashboard({ config, setConfig, guild, guildId }) {
                                 { name: "Within 3 days", id: 2 },
                                 { name: "Within one week", id: 3 },
                             ]}
+                            current={config.antiraid_mode}
+                            setCurrent={async new_value => {
+                                setUpdating(true);
+                                const success = await doChange(patchConfig(guildId, {antiraid_mode: new_value}));
+                                setUpdating(false);
+                                if(!success) return;
+                                setConfig({...config, antiraid_mode: new_value})
+                            }}
+                            disabled={updating}
                         />}
-                        current={config.antiraid_mode}
-                        setCurrent={async new_value => {
-                            setUpdating(true);
-                            const success = await doChange(patchConfig(guildId, {antiraid_mode: new_value}));
-                            setUpdating(false);
-                            if(!success) return;
-                            setConfig({...config, antiraid_mode: new_value})
-                        }}
-                        disabled={updating}
                     />
                 </>}
             </Section>
