@@ -90,7 +90,12 @@ function AntiRaidDashboard({ config, setConfig, guild, guildId }) {
                             </p>
                         </>}
                         panel={<Dropdown
-                            values={["All time", "Within one day", "Within 3 days", "Within one week"]}
+                            values={[
+                                { name: "All time", id: 0 },
+                                { name: "Within one day", id: 1 },
+                                { name: "Within 3 days", id: 2 },
+                                { name: "Within one week", id: 3 },
+                            ]}
                         />}
                         current={config.antiraid_mode}
                         setCurrent={async new_value => {
