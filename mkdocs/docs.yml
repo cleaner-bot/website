@@ -5,12 +5,13 @@ site_dir: "../out/docs"
 use_directory_urls: false
 nav:
     - Features: features.md
-    - Commands: commands.md
     - Anti Spam: antispam.md
     - Firewall: firewall.md
     - Challenge: challenge.md
     - Super Verification: verification.md
+    - Dehoisting: dehoisting.md
     - Worker: worker.md
     - Multiple Languages: i18n.md
+    - Commands: commands.md
     - About: about.md
 theme: readthedocs
