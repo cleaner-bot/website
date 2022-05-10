@@ -7,7 +7,7 @@ import { useRouter } from "next/router"
 
 import { DiscordIconWhite } from "@/components/discord.jsx";
 import ErrorHandler from "@/components/dash/error.jsx";
-import { AXIOS } from "@/lib/api.js";
+import { AXIOS, getAssetURL } from "@/lib/api.js";
 
 
 export default function Challenger({ baseUrl, field, createOAuthRedirect, singleAccount }) {
@@ -17,6 +17,12 @@ export default function Challenger({ baseUrl, field, createOAuthRedirect, single
     useEffect(() => {
         if(!router.isReady) return;
         const value = router.query[field];
+        let state_ = {...state};
+        if(router.query.splash) {
+            state_.splash = getAssetURL("splash", value);
+            setState(state_);
+        }
+            
         if(!value) {
             router.push("/");
             return;
@@ -28,9 +34,11 @@ export default function Challenger({ baseUrl, field, createOAuthRedirect, single
                 response = await AXIOS.get(baseUrl, { params: { [field]: value } });
             } catch(e) {
                 if(e.response && e.response.status === 401) {
-                    return setState({ stage: 1 })
+                    state_.stage = 1;
+                    return setState(state_);
                 }
-                return setState({ ...state, error: e });
+                state_.error = e;
+                return setState(state_);
             }
             setState({ stage: response.data.is_valid ? 2 : 6, ...response.data });
         })()
