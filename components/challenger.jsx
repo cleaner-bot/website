@@ -34,11 +34,9 @@ export default function Challenger({ baseUrl, field, createOAuthRedirect, single
                 response = await AXIOS.get(baseUrl, { params: { [field]: value } });
             } catch(e) {
                 if(e.response && e.response.status === 401) {
-                    state_.stage = 1;
-                    return setState(state_);
+                    return setState({ ...state_, stage: 1 });
                 }
-                state_.error = e;
-                return setState(state_);
+                return setState({ ...state_, error: e });
             }
             setState({ stage: response.data.is_valid ? 2 : 6, ...response.data });
         })()
