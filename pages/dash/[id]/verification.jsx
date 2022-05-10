@@ -28,12 +28,14 @@ function VerificationDashboard({ config, setConfig, entitlements, guild, guildId
     return (
         <>
             <Header name="Super Verification">
-                Manage verification settings.
+                <p>
+                    Manage verification settings.
+                </p>
+                <p>
+                    Read the <Link href="/docs/verification"><a className="font-bold text-gray-300 hover:underline">documentation</a></Link> for more information and a setup guide.
+                </p>
             </Header>
             <Section>
-                <Attention>
-                    Read the <Link href="/docs/verification"><a className="font-bold text-gray-300 hover:underline">documentation</a></Link> for more information.
-                </Attention>
                 <ToggleBlock
                     name="Enable verification"
                     description="Enable verification. This will automatically kick members after 8 minutes if they have not verified."
@@ -42,6 +44,9 @@ function VerificationDashboard({ config, setConfig, entitlements, guild, guildId
                     setConfig={setConfig}
                     guildId={guildId}
                 >
+                    <p>
+                        <Link href="/docs/verification#setup"><a className="font-bold text-gray-300 hover:underline">Click for Setup guide</a></Link>.
+                    </p>
                     <p>
                         Your url is:{" "}
                         <span className="font-bold text-gray-300 break-all">
