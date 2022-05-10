@@ -7,7 +7,7 @@ import { useRouter } from "next/router"
 
 import { DiscordIconWhite } from "@/components/discord.jsx";
 import ErrorHandler from "@/components/dash/error.jsx";
-import { AXIOS, getAssetURL } from "@/lib/api.js";
+import { AXIOS, createAssetURL } from "@/lib/api.js";
 
 
 export default function Challenger({ baseUrl, field, createOAuthRedirect, singleAccount }) {
@@ -19,7 +19,7 @@ export default function Challenger({ baseUrl, field, createOAuthRedirect, single
         const value = router.query[field];
         let state_ = {...state};
         if(router.query.splash) {
-            state_.splash = getAssetURL("splash", value);
+            state_.splash = createAssetURL("splash", value);
             setState(state_);
         }
             
