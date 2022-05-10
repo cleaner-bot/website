@@ -4,9 +4,9 @@ import Link from "next/link";
 
 import { useData } from "@/components/dash/data.jsx";
 import { Page, Header, Section } from "@/components/dash/dash.jsx";
-import { ToggleBlock, PlainBlock } from "@/components/dash/block.jsx";
+import { ToggleBlock, PlainBlock, BlockWithPanel } from "@/components/dash/block.jsx";
 import MetaTags from "@/components/metatags.jsx";
-import { TextInput, Attention } from "@/components/dash/ui.jsx";
+import { TextInput, Dropdown, Attention } from "@/components/dash/ui.jsx";
 import { doChange, patchConfig } from "@/lib/api.js";
 
 export default function DashboardWrapper() {
