@@ -74,7 +74,7 @@ export function CommonRadar({ data }) {
                     { name: "Advertisement", stat: data && data.categories.advertisement },
                     { name: "Other", stat: data && data.categories.other },
                     { name: "Dehoist", stat: data && data.categories.dehoist },
-                    { name: "Anti raid", stat: data && data.categories.user_count },
+                    { name: "Anti Raid", stat: data && data.categories.antiraid },
                 ]}
             />
             
