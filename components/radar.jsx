@@ -101,7 +101,7 @@ export function CommonRadar({ data }) {
             </p>
 
             {data ? <Stats
-                stats={Object.keys(data.rules).sort((a, b) => data.rules[b].now - data.rules[a].now).map(key => ({ name: key, stat: response.data.rules[key] }))}
+                stats={Object.keys(data.rules).sort((a, b) => data.rules[b].now - data.rules[a].now).map(key => ({ name: key, stat: data.rules[key] }))}
             /> : <Stats stats={range(12, index => ({ name: index }))} />}
 
             <h2 className="mt-20 mb-4 text-2xl font-bold">
@@ -112,7 +112,7 @@ export function CommonRadar({ data }) {
             </p>
 
             {data ? <Stats
-                stats={Object.keys(data.traffic).sort((a, b) => data.traffic[b].now - data.traffic[a].now).map(key => ({ name: key, stat: response.data.traffic[key] }))}
+                stats={Object.keys(data.traffic).sort((a, b) => data.traffic[b].now - data.traffic[a].now).map(key => ({ name: key, stat: data.traffic[key] }))}
             /> : <Stats stats={range(6, index => ({ name: index }))} />}
         </>
     )
