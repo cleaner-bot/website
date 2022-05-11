@@ -65,7 +65,7 @@ export function CommonRadar({ data }) {
                 Basic trends
             </h2>
             <p className="mb-4 text-sm text-gray-200">
-                Trends of triggered rules. Comparing last 30 days to the 30 days before.
+                Trends of triggered services. Comparing last 30 days to the 30 days before.
             </p>
             <Stats
                 stats={[
@@ -73,6 +73,8 @@ export function CommonRadar({ data }) {
                     { name: "Antispam", stat: response && response.data.categories.antispam },
                     { name: "Advertisement", stat: response && response.data.categories.advertisement },
                     { name: "Other", stat: response && response.data.categories.other },
+                    { name: "Dehoist", icon: HomeIcon, stat: response && response.data.categories.dehoist },
+                    { name: "Anti raid", icon: UsersIcon, stat: response && response.data.categories.user_count },
                 ]}
             />
             
