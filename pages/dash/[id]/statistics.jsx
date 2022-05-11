@@ -31,7 +31,7 @@ function StatisticsDashboard({ guildId }) {
             {isError ? (
                 <ErrorHandler error={isError} /> 
             ) : (
-                <CommonRadar data={data} />
+                <CommonRadar data={response?.data} />
             )}
         </>
     )

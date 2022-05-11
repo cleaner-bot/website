@@ -69,12 +69,12 @@ export function CommonRadar({ data }) {
             </p>
             <Stats
                 stats={[
-                    { name: "Phishing", stat: response && response.data.categories.phishing },
-                    { name: "Antispam", stat: response && response.data.categories.antispam },
-                    { name: "Advertisement", stat: response && response.data.categories.advertisement },
-                    { name: "Other", stat: response && response.data.categories.other },
-                    { name: "Dehoist", icon: HomeIcon, stat: response && response.data.categories.dehoist },
-                    { name: "Anti raid", icon: UsersIcon, stat: response && response.data.categories.user_count },
+                    { name: "Phishing", stat: data && data.categories.phishing },
+                    { name: "Antispam", stat: data && data.categories.antispam },
+                    { name: "Advertisement", stat: data && data.categories.advertisement },
+                    { name: "Other", stat: data && data.categories.other },
+                    { name: "Dehoist", stat: data && data.categories.dehoist },
+                    { name: "Anti raid", stat: data && data.categories.user_count },
                 ]}
             />
             
@@ -86,10 +86,10 @@ export function CommonRadar({ data }) {
             </p>
             <Stats
                 stats={[
-                    { name: "Ban", stat: response && response.data.challenges.ban },
-                    { name: "Kick", stat: response && response.data.challenges.kick },
-                    { name: "Interactive challenge", stat: response && response.data.challenges.role },
-                    { name: "Timeout", stat: response && response.data.challenges.timeout },
+                    { name: "Ban", stat: data && data.challenges.ban },
+                    { name: "Kick", stat: data && data.challenges.kick },
+                    { name: "Interactive challenge", stat: data && data.challenges.role },
+                    { name: "Timeout", stat: data && data.challenges.timeout },
                 ]}
             />
 
@@ -100,8 +100,8 @@ export function CommonRadar({ data }) {
                 All rules. Last 30 days.
             </p>
 
-            {response ? <Stats
-                stats={Object.keys(response.data.rules).sort((a, b) => response.data.rules[b].now - response.data.rules[a].now).map(key => ({ name: key, stat: response.data.rules[key] }))}
+            {data ? <Stats
+                stats={Object.keys(data.rules).sort((a, b) => data.rules[b].now - data.rules[a].now).map(key => ({ name: key, stat: response.data.rules[key] }))}
             /> : <Stats stats={range(12, index => ({ name: index }))} />}
 
             <h2 className="mt-20 mb-4 text-2xl font-bold">
@@ -111,8 +111,8 @@ export function CommonRadar({ data }) {
                 All traffic rules. Last 30 days.
             </p>
 
-            {response ? <Stats
-                stats={Object.keys(response.data.traffic).sort((a, b) => response.data.traffic[b].now - response.data.traffic[a].now).map(key => ({ name: key, stat: response.data.traffic[key] }))}
+            {data ? <Stats
+                stats={Object.keys(data.traffic).sort((a, b) => data.traffic[b].now - data.traffic[a].now).map(key => ({ name: key, stat: response.data.traffic[key] }))}
             /> : <Stats stats={range(6, index => ({ name: index }))} />}
         </>
     )

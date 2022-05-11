@@ -38,7 +38,7 @@ export default function Radar() {
                         { name: "Users (approximate)", icon: UsersIcon, stat: response && response.data.stats.user_count },
                     ]}
                 />
-                <CommonRadar data={data} />
+                <CommonRadar data={response?.data} />
             </>}
             
             <div className="pt-8 mt-40 border-t border-gray-550" />
