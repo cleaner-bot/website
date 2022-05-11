@@ -25,8 +25,8 @@ function DevDashboard({ user, config, setConfig, entitlements, setEntitlements, 
         router.push(`/dash/${guildId}`);
         return null;
     }
-    const reactHooksEntitlements = Object.keys(entitlements).map(key => useState(entitlements[key]));
-    const reactHooksConfig = Object.keys(config).map(key => useState(config[key]));
+    const reactHooksEntitlements = Object.keys(entitlements).map(key => useState(JSON.stringify(entitlements[key])));
+    const reactHooksConfig = Object.keys(config).map(key => useState(JSON.stringify(config[key])));
     return (
         <>
             <MetaTags
@@ -41,12 +41,12 @@ function DevDashboard({ user, config, setConfig, entitlements, setEntitlements, 
                     <BlockWithPanel
                         name={key}
                         description={<span className="break-all">
-                            Current value: {entitlements[key].toString()}
+                            Current value: {JSON.stringify(entitlements[key])}
                         </span>}
                         panel={<div>
                             <TextInput value={reactHooksEntitlements[index][0]} setValue={reactHooksEntitlements[index][1]} />
                             <Button text="Save" className="w-full mt-2" onClick={async () => {
-                                const new_value = reactHooksEntitlements[index][0];
+                                const new_value = JSON.parse(reactHooksEntitlements[index][0]);
                                 const success = await doChange(patchEntitlement(guildId, {[key]: new_value}));
                                 if(!success) return;
                                 setEntitlements({...entitlements, [key]: new_value});
@@ -62,12 +62,12 @@ function DevDashboard({ user, config, setConfig, entitlements, setEntitlements, 
                     <BlockWithPanel
                         name={key}
                         description={<span className="break-all">
-                            Current value: {config[key].toString()}
+                            Current value: {JSON.stringify(config[key])}
                         </span>}
                         panel={<div>
                             <TextInput value={reactHooksConfig[index][0]} setValue={reactHooksConfig[index][1]} />
                             <Button text="Save" className="w-full mt-2" onClick={async () => {
-                                const new_value = reactHooksConfig[index][0];
+                                const new_value = JSON.parse(reactHooksConfig[index][0]);
                                 const success = await doChange(patchConfig(guildId, {[key]: new_value}));
                                 if(!success) return;
                                 setConfig({...config, [key]: new_value});
