@@ -127,7 +127,7 @@ export function Dropdown({ values, current, setCurrent, className }) {
     )
 }
 
-export function DropdownSearch({ placeholder, values, current, setCurrent }) {
+export function DropdownSearch({ placeholder, values, current, setCurrent, dontSetQuery }) {
     const [query, setQuery] = useState(values.find(x => x.id === current)?.name || "");
     return (
         <div className="relative group">
@@ -137,7 +137,8 @@ export function DropdownSearch({ placeholder, values, current, setCurrent }) {
                     className={clsx("block w-full text-left rounded px-2 py-0.5", id === current ? "bg-coolGray-700" : "hover:bg-coolGray-700")}
                     onClick={() => {
                         setCurrent(id);
-                        setQuery(name);
+                        if(!dontSetQuery)
+                            setQuery(name);
                         // stop focusing
                         if(document.activeElement.blur)
                             document.activeElement.blur();

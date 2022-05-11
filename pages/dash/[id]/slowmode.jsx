@@ -75,6 +75,7 @@ function SlowmodeDashboard({ config, setConfig, guild, guildId }) {
                         if(!success) return;
                         setConfig({...config, slowmode_exceptions: slowmodeExceptions})
                     }}
+                    dontSetQuery={true}
                 />
             </PlainBlock>
         </>

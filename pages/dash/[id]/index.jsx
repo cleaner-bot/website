@@ -79,6 +79,7 @@ function Dashboard({ config, setConfig, guild, guildId }) {
                             if(!success) return;
                             setConfig({...config, general_modroles: generalModRoles});
                         }}
+                        dontSetQuery={true}
                     />
                 </PlainBlock>
                 <ToggleBlock
