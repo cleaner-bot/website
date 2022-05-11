@@ -203,7 +203,7 @@ challenge in raid conditions.
 `**` Does NOT delete the message.  
 `***` Announcement may not be sent in raid conditions.
 
-Note: reason/message is limited to 500 characters.
+Note: reason/message is limited to 500 characters except for announcements which has a limit of 1800 characters.
 
 ## Example
 
