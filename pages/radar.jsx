@@ -3,10 +3,9 @@ import { HomeIcon, UsersIcon } from "@heroicons/react/solid";
 
 import { useRadar } from "@/lib/api.js";
 import MetaTags from "@/components/metatags.jsx";
-import { range } from "@/lib/helper.js";
 import Footer from "@/components/footer.jsx";
 import ErrorHandler from "@/components/dash/error.jsx";
-import { Stats } from "@/components/radar.jsx";
+import { Stats, CommonRadar } from "@/components/radar.jsx";
 
 
 export default function Radar() {
