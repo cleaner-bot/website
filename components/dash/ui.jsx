@@ -92,7 +92,7 @@ export function Button({ text, onClick, disabled, className }) {
     )
 }
 
-export function TextInput({ placeholder, value, setValue, className }) {
+export function TextInput({ placeholder, value, setValue, className, maxLength }) {
     return (
         <>
             <input
@@ -101,6 +101,20 @@ export function TextInput({ placeholder, value, setValue, className }) {
                 placeholder={placeholder}
                 onChange={event => setValue(event.target.value)}
                 className={clsx("bg-gray-800 hover:bg-gray-750 focus:bg-gray-750 px-3 py-1 rounded-lg w-full", className)}
+                maxLength={maxLength}
+            />
+        </>
+    )
+}
+export function MultilineTextInput({ placeholder, value, setValue, className, maxLength }) {
+    return (
+        <>
+            <textarea
+                value={value}
+                placeholder={placeholder}
+                onChange={event => setValue(event.target.value)}
+                className={clsx("bg-gray-800 hover:bg-gray-750 focus:bg-gray-750 px-3 py-1 rounded-lg w-full", className)}
+                maxLength={maxLength}
             />
         </>
     )

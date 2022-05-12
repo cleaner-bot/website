@@ -134,7 +134,7 @@ function ChallengeDashboard({ config, setConfig, entitlements, guild, guildId })
                             current={sendChallengeInteractiveEmbedChannel}
                             setCurrent={setSendChallengeInteractiveEmbedChannel} 
                         />
-                        <Button text="Send embed" disabled={!sendChallengeInteractiveEmbedChannel} className="mt-4" onClick={async () => {
+                        <Button text={config.branding_embed_enabled ? "Send custom embed" : "Send embed"} disabled={!sendChallengeInteractiveEmbedChannel} className="mt-4" onClick={async () => {
                             const success = await doChange(postChallengeEmbed(guildId, sendChallengeInteractiveEmbedChannel), {loading: "Sending...", error: "Filed to send: ", success: "Embed sent"});
                             if(!success) return;
                             setSendChallengeInteractiveEmbedChannel(0);

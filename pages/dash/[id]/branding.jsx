@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import { useData } from "@/components/dash/data.jsx";
 import { Page, Header, Section } from "@/components/dash/dash.jsx";
 import { ToggleBlock, PlainBlock, BlockWithPanel } from "@/components/dash/block.jsx";
-import { Upgrade, TextInput } from "@/components/dash/ui.jsx";
+import { Upgrade, TextInput, MultilineTextInput } from "@/components/dash/ui.jsx";
 import MetaTags from "@/components/metatags.jsx";
 import { ExternalLink } from "@/components/buttons.jsx";
 import { doChange, uploadGuildAsset, putGuildVanity } from "@/lib/api.js";
@@ -29,6 +29,8 @@ function BrandingDashboard({ config, setConfig, entitlements, setEntitlements, g
     const fileInputRef = useRef();
     const [vanity, setVanity] = useState(entitlements.branding_vanity_url);
     const [vanityDisabled, setVanityDisabled] = useState(false);
+    const [embedTitle, setEmbedTitle] = useState(config.branding_embed_title);
+    const [embedDescription, setEmbedDescription] = useState(config.branding_embed_description);
     return (
         <>
             <Header name="Branding">
@@ -84,15 +86,42 @@ function BrandingDashboard({ config, setConfig, entitlements, setEntitlements, g
                     </>}
                 </ToggleBlock>
                 <ToggleBlock
-                    name="Enable embed"
-                    description="Enable custom embed for challenges."
+                    name="Enable custom embed"
+                    description="Enable custom embed for challenges. (only applies to new embeds sent)"
                     field="branding_embed_enabled"
                     config={config}
                     setConfig={setConfig}
                     guildId={guildId}
                     entitlement={entitlements.branding_splash}
                     entitlements={entitlements}
-                />
+                >
+                    {config.branding_embed_enabled && <>
+                        <p className="mb-2">
+                            Embed title:
+                        </p>
+                        <TextInput
+                            value={embedTitle}
+                            setValue={setEmbedTitle}
+                            maxLength={200}
+                            placeholder="Verification required"
+                        />
+                        <p className="mt-1 text-xs text-gray-300">
+                            Limit is 200 characters. Cannot contain links and markdown does not work.
+                        </p>
+                        <p className="mt-4 mb-2">
+                            Embed description:
+                        </p>
+                        <MultilineTextInput
+                            value={embedDescription}
+                            setValue={setEmbedDescription}
+                            maxLength={2048}
+                            placeholder="Please verify that you are not a robot. Start by clicking on the button below."
+                        />
+                        <p className="text-xs text-gray-300">
+                            Limit is 2048 characters. Cannot contain links.
+                        </p>
+                    </>}
+                </ToggleBlock>
                 {entitlements.plan >= entitlements.branding_vanity ? (
                     <PlainBlock
                         name="Vanity"
