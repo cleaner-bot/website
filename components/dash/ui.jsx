@@ -169,7 +169,7 @@ export function DropdownSearch({ placeholder, values, current, setCurrent, dontS
 export function MultiSelect({ name, none, singular, placeholder, field, selection, guildId, config, setConfig }) {
     return (
         <>
-            <div className="flex flex-wrap gap-2 mb-6">
+            <div className="flex flex-wrap gap-2 mb-2">
                 {name}
                 {config[field].length === 0 ? <span>
                     {none}
