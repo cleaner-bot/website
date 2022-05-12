@@ -28,7 +28,7 @@ function BrandingDashboard({ config, setConfig, entitlements, setEntitlements, g
     const [state, setState] = useState(0);
     const fileInputRef = useRef();
     const [vanity, setVanity] = useState(entitlements.branding_vanity_url);
-    const [vanityDisabled, setVanityDisabled] = useState(false);
+    const [vanityUpdating, setVanityUpdating] = useState(false);
     const [embedTitle, setEmbedTitle] = useState(config.branding_embed_title);
     const [embedDescription, setEmbedDescription] = useState(config.branding_embed_description);
     return (
@@ -130,11 +130,11 @@ function BrandingDashboard({ config, setConfig, entitlements, setEntitlements, g
                         <TextInput value={vanity} setValue={setVanity} />
                         <button
                             className="w-full mt-6 --btn --btn-3 --btn-primary sm:w-80"
-                            disabled={vanity === entitlements.branding_vanity_url || vanityDisabled}
+                            disabled={vanity === entitlements.branding_vanity_url || vanityUpdating}
                             onClick={async () => {
-                                setVanityDisabled(true);
+                                setVanityUpdating(true);
                                 const success = await doChange(putGuildVanity(guildId, vanity));
-                                setVanityDisabled(false);
+                                setVanityUpdating(false);
                                 if(!success) return;
 
                                 setEntitlements({
