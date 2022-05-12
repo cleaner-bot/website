@@ -166,6 +166,47 @@ export function DropdownSearch({ placeholder, values, current, setCurrent, dontS
     )
 }
 
+export function MultiSelect({ name, none, singular, placeholder, field, selection, guildId, config, setConfig }) {
+    return (
+        <>
+            <div className="flex flex-wrap gap-2 mb-6">
+                {name}
+                {config[field].length === 0 ? <span>
+                    {none}
+                </span> : config[field].map(x => <span key={x} className="inline-flex items-center justify-center pl-3 pr-1 rounded-full bg-coolGray-800">
+                    {selection.find(y => x === y.id)?.name || `Deleted ${singular}: ${x}`}
+                    <button className="w-4 h-4 ml-2 text-gray-400" onClick={async () => {
+                        const copy = [...config[field]];
+                        const index = copy.indexOf(x);
+                        if(index < 0) return;
+                        copy.splice(index, 1);
+                        const success = await doChange(patchConfig(guildId, {[field]: copy}));
+                        if(!success) return;
+                        setConfig({...config, [field]: copy});
+                    }}>
+                        <svg className="w-2 h-2 stroke-current" fill="none" viewBox="0 0 8 8">
+                            <path strokeLinecap="round" strokeWidth="1.5" d="M1 1l6 6m0-6L1 7" />
+                        </svg>
+                    </button>
+                </span>)}
+            </div>
+            <DropdownSearch
+                placeholder={placeholder}
+                values={selection.filter(x => config[field].indexOf(x.id) === -1)}
+                current=""
+                setCurrent={async value => {
+                    const copy = [...config[field]];
+                    copy.push(value);
+                    const success = await doChange(patchConfig(guildId, {[field]: copy}));
+                    if(!success) return;
+                    setConfig({...config, [field]: copy});
+                }}
+                dontSetQuery={true}
+            />
+        </>
+    )
+}
+
 export function Modal({ title, children, isOpen, setOpen, initialFocus }) {
     return (
         <Dialog open={isOpen} onClose={() => setOpen(false)} initialFocus={initialFocus} className="fixed inset-0 z-10 overflow-y-auto">
