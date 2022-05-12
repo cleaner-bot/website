@@ -50,6 +50,7 @@ const sections = [
             { name: "Log file downloads", tiers: { pro: true } },
             { name: "Custom risk score / disabling security level", tiers: { pro: true } },
             { name: "Worker", tiers: { pro: "Early access" } },
+            { name: "Branding", tiers: { pro: true } },
         ],
     },
     {
@@ -57,7 +58,6 @@ const sections = [
         features: [
             { name: "Backups", tiers: { free: "Coming soon", pro: "Coming soon" } },
             { name: "Custom bot", tiers: { pro: "Coming soon" } },
-            { name: "Branding", tiers: { pro: "Coming soon" } },
         ]
     }
 ]
