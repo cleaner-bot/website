@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useData } from "@/components/dash/data.jsx";
 import { Page, Header, Section } from "@/components/dash/dash.jsx";
 import { ToggleBlock } from "@/components/dash/block.jsx";
+import { MultiSelect } from "@/components/dash/ui.jsx";
 import MetaTags from "@/components/metatags.jsx";
 
 export default function DashboardWrapper() {
@@ -29,7 +30,7 @@ const rules = [
 ]
 
 
-function AntispamDashboard({ config, setConfig, guildId }) {
+function AntispamDashboard({ config, setConfig, guildId, guild }) {
     return (
         <>
             <Header name="Anti Spam">
@@ -41,14 +42,28 @@ function AntispamDashboard({ config, setConfig, guildId }) {
                 </p>
             </Header>
             <Section>
-                {rules.map(traffic => <ToggleBlock
-                    {...traffic}
-                    config={config}
-                    setConfig={setConfig}
-                    guildId={guildId}
-                    field={`antispam_${traffic.name.substring(8)}`}
-                    key={traffic.name}
-                />)}
+                {rules.map(traffic => (
+                    <ToggleBlock
+                        {...traffic}
+                        config={config}
+                        setConfig={setConfig}
+                        guildId={guildId}
+                        field={`antispam_${traffic.name.substring(8)}`}
+                        key={traffic.name}
+                    >
+                        <MultiSelect
+                            name="Whitelisted channels:"
+                            none="No channels."
+                            singular="Channel"
+                            field={`antispam_${traffic.name.substring(8)}_channels`}
+                            placeholder="Select a channel to whitelist."
+                            selection={guild.channels}
+                            guildId={guildId}
+                            config={config}
+                            setConfig={setConfig}
+                        />
+                    </ToggleBlock>
+                ))}
             </Section>
         </>
     )
