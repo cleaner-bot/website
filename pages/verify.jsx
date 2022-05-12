@@ -10,7 +10,7 @@ export default function Verify() {
             <Challenger
                 baseUrl="/verification"
                 field="guild"
-                createOAuthRedirect={(guild, change) => createOAuthRedirect({ verification: true, guild, change || false })}
+                createOAuthRedirect={(guild, change) => createOAuthRedirect({ verification: true, guild, change: change || false })}
             />
         </>
     )
