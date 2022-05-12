@@ -20,6 +20,9 @@ const footer = [
             { name: "Anti Spam", href: "/docs/features#raid-protection" },
             { name: "Anti Phishing", href: "/docs/featuress#phishing-prevention" },
             { name: "Verification", href: "/docs/challenges" },
+            { name: "Super Verification", href: "/docs/verification" },
+            { name: "Anti Raid", href: "/docs/antiraid" },
+            { name: "Dehoisting", href: "/docs/dehoisting" },
         ]
     },
     {
