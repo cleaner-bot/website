@@ -5,7 +5,7 @@ import MetaTags from "@/components/metatags.jsx";
 import { useData } from "@/components/dash/data.jsx";
 import { Page, Header, Section } from "@/components/dash/dash.jsx";
 import { BlockWithPanel } from "@/components/dash/block.jsx";
-import { Dropdown } from "@/components/dash/ui.jsx";
+import { Dropdown, MultiSelect } from "@/components/dash/ui.jsx";
 import { doChange, patchConfig } from "@/lib/api.js";
 
 export default function DashboardWrapper() {
@@ -52,7 +52,7 @@ const challengeTextes = {
     "TI": "User is put in timeout or has to solve an interactive challenge."
 }
 
-function FirewallRule({ name, description, config, setConfig, guildId }) {
+function FirewallRule({ name, description, config, setConfig, guildId, guild }) {
     const field = `rules_${name.replaceAll(".", "_")}`
     const value = config[field];
     const [updating, setUpdating] = useState(false);
@@ -83,12 +83,24 @@ function FirewallRule({ name, description, config, setConfig, guildId }) {
                     disabled={updating}
                 />
             </div>}
-        />
+        >
+            <MultiSelect
+                name="Whitelisted channels:"
+                none="No channels."
+                singular="Channel"
+                field={`${field}_channels`}
+                placeholder="Select a channel to whitelist."
+                selection={guild.channels}
+                guildId={guildId}
+                config={config}
+                setConfig={setConfig}
+            />
+        </BlockWithPanel>
     )
 }
 
 
-function FirewallDashboard({ config, setConfig, guildId }) {
+function FirewallDashboard({ config, setConfig, guildId, guild }) {
     return (
         <>
             <Header name="Firewall rules">
@@ -112,6 +124,7 @@ function FirewallDashboard({ config, setConfig, guildId }) {
                     config={config}
                     setConfig={setConfig}
                     guildId={guildId}
+                    guild={guild}
                 />)}
             </Section>)}
         </>
