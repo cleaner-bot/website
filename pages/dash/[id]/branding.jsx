@@ -31,6 +31,7 @@ function BrandingDashboard({ config, setConfig, entitlements, setEntitlements, g
     const [vanityUpdating, setVanityUpdating] = useState(false);
     const [embedTitle, setEmbedTitle] = useState(config.branding_embed_title);
     const [embedDescription, setEmbedDescription] = useState(config.branding_embed_description);
+    const [embedUpdating, setEmbedUpdating] = useState(false);
     return (
         <>
             <Header name="Branding">
@@ -120,6 +121,27 @@ function BrandingDashboard({ config, setConfig, entitlements, setEntitlements, g
                         <p className="text-xs text-gray-300">
                             Limit is 2048 characters. Cannot contain links.
                         </p>
+                        <button
+                            className="w-full mt-6 --btn --btn-3 --btn-primary sm:w-80"
+                            disabled={(embedTitle === config.branding_embed_title && embedDescription === config.branding_embed_description) || embedUpdating}
+                            onClick={async () => {
+                                setEmbedUpdating(true);
+                                const success = await doChange(patchConfig(guildId, {
+                                    branding_embed_title: embedTitle,
+                                    branding_embed_description: embedDescription,
+                                }));
+                                setEmbedUpdating(false);
+                                if(!success) return;
+
+                                setConfig({
+                                    ...config,
+                                    branding_embed_title: embedTitle,
+                                    branding_embed_description: embedDescription,
+                                });
+                            }}
+                        >
+                            Save
+                        </button>
                     </>}
                 </ToggleBlock>
                 {entitlements.plan >= entitlements.branding_vanity ? (
