@@ -205,7 +205,7 @@ challenge in raid conditions.
 
 Note: reason/message is limited to 500 characters except for announcements which has a limit of 1800 characters.
 
-## Example
+## Examples
 
 ### Block all links
 
