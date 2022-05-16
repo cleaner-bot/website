@@ -53,7 +53,7 @@ function BrandingDashboard({ config, setConfig, entitlements, setEntitlements, g
                             View current splash
                         </ExternalLink>
                         <button
-                            className="w-full mt-6 --btn --btn-3 --btn-primary sm:w-80"
+                            className="w-full mt-6 --btn --btn-3 --btn-primary sm:w-80 mx-auto lg:mx-0"
                             onClick={() => {
                                 fileInputRef.current.click();
                             }}
@@ -122,7 +122,7 @@ function BrandingDashboard({ config, setConfig, entitlements, setEntitlements, g
                             Limit is 2048 characters. Cannot contain links.
                         </p>
                         <button
-                            className="w-full mt-6 --btn --btn-3 --btn-primary sm:w-80"
+                            className="w-full mt-6 --btn --btn-3 --btn-primary sm:w-80 mx-auto lg:mx-0"
                             disabled={(embedTitle === config.branding_embed_title && embedDescription === config.branding_embed_description) || embedUpdating}
                             onClick={async () => {
                                 setEmbedUpdating(true);
@@ -151,7 +151,7 @@ function BrandingDashboard({ config, setConfig, entitlements, setEntitlements, g
                     >
                         <TextInput value={vanity} setValue={setVanity} />
                         <button
-                            className="w-full mt-6 --btn --btn-3 --btn-primary sm:w-80"
+                            className="w-full mt-6 --btn --btn-3 --btn-primary sm:w-80 mx-auto lg:mx-0"
                             disabled={vanity === entitlements.branding_vanity_url || vanityUpdating}
                             onClick={async () => {
                                 setVanityUpdating(true);
