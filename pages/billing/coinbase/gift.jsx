@@ -26,7 +26,7 @@ export default function Success() {
                     }}
                     disabled={!guild}
                 >
-                    30€/yr
+                    40€/yr
                 </button>
             </div>
         </div>

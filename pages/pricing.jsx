@@ -103,7 +103,7 @@ export default function Pricing() {
                         Pay yearly
                     </p>
                     <div className="flex items-center justify-center mt-4 text-5xl font-extrabold">
-                        <span>30€</span>
+                        <span>40€</span>
                         <span className="flex flex-col ml-3 text-sm font-medium leading-3 text-gray-600">
                             <span>EUR</span>
                             <span>per year</span>
@@ -119,7 +119,7 @@ export default function Pricing() {
                         Pay monthly
                     </p>
                     <div className="flex items-center justify-center mt-4 text-5xl font-extrabold">
-                        <span>4€</span>
+                        <span>6€</span>
                         <span className="flex flex-col ml-3 text-sm font-medium leading-3 text-gray-600">
                             <span>EUR</span>
                             <span>per month</span>

@@ -26,7 +26,7 @@ export default function Success() {
                     }}
                     disabled={!guild}
                 >
-                    4€/mo
+                    6€/mo
                 </button>
                 <button
                     className="w-full mt-2 --btn --btn-3 --btn-neutral"
@@ -41,7 +41,7 @@ export default function Success() {
                     }}
                     disabled={!guild}
                 >
-                    30€/yr
+                    40€/yr
                 </button>
             </div>
         </div>
