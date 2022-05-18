@@ -71,6 +71,7 @@ function BackupDashboard({ entitlements, guild, guildId }) {
                         </Attention>}
                         <Attention>
                             Reminder: Make sure my position is as high as possible in role hierarchy.
+                            I may not be able to properly apply a snapshot's roles.
                         </Attention>
                         <p className="pt-2 text-xl font-medium">
                             Snapshots:
