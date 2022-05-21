@@ -122,7 +122,7 @@ export default function Dashboard() {
 
 function GuildList({ response, query }) {
     const isLoading = !response;
-    const servers = response && [...response.data].sort((a, b) => [b.is_suspended - a.is_suspended, b.is_added - a.is_added, b.access_type - a.access_type, b.name - a.name].find(x => x !== 0));
+    const servers = response && [...response.data].sort((a, b) => [b.is_suspended - a.is_suspended, b.is_added - a.is_added, a.access_type - b.access_type, b.name - a.name].find(x => x !== 0));
     return (
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
             {isLoading ? (
