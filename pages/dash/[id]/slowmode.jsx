@@ -42,8 +42,12 @@ function SlowmodeDashboard({ config, setConfig, guild, guildId }) {
                     none="No channels."
                     singular="Channel"
                     field="slowmode_exceptions"
-                    placeholder="Select a channel to add as exception."
-                    selection={guild.channels}
+                    placeholder={
+                        guild.channels
+                            ? "Select a channel to add as exception."
+                            : "Channel list is unavailable. Refresh the page or contact support."
+                    }
+                    selection={guild.channels ? guild.channels : []}
                     guildId={guildId}
                     config={config}
                     setConfig={setConfig}

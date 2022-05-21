@@ -67,8 +67,16 @@ function AccessDashboard({ guild, guildId, config, setConfig }) {
                         none="No roles."
                         singular="Role"
                         field="access_roles"
-                        placeholder="Select a role to add to the whitelist."
-                        selection={guild.roles.filter((x) => !x.is_managed)}
+                        placeholder={
+                            guild.roles
+                                ? "Select a role to add to the whitelist."
+                                : "Role list is unavailable. Refresh the page or contact support."
+                        }
+                        selection={
+                            guild.roles
+                                ? guild.roles.filter((x) => !x.is_managed)
+                                : []
+                        }
                         guildId={guildId}
                         config={config}
                         setConfig={setConfig}

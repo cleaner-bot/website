@@ -18,9 +18,9 @@ export default function DashboardWrapper() {
 }
 
 function ReportDashboard({ config, setConfig, entitlements, guild, guildId }) {
-    const reportChannel = guild.channels.find(
-        (channel) => channel.id === config.report_channel
-    );
+    const reportChannel =
+        guild.channels &&
+        guild.channels.find((channel) => channel.id === config.report_channel);
     return (
         <>
             <Header name="Report" />
@@ -42,15 +42,26 @@ function ReportDashboard({ config, setConfig, entitlements, guild, guildId }) {
                             description="Select the channel where reports will be sent to."
                         >
                             <DropdownSearch
-                                placeholder="Select channel."
-                                values={guild.channels.filter(
-                                    (channel) =>
-                                        guild.myself.permissions
-                                            .ADMINISTRATOR ||
-                                        (channel.permissions.VIEW_CHANNEL &&
-                                            channel.permissions.SEND_MESSAGES &&
-                                            channel.permissions.EMBED_LINKS)
-                                )}
+                                placeholder={
+                                    guild.channels && guild.myself
+                                        ? "Select a channel."
+                                        : "Channel list is unavailable. Refresh the page or contact support."
+                                }
+                                values={
+                                    guild.channels && guild.myself
+                                        ? guild.channels.filter(
+                                              (channel) =>
+                                                  guild.myself.permissions
+                                                      .ADMINISTRATOR ||
+                                                  (channel.permissions
+                                                      .VIEW_CHANNEL &&
+                                                      channel.permissions
+                                                          .SEND_MESSAGES &&
+                                                      channel.permissions
+                                                          .EMBED_LINKS)
+                                          )
+                                        : []
+                                }
                                 current={config.report_channel}
                                 setCurrent={async (new_value) => {
                                     const success = await doChange(
@@ -74,28 +85,32 @@ function ReportDashboard({ config, setConfig, entitlements, guild, guildId }) {
                                     No report channel selected.
                                 </Attention>
                             )}
-                            {!reportChannel &&
-                                config.report_channel !== "0" && (
-                                    <Attention>
-                                        The report channel has been deleted.
-                                        Please select a new one.
-                                    </Attention>
-                                )}
-                            {reportChannel &&
-                                !(
-                                    reportChannel.permissions.ADMINISTRATOR ||
-                                    (reportChannel.permissions.VIEW_CHANNEL &&
-                                        reportChannel.permissions
-                                            .SEND_MESSAGES &&
-                                        reportChannel.permissions.EMBED_LINKS)
-                                ) && (
-                                    <Attention>
-                                        The Cleaner can not send messages and
-                                        embeds in the current report channel.
-                                        Please select a new one or give me the
-                                        missing permissions.
-                                    </Attention>
-                                )}
+                            {guild.channels &&
+                                (reportChannel
+                                    ? !(
+                                          reportChannel.permissions
+                                              .ADMINISTRATOR ||
+                                          (reportChannel.permissions
+                                              .VIEW_CHANNEL &&
+                                              reportChannel.permissions
+                                                  .SEND_MESSAGES &&
+                                              reportChannel.permissions
+                                                  .EMBED_LINKS)
+                                      ) && (
+                                          <Attention>
+                                              The Cleaner can not send messages
+                                              and embeds in the current report
+                                              channel. Please select a new one
+                                              or give me the missing
+                                              permissions.
+                                          </Attention>
+                                      )
+                                    : config.report_channel !== "0" && (
+                                          <Attention>
+                                              The report channel has been
+                                              deleted. Please select a new one.
+                                          </Attention>
+                                      ))}
                         </PlainBlock>
                     </>
                 )}

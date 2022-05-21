@@ -149,8 +149,12 @@ function FirewallRule({
                 none="No channels."
                 singular="Channel"
                 field={`${field}_channels`}
-                placeholder="Select a channel to whitelist."
-                selection={guild.channels}
+                placeholder={
+                    guild.channels
+                        ? "Select a channel to whitelist."
+                        : "Channel list is unavailable. Refresh the page or contact support."
+                }
+                selection={guild.channels ? guild.channels : []}
                 guildId={guildId}
                 config={config}
                 setConfig={setConfig}

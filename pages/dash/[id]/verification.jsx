@@ -26,9 +26,9 @@ function VerificationDashboard({
     guild,
     guildId,
 }) {
-    const verifiedRole = guild.roles.find(
-        (role) => role.id === config.verification_role
-    );
+    const verifiedRole =
+        guild.roles &&
+        guild.roles.find((role) => role.id === config.verification_role);
     return (
         <>
             <Header name="Super Verification">
@@ -71,15 +71,16 @@ function VerificationDashboard({
                                 : guildId}
                         </span>
                     </p>
-                    {!(
-                        guild.myself.permissions.ADMINISTRATOR ||
-                        guild.myself.permissions.KICK_MEMBERS
-                    ) && (
-                        <Attention>
-                            Missing permission to kick members! This feature
-                            will not work without it.
-                        </Attention>
-                    )}
+                    {guild.myself &&
+                        !(
+                            guild.myself.permissions.ADMINISTRATOR ||
+                            guild.myself.permissions.KICK_MEMBERS
+                        ) && (
+                            <Attention>
+                                Missing permission to kick members! This feature
+                                will not work without it.
+                            </Attention>
+                        )}
                 </ToggleBlock>
                 {config.verification_enabled && (
                     <>
@@ -88,10 +89,18 @@ function VerificationDashboard({
                             description="The role that is given after verifying:"
                         >
                             <DropdownSearch
-                                placeholder="Select a role."
-                                values={guild.roles.filter(
-                                    (role) => role.can_control
-                                )}
+                                placeholder={
+                                    guild.roles
+                                        ? "Select a role."
+                                        : "Role list is unavailable. Refresh the page or contact support."
+                                }
+                                values={
+                                    guild.roles
+                                        ? guild.roles.filter(
+                                              (role) => role.can_control
+                                          )
+                                        : []
+                                }
                                 current={config.verification_role}
                                 setCurrent={async (new_value) => {
                                     const success = await doChange(
@@ -115,36 +124,40 @@ function VerificationDashboard({
                                 </Link>
                             </p>
                             <div className="space-y-2">
-                                {!(
-                                    guild.myself.permissions.ADMINISTRATOR ||
-                                    guild.myself.permissions.MANAGE_ROLES
-                                ) && (
-                                    <Attention>
-                                        Missing permission to manage roles! This
-                                        feature will not work without it.
-                                    </Attention>
-                                )}
+                                {guild.myself &&
+                                    !(
+                                        guild.myself.permissions
+                                            .ADMINISTRATOR ||
+                                        guild.myself.permissions.MANAGE_ROLES
+                                    ) && (
+                                        <Attention>
+                                            Missing permission to manage roles!
+                                            This feature will not work without
+                                            it.
+                                        </Attention>
+                                    )}
                                 {config.verification_role === "0" && (
                                     <Attention>No role selected.</Attention>
                                 )}
-                                {!verifiedRole &&
-                                    config.verification_role !== "0" && (
-                                        <Attention>
-                                            The role has been deleted. Please
-                                            select a new one.
-                                        </Attention>
-                                    )}
-                                {verifiedRole && !verifiedRole.can_control && (
-                                    <Attention>
-                                        The Cleaner can not control the current
-                                        role.{" "}
-                                        <Link href="/help/role-restrictions">
-                                            <a className="font-bold text-gray-300 hover:underline">
-                                                Find out why.
-                                            </a>
-                                        </Link>
-                                    </Attention>
-                                )}
+                                {guild.roles &&
+                                    (verifiedRole
+                                        ? !verifiedRole.can_control && (
+                                              <Attention>
+                                                  The Cleaner can not control
+                                                  the current role.{" "}
+                                                  <Link href="/help/role-restrictions">
+                                                      <a className="font-bold text-gray-300 hover:underline">
+                                                          Find out why.
+                                                      </a>
+                                                  </Link>
+                                              </Attention>
+                                          )
+                                        : config.verification_role !== "0" && (
+                                              <Attention>
+                                                  The role has been deleted.
+                                                  Please select a new one.
+                                              </Attention>
+                                          ))}
                             </div>
                         </PlainBlock>
                     </>

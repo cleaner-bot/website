@@ -73,8 +73,12 @@ function AntispamDashboard({ config, setConfig, guildId, guild }) {
                             field={`antispam_${traffic.name.substring(
                                 8
                             )}_channels`}
-                            placeholder="Select a channel to whitelist."
-                            selection={guild.channels}
+                            placeholder={
+                                guild.channels
+                                    ? "Select a channel to whitelist."
+                                    : "Channel list is unavailable. Refresh the page or contact support."
+                            }
+                            selection={guild.channels ? guild.channels : []}
                             guildId={guildId}
                             config={config}
                             setConfig={setConfig}

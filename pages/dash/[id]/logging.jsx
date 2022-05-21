@@ -20,9 +20,9 @@ export default function DashboardWrapper() {
 }
 
 function LoggingDashboard({ config, setConfig, entitlements, guild, guildId }) {
-    const loggingChannel = guild.channels.find(
-        (channel) => channel.id === config.logging_channel
-    );
+    const loggingChannel =
+        guild.channels &&
+        guild.channels.find((channel) => channel.id === config.logging_channel);
     return (
         <>
             <Header name="Logging" />
@@ -42,15 +42,26 @@ function LoggingDashboard({ config, setConfig, entitlements, guild, guildId }) {
                             description="Select the channel where logs will be sent to."
                         >
                             <DropdownSearch
-                                placeholder="Select channel."
-                                values={guild.channels.filter(
-                                    (channel) =>
-                                        guild.myself.permissions
-                                            .ADMINISTRATOR ||
-                                        (channel.permissions.VIEW_CHANNEL &&
-                                            channel.permissions.SEND_MESSAGES &&
-                                            channel.permissions.EMBED_LINKS)
-                                )}
+                                placeholder={
+                                    guild.channels && guild.myself
+                                        ? "Select a channel."
+                                        : "Channel list is unavailable. Refresh the page or contact support."
+                                }
+                                values={
+                                    guild.channels && guild.myself
+                                        ? guild.channels.filter(
+                                              (channel) =>
+                                                  guild.myself.permissions
+                                                      .ADMINISTRATOR ||
+                                                  (channel.permissions
+                                                      .VIEW_CHANNEL &&
+                                                      channel.permissions
+                                                          .SEND_MESSAGES &&
+                                                      channel.permissions
+                                                          .EMBED_LINKS)
+                                          )
+                                        : []
+                                }
                                 current={config.logging_channel}
                                 setCurrent={async (new_value) => {
                                     const success = await doChange(
@@ -74,28 +85,32 @@ function LoggingDashboard({ config, setConfig, entitlements, guild, guildId }) {
                                     No logging channel selected.
                                 </Attention>
                             )}
-                            {!loggingChannel &&
-                                config.logging_channel !== "0" && (
-                                    <Attention>
-                                        The logging channel has been deleted.
-                                        Please select a new one.
-                                    </Attention>
-                                )}
-                            {loggingChannel &&
-                                !(
-                                    loggingChannel.permissions.ADMINISTRATOR ||
-                                    (loggingChannel.permissions.VIEW_CHANNEL &&
-                                        loggingChannel.permissions
-                                            .SEND_MESSAGES &&
-                                        loggingChannel.permissions.EMBED_LINKS)
-                                ) && (
-                                    <Attention>
-                                        The Cleaner can not send messages and
-                                        embeds in the current logging channel.
-                                        Please select a new one or give me the
-                                        missing permissions.
-                                    </Attention>
-                                )}
+                            {config.channels &&
+                                (loggingChannel
+                                    ? !(
+                                          loggingChannel.permissions
+                                              .ADMINISTRATOR ||
+                                          (loggingChannel.permissions
+                                              .VIEW_CHANNEL &&
+                                              loggingChannel.permissions
+                                                  .SEND_MESSAGES &&
+                                              loggingChannel.permissions
+                                                  .EMBED_LINKS)
+                                      ) && (
+                                          <Attention>
+                                              The Cleaner can not send messages
+                                              and embeds in the current logging
+                                              channel. Please select a new one
+                                              or give me the missing
+                                              permissions.
+                                          </Attention>
+                                      )
+                                    : config.logging_channel !== "0" && (
+                                          <Attention>
+                                              The logging channel has been
+                                              deleted. Please select a new one.
+                                          </Attention>
+                                      ))}
                         </PlainBlock>
                         <ToggleBlock
                             name="Join log"

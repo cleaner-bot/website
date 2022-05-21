@@ -30,10 +30,11 @@ function BackupDashboard({ entitlements, guild, guildId }) {
     const [applyingSnapshot, setApplyingSnapshot] = useState(false);
     const { data: response, error: isError } = useSnapshots(guildId);
     const canApply =
-        guild.myself.permissions.ADMINISTRATOR ||
-        (guild.myself.permissions.MANAGE_ROLES &&
-            guild.myself.permissions.MANAGE_CHANNELS &&
-            guild.myself.permissions.MANAGE_GUILD);
+        guild.myself &&
+        (guild.myself.permissions.ADMINISTRATOR ||
+            (guild.myself.permissions.MANAGE_ROLES &&
+                guild.myself.permissions.MANAGE_CHANNELS &&
+                guild.myself.permissions.MANAGE_GUILD));
     return (
         <>
             <Header name="Backup" />
@@ -67,7 +68,7 @@ function BackupDashboard({ entitlements, guild, guildId }) {
                     description="Apply an old snapshot and create/rename/delete channels or roles..."
                 >
                     <div className="space-y-2">
-                        {!canApply && (
+                        {guild.myself && !canApply && (
                             <Attention>
                                 Missing required permissions!
                                 <div className="flex flex-col mt-2">

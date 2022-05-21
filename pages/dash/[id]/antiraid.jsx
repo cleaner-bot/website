@@ -49,15 +49,16 @@ function AntiRaidDashboard({ config, setConfig, guild, guildId }) {
                     guildId={guildId}
                     field="antiraid_enabled"
                 >
-                    {!(
-                        guild.myself.permissions.ADMINISTRATOR ||
-                        guild.myself.permissions.KICK_MEMBERS
-                    ) && (
-                        <Attention>
-                            Missing permission to kick members! This feature
-                            will not work without it.
-                        </Attention>
-                    )}
+                    {guild.myself &&
+                        !(
+                            guild.myself.permissions.ADMINISTRATOR ||
+                            guild.myself.permissions.KICK_MEMBERS
+                        ) && (
+                            <Attention>
+                                Missing permission to kick members! This feature
+                                will not work without it.
+                            </Attention>
+                        )}
                 </ToggleBlock>
                 {config.antiraid_enabled && (
                     <>

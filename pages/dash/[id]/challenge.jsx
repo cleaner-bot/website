@@ -43,9 +43,11 @@ function ChallengeDashboard({
         sendChallengeInteractiveEmbedChannel,
         setSendChallengeInteractiveEmbedChannel,
     ] = useState("");
-    const interactiveRole = guild.roles.find(
-        (role) => role.id === config.challenge_interactive_role
-    );
+    const interactiveRole =
+        guild.roles &&
+        guild.roles.find(
+            (role) => role.id === config.challenge_interactive_role
+        );
 
     return (
         <>
@@ -76,26 +78,28 @@ function ChallengeDashboard({
                     }
                 >
                     <div className="space-y-2">
-                        {!(
-                            guild.myself.permissions.ADMINISTRATOR ||
-                            guild.myself.permissions.BAN_MEMBERS
-                        ) && (
-                            <Attention>
-                                Missing permission to ban members! This will
-                                drastically negatively impact my performance
-                                during raids.
-                            </Attention>
-                        )}
-                        {!(
-                            guild.myself.permissions.ADMINISTRATOR ||
-                            guild.myself.permissions.KICK_MEMBERS
-                        ) && (
-                            <Attention>
-                                Missing permission to kick members! This will
-                                drastically negatively impact my performance
-                                during raids.
-                            </Attention>
-                        )}
+                        {guild.myself &&
+                            !(
+                                guild.myself.permissions.ADMINISTRATOR ||
+                                guild.myself.permissions.BAN_MEMBERS
+                            ) && (
+                                <Attention>
+                                    Missing permission to ban members! This will
+                                    drastically negatively impact my performance
+                                    during raids.
+                                </Attention>
+                            )}
+                        {guild.myself &&
+                            !(
+                                guild.myself.permissions.ADMINISTRATOR ||
+                                guild.myself.permissions.KICK_MEMBERS
+                            ) && (
+                                <Attention>
+                                    Missing permission to kick members! This
+                                    will drastically negatively impact my
+                                    performance during raids.
+                                </Attention>
+                            )}
                     </div>
                 </BlockWithPanel>
                 <ToggleBlock
@@ -127,15 +131,16 @@ function ChallengeDashboard({
                     setConfig={setConfig}
                     guildId={guildId}
                 >
-                    {!(
-                        guild.myself.permissions.ADMINISTRATOR ||
-                        guild.myself.permissions.MANAGE_ROLES
-                    ) && (
-                        <Attention>
-                            Missing permission to manage roles! I cannot give or
-                            take roles.
-                        </Attention>
-                    )}
+                    {guild.myself &&
+                        !(
+                            guild.myself.permissions.ADMINISTRATOR ||
+                            guild.myself.permissions.MANAGE_ROLES
+                        ) && (
+                            <Attention>
+                                Missing permission to manage roles! I cannot
+                                give or take roles.
+                            </Attention>
+                        )}
                 </ToggleBlock>
                 {config.challenge_interactive_enabled && (
                     <>
@@ -153,10 +158,18 @@ function ChallengeDashboard({
                                 after solving the challenge:
                             </p>
                             <DropdownSearch
-                                placeholder="Select a role."
-                                values={guild.roles.filter(
-                                    (role) => role.can_control
-                                )}
+                                placeholder={
+                                    guild.roles
+                                        ? "Select a role."
+                                        : "Role list is unavailable. Refresh the page or contact support."
+                                }
+                                values={
+                                    guild.roles
+                                        ? guild.roles.filter(
+                                              (role) => role.can_control
+                                          )
+                                        : []
+                                }
                                 current={config.challenge_interactive_role}
                                 setCurrent={async (new_value) => {
                                     const success = await doChange(
@@ -205,39 +218,52 @@ function ChallengeDashboard({
                             {config.challenge_interactive_role === "0" && (
                                 <Attention>No role selected.</Attention>
                             )}
-                            {!interactiveRole &&
-                                config.challenge_interactive_role !== "0" && (
-                                    <Attention>
-                                        The role has been deleted. Please select
-                                        a new one.
-                                    </Attention>
-                                )}
-                            {interactiveRole && !interactiveRole.can_control && (
-                                <Attention>
-                                    The Cleaner can not control the current
-                                    role.{" "}
-                                    <Link href="/help/role-restrictions">
-                                        <a className="font-bold text-gray-300 hover:underline">
-                                            Find out why.
-                                        </a>
-                                    </Link>
-                                </Attention>
-                            )}
+                            {guild.roles &&
+                                (interactiveRole
+                                    ? !interactiveRole.can_control && (
+                                          <Attention>
+                                              The Cleaner can not control the
+                                              current role.{" "}
+                                              <Link href="/help/role-restrictions">
+                                                  <a className="font-bold text-gray-300 hover:underline">
+                                                      Find out why.
+                                                  </a>
+                                              </Link>
+                                          </Attention>
+                                      )
+                                    : config.challenge_interactive_role !==
+                                          "0" && (
+                                          <Attention>
+                                              The role has been deleted. Please
+                                              select a new one.
+                                          </Attention>
+                                      ))}
                         </PlainBlock>
                         <PlainBlock
                             name="Send challenge embed"
                             description="Sends the challenge embed in the selected channel. Challenged people need access to this embed to solve their challenge and (re-)gain access to the server."
                         >
                             <DropdownSearch
-                                placeholder="Select a channel."
-                                values={guild.channels.filter(
-                                    (channel) =>
-                                        guild.myself.permissions
-                                            .ADMINISTRATOR ||
-                                        (channel.permissions.VIEW_CHANNEL &&
-                                            channel.permissions.SEND_MESSAGES &&
-                                            channel.permissions.EMBED_LINKS)
-                                )}
+                                placeholder={
+                                    guild.channels && guild.myself
+                                        ? "Select a channel."
+                                        : "Channel list is unavailable. Refresh the page or contact support."
+                                }
+                                values={
+                                    guild.channels && guild.myself
+                                        ? guild.channels.filter(
+                                              (channel) =>
+                                                  guild.myself.permissions
+                                                      .ADMINISTRATOR ||
+                                                  (channel.permissions
+                                                      .VIEW_CHANNEL &&
+                                                      channel.permissions
+                                                          .SEND_MESSAGES &&
+                                                      channel.permissions
+                                                          .EMBED_LINKS)
+                                          )
+                                        : []
+                                }
                                 current={sendChallengeInteractiveEmbedChannel}
                                 setCurrent={
                                     setSendChallengeInteractiveEmbedChannel

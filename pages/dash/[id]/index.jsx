@@ -4,6 +4,7 @@ import { useData } from "@/components/dash/data.jsx";
 import { Page, Header, Section } from "@/components/dash/dash.jsx";
 import { PlainBlock, ToggleBlock } from "@/components/dash/block.jsx";
 import { MultiSelect, Attention } from "@/components/dash/ui.jsx";
+import Skeleton from "@/components/skeleton.jsx";
 
 export default function DashboardWrapper() {
     const data = useData();
@@ -24,9 +25,10 @@ function Dashboard({ config, setConfig, guild, guildId }) {
             <Section>
                 {(!config.logging_enabled ||
                     config.logging_channel === "0" ||
-                    !guild.channels.find(
-                        (x) => x.id === config.logging_channel
-                    )) && (
+                    (guild.channels &&
+                        !guild.channels.find(
+                            (x) => x.id === config.logging_channel
+                        ))) && (
                     <Attention>
                         {!config.logging_enabled
                             ? "You do not have logging enabled!"
@@ -75,8 +77,16 @@ function Dashboard({ config, setConfig, guild, guildId }) {
                         none="No roles."
                         singular="Role"
                         field="general_modroles"
-                        placeholder="Select a role to add as moderator."
-                        selection={guild.roles.filter((x) => !x.is_managed)}
+                        placeholder={
+                            guild.roles
+                                ? "Select a role to add as moderator."
+                                : "Role list is unavailable. Refresh the page or contact support."
+                        }
+                        selection={
+                            guild.roles
+                                ? guild.roles.filter((x) => !x.is_managed)
+                                : []
+                        }
                         guildId={guildId}
                         config={config}
                         setConfig={setConfig}
@@ -90,15 +100,16 @@ function Dashboard({ config, setConfig, guild, guildId }) {
                     guildId={guildId}
                     field="general_dehoisting_enabled"
                 >
-                    {!(
-                        guild.myself.permissions.ADMINISTRATOR ||
-                        guild.myself.permissions.MANAGE_NICKNAMES
-                    ) && (
-                        <Attention>
-                            Missing permission to manage nicknames! This feature
-                            will not work without it.
-                        </Attention>
-                    )}
+                    {guild.myself &&
+                        !(
+                            guild.myself.permissions.ADMINISTRATOR ||
+                            guild.myself.permissions.MANAGE_NICKNAMES
+                        ) && (
+                            <Attention>
+                                Missing permission to manage nicknames! This
+                                feature will not work without it.
+                            </Attention>
+                        )}
                 </ToggleBlock>
             </Section>
         </>

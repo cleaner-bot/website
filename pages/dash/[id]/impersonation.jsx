@@ -94,15 +94,16 @@ function ImpersonationDashboard({
                     setConfig={setConfig}
                     guildId={guildId}
                 >
-                    {!(
-                        guild.myself.permissions.ADMINISTRATOR ||
-                        guild.myself.permissions.KICK_MEMBERS
-                    ) && (
-                        <Attention>
-                            Missing permission to kick members! This feature
-                            will not work without it.
-                        </Attention>
-                    )}
+                    {guild.myself &&
+                        !(
+                            guild.myself.permissions.ADMINISTRATOR ||
+                            guild.myself.permissions.KICK_MEMBERS
+                        ) && (
+                            <Attention>
+                                Missing permission to kick members! This feature
+                                will not work without it.
+                            </Attention>
+                        )}
                 </ToggleBlock>
                 <ToggleBlock
                     name="Advanced impersonation settings"
@@ -127,15 +128,16 @@ function ImpersonationDashboard({
                     entitlement={entitlements.impersonation_advanced}
                     entitlements={entitlements}
                 >
-                    {!(
-                        guild.myself.permissions.ADMINISTRATOR ||
-                        guild.myself.permissions.KICK_MEMBERS
-                    ) && (
-                        <Attention>
-                            Missing permission to kick members! This feature
-                            will not work without it.
-                        </Attention>
-                    )}
+                    {guild.myself &&
+                        !(
+                            guild.myself.permissions.ADMINISTRATOR ||
+                            guild.myself.permissions.KICK_MEMBERS
+                        ) && (
+                            <Attention>
+                                Missing permission to kick members! This feature
+                                will not work without it.
+                            </Attention>
+                        )}
                 </ToggleBlock>
                 {config.impersonation_advanced_enabled && (
                     <>
