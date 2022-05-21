@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 
 import { useData } from "@/components/dash/data.jsx";
@@ -11,24 +10,37 @@ export default function DashboardWrapper() {
     const data = useData();
     return (
         <>
-            <MetaTags
-                title="Anti Spam | The Cleaner Dashboard"
-            />
+            <MetaTags title="Anti Spam | The Cleaner Dashboard" />
             <Page page="antispam" {...data}>
                 <AntispamDashboard {...data} />
             </Page>
         </>
-    )
+    );
 }
 
 const rules = [
-    { name: "traffic.similar", description: "Most basic spam detection by comparing the similarity of messages." },
-    { name: "traffic.token", description: "Detects repeating elements of messages. This antispam rule is harder to trigger but will catch more sophisticated spam." },
-    { name: "traffic.exact", description: "Detects identical messages sent in multiple channels. Intended as last resort against phishing." },
+    {
+        name: "traffic.similar",
+        description:
+            "Most basic spam detection by comparing the similarity of messages.",
+    },
+    {
+        name: "traffic.token",
+        description:
+            "Detects repeating elements of messages. This antispam rule is harder to trigger but will catch more sophisticated spam.",
+    },
+    {
+        name: "traffic.exact",
+        description:
+            "Detects identical messages sent in multiple channels. Intended as last resort against phishing.",
+    },
     { name: "traffic.sticker", description: "Detects sticker spam." },
-    { name: "traffic.attachment", description: "Detects attachment spam. For performance reasons this only checks filesize." },
-]
-
+    {
+        name: "traffic.attachment",
+        description:
+            "Detects attachment spam. For performance reasons this only checks filesize.",
+    },
+];
 
 function AntispamDashboard({ config, setConfig, guildId, guild }) {
     return (
@@ -36,13 +48,16 @@ function AntispamDashboard({ config, setConfig, guildId, guild }) {
             <Header name="Anti Spam">
                 <p>Spam mitigation solutions.</p>
                 <p>
-                    If you have spam channels, make sure to add them as exception channels in the <Link href={`/dash/${guildId}/slowmode`}>
+                    If you have spam channels, make sure to add them as
+                    exception channels in the{" "}
+                    <Link href={`/dash/${guildId}/slowmode`}>
                         <a className="hover:underline">Slowmode</a>
-                    </Link> settings.
+                    </Link>{" "}
+                    settings.
                 </p>
             </Header>
             <Section>
-                {rules.map(traffic => (
+                {rules.map((traffic) => (
                     <ToggleBlock
                         {...traffic}
                         config={config}
@@ -55,7 +70,9 @@ function AntispamDashboard({ config, setConfig, guildId, guild }) {
                             name="Whitelisted channels:"
                             none="No channels."
                             singular="Channel"
-                            field={`antispam_${traffic.name.substring(8)}_channels`}
+                            field={`antispam_${traffic.name.substring(
+                                8
+                            )}_channels`}
                             placeholder="Select a channel to whitelist."
                             selection={guild.channels}
                             guildId={guildId}
@@ -66,5 +83,5 @@ function AntispamDashboard({ config, setConfig, guildId, guild }) {
                 ))}
             </Section>
         </>
-    )
+    );
 }

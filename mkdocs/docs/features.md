@@ -1,10 +1,8 @@
-
 # Features
 
 ## Spam Protection
 
 Spam is mitigated by our [Antispam](antispam.md) engine.
-
 
 ## Automatic slow mode
 
@@ -14,20 +12,18 @@ More messages = higher slow mode
 
 If the slow mode is above 10 seconds or if the `MANAGE_CHANNELS` permission is missing, it won't be automatically adjusted.
 
-
 ## Phishing Prevention
 
 Phishing is prevented mainly through the following rules:
 
-- [phishing.content](rules.md#phishingcontent)
-- [phishing.domain.heuristic](rules.md#phishingdomainheuristic)
-- [phishing.embed](rules.md#phishingembed)
-- [ping.broad](rules#pingbroad)
+-   [phishing.content](rules.md#phishingcontent)
+-   [phishing.domain.heuristic](rules.md#phishingdomainheuristic)
+-   [phishing.embed](rules.md#phishingembed)
+-   [ping.broad](rules#pingbroad)
 
 And the following mitigation rule:
 
-- [traffic.exact](mitigation.md#trafficexact)
-
+-   [traffic.exact](mitigation.md#trafficexact)
 
 ## Other
 
@@ -36,19 +32,15 @@ And the following mitigation rule:
 This automatically removes starting `!` from member's nicknames.
 See [dehoisting](dehoisting.md) for more information.
 
-
 ### Mass ping
 
 Messages with more than 5 pings are blocked. ([ping.users.few](rules.md#pingusersfew))
 
 Messages with more than 15 pings are blocked and result in a challenge. ([ping.users.many](rules.md#pingusersmany))
 
-
 ### Discord invites
 
 Discord invites are automatically deleted by default with the [`advertisement.discord.invite`](rules.md#advertisementdiscordinvite) rule.
-
-
 
 ---
 

@@ -1,4 +1,3 @@
-
 # Terms of Service
 
 Last updated April 03, 2022
@@ -33,46 +32,46 @@ You may not access or use the Site for any purpose other than that for which we 
 
 As a user of the Site, you agree not to:
 
-- Systematically retrieve data or other content from the Site to create or compile, directly or indirectly, a collection, compilation, database, or directory without written permission from us.
-- Trick, defraud, or mislead us and other users, especially in any attempt to learn sensitive account information such as user passwords.
-- Circumvent, disable, or otherwise interfere with security-related features of the Site, including features that prevent or restrict the use or copying of any Content or enforce limitations on the use of the Site and/or the Content contained therein.
-- Disparage, tarnish, or otherwise harm, in our opinion, us and/or the Site.
-- Use any information obtained from the Site in order to harass, abuse, or harm another person.
-- Make improper use of our support services or submit false reports of abuse or misconduct.
-- Use the Site in a manner inconsistent with any applicable laws or regulations.
-- Engage in unauthorized framing of or linking to the Site.
-- Upload or transmit (or attempt to upload or to transmit) viruses, Trojan horses, or other material, including excessive use of capital letters and spamming (continuous posting of repetitive text), that interferes with any party’s uninterrupted use and enjoyment of the Site or modifies, impairs, disrupts, alters, or interferes with the use, features, functions, operation, or maintenance of the Site.
-- Engage in any automated use of the system, such as using scripts to send comments or messages, or using any data mining, robots, or similar data gathering and extraction tools.
-- Delete the copyright or other proprietary rights notice from any Content.
-- Attempt to impersonate another user or person or use the username of another user.
-- Upload or transmit (or attempt to upload or to transmit) any material that acts as a passive or active information collection or transmission mechanism, including without limitation, clear graphics interchange formats (“gifs”), 1×1 pixels, web bugs, cookies, or other similar devices (sometimes referred to as “spyware” or “passive collection mechanisms” or “pcms”).
-- Interfere with, disrupt, or create an undue burden on the Site or the networks or services connected to the Site.
-- Harass, annoy, intimidate, or threaten any of our employees or agents engaged in providing any portion of the Site to you.
-- Attempt to bypass any measures of the Site designed to prevent or restrict access to the Site, or any portion of the Site.
-- Copy or adapt the Site’s software, including but not limited to Flash, PHP, HTML, JavaScript, CSS, or other code.
-- Except as permitted by applicable law, decipher, decompile, disassemble, or reverse engineer any of the software comprising or in any way making up a part of the Site.
-- Except as may be the result of standard search engine or Internet browser usage, use, launch, develop, or distribute any automated system, including without limitation, any spider, robot, cheat utility, scraper, or offline reader that accesses the Site, or using or launching any unauthorized script or other software.
-- Use a buying agent or purchasing agent to make purchases on the Site.
-- Make any unauthorized use of the Site, including collecting usernames and/or email addresses of users by electronic or other means for the purpose of sending unsolicited email, or creating user accounts by automated means or under false pretenses.
-- Use the Site as part of any effort to compete with us or otherwise use the Site and/or the Content for any revenue-generating endeavor or commercial enterprise.
+-   Systematically retrieve data or other content from the Site to create or compile, directly or indirectly, a collection, compilation, database, or directory without written permission from us.
+-   Trick, defraud, or mislead us and other users, especially in any attempt to learn sensitive account information such as user passwords.
+-   Circumvent, disable, or otherwise interfere with security-related features of the Site, including features that prevent or restrict the use or copying of any Content or enforce limitations on the use of the Site and/or the Content contained therein.
+-   Disparage, tarnish, or otherwise harm, in our opinion, us and/or the Site.
+-   Use any information obtained from the Site in order to harass, abuse, or harm another person.
+-   Make improper use of our support services or submit false reports of abuse or misconduct.
+-   Use the Site in a manner inconsistent with any applicable laws or regulations.
+-   Engage in unauthorized framing of or linking to the Site.
+-   Upload or transmit (or attempt to upload or to transmit) viruses, Trojan horses, or other material, including excessive use of capital letters and spamming (continuous posting of repetitive text), that interferes with any party’s uninterrupted use and enjoyment of the Site or modifies, impairs, disrupts, alters, or interferes with the use, features, functions, operation, or maintenance of the Site.
+-   Engage in any automated use of the system, such as using scripts to send comments or messages, or using any data mining, robots, or similar data gathering and extraction tools.
+-   Delete the copyright or other proprietary rights notice from any Content.
+-   Attempt to impersonate another user or person or use the username of another user.
+-   Upload or transmit (or attempt to upload or to transmit) any material that acts as a passive or active information collection or transmission mechanism, including without limitation, clear graphics interchange formats (“gifs”), 1×1 pixels, web bugs, cookies, or other similar devices (sometimes referred to as “spyware” or “passive collection mechanisms” or “pcms”).
+-   Interfere with, disrupt, or create an undue burden on the Site or the networks or services connected to the Site.
+-   Harass, annoy, intimidate, or threaten any of our employees or agents engaged in providing any portion of the Site to you.
+-   Attempt to bypass any measures of the Site designed to prevent or restrict access to the Site, or any portion of the Site.
+-   Copy or adapt the Site’s software, including but not limited to Flash, PHP, HTML, JavaScript, CSS, or other code.
+-   Except as permitted by applicable law, decipher, decompile, disassemble, or reverse engineer any of the software comprising or in any way making up a part of the Site.
+-   Except as may be the result of standard search engine or Internet browser usage, use, launch, develop, or distribute any automated system, including without limitation, any spider, robot, cheat utility, scraper, or offline reader that accesses the Site, or using or launching any unauthorized script or other software.
+-   Use a buying agent or purchasing agent to make purchases on the Site.
+-   Make any unauthorized use of the Site, including collecting usernames and/or email addresses of users by electronic or other means for the purpose of sending unsolicited email, or creating user accounts by automated means or under false pretenses.
+-   Use the Site as part of any effort to compete with us or otherwise use the Site and/or the Content for any revenue-generating endeavor or commercial enterprise.
 
 ## USER GENERATED CONTRIBUTIONS
 
 The Site may invite you to chat, contribute to, or participate in blogs, message boards, online forums, and other functionality, and may provide you with the opportunity to create, submit, post, display, transmit, perform, publish, distribute, or broadcast content and materials to us or on the Site, including but not limited to text, writings, video, audio, photographs, graphics, comments, suggestions, or personal information or other material (collectively, "Contributions"). Contributions may be viewable by other users of the Site and through third-party websites. As such, any Contributions you transmit may be treated as non-confidential and non-proprietary. When you create or make available any Contributions, you thereby represent and warrant that:
 
-- The creation, distribution, transmission, public display, or performance, and the accessing, downloading, or copying of your Contributions do not and will not infringe the proprietary rights, including but not limited to the copyright, patent, trademark, trade secret, or moral rights of any third party.
-- You are the creator and owner of or have the necessary licenses, rights, consents, releases, and permissions to use and to authorize us, the Site, and other users of the Site to use your Contributions in any manner contemplated by the Site and these Terms of Service.
-- You have the written consent, release, and/or permission of each and every identifiable individual person in your Contributions to use the name or likeness of each and every such identifiable individual person to enable inclusion and use of your Contributions in any manner contemplated by the Site and these Terms of Service.
-- Your Contributions are not false, inaccurate, or misleading.
-- Your Contributions are not unsolicited or unauthorized advertising, promotional materials, pyramid schemes, chain letters, spam, mass mailings, or other forms of solicitation.
-- Your Contributions are not obscene, lewd, lascivious, filthy, violent, harassing, libelous, slanderous, or otherwise objectionable (as determined by us).
-- Your Contributions do not ridicule, mock, disparage, intimidate, or abuse anyone.
-- Your Contributions are not used to harass or threaten (in the legal sense of those terms) any other person and to promote violence against a specific person or class of people.
-- Your Contributions do not violate any applicable law, regulation, or rule.
-- Your Contributions do not violate the privacy or publicity rights of any third party.
-- Your Contributions do not violate any applicable law concerning child pornography, or otherwise intended to protect the health or well-being of minors.
-- Your Contributions do not include any offensive comments that are connected to race, national origin, gender, sexual preference, or physical handicap.
-- Your Contributions do not otherwise violate, or link to material that violates, any provision of these Terms of Service, or any applicable law or regulation.
+-   The creation, distribution, transmission, public display, or performance, and the accessing, downloading, or copying of your Contributions do not and will not infringe the proprietary rights, including but not limited to the copyright, patent, trademark, trade secret, or moral rights of any third party.
+-   You are the creator and owner of or have the necessary licenses, rights, consents, releases, and permissions to use and to authorize us, the Site, and other users of the Site to use your Contributions in any manner contemplated by the Site and these Terms of Service.
+-   You have the written consent, release, and/or permission of each and every identifiable individual person in your Contributions to use the name or likeness of each and every such identifiable individual person to enable inclusion and use of your Contributions in any manner contemplated by the Site and these Terms of Service.
+-   Your Contributions are not false, inaccurate, or misleading.
+-   Your Contributions are not unsolicited or unauthorized advertising, promotional materials, pyramid schemes, chain letters, spam, mass mailings, or other forms of solicitation.
+-   Your Contributions are not obscene, lewd, lascivious, filthy, violent, harassing, libelous, slanderous, or otherwise objectionable (as determined by us).
+-   Your Contributions do not ridicule, mock, disparage, intimidate, or abuse anyone.
+-   Your Contributions are not used to harass or threaten (in the legal sense of those terms) any other person and to promote violence against a specific person or class of people.
+-   Your Contributions do not violate any applicable law, regulation, or rule.
+-   Your Contributions do not violate the privacy or publicity rights of any third party.
+-   Your Contributions do not violate any applicable law concerning child pornography, or otherwise intended to protect the health or well-being of minors.
+-   Your Contributions do not include any offensive comments that are connected to race, national origin, gender, sexual preference, or physical handicap.
+-   Your Contributions do not otherwise violate, or link to material that violates, any provision of these Terms of Service, or any applicable law or regulation.
 
 Any use of the Site in violation of the foregoing violates these Terms of Service and may result in, among other things, termination or suspension of your rights to use the Site.
 
@@ -87,7 +86,6 @@ We do not assert any ownership over your Contributions. You retain full ownershi
 We have the right, in our sole and absolute discretion, (1) to edit, redact, or otherwise change any Contributions; (2) to re-categorize any Contributions to place them in more appropriate locations on the Site; and (3) to pre-screen or delete any Contributions at any time and for any reason, without notice. We have no obligation to monitor your Contributions.
 
 ## SUBMISSIONS
-
 
 You acknowledge and agree that any questions, comments, suggestions, ideas, feedback, or other information regarding the Site ("Submissions") provided by you to us are non-confidential and shall become our sole property. We shall own exclusive rights, including all intellectual property rights, and shall be entitled to the unrestricted use and dissemination of these Submissions for any lawful purpose, commercial or otherwise, without acknowledgment or compensation to you. You hereby waive all moral rights to any such Submissions, and you hereby warrant that any such Submissions are original with you or that you have the right to submit such Submissions. You agree there shall be no recourse against us for any alleged or actual infringement or misappropriation of any proprietary right in your Submissions.
 
@@ -161,6 +159,6 @@ These Terms of Service and any policies or operating rules posted by us on the S
 
 In order to resolve a complaint regarding the Site or to receive further information regarding use of the Site, please contact us:
 
-- email us at terms@cleanerbot.xyz.
-- join our [Discord server](/discord) and contact staff.
-- contact the responsible person listed in our [privacy policy](/legal/privacy).
+-   email us at terms@cleanerbot.xyz.
+-   join our [Discord server](/discord) and contact staff.
+-   contact the responsible person listed in our [privacy policy](/legal/privacy).

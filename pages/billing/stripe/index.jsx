@@ -15,9 +15,9 @@ export default function Index() {
                         const response = await doChange(getStripePortalURL(), {
                             loading: "Preparing portal...",
                             success: "Redirecting...",
-                            error: "Portal failed: "
+                            error: "Portal failed: ",
                         });
-                        if(!response) return;
+                        if (!response) return;
                         router.push(response.data);
                     }}
                 >
@@ -25,5 +25,5 @@ export default function Index() {
                 </button>
             </div>
         </div>
-    )
+    );
 }

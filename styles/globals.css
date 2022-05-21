@@ -2,13 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-
 body {
     @apply text-white bg-gray-700 overscroll-none;
-    font-family: -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto,
+        Helvetica, Arial, sans-serif;
 }
 
-input[type=number]::-webkit-inner-spin-button {
+input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 
@@ -68,7 +68,6 @@ input[type=number]::-webkit-inner-spin-button {
 .--btn-destructive {
     @apply bg-rose-580 hover:bg-rose-630 disabled:bg-gray-580 disabled:hover:bg-gray-630 disabled:cursor-not-allowed;
 }
-
 
 /* Scrollbar */
 ::-webkit-scrollbar {
@@ -240,7 +239,6 @@ Small modifications have been made.
     @apply bg-gray-900 !important;
 }
 
-
 .hljs {
     @apply block p-2 overflow-auto bg-gray-900;
 }
@@ -249,7 +247,7 @@ Small modifications have been made.
 .hljs-subst {
     @apply text-gray-200;
 }
-  
+
 .hljs-comment {
     @apply text-gray-400;
 }
@@ -262,7 +260,6 @@ Small modifications have been made.
 .hljs-name {
     @apply font-semibold;
 }
-
 
 .hljs-type,
 .hljs-string,
@@ -290,7 +287,6 @@ Small modifications have been made.
     @apply text-red-400;
 }
 
-
 /* Language color: hue: 90; */
 
 .hljs-literal {
@@ -304,7 +300,6 @@ Small modifications have been made.
     @apply text-green-400;
 }
 
-
 /* Meta color: hue: 200 */
 
 .hljs-meta {
@@ -314,7 +309,6 @@ Small modifications have been made.
 .hljs-meta-string {
     @apply text-indigo-500;
 }
-
 
 /* Misc effects */
 

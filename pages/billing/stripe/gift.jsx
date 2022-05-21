@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 
 import MetaTags from "@/components/metatags.jsx";
-import { doChange, getStripeCheckoutURL } from "@/lib/api.js"
+import { doChange, getStripeCheckoutURL } from "@/lib/api.js";
 
 export default function Success() {
     const router = useRouter();
@@ -16,12 +16,18 @@ export default function Success() {
                 <button
                     className="w-full --btn --btn-3 --btn-neutral"
                     onClick={async () => {
-                        const response = await doChange(getStripeCheckoutURL({ guild_id: guild, yearly: false }), {
-                            loading: "Preparing checkout...",
-                            success: "Redirecting...",
-                            error: "Checkout failed: "
-                        });
-                        if(!response) return;
+                        const response = await doChange(
+                            getStripeCheckoutURL({
+                                guild_id: guild,
+                                yearly: false,
+                            }),
+                            {
+                                loading: "Preparing checkout...",
+                                success: "Redirecting...",
+                                error: "Checkout failed: ",
+                            }
+                        );
+                        if (!response) return;
                         router.push(response.data);
                     }}
                     disabled={!guild}
@@ -31,12 +37,18 @@ export default function Success() {
                 <button
                     className="w-full mt-2 --btn --btn-3 --btn-neutral"
                     onClick={async () => {
-                        const response = await doChange(getStripeCheckoutURL({ guild_id: guild, yearly: true }), {
-                            loading: "Preparing checkout...",
-                            success: "Redirecting...",
-                            error: "Checkout failed: "
-                        });
-                        if(!response) return;
+                        const response = await doChange(
+                            getStripeCheckoutURL({
+                                guild_id: guild,
+                                yearly: true,
+                            }),
+                            {
+                                loading: "Preparing checkout...",
+                                success: "Redirecting...",
+                                error: "Checkout failed: ",
+                            }
+                        );
+                        if (!response) return;
                         router.push(response.data);
                     }}
                     disabled={!guild}
@@ -45,5 +57,5 @@ export default function Success() {
                 </button>
             </div>
         </div>
-    )
+    );
 }

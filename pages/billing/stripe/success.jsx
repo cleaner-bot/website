@@ -18,5 +18,5 @@ export default function Success() {
                 </InternalLink>
             </div>
         </div>
-    )
+    );
 }

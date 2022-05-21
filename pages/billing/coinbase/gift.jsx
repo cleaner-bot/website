@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 
 import MetaTags from "@/components/metatags.jsx";
-import { doChange, getCoinbaseChargeURL } from "@/lib/api.js"
+import { doChange, getCoinbaseChargeURL } from "@/lib/api.js";
 
 export default function Success() {
     const router = useRouter();
@@ -16,12 +16,15 @@ export default function Success() {
                 <button
                     className="w-full --btn --btn-3 --btn-neutral"
                     onClick={async () => {
-                        const response = await doChange(getCoinbaseChargeURL({ guild_id: guild }), {
-                            loading: "Preparing checkout...",
-                            success: "Redirecting...",
-                            error: "Checkout failed: "
-                        });
-                        if(!response) return;
+                        const response = await doChange(
+                            getCoinbaseChargeURL({ guild_id: guild }),
+                            {
+                                loading: "Preparing checkout...",
+                                success: "Redirecting...",
+                                error: "Checkout failed: ",
+                            }
+                        );
+                        if (!response) return;
                         router.push(response.data);
                     }}
                     disabled={!guild}
@@ -30,5 +33,5 @@ export default function Success() {
                 </button>
             </div>
         </div>
-    )
+    );
 }

@@ -1,4 +1,3 @@
-
 # Risk rating
 
 We use a technology called risk rating to calculate the riskyness of a user.
@@ -9,18 +8,16 @@ accounts that join their server.
 The score is also used for on-join challenges to determine if an interactive
 challenge should be issued or the user should be let through.
 
-
 ## Factors
 
 Factors that influence the risk rating:
 
-- account age (most important factor!)
-- avatar
-- badges
-- magic \*
+-   account age (most important factor!)
+-   avatar
+-   badges
+-   magic \*
 
 `*` A bit of magic is always involved and real magic stays undisclosed :)
-
 
 ---
 

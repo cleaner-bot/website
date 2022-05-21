@@ -1,25 +1,20 @@
-
 import MetaTags from "@/components/metatags.jsx";
 import { useData } from "@/components/dash/data.jsx";
 import { Page, Header, Section } from "@/components/dash/dash.jsx";
 import { PlainBlock, ToggleBlock } from "@/components/dash/block.jsx";
 import { MultiSelect } from "@/components/dash/ui.jsx";
 
-
 export default function DashboardWrapper() {
     const data = useData();
     return (
         <>
-            <MetaTags
-                title="Slowmode | The Cleaner Dashboard"
-            />
+            <MetaTags title="Slowmode | The Cleaner Dashboard" />
             <Page page="slowmode" {...data}>
                 <SlowmodeDashboard {...data} />
             </Page>
         </>
-    )
+    );
 }
-
 
 function SlowmodeDashboard({ config, setConfig, guild, guildId }) {
     return (
@@ -27,7 +22,7 @@ function SlowmodeDashboard({ config, setConfig, guild, guildId }) {
             <Header name="Slowmode">
                 Manage slowmode settings and channels.
             </Header>
-            
+
             <Section>
                 <ToggleBlock
                     name="Enable slowmode"
@@ -55,6 +50,5 @@ function SlowmodeDashboard({ config, setConfig, guild, guildId }) {
                 />
             </PlainBlock>
         </>
-    )
+    );
 }
-

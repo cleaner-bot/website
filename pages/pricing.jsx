@@ -1,4 +1,3 @@
-
 import { Fragment } from "react";
 import { CheckCircleIcon, CheckIcon, MinusIcon } from "@heroicons/react/solid";
 import Link from "next/link";
@@ -7,19 +6,18 @@ import Footer from "@/components/footer.jsx";
 import MetaTags from "@/components/metatags.jsx";
 import Or from "@/components/or.jsx";
 
-
 const includedFeatures = [
     "Support (Discord & Mail)",
     "Advanced settings + custom branding",
     "Log file downloads",
     "More than 20,000 members",
     "Workers*",
-]
+];
 const eligible = [
     "Verified & Partnered servers*",
     "OG servers",
     "FOSS servers",
-]
+];
 
 const sections = [
     {
@@ -35,9 +33,15 @@ const sections = [
             { name: "Anti Raid", tiers: { free: true, pro: true } },
             { name: "Challenge & timeouts", tiers: { free: true, pro: true } },
             { name: "Super Verification", tiers: { free: true, pro: true } },
-            { name: "Report to server staff", tiers: { free: "Early access", pro: "Early access" } },
+            {
+                name: "Report to server staff",
+                tiers: { free: "Early access", pro: "Early access" },
+            },
             { name: "Multiple languages", tiers: { free: true, pro: true } },
-            { name: "Member limit", tiers: { free: "20,000 members *", pro: "Unlimited" } },
+            {
+                name: "Member limit",
+                tiers: { free: "20,000 members *", pro: "Unlimited" },
+            },
         ],
     },
     {
@@ -46,9 +50,18 @@ const sections = [
             { name: "Automatic dehoisting", tiers: { free: true, pro: true } },
             { name: "Discord impersonation", tiers: { free: true, pro: true } },
             { name: "Advanced impersonation", tiers: { pro: true } },
-            { name: "Support", tiers: { free: "Community", pro: "Dedicated (E-Mail, tickets, ...)" } },
+            {
+                name: "Support",
+                tiers: {
+                    free: "Community",
+                    pro: "Dedicated (E-Mail, tickets, ...)",
+                },
+            },
             { name: "Log file downloads", tiers: { pro: true } },
-            { name: "Custom risk score / disabling security level", tiers: { pro: true } },
+            {
+                name: "Custom risk score / disabling security level",
+                tiers: { pro: true },
+            },
             { name: "Worker", tiers: { pro: "Early access" } },
             { name: "Branding", tiers: { pro: true } },
         ],
@@ -56,18 +69,21 @@ const sections = [
     {
         name: "Upcoming features",
         features: [
-            { name: "Backups", tiers: { free: "Coming soon", pro: "Coming soon" } },
+            {
+                name: "Backups",
+                tiers: { free: "Coming soon", pro: "Coming soon" },
+            },
             { name: "Custom bot", tiers: { pro: "Coming soon" } },
-        ]
-    }
-]
+        ],
+    },
+];
 
 export default function Pricing() {
     return (
         <div className="py-16 --container">
             <MetaTags
                 title="The Cleaner Pricing"
-                description="You aren&apos;t supposed to see this yet :eyes:"
+                description="You aren't supposed to see this yet :eyes:"
             />
             <h2 className="text-2xl font-extrabold text-center text-gray-100 sm:text-4xl lg:text-5xl">
                 Support The Cleaner
@@ -78,7 +94,8 @@ export default function Pricing() {
                         The Cleaner Professional
                     </h2>
                     <p>
-                        Support the development and gain access to reserved features.
+                        Support the development and gain access to reserved
+                        features.
                     </p>
                     <div className="flex items-center justify-center my-8">
                         <h3 className="pr-4 text-sm font-semibold tracking-wider text-blue-300 uppercase">
@@ -87,12 +104,19 @@ export default function Pricing() {
                         <div className="flex-grow h-1 rounded-full bg-gray-550" />
                     </div>
                     <ul className="grid gap-4 text-sm md:grid-cols-2">
-                        {includedFeatures.map(feature => <li key={feature} className="flex items-start">
-                            <div className="flex-shrink-0">
-                                <CheckCircleIcon className="w-5 h-5 text-green-400" aria-hidden="true" />
-                            </div>
-                            <p className="ml-3 text-sm text-gray-200">{feature}</p>
-                      </li>)}
+                        {includedFeatures.map((feature) => (
+                            <li key={feature} className="flex items-start">
+                                <div className="flex-shrink-0">
+                                    <CheckCircleIcon
+                                        className="w-5 h-5 text-green-400"
+                                        aria-hidden="true"
+                                    />
+                                </div>
+                                <p className="ml-3 text-sm text-gray-200">
+                                    {feature}
+                                </p>
+                            </li>
+                        ))}
                     </ul>
                     <p className="mt-6 text-xs font-gray-300">
                         * Early access, please contact us.
@@ -110,9 +134,7 @@ export default function Pricing() {
                         </span>
                     </div>
                     <div className="mt-6 text-center text-gray-800">
-                        <p>
-                            Stripe & Coinbase
-                        </p>
+                        <p>Stripe & Coinbase</p>
                     </div>
                     <Or />
                     <p className="mt-2 text-lg font-medium text-center">
@@ -126,9 +148,7 @@ export default function Pricing() {
                         </span>
                     </div>
                     <div className="mt-6 text-center text-gray-800">
-                        <p>
-                            Only Stripe
-                        </p>
+                        <p>Only Stripe</p>
                     </div>
                     <Link href="/dash?component=plan">
                         <a className="mt-8 text-white --btn --btn-4 --btn-neutral">
@@ -143,7 +163,8 @@ export default function Pricing() {
                         Partner programme
                     </h2>
                     <p>
-                        Partner with The Cleaner and gain all benefits from The Cleaner Professional.
+                        Partner with The Cleaner and gain all benefits from The
+                        Cleaner Professional.
                     </p>
                     <div className="flex items-center justify-center my-8">
                         <h3 className="pr-4 text-sm font-semibold tracking-wider text-blue-300 uppercase">
@@ -152,15 +173,23 @@ export default function Pricing() {
                         <div className="flex-grow h-1 rounded-full bg-gray-550" />
                     </div>
                     <ul className="grid gap-4 text-sm md:grid-cols-2">
-                        {eligible.map(feature => <li key={feature} className="flex items-start">
-                            <div className="flex-shrink-0">
-                                <CheckCircleIcon className="w-5 h-5 text-green-400" aria-hidden="true" />
-                            </div>
-                            <p className="ml-3 text-sm text-gray-200">{feature}</p>
-                      </li>)}
+                        {eligible.map((feature) => (
+                            <li key={feature} className="flex items-start">
+                                <div className="flex-shrink-0">
+                                    <CheckCircleIcon
+                                        className="w-5 h-5 text-green-400"
+                                        aria-hidden="true"
+                                    />
+                                </div>
+                                <p className="ml-3 text-sm text-gray-200">
+                                    {feature}
+                                </p>
+                            </li>
+                        ))}
                     </ul>
                     <p className="mt-6 text-xs font-gray-300">
-                        * Verified and partnered servers automatically receive Partner status.
+                        * Verified and partnered servers automatically receive
+                        Partner status.
                     </p>
                 </div>
                 <div className="flex-shrink-0 p-6 bg-gray-100 rounded-b-lg lg:p-12 lg:rounded-bl-none lg:rounded-r-lg lg:w-80">
@@ -174,7 +203,10 @@ export default function Pricing() {
             <table className="w-full h-px table-fixed">
                 <thead>
                     <tr>
-                        <th className="px-6 pb-4 text-sm font-medium text-left text-gray-300" scope="col">
+                        <th
+                            className="px-6 pb-4 text-sm font-medium text-left text-gray-300"
+                            scope="col"
+                        >
                             <span className="sr-only">Feature by</span>
                             <span>Plans</span>
                         </th>
@@ -188,13 +220,15 @@ export default function Pricing() {
                             className="w-1/3 px-6 pb-4 text-lg font-medium leading-6 text-left"
                             scope="col"
                         >
-                            <span className="hidden sm:inline">Professional</span>
+                            <span className="hidden sm:inline">
+                                Professional
+                            </span>
                             <span className="sm:hidden">Pro</span>
                         </th>
                     </tr>
                 </thead>
                 <tbody className="border-t divide-y border-gray-550 divide-gray-550">
-                    {sections.map(section => (
+                    {sections.map((section) => (
                         <Fragment key={section.name}>
                             <tr>
                                 <th
@@ -205,25 +239,42 @@ export default function Pricing() {
                                     {section.name}
                                 </th>
                             </tr>
-                            {section.features.map(feature => (
+                            {section.features.map((feature) => (
                                 <tr key={feature.name}>
-                                    <th className="px-6 py-5 text-sm font-normal text-left text-gray-100" scope="row">
+                                    <th
+                                        className="px-6 py-5 text-sm font-normal text-left text-gray-100"
+                                        scope="row"
+                                    >
                                         {feature.name}
                                     </th>
-                                    {["free", "pro"].map(tier => (
+                                    {["free", "pro"].map((tier) => (
                                         <td key={tier} className="px-6 py-5">
-                                            {typeof feature.tiers[tier] === "string" ? (
-                                                <span className="block text-sm text-gray-200">{feature.tiers[tier]}</span>
+                                            {typeof feature.tiers[tier] ===
+                                            "string" ? (
+                                                <span className="block text-sm text-gray-200">
+                                                    {feature.tiers[tier]}
+                                                </span>
                                             ) : (
                                                 <>
-                                                    {feature.tiers[tier] === true ? (
-                                                        <CheckIcon className="w-5 h-5 text-green-500" aria-hidden="true" />
+                                                    {feature.tiers[tier] ===
+                                                    true ? (
+                                                        <CheckIcon
+                                                            className="w-5 h-5 text-green-500"
+                                                            aria-hidden="true"
+                                                        />
                                                     ) : (
-                                                        <MinusIcon className="w-5 h-5 text-gray-400" aria-hidden="true" />
+                                                        <MinusIcon
+                                                            className="w-5 h-5 text-gray-400"
+                                                            aria-hidden="true"
+                                                        />
                                                     )}
 
                                                     <span className="sr-only">
-                                                        {feature.tiers[tier] === true ? "Included" : "Not included"} in {tier}
+                                                        {feature.tiers[tier] ===
+                                                        true
+                                                            ? "Included"
+                                                            : "Not included"}{" "}
+                                                        in {tier}
                                                     </span>
                                                 </>
                                             )}
@@ -236,10 +287,11 @@ export default function Pricing() {
                 </tbody>
             </table>
             <p className="mt-6 text-xs text-gray-300">
-                * We will automatically active a <b>free four week trial</b> if your server has more than 20,000 members.
+                * We will automatically active a <b>free four week trial</b> if
+                your server has more than 20,000 members.
             </p>
             <div className="pb-8 mt-20 border-t border-gray-550" />
             <Footer />
         </div>
-    )
+    );
 }

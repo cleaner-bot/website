@@ -1,4 +1,3 @@
-
 # Impressum
 
 Applicable for the imprint is German law.
@@ -17,15 +16,13 @@ The contents of our pages were created with great care. However, we cannot accep
 
 Our offer contains links to external third-party websites over whose content we have no influence. We can therefore not accept any liability for this third-party content. The respective provider or operator of the website is always responsible for the content of the linked websites. The linked websites were checked for possible legal violations at the time of linking. No illegal content was found at the time the link was created. However, permanent monitoring of the content of the linked pages is unreasonable without concrete evidence of a violation of the law. As soon as we become aware of legal violations, we will remove such links immediately.
 
-
 ## Privacy notice
 
 You can find our current privacy policy [here](/legal/privacy).
-
 
 ## Contact us
 
 if you wish to contact us for questions about this policy, you have the following options:
 
-- email us at impressum@cleanerbot.xyz.
-- join our [Discord server](/discord) and contact staff.
+-   email us at impressum@cleanerbot.xyz.
+-   join our [Discord server](/discord) and contact staff.

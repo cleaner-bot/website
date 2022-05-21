@@ -1,9 +1,7 @@
-
 import clsx from "clsx";
 import Link from "next/link";
 
 import Image from "@/components/image.jsx";
-
 
 const footer = [
     {
@@ -12,18 +10,21 @@ const footer = [
             { name: "Dashboard", href: "/dash/" },
             { name: "Discord", href: "/discord" },
             { name: "Help desk", href: "/help/" },
-        ]
+        ],
     },
     {
         name: "Features",
         links: [
             { name: "Anti Spam", href: "/docs/features#raid-protection" },
-            { name: "Anti Phishing", href: "/docs/featuress#phishing-prevention" },
+            {
+                name: "Anti Phishing",
+                href: "/docs/featuress#phishing-prevention",
+            },
             { name: "Verification", href: "/docs/challenges" },
             { name: "Super Verification", href: "/docs/verification" },
             { name: "Anti Raid", href: "/docs/antiraid" },
             { name: "Dehoisting", href: "/docs/dehoisting" },
-        ]
+        ],
     },
     {
         name: "Information",
@@ -33,18 +34,27 @@ const footer = [
             { name: "Blog", href: "/blog/" },
             { name: "Radar", href: "/radar/" },
             { name: "Status", href: "https://cleaner.instatus.com/" },
-        ]
-    }
-]
-
+        ],
+    },
+];
 
 export default function Footer({ className }) {
     return (
-        <div className={clsx("grid grid-cols-3 lg:grid-cols-4 pb-10 gap-y-12", className)}>
+        <div
+            className={clsx(
+                "grid grid-cols-3 lg:grid-cols-4 pb-10 gap-y-12",
+                className
+            )}
+        >
             <div className="col-span-3 lg:col-span-1">
                 <Link href="/">
                     <a className="block w-24 h-24 col-span-2 mx-auto rounded-full bg-gray-710 hover:bg-gray-650 --anim">
-                        <Image src="/img/avatar@96x96.png" alt="The Cleaner Logo" width={96} height={96} />
+                        <Image
+                            src="/img/avatar@96x96.png"
+                            alt="The Cleaner Logo"
+                            width={96}
+                            height={96}
+                        />
                     </a>
                 </Link>
                 <div className="flex justify-center gap-4 mt-2">
@@ -70,18 +80,20 @@ export default function Footer({ className }) {
                     Not affiliated with Discord
                 </p>
             </div>
-            {footer.map(foot => <div key={foot.name} className="mx-auto">
-                <p className="text-sm text-gray-200">
-                    {foot.name}
-                </p>
-                <div>
-                    {foot.links.map(link => <Link href={link.href} key={link.href}>
-                        <a className="block hover:underline">
-                            {link.name}
-                        </a>
-                    </Link>)}
+            {footer.map((foot) => (
+                <div key={foot.name} className="mx-auto">
+                    <p className="text-sm text-gray-200">{foot.name}</p>
+                    <div>
+                        {foot.links.map((link) => (
+                            <Link href={link.href} key={link.href}>
+                                <a className="block hover:underline">
+                                    {link.name}
+                                </a>
+                            </Link>
+                        ))}
+                    </div>
                 </div>
-            </div>)}
+            ))}
         </div>
-    )
+    );
 }

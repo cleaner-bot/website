@@ -1,7 +1,5 @@
-
 import MetaTags from "@/components/metatags.jsx";
 import { InternalLink } from "@/components/buttons.jsx";
-
 
 export default function FourOFour() {
     return (
@@ -25,5 +23,5 @@ export default function FourOFour() {
                 </InternalLink>
             </div>
         </div>
-    )
+    );
 }

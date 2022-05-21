@@ -1,8 +1,6 @@
-
 # April Updates
 
 Update time! We released several new features in April and this is a collection of them.
-
 
 ## Statistics
 
@@ -15,8 +13,8 @@ but only for your server.
 
 We added two new logging options:
 
-- leave (will log when someone leaves)
-- verify (will log when someone verifies)
+-   leave (will log when someone leaves)
+-   verify (will log when someone verifies)
 
 They are disabled by default like join log.
 
@@ -42,6 +40,6 @@ This is currently in beta, ask in our Discord for access.
 
 ## Other stuff
 
-- Using bulk delete now to delete messages faster
-- Added Top.gg voting reminder
-- No longer fetching full member list to improve start up time
+-   Using bulk delete now to delete messages faster
+-   Added Top.gg voting reminder
+-   No longer fetching full member list to improve start up time

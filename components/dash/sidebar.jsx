@@ -1,7 +1,28 @@
-
 import clsx from "clsx";
 import Link from "next/link";
-import { ArchiveIcon, HomeIcon, UsersIcon, ChartBarIcon, ShieldCheckIcon, ClipboardCopyIcon, UserAddIcon, FilterIcon, FingerPrintIcon, LockClosedIcon, SparklesIcon, CodeIcon, ClockIcon, CreditCardIcon, FolderIcon, IdentificationIcon, MailIcon, CubeTransparentIcon, ExclamationIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
+import {
+    ArchiveIcon,
+    HomeIcon,
+    UsersIcon,
+    ChartBarIcon,
+    ShieldCheckIcon,
+    ClipboardCopyIcon,
+    UserAddIcon,
+    FilterIcon,
+    FingerPrintIcon,
+    LockClosedIcon,
+    SparklesIcon,
+    CodeIcon,
+    ClockIcon,
+    CreditCardIcon,
+    FolderIcon,
+    IdentificationIcon,
+    MailIcon,
+    CubeTransparentIcon,
+    ExclamationIcon,
+    MenuIcon,
+    XIcon,
+} from "@heroicons/react/outline";
 import { useState, Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
@@ -11,19 +32,33 @@ import Image from "@/components/image.jsx";
 import plans from "@/lib/plans.js";
 import { InternalLink } from "@/components/buttons.jsx";
 
-
 const navigation = [
     { name: "General", id: "", icon: HomeIcon },
     { name: "Statistics", id: "statistics", icon: ChartBarIcon },
     { name: "Firewall", id: "firewall", icon: FilterIcon },
     { name: "Anti Spam", id: "antispam", icon: ShieldCheckIcon },
-    { name: "Anti Raid", id: "antiraid", icon: UsersIcon, entitlement: "antiraid" },
+    {
+        name: "Anti Raid",
+        id: "antiraid",
+        icon: UsersIcon,
+        entitlement: "antiraid",
+    },
     { name: "Slowmode", id: "slowmode", icon: ClockIcon },
     { name: "Challenge", id: "challenge", icon: FingerPrintIcon },
-    { name: "Super Verification", id: "verification", icon: LockClosedIcon, entitlement: "verification" },
+    {
+        name: "Super Verification",
+        id: "verification",
+        icon: LockClosedIcon,
+        entitlement: "verification",
+    },
     { name: "Logging", id: "logging", icon: ArchiveIcon },
     { name: "Impersonation", id: "impersonation", icon: IdentificationIcon },
-    { name: "Report", id: "report", icon: ClipboardCopyIcon, entitlement: "report" },
+    {
+        name: "Report",
+        id: "report",
+        icon: ClipboardCopyIcon,
+        entitlement: "report",
+    },
     { name: "Workers", id: "workers", icon: CodeIcon, entitlement: "workers" },
     { name: "Backup", id: "backup", icon: FolderIcon, entitlement: "backup" },
     { name: "Bot", id: "bot", icon: CubeTransparentIcon, restricted: true },
@@ -31,22 +66,48 @@ const navigation = [
     { name: "Access", id: "access", icon: UserAddIcon, entitlement: "access" },
     { name: "Plan", id: "plan", icon: CreditCardIcon, restricted: true },
     { name: "Contact", id: "contact", icon: MailIcon, restricted: true },
-    { name: "Developer panel", id: "dev", icon: ExclamationIcon, restricted: true },
-]
+    {
+        name: "Developer panel",
+        id: "dev",
+        icon: ExclamationIcon,
+        restricted: true,
+    },
+];
 
-export default function Sidebar({ current, user, guild, entitlements, guildId, children }) {
+export default function Sidebar({
+    current,
+    user,
+    guild,
+    entitlements,
+    guildId,
+    children,
+}) {
     const [sidebarOpen, setSidebarOpen] = useState(false);
 
     const isDev = user?.is_dev;
-    const isSuspended = entitlements?.suspended > 0 && !(isDev && current === "dev");
-  
-    const nav = navigation.filter(x => x.id === current || (x.restricted ? isDev : x.entitlement ? entitlements && entitlements.plan >= entitlements[x.entitlement] : true));
-  
+    const isSuspended =
+        entitlements?.suspended > 0 && !(isDev && current === "dev");
+
+    const nav = navigation.filter(
+        (x) =>
+            x.id === current ||
+            (x.restricted
+                ? isDev
+                : x.entitlement
+                ? entitlements &&
+                  entitlements.plan >= entitlements[x.entitlement]
+                : true)
+    );
+
     return (
         <>
             <div>
                 <Transition.Root show={sidebarOpen} as={Fragment}>
-                    <Dialog as="div" className="fixed inset-0 z-40 flex md:hidden" onClose={setSidebarOpen}>
+                    <Dialog
+                        as="div"
+                        className="fixed inset-0 z-40 flex md:hidden"
+                        onClose={setSidebarOpen}
+                    >
                         <Transition.Child
                             as={Fragment}
                             enter="transition-opacity ease-linear duration-300"
@@ -81,7 +142,9 @@ export default function Sidebar({ current, user, guild, entitlements, guildId, c
                                         <button
                                             type="button"
                                             className="flex items-center justify-center w-10 h-10 ml-1 rounded-full"
-                                            onClick={() => setSidebarOpen(false)}
+                                            onClick={() =>
+                                                setSidebarOpen(false)
+                                            }
                                         >
                                             <XIcon className="w-6 h-6 text-white" />
                                         </button>
@@ -89,11 +152,19 @@ export default function Sidebar({ current, user, guild, entitlements, guildId, c
                                 </Transition.Child>
                                 <div className="flex-1 h-0 pt-5 pb-4 overflow-y-auto">
                                     <div className="flex items-center flex-shrink-0 gap-2 px-4 text-2xl font-semibold text-gray-200 truncate">
-                                        <Image src="/img/avatar.png" alt="" className="w-8 h-8 rounded-full bg-gray-750" />
+                                        <Image
+                                            src="/img/avatar.png"
+                                            alt=""
+                                            className="w-8 h-8 rounded-full bg-gray-750"
+                                        />
                                         The Cleaner
                                     </div>
                                     <div className="flex-shrink-0 px-4 mt-2 truncate">
-                                        {guild ? guild.name : <Skeleton className="h-6 rounded" />}
+                                        {guild ? (
+                                            guild.name
+                                        ) : (
+                                            <Skeleton className="h-6 rounded" />
+                                        )}
                                     </div>
                                     <nav className="px-2 mt-5 space-y-1">
                                         {nav.map((item) => (
@@ -101,13 +172,19 @@ export default function Sidebar({ current, user, guild, entitlements, guildId, c
                                                 key={item.name}
                                                 href={`/dash/${guildId}/${item.id}`}
                                             >
-                                                <a className={clsx(
-                                                    item.id === current ? "bg-gray-900 text-white" : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                                                    "group flex items-center px-2 py-2 text-base font-medium rounded-md"
-                                                )}>
+                                                <a
+                                                    className={clsx(
+                                                        item.id === current
+                                                            ? "bg-gray-900 text-white"
+                                                            : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                                                        "group flex items-center px-2 py-2 text-base font-medium rounded-md"
+                                                    )}
+                                                >
                                                     <item.icon
                                                         className={clsx(
-                                                            item.id === current ? "text-gray-300" : "text-gray-400 group-hover:text-gray-300",
+                                                            item.id === current
+                                                                ? "text-gray-300"
+                                                                : "text-gray-400 group-hover:text-gray-300",
                                                             "mr-4 flex-shrink-0 h-6 w-6"
                                                         )}
                                                     />
@@ -117,10 +194,16 @@ export default function Sidebar({ current, user, guild, entitlements, guildId, c
                                         ))}
                                     </nav>
                                 </div>
-                                <Profile user={user} guildId={guildId} entitlements={entitlements} />
+                                <Profile
+                                    user={user}
+                                    guildId={guildId}
+                                    entitlements={entitlements}
+                                />
                             </div>
                         </Transition.Child>
-                        <div className="flex-shrink-0 w-14">{/* Force sidebar to shrink to fit close icon */}</div>
+                        <div className="flex-shrink-0 w-14">
+                            {/* Force sidebar to shrink to fit close icon */}
+                        </div>
                     </Dialog>
                 </Transition.Root>
 
@@ -130,22 +213,39 @@ export default function Sidebar({ current, user, guild, entitlements, guildId, c
                     <div className="flex flex-col flex-1 min-h-0 bg-gray-800">
                         <div className="flex flex-col flex-1 pt-5 pb-4 overflow-y-auto">
                             <div className="flex items-center flex-shrink-0 gap-2 px-4 text-2xl font-semibold text-gray-200 truncate">
-                                <Image src="/img/avatar.png" alt="" className="w-8 h-8 rounded-full bg-gray-750" />
+                                <Image
+                                    src="/img/avatar.png"
+                                    alt=""
+                                    className="w-8 h-8 rounded-full bg-gray-750"
+                                />
                                 The Cleaner
                             </div>
                             <div className="flex-shrink-0 px-4 mt-2 truncate">
-                                {guild ? guild.name : <Skeleton className="h-6 rounded" />}
+                                {guild ? (
+                                    guild.name
+                                ) : (
+                                    <Skeleton className="h-6 rounded" />
+                                )}
                             </div>
                             <nav className="flex-1 px-2 mt-5 space-y-1">
-                                {nav.map(item => (
-                                    <Link key={item.id} href={`/dash/${guildId}/${item.id}`}>
-                                        <a className={clsx(
-                                            item.id === current ? "bg-gray-900 text-white" : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                                            "group flex items-center px-2 py-2 text-sm font-medium rounded-md"
-                                        )}>
+                                {nav.map((item) => (
+                                    <Link
+                                        key={item.id}
+                                        href={`/dash/${guildId}/${item.id}`}
+                                    >
+                                        <a
+                                            className={clsx(
+                                                item.id === current
+                                                    ? "bg-gray-900 text-white"
+                                                    : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                                                "group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+                                            )}
+                                        >
                                             <item.icon
                                                 className={clsx(
-                                                    item.id === current ? "text-gray-300" : "text-gray-400 group-hover:text-gray-300",
+                                                    item.id === current
+                                                        ? "text-gray-300"
+                                                        : "text-gray-400 group-hover:text-gray-300",
                                                     "mr-3 flex-shrink-0 h-6 w-6"
                                                 )}
                                             />
@@ -155,7 +255,11 @@ export default function Sidebar({ current, user, guild, entitlements, guildId, c
                                 ))}
                             </nav>
                         </div>
-                        <Profile user={user} guildId={guildId} entitlements={entitlements} />
+                        <Profile
+                            user={user}
+                            guildId={guildId}
+                            entitlements={entitlements}
+                        />
                     </div>
                 </div>
                 <div className="flex flex-col flex-1 md:pl-64">
@@ -169,7 +273,12 @@ export default function Sidebar({ current, user, guild, entitlements, guildId, c
                         </button>
                     </div>
                     <main className="flex-1 w-full">
-                        <div className={clsx("min-h-screen p-6 md:p-12 pb-8 md:pb-20", isSuspended && "bg-red-500")}>
+                        <div
+                            className={clsx(
+                                "min-h-screen p-6 md:p-12 pb-8 md:pb-20",
+                                isSuspended && "bg-red-500"
+                            )}
+                        >
                             <div className="max-w-[1280px] mx-auto">
                                 {isSuspended ? <Suspended /> : children}
                             </div>
@@ -181,52 +290,94 @@ export default function Sidebar({ current, user, guild, entitlements, guildId, c
                 </div>
             </div>
         </>
-    )
+    );
 }
 
 function Profile({ user, guildId, entitlements }) {
     const options = [];
-    if(entitlements && entitlements.suspended > 0)
-        options.push({ name: "Suspension", text: "Guild is suspended", href: "/help/suspension#suspended-guild", image: <ExclamationIcon className="text-red-500 w-9 h-9" /> });
-    if(entitlements && entitlements.plan > 0)
-        options.push({ name: "Current plan", text: plans[entitlements.plan] || "Developer", href: `/dash/${guildId}/plan`, image: null });
+    if (entitlements && entitlements.suspended > 0)
+        options.push({
+            name: "Suspension",
+            text: "Guild is suspended",
+            href: "/help/suspension#suspended-guild",
+            image: <ExclamationIcon className="text-red-500 w-9 h-9" />,
+        });
+    if (entitlements && entitlements.plan > 0)
+        options.push({
+            name: "Current plan",
+            text: plans[entitlements.plan] || "Developer",
+            href: `/dash/${guildId}/plan`,
+            image: null,
+        });
     options.push({
         name: user ? user.name : "Loading name...",
         text: "View servers",
         href: "/dash/",
         image: user && <UserAvatar user={user} />,
-    })
+    });
     return (
         <>
-            {options.map(opt => <div className="flex flex-shrink-0 p-4 border-t border-gray-650" key={opt.href}>
-                <Link href={opt.href}>
-                    <a className="flex-shrink-0 block w-full group">
-                        <div className="flex items-center">
-                            {opt.image !== null && <div>
-                                {opt.image || <Skeleton className="rounded-full h-9 w-9" />}
-                            </div>}
-                            <div className={opt.image === null ? "ml-12" : "ml-3"}>
-                                <p className="text-sm font-medium text-white truncate">{opt.name}</p>
-                                <p className="text-xs font-medium text-gray-300 --anim group-hover:text-gray-200">{opt.text}</p>
+            {options.map((opt) => (
+                <div
+                    className="flex flex-shrink-0 p-4 border-t border-gray-650"
+                    key={opt.href}
+                >
+                    <Link href={opt.href}>
+                        <a className="flex-shrink-0 block w-full group">
+                            <div className="flex items-center">
+                                {opt.image !== null && (
+                                    <div>
+                                        {opt.image || (
+                                            <Skeleton className="rounded-full h-9 w-9" />
+                                        )}
+                                    </div>
+                                )}
+                                <div
+                                    className={
+                                        opt.image === null ? "ml-12" : "ml-3"
+                                    }
+                                >
+                                    <p className="text-sm font-medium text-white truncate">
+                                        {opt.name}
+                                    </p>
+                                    <p className="text-xs font-medium text-gray-300 --anim group-hover:text-gray-200">
+                                        {opt.text}
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                </Link>
-            </div>)}
+                        </a>
+                    </Link>
+                </div>
+            ))}
         </>
-    )
+    );
 }
 
 function UserAvatar({ user }) {
-    if(!user.avatar)
-        return <Image src={`https://cdn.discordapp.com/embed/avatars/${user.discriminator % 5}.png`} className="rounded-full w-9 h-9 bg-gray-810" alt="User avatar" />
+    if (!user.avatar)
+        return (
+            <Image
+                src={`https://cdn.discordapp.com/embed/avatars/${
+                    user.discriminator % 5
+                }.png`}
+                className="rounded-full w-9 h-9 bg-gray-810"
+                alt="User avatar"
+            />
+        );
     const CDN_BASE = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}`;
     return (
         <picture>
-            <source type="image/webp" data-srcset={`${CDN_BASE}.webp?size=64`} />
-            <img data-src={`${CDN_BASE}.png?size=64`} className="rounded-full w-9 h-9 lazyload bg-gray-810" alt="User avatar" />
+            <source
+                type="image/webp"
+                data-srcset={`${CDN_BASE}.webp?size=64`}
+            />
+            <img
+                data-src={`${CDN_BASE}.png?size=64`}
+                className="rounded-full w-9 h-9 lazyload bg-gray-810"
+                alt="User avatar"
+            />
         </picture>
-    )
+    );
 }
 
 function Suspended() {
@@ -236,12 +387,20 @@ function Suspended() {
             <h1 className="text-5xl font-bold text-center">
                 Guild is suspended
             </h1>
-            <InternalLink href="/help/suspension#suspended-guild" color="--btn-neutral" className="mt-12 w-60">
+            <InternalLink
+                href="/help/suspension#suspended-guild"
+                color="--btn-neutral"
+                className="mt-12 w-60"
+            >
                 Learn more
             </InternalLink>
-            <InternalLink href="/discord" color="--btn-neutral" className="mt-2 w-60">
+            <InternalLink
+                href="/discord"
+                color="--btn-neutral"
+                className="mt-2 w-60"
+            >
                 Support
             </InternalLink>
         </div>
-    )
+    );
 }

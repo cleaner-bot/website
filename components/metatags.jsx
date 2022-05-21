@@ -1,6 +1,4 @@
-
 import Head from "next/head";
-
 
 export default function MetaTags({ title, description }) {
     return (
@@ -14,5 +12,5 @@ export default function MetaTags({ title, description }) {
             <meta property="og:color" content="#6366F1" />
             <meta name="twitter:card" content="summary" />
         </Head>
-    )
+    );
 }
