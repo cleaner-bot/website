@@ -50,16 +50,6 @@ export function ErrorLoadingData({ guildId, current, error }) {
     return <ErrorHandler error={error} />
 }
 
-export function DataWrapper({ guildId, current, Inner }) {
-    if(!guildId)
-        return (
-            <Sidebar current={current}>
-                <LoadingData />
-            </Sidebar>
-        )
-    return <DataWrapperWithGuildID guildId={guildId} current={current} Inner={Inner} />
-}
-
 export function useData() {
     const router = useRouter();
     const [guildId, setGuildId] = useState(null);
@@ -88,31 +78,4 @@ export function useData() {
         }
     }, [result])
     return { error, setError, user, setUser, guild, setGuild, guildId, setGuildId, config, setConfig, entitlements, setEntitlements };
-}
-
-function DataWrapperWithGuildID({ guildId, current, Inner }) {
-    const isLoading = !response && !isError;
-    if(isLoading)
-        return (
-            <Sidebar current={current} guildId={guildId}>
-                <LoadingData />
-            </Sidebar>
-        )
-    if(isError)
-        return (
-            <Sidebar current={current} guildId={guildId}>
-                <ErrorLoadingData current={current} guildId={guildId} error={isError} />
-            </Sidebar>
-        )
-    if(!response.data.guild)
-        return (
-            <Sidebar current={current} data={response.data} guildId={guildId}>
-                <GuildNotFound />
-            </Sidebar>
-        )
-    return (
-        <Sidebar current={current} data={response.data} guildId={guildId}>
-            <Inner data={response.data} />
-        </Sidebar>
-    )
 }
