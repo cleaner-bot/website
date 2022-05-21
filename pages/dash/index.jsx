@@ -101,9 +101,12 @@ export default function Dashboard() {
                             {response.data.length === 0 ? "No servers?" : "Missing a server?"}
                         </h2>
                         <p className="text-center text-gray-200">
-                            Only servers in which you have the <u>administrator</u> or <u>manage server</u> permission are shown.
+                            Only servers you have access to are shown.
                         </p>
-                        <p className="pb-20 text-center text-gray-200">
+                        <p className="text-center text-gray-200">
+                            By default, the dashboard is restricted to the <u>owner</u>, <u>adminstrators</u> and <u>server managers</u>.
+                        </p>
+                        <p className="pb-20 text-center text-gray-300 text-sm mt-2">
                             It can take up to 30 seconds for your servers to update.
                         </p>
                     </>}
@@ -119,7 +122,7 @@ export default function Dashboard() {
 
 function GuildList({ response, query }) {
     const isLoading = !response;
-    const servers = response && [...response.data].sort((a, b) => [b.is_suspended - a.is_suspended, b.is_added - a.is_added, b.is_owner - a.is_owner, b.is_admin - a.is_admin, b.name - a.name].find(x => x !== 0));
+    const servers = response && [...response.data].sort((a, b) => [b.is_suspended - a.is_suspended, b.is_added - a.is_added, b.access_type - a.access_type, b.name - a.name].find(x => x !== 0));
     return (
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
             {isLoading ? (
@@ -136,7 +139,7 @@ function Guild({ guild }) {
         <div className="relative pt-2 pb-4 bg-gray-800 rounded-lg">
             {guild ? <GuildIcon guild={guild} /> : <Skeleton className="w-16 h-16 mx-auto rounded-full" />}
             {guild && <span className="absolute text-gray-300 top-2 left-2">
-                {guild.is_owner ? "Owner" : guild.is_admin ? "Admin" : "Manager"}
+                {["Owner", "Admin", "Manager", "Whitelisted", "Whitelisted"][guild.access_type]}
             </span>}
             {guild && guild.is_suspended && <Link href="/help/suspension#suspended-guild">
                 <a className="absolute top-2 right-2">
