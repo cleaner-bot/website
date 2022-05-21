@@ -44,7 +44,7 @@ Only the following functions/libraries are available, everything else is removed
 ## API
 
 A lua worker returns a function that takes a single argument (`event`) and
-returns a list of actions to take.
+returns an action to take.
 
 ### event
 
@@ -189,13 +189,20 @@ user_id?: string
 
 ### actions
 
-Possible actions:
+Possible return action (all optional):
 
-- `delete:reason`, deletes the message
-- `block:reason`, blocks the author \* \*\*
-- `challenge:reason`, challenges the author \*\*
-- `log:message`, logs the message
-- `announcement:ttl:message`, sends the message in the channel (message is deleted after `ttl` seconds. message is prefixed by `[WORKER]`)\*\*\*
+```lua
+{
+  delete = true,
+  challenge = true,
+  block = true,
+  reason = "reason",
+  log = "",
+  announcement = "",
+  announcement_ttl = 0
+}
+```
+
 
 `*` 3 blocks in an hour result in a challenge and might immediately issue a
 challenge in raid conditions.
@@ -211,22 +218,46 @@ Note: reason/message is limited to 500 characters except for announcements which
 ```lua
 return function(event)
     if event.content and (event.content:match("http://") or event.content:match("https://")) then
-        return { "delete", "block" }
+        return {
+            delete = true,
+            block = true,
+            reason = "Sent a link",
+            announcement = ("<@%s> please don't send links."):format(event.member_id),
+            announcement_ttl = 10
+        }
     end
 end
-````
-
-### Log discord invites
+```
+ 
+### Discord invite whitelist
 
 ```lua
+local patterns = {
+  "discord.gg/([%w-]+)",
+  "discord.com/invite/([%w-]+)",
+  "discordapp.com/invite/([%w-]+)"
+}
+local whitelisted_invites = {
+  GyHucWCnwD = true
+}
 return function(event)
-    -- very terrible check
-    if not event.content or not (event.content:match("discord.gg") or event.content:match("/invite/")) then
-        return
+  if not event.content then
+    return
+  end
+  for _index_0 = 1, #patterns do
+    local invite_pattern = patterns[_index_0]
+    for invite in event.content:gmatch(invite_pattern) do
+      if not whitelisted_invites[invite] then
+        return {
+          delete = true,
+          block = true,
+          announcement = "Hey <@" .. event.member_id .. ">, that invite is not whitelisted.",
+          announcement_ttl = 30,
+          reason = "Invite to server that is not whitelisted."
+        }
+      end
     end
-    local message_link = "https://discord.com/channels/" .. event.guild_id .. "/" .. event.channel_id .. "/" .. event.message_id
-    return {
-        "log:<@" .. event.member_id .. "> sent an invite. [Jump](" .. message_link .. ")."
-    }
+  end
 end
+
 ```
