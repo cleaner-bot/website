@@ -71,7 +71,7 @@ function BackupDashboard({ entitlements, guild, guildId }) {
                         </Attention>}
                         <Attention>
                             Reminder: Make sure my position is as high as possible in role hierarchy.
-                            I may not be able to properly apply a snapshot's roles.
+                            I may not be able to properly apply a snapshot&apos;s roles.
                         </Attention>
                         <p className="pt-2 text-xl font-medium">
                             Snapshots:
@@ -82,7 +82,7 @@ function BackupDashboard({ entitlements, guild, guildId }) {
                             <>
                                 <div className="grid gap-2 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2">
                                     {response.data.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp)).map(x => (
-                                        <div className="p-2 border rounded-lg border-gray-550">
+                                        <div className="p-2 border rounded-lg border-gray-550" key={x.id}>
                                             <p>
                                                 {new Date(x.timestamp).toLocaleString()}
                                             </p>

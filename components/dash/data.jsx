@@ -32,7 +32,7 @@ function GuildNotFound() {
                 The Cleaner is not in this server or 
             </p>
             <p className="text-center text-gray-200">
-                you don't have access to it.
+                you don&apos;t have access to it.
             </p>
             <InternalLink href="/dash/" className="mt-12">
                 Dashboard
@@ -76,6 +76,6 @@ export function useData() {
             setConfig(response?.data.config);
             setEntitlements(response?.data.entitlements);
         }
-    }, [result])
+    }, [result]); // eslint-disable-line react-hooks/exhaustive-deps
     return { error, setError, user, setUser, guild, setGuild, guildId, setGuildId, config, setConfig, entitlements, setEntitlements };
 }

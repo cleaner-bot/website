@@ -51,7 +51,7 @@ function AntiRaidDashboard({ config, setConfig, guild, guildId }) {
                     <PlainBlock
                         name="Join limit"
                         description={<>
-                            <p>Format is `limit/seconds`. For example `5/10` means "max 5 joins in 10 seconds"</p>
+                            <p>Format is `limit/seconds`. For example `5/10` means &quot;max 5 joins in 10 seconds&quot;.</p>
                             <p>You cannot chose more than 99,999 joins and the timeframe cannot be over 999 seconds.</p>
                         </>}
                     >
@@ -86,7 +86,7 @@ function AntiRaidDashboard({ config, setConfig, guild, guildId }) {
                                 Restrict the join limit to a group of people who created their Discord in a certain timespan.
                             </p>
                             <p>
-                                For example, setting the limit to 5/5 and the mode to "Within one day" will kick when 5 people who created their account on the same day join within 5 seconds.
+                                For example, setting the limit to 5/5 and the mode to &quot;Within one day&quot; will kick when 5 people who created their account on the same day join within 5 seconds.
                             </p>
                         </>}
                         panel={<Dropdown

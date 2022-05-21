@@ -21,12 +21,17 @@ export default function DashboardWrapper() {
 
 function DevDashboard({ user, config, setConfig, entitlements, setEntitlements, guildId }) {
     const router = useRouter();
+    let reactHooksEntitlements, reactHooksConfig;
+    
+    /* eslint-disable react-hooks/rules-of-hooks */
+    reactHooksEntitlements = Object.keys(entitlements).map(key => useState(JSON.stringify(entitlements[key])));
+    reactHooksConfig = Object.keys(config).map(key => useState(JSON.stringify(config[key])));
+    /* eslint-enable react-hooks/rules-of-hooks */
+    
     if(!user.is_dev) {
         router.push(`/dash/${guildId}`);
         return null;
     }
-    const reactHooksEntitlements = Object.keys(entitlements).map(key => useState(JSON.stringify(entitlements[key])));
-    const reactHooksConfig = Object.keys(config).map(key => useState(JSON.stringify(config[key])));
     return (
         <>
             <MetaTags

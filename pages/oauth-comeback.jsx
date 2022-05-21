@@ -41,7 +41,7 @@ export default function OAuthComeback() {
                 {error ? "Aw snap" : "Logging in..."}
             </h1>
             {error ? <ErrorHandler error={error} /> : <p className="mb-12 text-center">
-                Give us a bit... we're logging you in...
+                Give us a bit... we&apos;re logging you in...
             </p>}
         </div>
     )

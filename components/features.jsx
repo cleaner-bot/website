@@ -104,7 +104,7 @@ export default function Features() {
                 </div>
                 <div className={index % 2 === 0 ? "lg:order-first" : ""}>
                     {feat.image ? (
-                        <Image className="w-full" valt="" {...feat.image} />
+                        <Image className="w-full" valt="" {...feat.image} /> // eslint-disable-line jsx-a11y/alt-text
                     ) : feat.links ? (
                         <div className="m-auto space-y-2 w-96">
                             {feat.links.map(link => <ExternalLink key={link.href} href={link.href}>

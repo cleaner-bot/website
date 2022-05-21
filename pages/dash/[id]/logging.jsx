@@ -93,7 +93,7 @@ function LoggingDashboard({ config, setConfig, entitlements, guild, guildId }) {
                         name="Downloads"
                         description={<>
                             <p>
-                                We'll save all your logs, so they can be inspected even if the Discord log becomes unavailable.
+                                We&apos;ll save all your logs, so they can be inspected even if the Discord log becomes unavailable.
                             </p>
                             <p>
                                 We guarantee your logs to be available for <b>{entitlements.logging_retention}</b> month{entitlements.logging_retention !== 1 && "s"}, after that they may be removed to save storage.
@@ -111,7 +111,7 @@ function LoggingDashboard({ config, setConfig, entitlements, guild, guildId }) {
                                 We are collecting your logs now!
                             </p>
                             <p>
-                                Due to architectural constraints, we can't provide a direct download.{" "}
+                                Due to architectural constraints, we can&apos;t provide a direct download.{" "}
                                 <Link href={`/dash/${guildId}/contact`}>
                                     <a className="hover:underline">
                                         Contact us

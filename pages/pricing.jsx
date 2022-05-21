@@ -67,7 +67,7 @@ export default function Pricing() {
         <div className="py-16 --container">
             <MetaTags
                 title="The Cleaner Pricing"
-                description="You aren't supposed to see this yet :eyes:"
+                description="You aren&apos;t supposed to see this yet :eyes:"
             />
             <h2 className="text-2xl font-extrabold text-center text-gray-100 sm:text-4xl lg:text-5xl">
                 Support The Cleaner
@@ -82,7 +82,7 @@ export default function Pricing() {
                     </p>
                     <div className="flex items-center justify-center my-8">
                         <h3 className="pr-4 text-sm font-semibold tracking-wider text-blue-300 uppercase">
-                            What's included
+                            What&apos;s included
                         </h3>
                         <div className="flex-grow h-1 rounded-full bg-gray-550" />
                     </div>
@@ -147,7 +147,7 @@ export default function Pricing() {
                     </p>
                     <div className="flex items-center justify-center my-8">
                         <h3 className="pr-4 text-sm font-semibold tracking-wider text-blue-300 uppercase">
-                            Who's eligible
+                            Who&apos;s eligible
                         </h3>
                         <div className="flex-grow h-1 rounded-full bg-gray-550" />
                     </div>
@@ -223,7 +223,7 @@ export default function Pricing() {
                                                     )}
 
                                                     <span className="sr-only">
-                                                        {feature.tiers[tier] === true ? 'Included' : 'Not included'} in {tier}
+                                                        {feature.tiers[tier] === true ? "Included" : "Not included"} in {tier}
                                                     </span>
                                                 </>
                                             )}

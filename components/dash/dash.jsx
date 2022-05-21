@@ -42,7 +42,7 @@ export function Page({ guildId, error, user, guild, entitlements, children, page
                         The Cleaner is not in this server or 
                     </p>
                     <p className="text-center text-gray-200">
-                        you don't have access to it.
+                        you don&apos;t have access to it.
                     </p>
                     <InternalLink href="/dash/" className="mt-12">
                         Dashboard

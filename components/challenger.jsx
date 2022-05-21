@@ -15,7 +15,7 @@ export default function Challenger({ baseUrl, field, createOAuthRedirect, single
     const [state, setState] = useState({ stage: 0 });
 
     useEffect(() => {
-        if(!router.isReady) return;
+        if(!router.isReady || state.stage > 0) return;
         const value = router.query[field];
         let state_ = {...state};
         if(router.query.splash) {
@@ -40,7 +40,7 @@ export default function Challenger({ baseUrl, field, createOAuthRedirect, single
             }
             setState({ stage: response.data.is_valid ? 2 : 6, ...response.data });
         })()
-    }, [router]);
+    }, [router, baseUrl, field, state]);
 
     const overlayStyle = state.splash ? "p-8 bg-gray-700 rounded-lg shadow-xl" : "";
 

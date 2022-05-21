@@ -41,7 +41,7 @@ function CreateRemoteAuth() {
                 Danger!
             </h1>
             <p className="mb-12 text-center">
-                Giving someone this URL or QR-Code will give them <b>full control</b> over The Cleaner's settings.
+                Giving someone this URL or QR-Code will give them <b>full control</b> over The Cleaner&apos;s settings.
             </p>
             {state.stage === 0 && <div className="grid grid-cols-3 gap-4 mx-auto w-96">
                 <Link href="/">
@@ -112,6 +112,7 @@ function UseRemoteAuth({ code }) {
     const [error, setError] = useState();
     const router = useRouter();
     useEffect(() => {
+        if(!router.isReady) return;
         (async () => {
             let response;
             try {
@@ -122,14 +123,14 @@ function UseRemoteAuth({ code }) {
             localStorage.setItem("token", response.data.token);
             router.push("/dash");
         })();
-    }, [code]);
+    }, [router, code]);
     return (
         <div className="--container">
             <h1 className="mt-20 mb-10 text-4xl font-bold text-center">
                 {error ? "Aw snap" : "Logging in..."}
             </h1>
             {error ? <ErrorHandler error={error} /> : <p className="mb-12 text-center">
-                Give us a bit... we're logging you in...
+                Give us a bit... we&apos;re logging you in...
             </p>}
         </div>
     )

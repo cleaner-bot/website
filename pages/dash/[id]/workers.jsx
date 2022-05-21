@@ -47,7 +47,7 @@ function WorkersDashboard({ config, setConfig, entitlements, guildId }) {
                         name="Upload worker code"
                         description={<>
                             Type your worker code.
-                            It is currently not possible to retrieve your worker's source.{" "}
+                            It is currently not possible to retrieve your worker&apos;s source.{" "}
                             <Link href="/docs/worker#api">
                                 <a className="font-bold hover:underline">
                                     API docs.

@@ -194,7 +194,7 @@ function Profile({ user, guildId, entitlements }) {
         name: user ? user.name : "Loading name...",
         text: "View servers",
         href: "/dash/",
-        image: user && <UserIcon user={user} />,
+        image: user && <UserAvatar user={user} />,
     })
     return (
         <>
@@ -217,14 +217,14 @@ function Profile({ user, guildId, entitlements }) {
     )
 }
 
-function UserIcon({ user }) {
+function UserAvatar({ user }) {
     if(!user.avatar)
-        return <Image src={`https://cdn.discordapp.com/embed/avatars/${user.discriminator % 5}.png`} className="rounded-full w-9 h-9 bg-gray-810" />
+        return <Image src={`https://cdn.discordapp.com/embed/avatars/${user.discriminator % 5}.png`} className="rounded-full w-9 h-9 bg-gray-810" alt="User avatar" />
     const CDN_BASE = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}`;
     return (
         <picture>
             <source type="image/webp" data-srcset={`${CDN_BASE}.webp?size=64`} />
-            <img data-src={`${CDN_BASE}.png?size=64`} alt="" className="rounded-full w-9 h-9 lazyload bg-gray-810" />
+            <img data-src={`${CDN_BASE}.png?size=64`} className="rounded-full w-9 h-9 lazyload bg-gray-810" alt="User avatar" />
         </picture>
     )
 }
