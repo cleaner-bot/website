@@ -162,18 +162,6 @@ function ChallengeDashboard({ config, setConfig, entitlements, guild, guildId })
                     )}
                 </>}
             </Section>
-            {config.challenge_interactive_enabled && (
-                <Section
-                    name="Custom content"
-                    description="Customize messages, images and other content."
-                >
-                    This has been moved to <Link href={`/dash/${guildId}/branding`}>
-                        <a className="font-bold text-gray-300 hover:underline">
-                            branding
-                        </a>
-                    </Link>.
-                </Section>
-            )}
         </>
     )
 }
