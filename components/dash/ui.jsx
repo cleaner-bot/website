@@ -102,6 +102,7 @@ export function TextInput({ placeholder, value, setValue, className, maxLength }
                 onChange={event => setValue(event.target.value)}
                 className={clsx("bg-gray-800 hover:bg-gray-750 focus:bg-gray-750 px-3 py-1 rounded-lg w-full", className)}
                 maxLength={maxLength}
+                spellCheck={false}
             />
         </>
     )
