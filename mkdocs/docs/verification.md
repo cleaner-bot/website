@@ -46,4 +46,4 @@ Example: `https://cleanerbot.xyz/verify?guild=123456789012345678`
 
 ## Demo
 
-We have a demo server you can [checkout here](/verification/demo).
+We have a demo server you can [checkout here](/demo/verification).
