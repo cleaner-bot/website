@@ -85,7 +85,7 @@ function LoggingDashboard({ config, setConfig, entitlements, guild, guildId }) {
                                     No logging channel selected.
                                 </Attention>
                             )}
-                            {config.channels &&
+                            {guild.channels &&
                                 (loggingChannel
                                     ? !(
                                           loggingChannel.permissions
