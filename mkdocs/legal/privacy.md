@@ -4,7 +4,7 @@
 
 With the following privacy policy we would like to explain to you which types of your personal data (hereinafter also referred to as "data" for short) we process for which purposes and to what extent. This privacy policy applies to all processing of personal data carried out by us through the use of our application „The Cleaner“ and the associated systems (hereinafter collectively referred to as "Service").
 
-Last updated April 09, 2022
+Last updated June 01, 2022
 
 ## Overview of the data processing
 
@@ -15,6 +15,8 @@ The following overview summarizes the types of data processed and the purposes o
 The Service "Dashboard" is a website frontend to administer technical parameters by administrators of the service "The Cleaner".
 
 Users have to receive an invitation to the Discord channels first (closed user group). A Discord Account has to be created under the [Privacy Policy of Discord first](https://discord.com/privacy) for this.
+
+Our website is protected by [Cloudflare](https://cloudflare.com), all traffic to our website is analyzed and filtered by Cloudflare. Their [privacy policy](https://www.cloudflare.com/privacypolicy/) applies.
 
 ### Categories of processed data
 
@@ -37,8 +39,8 @@ User information for "Dashboard", "Challenge" and "Verification" are:
 -   date of the account creation.
 -   user flags.
 -   link to avatar.
--   Discord premium (Nitro) status
--   list of the user's guilds (servers)
+-   Discord premium (Nitro) status.
+-   list of the user's guilds (servers).
 -   language.
 
 User information for "Radar" is:
@@ -81,7 +83,9 @@ If the data is not deleted because it is required for other legally permissible 
 
 Our data protection information may also contain further information on the storage and deletion of data, which have priority for the respective processing.
 
--   **Messages**: Generally messages are only kept for a minute but in special cases can be stored for up to 10 minutes. (anonymized messages may be kept for longer)
+-   **Messages**:
+    Generally messages are only kept for a minute but in special cases can be stored for up to 10 minutes. (anonymized messages may be kept for longer)
+    We offer storage of logs on our servers, in which case messages deleted by The Cleaner may be kept until the logs are removed from ours servers.
 
 ## Change and update of this privacy policy
 
