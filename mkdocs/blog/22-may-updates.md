@@ -1,4 +1,4 @@
-# May updates
+# May Updates
 
 Update time! We worked hard on several new features and improvements in May.
 
@@ -43,7 +43,7 @@ Automatic dehoisting will now also remove leading "!" when joining!
 - report logs actions taken to log now
 - a lot more logs support username#discriminator now
 - fixed a few dashboard bugs
-- dashboard slowmode shows channels it cant change
+- dashboard slowmode shows channels it can't change
 - database backups
 - improved internal security (secured database with password + more)
 - [workers](/docs/worker)
