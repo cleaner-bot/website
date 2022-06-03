@@ -37,13 +37,13 @@ Automatic dehoisting will now also remove leading "!" when joining!
 
 ## Other
 
-- firewall also runs on message edit now
-- bot now uses bulk delete to delete messages after and more consistently
-- fixed being able to report staff
-- report logs actions taken to log now
-- a lot more logs support username#discriminator now
-- fixed a few dashboard bugs
-- dashboard slowmode shows channels it can't change
-- database backups
-- improved internal security (secured database with password + more)
-- [workers](/docs/worker)
+-   firewall also runs on message edit now
+-   bot now uses bulk delete to delete messages after and more consistently
+-   fixed being able to report staff
+-   report logs actions taken to log now
+-   a lot more logs support username#discriminator now
+-   fixed a few dashboard bugs
+-   dashboard slowmode shows channels it can't change
+-   database backups
+-   improved internal security (secured database with password + more)
+-   [workers](/docs/worker)

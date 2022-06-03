@@ -55,137 +55,138 @@ without losing information.
   <summary>
     Typescript Defintions for <a href="https://typescripttolua.github.io/">TypescriptToLua</a>
   </summary>
+
 ```ts
-declare type integer = number // will only ever be a whole number
+declare type integer = number; // will only ever be a whole number
 
 declare interface Event {
-message_id: string
-channel_id: string
-guild_id: string
-member_id: string
-member_roles: Array<string>
-member_is_bot: boolean
-member_permissions: string
-member_is_owner: boolean
-content?: string
-attachments: Array<Attachment>
-embeds: Array<Embed>
-message_type: integer
-application_id?: string
-mention_everyone: boolean
-mention_users: Array<string>
-mention_roles: Array<string>
-mention_channels: Array<string>
-interaction?: Interaction
+    message_id: string;
+    channel_id: string;
+    guild_id: string;
+    member_id: string;
+    member_roles: Array<string>;
+    member_is_bot: boolean;
+    member_permissions: string;
+    member_is_owner: boolean;
+    content?: string;
+    attachments: Array<Attachment>;
+    embeds: Array<Embed>;
+    message_type: integer;
+    application_id?: string;
+    mention_everyone: boolean;
+    mention_users: Array<string>;
+    mention_roles: Array<string>;
+    mention_channels: Array<string>;
+    interaction?: Interaction;
 }
 
 declare interface Attachment {
-attachment_id: string
-filename: string
-content_type?: string
-size: integer
-url: string
-proxy_url: string
-height?: integer
-width?: integer
+    attachment_id: string;
+    filename: string;
+    content_type?: string;
+    size: integer;
+    url: string;
+    proxy_url: string;
+    height?: integer;
+    width?: integer;
 }
 
 declare interface Embed {
-title?: string
-description?: string
-url?: string
-timestamp?: integer
-color?: integer
-footer_text?: string
-footer_icon?: string
-image_url?: string
-image_height?: integer
-image_width?: integer
-thumbnail_url?: string
-thumbnail_height?: integer
-thumbnail_width?: integer
-video_url?: string
-video_height?: integer
-video_width?: integer
-provider_name?: string
-provider_url?: string
-author_name?: string
-author_url?: string
-author_icon?: string
-fields: Array<EmbedField>
+    title?: string;
+    description?: string;
+    url?: string;
+    timestamp?: integer;
+    color?: integer;
+    footer_text?: string;
+    footer_icon?: string;
+    image_url?: string;
+    image_height?: integer;
+    image_width?: integer;
+    thumbnail_url?: string;
+    thumbnail_height?: integer;
+    thumbnail_width?: integer;
+    video_url?: string;
+    video_height?: integer;
+    video_width?: integer;
+    provider_name?: string;
+    provider_url?: string;
+    author_name?: string;
+    author_url?: string;
+    author_icon?: string;
+    fields: Array<EmbedField>;
 }
 
 declare interface EmbedField {
-name: string
-value: string
-inline: boolean
+    name: string;
+    value: string;
+    inline: boolean;
 }
 
 declare interface Interaction {
-id: string
-type?: integer
-name: string
-user_id?: string
+    id: string;
+    type?: integer;
+    name: string;
+    user_id?: string;
 }
-
 ```
+
 </details>
 
-- message_id: string
-- channel_id: string
-- guild_id: string
-- member_id: string
-- member_roles: list[string]
-- member_is_bot: boolean
-- member_permissions: string
-- member_is_owner: boolean
-- content: ?string
-- attachments: list
-  - attachment_id: string
-  - filename: string
-  - content_type: ?string
-  - size: int
-  - url: string
-  - proxy_url: string
-  - height: ?int
-  - width: ?int
-- embeds: list
-  - title: ?string
-  - description: ?string
-  - url: ?string
-  - timestamp: ?int
-  - color: ?int
-  - footer_text: ?string
-  - footer_icon: ?string
-  - image_url: ?string
-  - image_height: ?int
-  - image_width: ?int
-  - thumbnail_url: ?string
-  - thumbnail_height: ?int
-  - thumbnail_width: ?int
-  - video_url: ?string
-  - video_height: ?int
-  - video_width: ?int
-  - provider_name: ?string
-  - provider_url: ?string
-  - author_name: ?string
-  - author_url: ?string
-  - author_icon: ?string
-  - fields: list
-    - name: string
-    - value: string
-    - inline: boolean
-- message_type: int
-- application_id: ?string
-- mention_everyone: boolean
-- mention_users: list[string]
-- mention_roles: list[string]
-- mention_channels: list[string]
-- interaction: table
-  - id: string
-  - type: ?int
-  - name: string
-  - user_id: ?string
+-   message_id: string
+-   channel_id: string
+-   guild_id: string
+-   member_id: string
+-   member_roles: list[string]
+-   member_is_bot: boolean
+-   member_permissions: string
+-   member_is_owner: boolean
+-   content: ?string
+-   attachments: list
+    -   attachment_id: string
+    -   filename: string
+    -   content_type: ?string
+    -   size: int
+    -   url: string
+    -   proxy_url: string
+    -   height: ?int
+    -   width: ?int
+-   embeds: list
+    -   title: ?string
+    -   description: ?string
+    -   url: ?string
+    -   timestamp: ?int
+    -   color: ?int
+    -   footer_text: ?string
+    -   footer_icon: ?string
+    -   image_url: ?string
+    -   image_height: ?int
+    -   image_width: ?int
+    -   thumbnail_url: ?string
+    -   thumbnail_height: ?int
+    -   thumbnail_width: ?int
+    -   video_url: ?string
+    -   video_height: ?int
+    -   video_width: ?int
+    -   provider_name: ?string
+    -   provider_url: ?string
+    -   author_name: ?string
+    -   author_url: ?string
+    -   author_icon: ?string
+    -   fields: list
+        -   name: string
+        -   value: string
+        -   inline: boolean
+-   message_type: int
+-   application_id: ?string
+-   mention_everyone: boolean
+-   mention_users: list[string]
+-   mention_roles: list[string]
+-   mention_channels: list[string]
+-   interaction: table
+    -   id: string
+    -   type: ?int
+    -   name: string
+    -   user_id: ?string
 
 ### actions
 
@@ -202,7 +203,6 @@ Possible return action (all optional):
   announcement_ttl = 0
 }
 ```
-
 
 `*` 3 blocks in an hour result in a challenge and might immediately issue a
 challenge in raid conditions.
@@ -228,7 +228,7 @@ return function(event)
     end
 end
 ```
- 
+
 ### Discord invite whitelist
 
 ```lua

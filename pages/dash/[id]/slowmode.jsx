@@ -18,7 +18,13 @@ export default function DashboardWrapper() {
 }
 
 function SlowmodeDashboard({ config, setConfig, guild, guildId }) {
-    const missingInChannels = guild.channels && guild.channels.filter(channel => !channel.permissions.ADMINISTRATOR && !channel.permissions.MANAGE_CHANNELS);
+    const missingInChannels =
+        guild.channels &&
+        guild.channels.filter(
+            (channel) =>
+                !channel.permissions.ADMINISTRATOR &&
+                !channel.permissions.MANAGE_CHANNELS
+        );
     return (
         <>
             <Header name="Slowmode">
@@ -34,14 +40,17 @@ function SlowmodeDashboard({ config, setConfig, guild, guildId }) {
                     guildId={guildId}
                     field="slowmode_enabled"
                 >
-                    {guild.channels && missingInChannels.length > 0 && <Attention>
-                        Missing permission to change slowmode in the following channels:
-                        <ul className="list-disc list-inside">
-                            {missingInChannels.map(channel => <li key={channel.id}>
-                                {channel.name}
-                            </li>)}
-                        </ul>
-                    </Attention>}
+                    {guild.channels && missingInChannels.length > 0 && (
+                        <Attention>
+                            Missing permission to change slowmode in the
+                            following channels:
+                            <ul className="list-disc list-inside">
+                                {missingInChannels.map((channel) => (
+                                    <li key={channel.id}>{channel.name}</li>
+                                ))}
+                            </ul>
+                        </Attention>
+                    )}
                 </ToggleBlock>
             </Section>
             <PlainBlock
