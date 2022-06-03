@@ -134,7 +134,7 @@ export default function Dashboard() {
                                     the <u>owner</u>, <u>adminstrators</u> and{" "}
                                     <u>server managers</u>.
                                 </p>
-                                <p className="pb-20 text-center text-gray-300 text-sm mt-2">
+                                <p className="pb-20 mt-2 text-sm text-center text-gray-300">
                                     It can take up to 30 seconds for your
                                     servers to update.
                                 </p>
@@ -268,7 +268,7 @@ function GuildButton({ guild }) {
                     const url = createOAuthRedirect({
                         bot: true,
                         guild: guild.id,
-                        with_admin: guild.is_admin,
+                        with_admin: guild.access_type < 2,
                     });
                     router.push(url);
                 }}
