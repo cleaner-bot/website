@@ -152,7 +152,7 @@ export default function Pricing() {
                     </div>
                     <Link href="/dash?component=plan">
                         <a className="mt-8 text-white --btn --btn-4 --btn-neutral">
-                            Select servert
+                            Select server
                         </a>
                     </Link>
                 </div>
