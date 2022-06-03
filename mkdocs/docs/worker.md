@@ -128,7 +128,7 @@ name: string
 user_id?: string
 }
 
-````
+```
 </details>
 
 - message_id: string
