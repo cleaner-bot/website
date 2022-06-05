@@ -19,7 +19,7 @@ export default function Challenger({
     const [state, setState] = useState({ stage: 0 });
 
     useEffect(() => {
-        if (!router.isReady || state.stage > 0) return;
+        if (!router.isReady || state.stage > 0 || state.error) return;
         const value = router.query[field];
         let state_ = { ...state };
         if (router.query.splash) {
