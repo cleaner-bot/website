@@ -7,12 +7,13 @@ import { useRouter } from "next/router";
 import { DiscordIconWhite } from "@/components/discord.jsx";
 import ErrorHandler from "@/components/dash/error.jsx";
 import { AXIOS, createAssetURL } from "@/lib/api.js";
+import Or from "@/components/or.jsx";
 
 export default function Challenger({
     baseUrl,
     field,
     createOAuthRedirect,
-    singleAccount,
+    challengeType,
 }) {
     const router = useRouter();
     const [state, setState] = useState({ stage: 0 });
@@ -76,7 +77,7 @@ export default function Challenger({
                 {state.stage === 1 && (
                     <div className={overlayStyle}>
                         <h1 className="text-4xl font-extrabold text-center">
-                            Login with Discord
+                            Are you human?
                         </h1>
                         <button
                             className="w-full mx-auto mt-12 sm:w-80 --btn --btn-4 --btn-primary"
@@ -90,8 +91,28 @@ export default function Challenger({
                             <DiscordIconWhite className="w-6 h-6 mr-4" />
                             Authorize with Discord
                         </button>
+                        {!state.captcha_required && localStorage.getItem("dev") === "true" && (
+                            <>
+                                <Or />
+                                <CaptchaFrame>
+                                    {state.show_the_captcha ? (
+                                        <Captcha />
+                                    ) : (
+                                        <button
+                                            className="w-full h-full --btn --btn-3 --btn-neutral"
+                                            onClick={() => {
+                                                setState({...state, show_the_captcha: true});
+                                            }}
+                                        >
+                                            Solve a CAPTCHA instead
+                                        </button>
+                                    )}
+                                </CaptchaFrame>
+                            </>
+                        )}
+
                         <p className="mt-6 text-center">
-                            By logging in you agree to our{" "}
+                            By continuing you agree to our{" "}
                             <Link href="/legal/terms">
                                 <a className="font-bold text-gray-300 hover:underline whitespace-nowrap">
                                     Terms of Service
@@ -149,7 +170,7 @@ export default function Challenger({
                             >
                                 Continue
                             </button>
-                            {!singleAccount && (
+                            {challengeType === "verification" && (
                                 <button
                                     className="--btn --btn-neutral --btn-3"
                                     onClick={() => {
@@ -168,34 +189,14 @@ export default function Challenger({
                     </div>
                 )}
                 {state.stage === 3 && (
-                    <div className="w-[303px] h-[78px] mx-auto mt-6 bg-gray-600 rounded">
-                        <HCaptcha
-                            sitekey="10613019-10d8-4d66-a2fb-e83e6e6c80b7"
-                            theme="dark"
-                            reCaptchaCompat={false}
-                            onVerify={async (token) => {
-                                setState({ ...state, stage: 4 });
-                                try {
-                                    await AXIOS.post(
-                                        baseUrl,
-                                        { token },
-                                        {
-                                            params: {
-                                                [field]: router.query[field],
-                                            },
-                                        }
-                                    );
-                                } catch (e) {
-                                    return setState({
-                                        ...state,
-                                        stage: 4,
-                                        error: e,
-                                    });
-                                }
-                                setState({ ...state, stage: 5 });
-                            }}
+                    <CaptchaFrame>
+                        <Captcha
+                            state={state}
+                            setState={setState}
+                            baseUrl={baseUrl}
+                            field={field}
                         />
-                    </div>
+                    </CaptchaFrame>
                 )}
                 {state.stage === 4 && (
                     <div className={overlayStyle}>
@@ -235,9 +236,9 @@ export default function Challenger({
                 {state.stage === 6 && (
                     <div className={overlayStyle}>
                         <h1 className="text-4xl font-extrabold text-center">
-                            {singleAccount
-                                ? "Wrong account?"
-                                : "No verification required"}
+                            {challengeType === "verification"
+                                ? "No verification required"
+                                : "Wrong account?"}
                         </h1>
                         <p className="mt-6 text-center text-gray-200">
                             Are you{" "}
@@ -267,4 +268,44 @@ export default function Challenger({
             </div>
         </div>
     );
+}
+
+function CaptchaFrame({ children }) {
+    return (
+        <div className="w-[303px] h-[78px] mx-auto mt-6 bg-gray-600 rounded">
+            {children}
+        </div>
+    )
+}
+
+function Captcha({ state, setState, baseUrl, field }) {
+    const router = useRouter();
+    return (
+        <HCaptcha
+            sitekey="10613019-10d8-4d66-a2fb-e83e6e6c80b7"
+            theme="dark"
+            reCaptchaCompat={false}
+            onVerify={async (token) => {
+                setState({ ...state, stage: 4 });
+                try {
+                    await AXIOS.post(
+                        baseUrl,
+                        { token },
+                        {
+                            params: {
+                                [field]: router.query[field],
+                            },
+                        }
+                    );
+                } catch (e) {
+                    return setState({
+                        ...state,
+                        stage: 4,
+                        error: e,
+                    });
+                }
+                setState({ ...state, stage: 5 });
+            }}
+        />
+    )
 }
