@@ -113,7 +113,7 @@ export default function Features() {
                         {feat.image ? (
                             <Image className="w-full" valt="" {...feat.image} /> // eslint-disable-line jsx-a11y/alt-text
                         ) : feat.links ? (
-                            <div className="m-auto space-y-2 w-96">
+                            <div className="w-full m-auto space-y-2 sm:w-96">
                                 {feat.links.map((link) => (
                                     <ExternalLink
                                         key={link.href}
