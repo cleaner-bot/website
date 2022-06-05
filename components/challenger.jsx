@@ -96,7 +96,12 @@ export default function Challenger({
                                 <Or />
                                 <CaptchaFrame>
                                     {state.show_the_captcha ? (
-                                        <Captcha />
+                                        <Captcha
+                                            state={state}
+                                            setState={setState}
+                                            baseUrl={baseUrl}
+                                            field={field}
+                                        />
                                     ) : (
                                         <button
                                             className="w-full h-full --btn --btn-3 --btn-neutral"
