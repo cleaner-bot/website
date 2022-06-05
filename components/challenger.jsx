@@ -91,7 +91,7 @@ export default function Challenger({
                             <DiscordIconWhite className="w-6 h-6 mr-4" />
                             Authorize with Discord
                         </button>
-                        {!state.captcha_required && localStorage.getItem("dev") === "true" && (
+                        {!state.captcha_required && localStorage.getItem("dev2") === "true" && (
                             <>
                                 <Or />
                                 <CaptchaFrame>
