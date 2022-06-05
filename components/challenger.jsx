@@ -106,7 +106,10 @@ export default function Challenger({
                                         <button
                                             className="w-full h-full --btn --btn-3 --btn-neutral"
                                             onClick={() => {
-                                                setState({...state, show_the_captcha: true});
+                                                setState({
+                                                    ...state,
+                                                    show_the_captcha: true,
+                                                });
                                             }}
                                         >
                                             Solve a CAPTCHA instead
@@ -280,7 +283,7 @@ function CaptchaFrame({ children }) {
         <div className="w-[303px] h-[78px] mx-auto mt-6 bg-gray-600 rounded">
             {children}
         </div>
-    )
+    );
 }
 
 function Captcha({ state, setState, baseUrl, field }) {
@@ -312,5 +315,5 @@ function Captcha({ state, setState, baseUrl, field }) {
                 setState({ ...state, stage: 5 });
             }}
         />
-    )
+    );
 }
