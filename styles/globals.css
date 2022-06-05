@@ -69,24 +69,6 @@ input[type="number"]::-webkit-inner-spin-button {
     @apply bg-rose-580 hover:bg-rose-630 disabled:bg-gray-580 disabled:hover:bg-gray-630 disabled:cursor-not-allowed;
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-    @apply rounded-full bg-stone-800;
-}
-
-::-webkit-scrollbar-track {
-    @apply bg-stone-900;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    @apply bg-stone-500;
-    overflow-x: hidden;
-}
-
 .--skeleton {
     -webkit-animation: animation-skeleton 1.2s ease-in-out infinite;
     animation: animation-skeleton 1.2s ease-in-out infinite;
