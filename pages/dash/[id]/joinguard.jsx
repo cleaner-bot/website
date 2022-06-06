@@ -19,10 +19,19 @@ export default function DashboardWrapper() {
     );
 }
 
-function JoinguardDashboard({ config, setConfig, entitlements, guild, guildId }) {
+function JoinguardDashboard({
+    config,
+    setConfig,
+    entitlements,
+    guild,
+    guildId,
+}) {
     return (
         <>
-            <Header name="Join Guard">Protect joins to your server and prevent bots from even entering it.</Header>
+            <Header name="Join Guard">
+                Protect joins to your server and prevent bots from even entering
+                it.
+            </Header>
 
             <Section>
                 <ToggleBlock
@@ -52,22 +61,24 @@ function JoinguardDashboard({ config, setConfig, entitlements, guild, guildId })
                             guild.myself.permissions.CREATE_INSTANT_INVITE
                         ) && (
                             <Attention>
-                                Missing permission to invite members! This feature
-                                will not work without it.
-                                Make sure I have the `Create Instant Invite` permission!
+                                Missing permission to invite members! This
+                                feature will not work without it. Make sure I
+                                have the `Create Instant Invite` permission!
                             </Attention>
                         )}
                 </ToggleBlock>
-                {config.joinguard_enabled && <>
-                    <ToggleBlock
-                        name="Force CAPTCHA"
-                        description="Forces everyone to complete a CAPTCHA."
-                        config={config}
-                        setConfig={setConfig}
-                        guildId={guildId}
-                        field="joinguard_captcha"
-                    />
-                </>}
+                {config.joinguard_enabled && (
+                    <>
+                        <ToggleBlock
+                            name="Force CAPTCHA"
+                            description="Forces everyone to complete a CAPTCHA."
+                            config={config}
+                            setConfig={setConfig}
+                            guildId={guildId}
+                            field="joinguard_captcha"
+                        />
+                    </>
+                )}
             </Section>
         </>
     );

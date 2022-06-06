@@ -70,7 +70,12 @@ const navigation = [
     { name: "Backup", id: "backup", icon: FolderIcon, entitlement: "backup" },
     { name: "Bot", id: "bot", icon: CubeTransparentIcon, restricted: true },
     { name: "Branding", id: "branding", icon: SparklesIcon, restricted: true },
-    { name: "Access", id: "access", icon: UserGroupIcon, entitlement: "access" },
+    {
+        name: "Access",
+        id: "access",
+        icon: UserGroupIcon,
+        entitlement: "access",
+    },
     { name: "Plan", id: "plan", icon: CreditCardIcon, restricted: true },
     { name: "Contact", id: "contact", icon: MailIcon, restricted: true },
     {
@@ -102,7 +107,7 @@ export default function Sidebar({
                 ? isDev
                 : x.entitlement
                 ? entitlements &&
-                     entitlements.plan >= entitlements[x.entitlement]
+                  entitlements.plan >= entitlements[x.entitlement]
                 : true)
     );
 

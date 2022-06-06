@@ -19,7 +19,8 @@ export default function Challenger({
     const [state, setState] = useState({ stage: 0 });
 
     useEffect(() => {
-        if (!router.isReady || state.stage > 0 || state.error || state.splash) return;
+        if (!router.isReady || state.stage > 0 || state.error || state.splash)
+            return;
         const value = router.query[field];
         let state_ = { ...state };
         if (router.query.splash) {
@@ -44,7 +45,7 @@ export default function Challenger({
                 }
                 return setState({ ...state_, error: e });
             }
-            if(service === "joinguard" && !response.data.has_join_scope)
+            if (service === "joinguard" && !response.data.has_join_scope)
                 return setState({ stage: 7, ...response.data });
             setState({
                 stage: response.data.is_valid ? 2 : 6,
@@ -82,7 +83,8 @@ export default function Challenger({
                             Are you human?
                         </h1>
                         <p className="mt-2 text-center font-gray-300">
-                            We need to make sure you that you are human, before you can gain access to this server.
+                            We need to make sure you that you are human, before
+                            you can gain access to this server.
                         </p>
                         <button
                             className="w-full mx-auto mt-12 sm:w-80 --btn --btn-4 --btn-primary"
@@ -147,7 +149,8 @@ export default function Challenger({
                             Are you human?
                         </h1>
                         <p className="mt-2 text-center font-gray-300">
-                            We need to make sure you that you are human, before you can gain access to this server.
+                            We need to make sure you that you are human, before
+                            you can gain access to this server.
                         </p>
                         <p className="mt-6 text-center text-gray-200">
                             Logged in as{" "}
@@ -186,7 +189,8 @@ export default function Challenger({
                             >
                                 Continue
                             </button>
-                            {(service === "verification" || service === "joinguard") && (
+                            {(service === "verification" ||
+                                service === "joinguard") && (
                                 <button
                                     className="--btn --btn-neutral --btn-3"
                                     onClick={() => {
@@ -229,7 +233,9 @@ export default function Challenger({
                     <>
                         <div className={overlayStyle}>
                             <h1 className="text-4xl font-extrabold text-center">
-                                {service === "joinguard" ? "Added to server!" : "Verified!"}
+                                {service === "joinguard"
+                                    ? "Added to server!"
+                                    : "Verified!"}
                             </h1>
                             <p className="mt-6 text-center">
                                 You can now close this tab and return to
@@ -287,7 +293,8 @@ export default function Challenger({
                             Missing permissions.
                         </h1>
                         <p className="mt-2 text-center font-gray-300">
-                            To continue we need you to grant us additional permissions.
+                            To continue we need you to grant us additional
+                            permissions.
                         </p>
                         <button
                             className="w-full mt-12 --btn --btn-primary --btn-3"
