@@ -2,7 +2,7 @@ import MetaTags from "@/components/metatags.jsx";
 import Challenger from "@/components/challenger.jsx";
 import { createOAuthRedirect } from "@/lib/api.js";
 
-export default function Verify() {
+export default function Challenge() {
     return (
         <>
             <MetaTags title="Challenge" />
@@ -12,7 +12,7 @@ export default function Verify() {
                 createOAuthRedirect={(flow, change) =>
                     createOAuthRedirect({ flow, change: change || false })
                 }
-                singleAccount={true}
+                service="challenge"
             />
         </>
     );

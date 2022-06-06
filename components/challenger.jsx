@@ -13,7 +13,7 @@ export default function Challenger({
     baseUrl,
     field,
     createOAuthRedirect,
-    challengeType,
+    service,
 }) {
     const router = useRouter();
     const [state, setState] = useState({ stage: 0 });
@@ -44,6 +44,8 @@ export default function Challenger({
                 }
                 return setState({ ...state_, error: e });
             }
+            if(service === "joinguard" && !response.data.has_join_scope)
+                return setState({ stage: 7, ...response.data });
             setState({
                 stage: response.data.is_valid ? 2 : 6,
                 ...response.data,
@@ -52,8 +54,8 @@ export default function Challenger({
     }, [router, baseUrl, field, state]);
 
     const overlayStyle = state.splash
-        ? "p-8 bg-gray-700 rounded-lg shadow-xl"
-        : "";
+        ? "p-8 bg-gray-700 rounded-lg shadow-xl max-w-lg"
+        : "max-w-lg ";
 
     return (
         <div
@@ -79,6 +81,9 @@ export default function Challenger({
                         <h1 className="text-4xl font-extrabold text-center">
                             Are you human?
                         </h1>
+                        <p className="mt-2 text-center font-gray-300">
+                            We need to make sure you that you are human, before you can gain access to this server.
+                        </p>
                         <button
                             className="w-full mx-auto mt-12 sm:w-80 --btn --btn-4 --btn-primary"
                             onClick={() => {
@@ -91,7 +96,7 @@ export default function Challenger({
                             <DiscordIconWhite className="w-6 h-6 mr-4" />
                             Authorize with Discord
                         </button>
-                        {!state.captcha_required && (
+                        {!state.captcha_required && service === "challenge" && (
                             <>
                                 <Or />
                                 <CaptchaFrame>
@@ -131,7 +136,7 @@ export default function Challenger({
                                 <a className="font-bold text-gray-300 hover:underline whitespace-nowrap">
                                     Privacy Policy
                                 </a>
-                            </Link>{" "}
+                            </Link>
                             .
                         </p>
                     </div>
@@ -139,8 +144,11 @@ export default function Challenger({
                 {state.stage === 2 && (
                     <div className={overlayStyle}>
                         <h1 className="text-4xl font-extrabold text-center">
-                            Discord account
+                            Are you human?
                         </h1>
+                        <p className="mt-2 text-center font-gray-300">
+                            We need to make sure you that you are human, before you can gain access to this server.
+                        </p>
                         <p className="mt-6 text-center text-gray-200">
                             Logged in as{" "}
                             <span className="text-blue-300">
@@ -178,7 +186,7 @@ export default function Challenger({
                             >
                                 Continue
                             </button>
-                            {challengeType === "verification" && (
+                            {(service === "verification" || service === "joinguard") && (
                                 <button
                                     className="--btn --btn-neutral --btn-3"
                                     onClick={() => {
@@ -221,7 +229,7 @@ export default function Challenger({
                     <>
                         <div className={overlayStyle}>
                             <h1 className="text-4xl font-extrabold text-center">
-                                Verified!
+                                {service === "joinguard" ? "Added to server!" : "Verified!"}
                             </h1>
                             <p className="mt-6 text-center">
                                 You can now close this tab and return to
@@ -244,7 +252,7 @@ export default function Challenger({
                 {state.stage === 6 && (
                     <div className={overlayStyle}>
                         <h1 className="text-4xl font-extrabold text-center">
-                            {challengeType === "verification"
+                            {service === "verification"
                                 ? "No verification required"
                                 : "Wrong account?"}
                         </h1>
@@ -270,6 +278,29 @@ export default function Challenger({
                         >
                             <DiscordIconWhite className="w-6 h-6 mr-4" />
                             Change account
+                        </button>
+                    </div>
+                )}
+                {state.stage === 7 && (
+                    <div className={overlayStyle}>
+                        <h1 className="text-4xl font-extrabold text-center">
+                            Missing permissions.
+                        </h1>
+                        <p className="mt-2 text-center font-gray-300">
+                            To continue we need you to grant us additional permissions.
+                        </p>
+                        <button
+                            className="w-full mt-12 --btn --btn-primary --btn-3"
+                            onClick={() => {
+                                const url = createOAuthRedirect(
+                                    router.query[field],
+                                    true
+                                );
+                                router.push(url);
+                            }}
+                        >
+                            <DiscordIconWhite className="w-6 h-6 mr-4" />
+                            Re-authorize with Discord
                         </button>
                     </div>
                 )}

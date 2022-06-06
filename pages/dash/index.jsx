@@ -234,6 +234,7 @@ function GuildButton({ guild }) {
         "dev",
         "firewall",
         "impersonation",
+        "joinguard",
         "logging",
         "plan",
         "report",

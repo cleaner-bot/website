@@ -8,6 +8,7 @@ import {
     ShieldCheckIcon,
     ClipboardCopyIcon,
     UserAddIcon,
+    UserGroupIcon,
     FilterIcon,
     FingerPrintIcon,
     LockClosedIcon,
@@ -51,6 +52,12 @@ const navigation = [
         icon: LockClosedIcon,
         entitlement: "verification",
     },
+    {
+        name: "Join Guard",
+        id: "joinguard",
+        icon: UserAddIcon,
+        entitlement: "joinguard",
+    },
     { name: "Logging", id: "logging", icon: ArchiveIcon },
     { name: "Impersonation", id: "impersonation", icon: IdentificationIcon },
     {
@@ -63,7 +70,7 @@ const navigation = [
     { name: "Backup", id: "backup", icon: FolderIcon, entitlement: "backup" },
     { name: "Bot", id: "bot", icon: CubeTransparentIcon, restricted: true },
     { name: "Branding", id: "branding", icon: SparklesIcon, restricted: true },
-    { name: "Access", id: "access", icon: UserAddIcon, entitlement: "access" },
+    { name: "Access", id: "access", icon: UserGroupIcon, entitlement: "access" },
     { name: "Plan", id: "plan", icon: CreditCardIcon, restricted: true },
     { name: "Contact", id: "contact", icon: MailIcon, restricted: true },
     {
@@ -95,7 +102,7 @@ export default function Sidebar({
                 ? isDev
                 : x.entitlement
                 ? entitlements &&
-                  entitlements.plan >= entitlements[x.entitlement]
+                     entitlements.plan >= entitlements[x.entitlement]
                 : true)
     );
 

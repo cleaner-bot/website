@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import Link from "next/link";
 
 import { useData } from "@/components/dash/data.jsx";
