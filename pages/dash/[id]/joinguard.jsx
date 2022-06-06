@@ -1,10 +1,7 @@
-import { useRouter } from "next/router";
-import Link from "next/link";
-
 import { useData } from "@/components/dash/data.jsx";
 import { Page, Header, Section } from "@/components/dash/dash.jsx";
 import { ToggleBlock } from "@/components/dash/block.jsx";
-import { OptionalUpgrade } from "@/components/dash/ui.jsx";
+import { Attention } from "@/components/dash/ui.jsx";
 import MetaTags from "@/components/metatags.jsx";
 
 export default function DashboardWrapper() {

@@ -52,7 +52,7 @@ export default function Challenger({
                 ...response.data,
             });
         })();
-    }, [router, baseUrl, field, state]);
+    }, [router, baseUrl, field, state, service]);
 
     const overlayStyle = state.splash
         ? "p-8 bg-gray-700 rounded-lg shadow-xl max-w-lg"
