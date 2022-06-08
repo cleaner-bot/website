@@ -194,22 +194,15 @@ Possible return action (all optional):
 
 ```lua
 {
-  delete = true,
-  challenge = true,
-  block = true,
-  reason = "reason",
-  log = "",
-  announcement = "",
-  announcement_ttl = 0
+  delete = true, -- delete message
+  challenge = true, -- challenge the author
+  block = true, -- will only challenge after 3 blocks or under raid conditions
+  reason = "reason", -- reason for delete/challenge (limited to 500 characters)
+  log = "", -- message to be logged (limited to 500 characters)
+  announcement = "", -- message to be sent in the same channel. may not send under raid conditions (limited to 1800 characters)
+  announcement_ttl = 0, -- automatically delete announcement after ttl seconds
 }
 ```
-
-`*` 3 blocks in an hour result in a challenge and might immediately issue a
-challenge in raid conditions.
-`**` Does NOT delete the message.
-`***` Announcement may not be sent in raid conditions.
-
-Note: reason/message is limited to 500 characters except for announcements which has a limit of 1800 characters.
 
 ## Examples
 
