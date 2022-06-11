@@ -56,7 +56,7 @@ export default function Challenger({
 
     const overlayStyle = state.splash
         ? "p-8 bg-gray-700 rounded-lg shadow-xl max-w-lg"
-        : "max-w-lg ";
+        : "max-w-lg";
 
     return (
         <div
@@ -126,7 +126,7 @@ export default function Challenger({
                             </>
                         )}
 
-                        <p className="mt-6 text-center">
+                        <p className="mt-12 text-center">
                             By continuing you agree to our{" "}
                             <Link href="/legal/terms">
                                 <a className="font-bold text-gray-300 hover:underline whitespace-nowrap">
@@ -141,6 +141,11 @@ export default function Challenger({
                             </Link>
                             .
                         </p>
+                        {service === "joinguard" && (
+                            <p className="text-center">
+                                You also allow The Cleaner to add you to servers.
+                            </p>
+                        )}
                     </div>
                 )}
                 {state.stage === 2 && (
@@ -206,6 +211,11 @@ export default function Challenger({
                                 </button>
                             )}
                         </div>
+                        {service === "joinguard" && (
+                            <p className="mt-12 text-center">
+                                By continuing you allow The Cleaner to add you to this server.
+                            </p>
+                        )}
                     </div>
                 )}
                 {state.stage === 3 && (
