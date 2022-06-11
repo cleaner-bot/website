@@ -19,7 +19,7 @@ const trustedBy = [
 export default function Home() {
     useEffect(() => {
         AOS.init();
-    });
+    }, []);
     return (
         <>
             <MetaTags
