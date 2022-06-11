@@ -332,7 +332,7 @@ function SidebarCategory({ category, guildId, current }) {
     return (
         <>
             <button
-                className="flex items-center justify-center w-full text-gray-300"
+                className="flex items-center justify-center w-full px-2 text-gray-300 rounded-full hover:bg-gray-700"
                 onClick={() => setHidden(!hidden)}
             >
                 <div className="flex-grow h-1 bg-gray-550" />
