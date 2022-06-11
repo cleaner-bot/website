@@ -23,7 +23,7 @@ export default function Challenger({
             return;
         const value = router.query[field];
         let state_ = { ...state };
-        if (router.query.splash) {
+        if (router.query.splash === "true") {
             state_.splash = createAssetURL("splash", value);
             setState(state_);
         }
