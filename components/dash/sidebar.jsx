@@ -93,7 +93,7 @@ const navigation = [
         ],
     },
     {
-        name: "Premium",
+        name: "Professional",
         components: [
             {
                 name: "Workers",
