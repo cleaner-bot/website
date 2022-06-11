@@ -74,6 +74,7 @@ const sections = [
                 tiers: { free: "Coming soon", pro: "Coming soon" },
             },
             { name: "Custom bot", tiers: { pro: "Coming soon" } },
+            { name: "Join Guard", tiers: { pro: "Coming soon" } },
         ],
     },
 ];
