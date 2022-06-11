@@ -12,7 +12,7 @@ import Footer from "@/components/footer.jsx";
 import Features from "@/components/features.jsx";
 
 const trustedBy = [
-    { name: "Servers", count: "80+" },
+    { name: "Servers", count: "100+" },
     { name: "Users", count: "150,000+" },
 ];
 
