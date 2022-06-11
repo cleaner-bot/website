@@ -118,17 +118,18 @@ const httpErrors = {
     fallback: function ErrorFallback({ error }) {
         return (
             <GenericErrorHandler
-                title={`${error.response.status}: ${error.response.statusText}`}
+                title={`HTTP Error ${error.response.status}`}
                 hasSupport={true}
             >
-                <p className="mt-6 text-center text-gray-200">
-                    Access to this resource failed.
-                </p>
-                {error.response.data && error.response.data.detail && (
-                    <p className="text-center text-gray-200">
+                {error.response.data && error.response.data.detail ? (
+                    <p className="mt-6 text-center text-gray-200">
                         {typeof error.response.data.detail === "string"
                             ? error.response.data.detail
                             : JSON.stringify(error.response.data.detail)}
+                    </p>
+                ) : (
+                    <p className="mt-6 text-center text-gray-200">
+                        Access to this resource failed.
                     </p>
                 )}
             </GenericErrorHandler>
