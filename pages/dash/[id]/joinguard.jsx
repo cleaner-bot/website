@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { useData } from "@/components/dash/data.jsx";
 import { Page, Header, Section } from "@/components/dash/dash.jsx";
 import { ToggleBlock } from "@/components/dash/block.jsx";
@@ -26,8 +28,19 @@ function JoinguardDashboard({
     return (
         <>
             <Header name="Join Guard">
-                Protect joins to your server and prevent bots from even entering
-                it.
+                <p>
+                    Protect joins to your server and prevent bots from even entering
+                    it.
+                </p>
+                <p>
+                    Read the{" "}
+                    <Link href="/docs/joinguard">
+                        <a className="font-bold text-gray-300 hover:underline">
+                            documentation
+                        </a>
+                    </Link>{" "}
+                    for more information and a setup guide.
+                </p>
             </Header>
 
             <Section>
