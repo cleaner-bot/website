@@ -24,6 +24,7 @@ import {
     MenuIcon,
     XIcon,
 } from "@heroicons/react/outline";
+import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/solid";
 import { useState, Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
@@ -34,55 +35,115 @@ import plans from "@/lib/plans.js";
 import { InternalLink } from "@/components/buttons.jsx";
 
 const navigation = [
-    { name: "General", id: "", icon: HomeIcon },
-    { name: "Statistics", id: "statistics", icon: ChartBarIcon },
-    { name: "Firewall", id: "firewall", icon: FilterIcon },
-    { name: "Anti Spam", id: "antispam", icon: ShieldCheckIcon },
     {
-        name: "Anti Raid",
-        id: "antiraid",
-        icon: UsersIcon,
-        entitlement: "antiraid",
-    },
-    { name: "Slowmode", id: "slowmode", icon: ClockIcon },
-    { name: "Challenge", id: "challenge", icon: FingerPrintIcon },
-    {
-        name: "Super Verification",
-        id: "verification",
-        icon: LockClosedIcon,
-        entitlement: "verification",
+        name: "General",
+        components: [
+            { name: "General", id: "", icon: HomeIcon },
+            { name: "Statistics", id: "statistics", icon: ChartBarIcon },
+            { name: "Logging", id: "logging", icon: ArchiveIcon },
+            {
+                name: "Backup",
+                id: "backup",
+                icon: FolderIcon,
+                entitlement: "backup",
+            },
+        ],
     },
     {
-        name: "Join Guard",
-        id: "joinguard",
-        icon: UserAddIcon,
-        entitlement: "joinguard",
+        name: "Security",
+        components: [
+            { name: "Firewall", id: "firewall", icon: FilterIcon },
+            { name: "Anti Spam", id: "antispam", icon: ShieldCheckIcon },
+            {
+                name: "Anti Raid",
+                id: "antiraid",
+                icon: UsersIcon,
+                entitlement: "antiraid",
+            },
+            {
+                name: "Impersonation",
+                id: "impersonation",
+                icon: IdentificationIcon,
+            },
+            { name: "Slowmode", id: "slowmode", icon: ClockIcon },
+            {
+                name: "Report",
+                id: "report",
+                icon: ClipboardCopyIcon,
+                entitlement: "report",
+            },
+        ],
     },
-    { name: "Logging", id: "logging", icon: ArchiveIcon },
-    { name: "Impersonation", id: "impersonation", icon: IdentificationIcon },
     {
-        name: "Report",
-        id: "report",
-        icon: ClipboardCopyIcon,
-        entitlement: "report",
+        name: "Verification",
+        components: [
+            { name: "Challenge", id: "challenge", icon: FingerPrintIcon },
+            {
+                name: "Super Verification",
+                id: "verification",
+                icon: LockClosedIcon,
+                entitlement: "verification",
+            },
+            {
+                name: "Join Guard",
+                id: "joinguard",
+                icon: UserAddIcon,
+                entitlement: "joinguard",
+            },
+        ],
     },
-    { name: "Workers", id: "workers", icon: CodeIcon, entitlement: "workers" },
-    { name: "Backup", id: "backup", icon: FolderIcon, entitlement: "backup" },
-    { name: "Bot", id: "bot", icon: CubeTransparentIcon, restricted: true },
-    { name: "Branding", id: "branding", icon: SparklesIcon, restricted: true },
     {
-        name: "Access",
-        id: "access",
-        icon: UserGroupIcon,
-        entitlement: "access",
+        name: "Premium",
+        components: [
+            {
+                name: "Workers",
+                id: "workers",
+                icon: CodeIcon,
+                entitlement: "workers",
+            },
+            {
+                name: "Bot",
+                id: "bot",
+                icon: CubeTransparentIcon,
+                restricted: true,
+            },
+            {
+                name: "Branding",
+                id: "branding",
+                icon: SparklesIcon,
+                restricted: true,
+            },
+            {
+                name: "Access",
+                id: "access",
+                icon: UserGroupIcon,
+                entitlement: "access",
+            },
+            {
+                name: "Plan",
+                id: "plan",
+                icon: CreditCardIcon,
+                restricted: true,
+            },
+            {
+                name: "Contact",
+                id: "contact",
+                icon: MailIcon,
+                restricted: true,
+            },
+        ],
     },
-    { name: "Plan", id: "plan", icon: CreditCardIcon, restricted: true },
-    { name: "Contact", id: "contact", icon: MailIcon, restricted: true },
     {
-        name: "Developer panel",
-        id: "dev",
-        icon: ExclamationIcon,
-        restricted: true,
+        name: "Dev tools",
+        defaultHidden: true,
+        components: [
+            {
+                name: "Developer panel",
+                id: "dev",
+                icon: ExclamationIcon,
+                restricted: true,
+            },
+        ],
     },
 ];
 
@@ -100,16 +161,21 @@ export default function Sidebar({
     const isSuspended =
         entitlements?.suspended > 0 && !(isDev && current === "dev");
 
-    const nav = navigation.filter(
-        (x) =>
-            x.id === current ||
-            (x.restricted
-                ? isDev
-                : x.entitlement
-                ? entitlements &&
-                  entitlements.plan >= entitlements[x.entitlement]
-                : true)
-    );
+    const nav = navigation
+        .map((nav) => ({
+            ...nav,
+            components: nav.components.filter(
+                (x) =>
+                    x.id === current ||
+                    (x.restricted
+                        ? isDev
+                        : x.entitlement
+                        ? entitlements &&
+                          entitlements.plan >= entitlements[x.entitlement]
+                        : true)
+            ),
+        }))
+        .filter((nav) => nav.components.length > 0);
 
     return (
         <>
@@ -163,48 +229,12 @@ export default function Sidebar({
                                     </div>
                                 </Transition.Child>
                                 <div className="flex-1 h-0 pt-5 pb-4 overflow-y-auto">
-                                    <div className="flex items-center flex-shrink-0 gap-2 px-4 text-2xl font-semibold text-gray-200 truncate">
-                                        <Image
-                                            src="/img/avatar.png"
-                                            alt=""
-                                            className="w-8 h-8 rounded-full bg-gray-750"
-                                        />
-                                        The Cleaner
-                                    </div>
-                                    <div className="flex-shrink-0 px-4 mt-2 truncate">
-                                        {guild ? (
-                                            guild.name
-                                        ) : (
-                                            <Skeleton className="h-6 rounded" />
-                                        )}
-                                    </div>
-                                    <nav className="px-2 mt-5 space-y-1">
-                                        {nav.map((item) => (
-                                            <Link
-                                                key={item.name}
-                                                href={`/dash/${guildId}/${item.id}`}
-                                            >
-                                                <a
-                                                    className={clsx(
-                                                        item.id === current
-                                                            ? "bg-gray-900 text-white"
-                                                            : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                                                        "group flex items-center px-2 py-2 text-base font-medium rounded-md"
-                                                    )}
-                                                >
-                                                    <item.icon
-                                                        className={clsx(
-                                                            item.id === current
-                                                                ? "text-gray-300"
-                                                                : "text-gray-400 group-hover:text-gray-300",
-                                                            "mr-4 flex-shrink-0 h-6 w-6"
-                                                        )}
-                                                    />
-                                                    {item.name}
-                                                </a>
-                                            </Link>
-                                        ))}
-                                    </nav>
+                                    <SidebarContent
+                                        navigation={nav}
+                                        guild={guild}
+                                        guildId={guildId}
+                                        current={current}
+                                    />
                                 </div>
                                 <Profile
                                     user={user}
@@ -224,48 +254,12 @@ export default function Sidebar({
                     {/* Sidebar component, swap this element with another sidebar if you like */}
                     <div className="flex flex-col flex-1 min-h-0 bg-gray-800">
                         <div className="flex flex-col flex-1 pt-5 pb-4 overflow-y-auto">
-                            <div className="flex items-center flex-shrink-0 gap-2 px-4 text-2xl font-semibold text-gray-200 truncate">
-                                <Image
-                                    src="/img/avatar.png"
-                                    alt=""
-                                    className="w-8 h-8 rounded-full bg-gray-750"
-                                />
-                                The Cleaner
-                            </div>
-                            <div className="flex-shrink-0 px-4 mt-2 truncate">
-                                {guild ? (
-                                    guild.name
-                                ) : (
-                                    <Skeleton className="h-6 rounded" />
-                                )}
-                            </div>
-                            <nav className="flex-1 px-2 mt-5 space-y-1">
-                                {nav.map((item) => (
-                                    <Link
-                                        key={item.id}
-                                        href={`/dash/${guildId}/${item.id}`}
-                                    >
-                                        <a
-                                            className={clsx(
-                                                item.id === current
-                                                    ? "bg-gray-900 text-white"
-                                                    : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                                                "group flex items-center px-2 py-2 text-sm font-medium rounded-md"
-                                            )}
-                                        >
-                                            <item.icon
-                                                className={clsx(
-                                                    item.id === current
-                                                        ? "text-gray-300"
-                                                        : "text-gray-400 group-hover:text-gray-300",
-                                                    "mr-3 flex-shrink-0 h-6 w-6"
-                                                )}
-                                            />
-                                            {item.name}
-                                        </a>
-                                    </Link>
-                                ))}
-                            </nav>
+                            <SidebarContent
+                                navigation={nav}
+                                guild={guild}
+                                guildId={guildId}
+                                current={current}
+                            />
                         </div>
                         <Profile
                             user={user}
@@ -301,6 +295,81 @@ export default function Sidebar({
                     </main>
                 </div>
             </div>
+        </>
+    );
+}
+
+function SidebarContent({ navigation, guild, guildId, current }) {
+    return (
+        <>
+            <div className="flex items-center flex-shrink-0 gap-2 px-4 text-2xl font-semibold text-gray-200 truncate">
+                <Image
+                    src="/img/avatar.png"
+                    alt=""
+                    className="w-8 h-8 rounded-full bg-gray-750"
+                />
+                The Cleaner
+            </div>
+            <div className="flex-shrink-0 px-4 mt-2 truncate">
+                {guild ? guild.name : <Skeleton className="h-6 rounded" />}
+            </div>
+            <nav className="flex-1 px-2 mt-5 space-y-1">
+                {navigation.map((category) => (
+                    <SidebarCategory
+                        category={category}
+                        guildId={guildId}
+                        current={current}
+                        key={category.name}
+                    />
+                ))}
+            </nav>
+        </>
+    );
+}
+
+function SidebarCategory({ category, guildId, current }) {
+    const [hidden, setHidden] = useState(category.defaultHidden ?? false);
+    return (
+        <>
+            <button
+                className="flex items-center justify-center w-full text-gray-300"
+                onClick={() => setHidden(!hidden)}
+            >
+                <div className="flex-grow h-1 bg-gray-550" />
+                <span className="px-4">{category.name}</span>
+                <div className="flex-grow h-1 bg-gray-550" />
+                {hidden ? (
+                    <ChevronDownIcon className="w-6 h-6" />
+                ) : (
+                    <ChevronUpIcon className="w-6 h-6" />
+                )}
+            </button>
+            {!hidden &&
+                category.components.map((component) => (
+                    <Link
+                        key={component.id}
+                        href={`/dash/${guildId}/${component.id}`}
+                    >
+                        <a
+                            className={clsx(
+                                component.id === current
+                                    ? "bg-gray-900 text-white"
+                                    : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                                "group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+                            )}
+                        >
+                            <component.icon
+                                className={clsx(
+                                    component.id === current
+                                        ? "text-gray-300"
+                                        : "text-gray-400 group-hover:text-gray-300",
+                                    "mr-3 flex-shrink-0 h-6 w-6"
+                                )}
+                            />
+                            {component.name}
+                        </a>
+                    </Link>
+                ))}
         </>
     );
 }
