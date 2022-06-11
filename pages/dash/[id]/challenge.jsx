@@ -146,7 +146,6 @@ function ChallengeDashboard({
                     <>
                         <PlainBlock
                             name="Interactive role settings"
-                            description="Give or take people who have to verify a role to deny them access to the server until they have verified."
                         >
                             <p className="mb-2 text-gray-200">
                                 The role that is{" "}
