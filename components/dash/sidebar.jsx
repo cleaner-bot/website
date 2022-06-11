@@ -47,6 +47,12 @@ const navigation = [
                 icon: FolderIcon,
                 entitlement: "backup",
             },
+            {
+                name: "Access",
+                id: "access",
+                icon: UserGroupIcon,
+                entitlement: "access",
+            },
         ],
     },
     {
@@ -112,12 +118,6 @@ const navigation = [
                 id: "branding",
                 icon: SparklesIcon,
                 restricted: true,
-            },
-            {
-                name: "Access",
-                id: "access",
-                icon: UserGroupIcon,
-                entitlement: "access",
             },
             {
                 name: "Plan",
