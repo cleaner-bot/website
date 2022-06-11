@@ -46,12 +46,14 @@ const navigation = [
                 id: "backup",
                 icon: FolderIcon,
                 entitlement: "backup",
+                beta: true,
             },
             {
                 name: "Access",
                 id: "access",
                 icon: UserGroupIcon,
                 entitlement: "access",
+                beta: true,
             },
         ],
     },
@@ -77,6 +79,7 @@ const navigation = [
                 id: "report",
                 icon: ClipboardCopyIcon,
                 entitlement: "report",
+                beta: true,
             },
         ],
     },
@@ -95,6 +98,7 @@ const navigation = [
                 id: "joinguard",
                 icon: UserAddIcon,
                 entitlement: "joinguard",
+                beta: true,
             },
         ],
     },
@@ -106,6 +110,7 @@ const navigation = [
                 id: "workers",
                 icon: CodeIcon,
                 entitlement: "workers",
+                beta: true,
             },
             {
                 name: "Bot",
@@ -367,6 +372,11 @@ function SidebarCategory({ category, guildId, current }) {
                                 )}
                             />
                             {component.name}
+                            {component.beta && (
+                                <span className="px-2 ml-auto rounded-full bg-indigo-550">
+                                    BETA
+                                </span>
+                            )}
                         </a>
                     </Link>
                 ))}
