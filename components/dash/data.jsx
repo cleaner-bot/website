@@ -1,8 +1,6 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { unstable_batchedUpdates } from "react-dom";
 
-import Sidebar from "@/components/dash/sidebar.jsx";
 import { InternalLink } from "@/components/buttons.jsx";
 import { createOAuthRedirect, getGuild, useGuild } from "@/lib/api.js";
 import ErrorHandler from "@/components/dash/error.jsx";
@@ -14,25 +12,6 @@ export function LoadingData() {
             <p className="mt-2 text-gray-200">
                 Loading data, please wait a little...
             </p>
-        </div>
-    );
-}
-
-function GuildNotFound() {
-    return (
-        <div className="w-full px-4 mx-auto mt-20 sm:w-96">
-            <h1 className="text-4xl font-medium text-center text-rose-400">
-                Server not found!
-            </h1>
-            <p className="mt-6 text-center text-gray-200">
-                The Cleaner is not in this server or
-            </p>
-            <p className="text-center text-gray-200">
-                you don&apos;t have access to it.
-            </p>
-            <InternalLink href="/dash/" className="mt-12">
-                Dashboard
-            </InternalLink>
         </div>
     );
 }
