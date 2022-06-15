@@ -5,7 +5,7 @@ import { useData } from "@/components/dash/data.jsx";
 import { Page, Header, Section } from "@/components/dash/dash.jsx";
 import MetaTags from "@/components/metatags.jsx";
 import { BlockWithPanel } from "@/components/dash/block.jsx";
-import { Dropdown, TextInput } from "@/components/dash/ui.jsx";
+import { Dropdown, TextInput, Attention } from "@/components/dash/ui.jsx";
 import { doChange, patchConfig } from "@/lib/api.js";
 import { PlainBlock } from "@/components/dash/block.jsx";
 import { MultiSelect } from "@/components/dash/ui.jsx";
@@ -62,6 +62,9 @@ function AccessDashboard({ guild, guildId, config, setConfig }) {
                     name="Whitelisted roles"
                     description="Roles which give access to the dashboard. This has priority over permissions checks."
                 >
+                    <Attention className="mb-6">
+                        This does not work currently.
+                    </Attention>
                     <MultiSelect
                         name="Roles:"
                         none="No roles."
