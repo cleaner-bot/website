@@ -11,52 +11,64 @@ const includedFeatures = [
     "Advanced settings + custom branding",
     "Log file downloads",
     "More than 20,000 members",
-    "Workers*",
+    "Workers",
+    "Join guard",
 ];
 const eligible = [
     "Verified & Partnered servers*",
-    "OG servers",
-    "FOSS servers",
+    "Early adopters of the bot (OG servers)",
+    "Servers of FOSS projects",
 ];
 
 const sections = [
     {
-        name: "Features",
+        name: "General",
         features: [
-            { name: "Anti Spam", tiers: { free: true, pro: true } },
-            { name: "Firewall", tiers: { free: true, pro: true } },
-            { name: "Phishing prevention", tiers: { free: true, pro: true } },
-            { name: "Automatic Slowmode", tiers: { free: true, pro: true } },
             { name: "Dashboard", tiers: { free: true, pro: true } },
             { name: "Logging", tiers: { free: true, pro: true } },
             { name: "Statistics", tiers: { free: true, pro: true } },
-            { name: "Anti Raid", tiers: { free: true, pro: true } },
-            { name: "Challenge & timeouts", tiers: { free: true, pro: true } },
-            { name: "Super Verification", tiers: { free: true, pro: true } },
-            {
-                name: "Report to server staff",
-                tiers: { free: "Early access", pro: "Early access" },
-            },
+            { name: "Automatic dehoisting", tiers: { free: true, pro: true } },
+            { name: "Discord impersonation", tiers: { free: true, pro: true } },
             { name: "Multiple languages", tiers: { free: true, pro: true } },
             {
                 name: "Member limit",
                 tiers: { free: "20,000 members *", pro: "Unlimited" },
             },
-        ],
-    },
-    {
-        name: "Miscellaneous",
-        features: [
-            { name: "Automatic dehoisting", tiers: { free: true, pro: true } },
-            { name: "Discord impersonation", tiers: { free: true, pro: true } },
-            { name: "Advanced impersonation", tiers: { pro: true } },
             {
                 name: "Support",
                 tiers: {
                     free: "Community",
-                    pro: "Dedicated (E-Mail, tickets, ...)",
+                    pro: "Community, E-Mail and Tickets",
                 },
             },
+        ]
+    },
+    {
+        name: "Security",
+        features: [
+            { name: "Anti Spam", tiers: { free: true, pro: true } },
+            { name: "Firewall", tiers: { free: true, pro: true } },
+            { name: "Phishing prevention", tiers: { free: true, pro: true } },
+            { name: "Automatic Slowmode", tiers: { free: true, pro: true } },
+            { name: "Challenge & timeouts", tiers: { free: true, pro: true } },
+            {
+                name: "Report to server staff",
+                tiers: { free: "Early access", pro: "Early access" },
+            },
+        ],
+    },
+    {
+        name: "Verification",
+        features: [
+            { name: "Anti Raid", tiers: { free: true, pro: true } },
+            { name: "Super Verification", tiers: { free: true, pro: true } },
+            { name: "Join Guard", tiers: { pro: "Early access" } },
+        ]
+    },
+    {
+        name: "Professional",
+        features: [
+            { name: "Advanced impersonation", tiers: { pro: true } },
             { name: "Log file downloads", tiers: { pro: true } },
             {
                 name: "Custom risk score / disabling security level",
@@ -64,7 +76,7 @@ const sections = [
             },
             { name: "Worker", tiers: { pro: "Early access" } },
             { name: "Branding", tiers: { pro: true } },
-        ],
+        ]
     },
     {
         name: "Upcoming features",
@@ -74,7 +86,6 @@ const sections = [
                 tiers: { free: "Coming soon", pro: "Coming soon" },
             },
             { name: "Custom bot", tiers: { pro: "Coming soon" } },
-            { name: "Join Guard", tiers: { pro: "Coming soon" } },
         ],
     },
 ];
@@ -119,9 +130,6 @@ export default function Pricing() {
                             </li>
                         ))}
                     </ul>
-                    <p className="mt-6 text-xs font-gray-300">
-                        * Early access, please contact us.
-                    </p>
                 </div>
                 <div className="flex-shrink-0 p-6 text-gray-900 bg-gray-100 rounded-b-lg lg:p-12 lg:rounded-bl-none lg:rounded-r-lg lg:w-80">
                     <p className="text-lg font-medium text-center">
@@ -193,9 +201,9 @@ export default function Pricing() {
                         Partner status.
                     </p>
                 </div>
-                <div className="flex-shrink-0 p-6 bg-gray-100 rounded-b-lg lg:p-12 lg:rounded-bl-none lg:rounded-r-lg lg:w-80">
+                <div className="flex items-center justify-center flex-shrink-0 p-6 bg-gray-100 rounded-b-lg lg:p-12 lg:rounded-bl-none lg:rounded-r-lg lg:w-80">
                     <Link href="/discord">
-                        <a className="mt-8 --btn --btn-4 --btn-neutral">
+                        <a className="w-full my-auto --btn --btn-4 --btn-neutral">
                             Apply
                         </a>
                     </Link>
