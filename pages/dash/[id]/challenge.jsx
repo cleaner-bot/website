@@ -144,9 +144,7 @@ function ChallengeDashboard({
                 </ToggleBlock>
                 {config.challenge_interactive_enabled && (
                     <>
-                        <PlainBlock
-                            name="Interactive role settings"
-                        >
+                        <PlainBlock name="Interactive role settings">
                             <p className="mb-2 text-gray-200">
                                 The role that is{" "}
                                 <b>

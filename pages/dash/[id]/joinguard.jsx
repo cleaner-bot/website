@@ -29,8 +29,8 @@ function JoinguardDashboard({
         <>
             <Header name="Join Guard">
                 <p>
-                    Protect joins to your server and prevent bots from even entering
-                    it.
+                    Protect joins to your server and prevent bots from even
+                    entering it.
                 </p>
                 <p>
                     Read the{" "}

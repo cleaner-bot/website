@@ -143,7 +143,8 @@ export default function Challenger({
                         </p>
                         {service === "joinguard" && (
                             <p className="text-center">
-                                You also allow The Cleaner to add you to servers.
+                                You also allow The Cleaner to add you to
+                                servers.
                             </p>
                         )}
                     </div>
@@ -213,7 +214,8 @@ export default function Challenger({
                         </div>
                         {service === "joinguard" && (
                             <p className="mt-12 text-center">
-                                By continuing you allow The Cleaner to add you to this server.
+                                By continuing you allow The Cleaner to add you
+                                to this server.
                             </p>
                         )}
                     </div>

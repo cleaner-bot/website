@@ -1,12 +1,11 @@
 # Join Guard
 
-> **Note**: Sceptical users may not want to join your server, because our bot 
-> requires the `guild.join` scope for this feature, which some people do not 
+> **Note**: Sceptical users may not want to join your server, because our bot
+> requires the `guild.join` scope for this feature, which some people do not
 > wish to grant to bots.
 
 Join Guard will guard all joins to come from The Cleaner and have verified
 their identity there.
-
 
 ## How does it work
 

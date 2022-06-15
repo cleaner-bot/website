@@ -41,7 +41,7 @@ const sections = [
                     pro: "Community, E-Mail and Tickets",
                 },
             },
-        ]
+        ],
     },
     {
         name: "Security",
@@ -63,7 +63,7 @@ const sections = [
             { name: "Anti Raid", tiers: { free: true, pro: true } },
             { name: "Super Verification", tiers: { free: true, pro: true } },
             { name: "Join Guard", tiers: { pro: "Early access" } },
-        ]
+        ],
     },
     {
         name: "Professional",
@@ -76,7 +76,7 @@ const sections = [
             },
             { name: "Worker", tiers: { pro: "Early access" } },
             { name: "Branding", tiers: { pro: true } },
-        ]
+        ],
     },
     {
         name: "Upcoming features",
