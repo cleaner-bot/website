@@ -169,7 +169,7 @@ export default function Pricing() {
                     </div>
                     <p className="mt-2 text-sm text-gray-200">
                         Pricing for {memberCount === 0 ? "0" : `${memberCount},000`} members: {" "}
-                        {roundNumber(5 + getMembersPricing(memberCount))}€/mo {roundNumber(50 + 12 * getMembersPricing(memberCount))}€/yr
+                        {roundNumber(5 + getMembersPricing(memberCount))}€/mo {roundNumber(50 + getMembersPricing(memberCount, true))}€/yr
                     </p>
                 </div>
                 <div className="flex-shrink-0 p-6 text-gray-900 bg-gray-100 rounded-b-lg lg:p-12 lg:rounded-bl-none lg:rounded-r-lg lg:w-80">
@@ -352,20 +352,22 @@ export default function Pricing() {
     );
 }
 
-function getMembersPricing(count) {
-    let total = 0;
+function getMembersPricing(count, multiply) {
+    let total = [];
     count -= 20; // first 20k are free
     if(count > 0) {
         // limit to 80k higher pricing
         const value = Math.min(count, 80);
-        total += value * 0.05;
+        total.push(value * 0.05);
         count -= value;
     }
     if(count > 0) {
         // divided by 10 cuz it's per 10k
-        total += 0.20 * Math.floor(count / 10);
+        total.push(0.20 * Math.floor(count / 10));
     }
-    return total;
+    if(multiply)
+        total = total.map((x, idx) => idx === total.length - 1 ? x * 12 : x * 10);
+    return total.reduce((a, b) => a + b, 0);
 }
 
 function roundNumber(number) {
