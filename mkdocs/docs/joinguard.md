@@ -22,4 +22,4 @@ Users that join through normal invites are immediately kicked.
 
 ## Demo
 
-We have a demo server you can [checkout here](/demo/joinguard).
+We have a demo server you can [check out here](/demo/joinguard).
