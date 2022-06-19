@@ -1,10 +1,11 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { CheckCircleIcon, CheckIcon, MinusIcon } from "@heroicons/react/solid";
 import Link from "next/link";
 
 import Footer from "@/components/footer.jsx";
 import MetaTags from "@/components/metatags.jsx";
 import Or from "@/components/or.jsx";
+import { Slider } from "@/components/dash/ui.jsx";
 
 const includedFeatures = [
     "Support (Discord & Mail)",
@@ -91,6 +92,7 @@ const sections = [
 ];
 
 export default function Pricing() {
+    const [memberCount, setMemberCount] = useState(0);
     return (
         <div className="py-16 --container">
             <MetaTags
@@ -130,13 +132,55 @@ export default function Pricing() {
                             </li>
                         ))}
                     </ul>
+                    <div className="flex items-center justify-center my-8">
+                        <h3 className="pr-4 text-sm font-semibold tracking-wider text-blue-300 uppercase">
+                            Pricing
+                        </h3>
+                        <div className="flex-grow h-1 rounded-full bg-gray-550" />
+                    </div>
+                    <p className="text-gray-200">
+                        Members pricing
+                    </p>
+                    <ul className="list-disc list-inside">
+                        <li className="text-sm text-gray-300">
+                            First 20,000 members are free.
+                        </li>
+                        <li className="text-sm text-gray-300">
+                            0.05€ per 1,000 members for members 20,000 - 100,000
+                        </li>
+                        <li className="text-sm text-gray-300">
+                            0.20€ per 10,000 members for all members after that
+                        </li>
+                    </ul>
+                    <p className="mt-4 text-gray-200">
+                        Pricing calculator
+                    </p>
+                    <div className="flex w-1/2">
+                        <span className="flex-none pr-8 text-sm text-gray-300">
+                            Member count
+                        </span>
+                        <Slider
+                            minValue={0}
+                            maxValue={1000}
+                            step={1}
+                            value={memberCount}
+                            setValue={setMemberCount}
+                        />
+                    </div>
+                    <p className="mt-2 text-sm text-gray-200">
+                        Pricing for {memberCount === 0 ? "0" : `${memberCount},000`} members: {" "}
+                        {roundNumber(5 + getMembersPricing(memberCount))}€/mo {roundNumber(50 + 12 * getMembersPricing(memberCount))}€/yr
+                    </p>
                 </div>
                 <div className="flex-shrink-0 p-6 text-gray-900 bg-gray-100 rounded-b-lg lg:p-12 lg:rounded-bl-none lg:rounded-r-lg lg:w-80">
                     <p className="text-lg font-medium text-center">
                         Pay yearly
                     </p>
-                    <div className="flex items-center justify-center mt-4 text-5xl font-extrabold">
-                        <span>40€</span>
+                    <p className="mt-4 text-center text-black">
+                        Starting at
+                    </p>
+                    <div className="flex items-center justify-center text-5xl font-extrabold">
+                        <span>50€</span>
                         <span className="flex flex-col ml-3 text-sm font-medium leading-3 text-gray-600">
                             <span>EUR</span>
                             <span>per year</span>
@@ -149,8 +193,11 @@ export default function Pricing() {
                     <p className="mt-2 text-lg font-medium text-center">
                         Pay monthly
                     </p>
-                    <div className="flex items-center justify-center mt-4 text-5xl font-extrabold">
-                        <span>6€</span>
+                    <p className="mt-4 text-center text-black">
+                        Starting at
+                    </p>
+                    <div className="flex items-center justify-center text-5xl font-extrabold">
+                        <span>5€</span>
                         <span className="flex flex-col ml-3 text-sm font-medium leading-3 text-gray-600">
                             <span>EUR</span>
                             <span>per month</span>
@@ -303,4 +350,23 @@ export default function Pricing() {
             <Footer />
         </div>
     );
+}
+
+function getMembersPricing(count) {
+    let total = 0;
+    count -= 20;
+    if(count > 0) {
+        const value = Math.min(count, 8);
+        total += value * 0.05;
+        count -= value;
+    }
+    if(count > 0) {
+        total += 0.20 * Math.floor(count / 10);
+    }
+    return total;
+}
+
+function roundNumber(number) {
+    const value = number.toString().split(".");
+    return `${value[0]}.${((value[1] || 0) + "00").substring(0, 2)}`;
 }
