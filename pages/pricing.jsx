@@ -343,7 +343,7 @@ export default function Pricing() {
                 </tbody>
             </table>
             <p className="mt-6 text-xs text-gray-300">
-                * We will automatically active a <b>free four week trial</b> if
+                * We will automatically activate a <b>free four week trial</b> if
                 your server has more than 20,000 members.
             </p>
             <div className="pb-8 mt-20 border-t border-gray-550" />
@@ -354,13 +354,15 @@ export default function Pricing() {
 
 function getMembersPricing(count) {
     let total = 0;
-    count -= 20;
+    count -= 20; // first 20k are free
     if(count > 0) {
+        // limit to 80k higher pricing
         const value = Math.min(count, 80);
         total += value * 0.05;
         count -= value;
     }
     if(count > 0) {
+        // divided by 10 cuz it's per 10k
         total += 0.20 * Math.floor(count / 10);
     }
     return total;
