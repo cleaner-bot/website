@@ -356,7 +356,7 @@ function getMembersPricing(count) {
     let total = 0;
     count -= 20;
     if(count > 0) {
-        const value = Math.min(count, 8);
+        const value = Math.min(count, 80);
         total += value * 0.05;
         count -= value;
     }
