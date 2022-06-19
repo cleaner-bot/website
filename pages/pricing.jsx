@@ -155,7 +155,7 @@ export default function Pricing() {
                     <p className="mt-4 text-gray-200">
                         Pricing calculator
                     </p>
-                    <div className="flex w-1/2">
+                    <div className="sm:flex sm:w-1/2">
                         <span className="flex-none pr-8 text-sm text-gray-300">
                             Member count
                         </span>
