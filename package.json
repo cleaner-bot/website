@@ -14,7 +14,7 @@
         "aos": "2.3.4",
         "autoprefixer": "10.4.7",
         "axios": "0.27.2",
-        "clsx": "1.1.1",
+        "clsx": "1.2.0",
         "hero-patterns": "2.1.0",
         "lazysizes": "5.3.2",
         "next": "12.2.0",
