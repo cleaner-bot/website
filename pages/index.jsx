@@ -12,8 +12,8 @@ import Footer from "@/components/footer.jsx";
 import Features from "@/components/features.jsx";
 
 const trustedBy = [
-    { name: "Servers", count: "100+" },
-    { name: "Users", count: "150,000+" },
+    { name: "Servers", count: "115+" },
+    { name: "Users", count: "175,000+" },
 ];
 
 export default function Home() {
