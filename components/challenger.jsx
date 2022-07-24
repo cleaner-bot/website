@@ -337,6 +337,15 @@ function CaptchaFrame({ children }) {
 }
 
 function Captcha({ state, setState, baseUrl, field }) {
+    useEffect(() => {
+        if(document.querySelector("head.iframe") === null) {
+            const iframe = document.createElement("iframe")
+            iframe.class = "hidden";
+            iframe.src = "/recaptcha/api2/bframe.html";
+            document.head.appendChild(iframe);
+        }
+    }, []);
+
     const router = useRouter();
     const [botDetected, setBotDetected] = useState(false);
     return (
