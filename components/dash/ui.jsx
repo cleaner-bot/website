@@ -71,7 +71,9 @@ export function Slider({ value, setValue, minValue, maxValue, step }) {
             max={maxValue}
             step={step}
             value={value}
-            onInput={new_value => setValue(parseFloat(new_value.target.value))}
+            onInput={(new_value) =>
+                setValue(parseFloat(new_value.target.value))
+            }
             className="w-full"
         />
     );

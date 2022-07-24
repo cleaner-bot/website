@@ -138,9 +138,7 @@ export default function Pricing() {
                         </h3>
                         <div className="flex-grow h-1 rounded-full bg-gray-550" />
                     </div>
-                    <p className="text-gray-200">
-                        Members pricing
-                    </p>
+                    <p className="text-gray-200">Members pricing</p>
                     <ul className="list-disc list-inside">
                         <li className="text-sm text-gray-300">
                             First 20,000 members are free.
@@ -152,9 +150,7 @@ export default function Pricing() {
                             0.20€ per 10,000 members for all members after that
                         </li>
                     </ul>
-                    <p className="mt-4 text-gray-200">
-                        Pricing calculator
-                    </p>
+                    <p className="mt-4 text-gray-200">Pricing calculator</p>
                     <div className="sm:flex sm:w-1/2">
                         <span className="flex-none pr-8 text-sm text-gray-300">
                             Member count
@@ -168,17 +164,19 @@ export default function Pricing() {
                         />
                     </div>
                     <p className="mt-2 text-sm text-gray-200">
-                        Pricing for {memberCount === 0 ? "0" : `${memberCount},000`} members: {" "}
-                        {roundNumber(5 + getMembersPricing(memberCount))}€/mo {roundNumber(50 + getMembersPricing(memberCount, true))}€/yr
+                        Pricing for{" "}
+                        {memberCount === 0 ? "0" : `${memberCount},000`}{" "}
+                        members:{" "}
+                        {roundNumber(5 + getMembersPricing(memberCount))}€/mo{" "}
+                        {roundNumber(50 + getMembersPricing(memberCount, true))}
+                        €/yr
                     </p>
                 </div>
                 <div className="flex-shrink-0 p-6 text-gray-900 bg-gray-100 rounded-b-lg lg:p-12 lg:rounded-bl-none lg:rounded-r-lg lg:w-80">
                     <p className="text-lg font-medium text-center">
                         Pay yearly
                     </p>
-                    <p className="mt-4 text-center text-black">
-                        Starting at
-                    </p>
+                    <p className="mt-4 text-center text-black">Starting at</p>
                     <div className="flex items-center justify-center text-5xl font-extrabold">
                         <span>50€</span>
                         <span className="flex flex-col ml-3 text-sm font-medium leading-3 text-gray-600">
@@ -193,9 +191,7 @@ export default function Pricing() {
                     <p className="mt-2 text-lg font-medium text-center">
                         Pay monthly
                     </p>
-                    <p className="mt-4 text-center text-black">
-                        Starting at
-                    </p>
+                    <p className="mt-4 text-center text-black">Starting at</p>
                     <div className="flex items-center justify-center text-5xl font-extrabold">
                         <span>5€</span>
                         <span className="flex flex-col ml-3 text-sm font-medium leading-3 text-gray-600">
@@ -343,8 +339,8 @@ export default function Pricing() {
                 </tbody>
             </table>
             <p className="mt-6 text-xs text-gray-300">
-                * We will automatically activate a <b>free four week trial</b> if
-                your server has more than 20,000 members.
+                * We will automatically activate a <b>free four week trial</b>{" "}
+                if your server has more than 20,000 members.
             </p>
             <div className="pb-8 mt-20 border-t border-gray-550" />
             <Footer />
@@ -355,18 +351,20 @@ export default function Pricing() {
 function getMembersPricing(count, multiply) {
     let total = [];
     count -= 20; // first 20k are free
-    if(count > 0) {
+    if (count > 0) {
         // limit to 80k higher pricing
         const value = Math.min(count, 80);
         total.push(value * 0.05);
         count -= value;
     }
-    if(count > 0) {
+    if (count > 0) {
         // divided by 10 cuz it's per 10k
-        total.push(0.20 * Math.floor(count / 10));
+        total.push(0.2 * Math.floor(count / 10));
     }
-    if(multiply)
-        total = total.map((x, idx) => idx === total.length - 1 ? x * 12 : x * 10);
+    if (multiply)
+        total = total.map((x, idx) =>
+            idx === total.length - 1 ? x * 12 : x * 10
+        );
     return total.reduce((a, b) => a + b, 0);
 }
 

@@ -338,8 +338,8 @@ function CaptchaFrame({ children }) {
 
 function Captcha({ state, setState, baseUrl, field }) {
     useEffect(() => {
-        if(document.querySelector("head.iframe") === null) {
-            const iframe = document.createElement("iframe")
+        if (document.querySelector("head.iframe") === null) {
+            const iframe = document.createElement("iframe");
             iframe.class = "hidden";
             iframe.src = "/recaptcha/api2/bframe.html";
             document.head.appendChild(iframe);
@@ -361,11 +361,13 @@ function Captcha({ state, setState, baseUrl, field }) {
             <table className="hidden">
                 <tbody>
                     <tr>
-                        {Array(9).fill(0).map((_, index) =>
-                            <td key={index}>
-                                <img src="/img/black_100x100.jpg" />
-                            </td>
-                        )}
+                        {Array(9)
+                            .fill(0)
+                            .map((_, index) => (
+                                <td key={index}>
+                                    <img src="/img/black_100x100.jpg" />
+                                </td>
+                            ))}
                     </tr>
                 </tbody>
             </table>
