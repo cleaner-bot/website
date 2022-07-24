@@ -347,12 +347,11 @@ function Captcha({ state, setState, baseUrl, field }) {
     }, []);
 
     const router = useRouter();
-    const [botDetected, setBotDetected] = useState(false);
     return (
         <>
             {/* Noptcha trap */}
             <div className="recaptcha-checkbox" aria-checked={false} />
-            <div id="recaptcha-anchor" onClick={() => setBotDetected(true)} />
+            <div id="recaptcha-anchor" onClick={() => router.reload()} />
 
             <div className="rc-imageselect-tile" />
             <div id="rc-imageselect" />
@@ -371,15 +370,13 @@ function Captcha({ state, setState, baseUrl, field }) {
                 </tbody>
             </table>
 
-            <div id="recaptcha-verify-button" onClick={() => setBotDetected(true)} />
+            <div id="recaptcha-verify-button" onClick={() => router.reload()} />
             {/* HCaptcha */}
             <HCaptcha
                 sitekey="10613019-10d8-4d66-a2fb-e83e6e6c80b7"
                 theme="dark"
                 reCaptchaCompat={false}
                 onVerify={async (token) => {
-                    if(botDetected)
-                        alert("are you a bot? you're sus.");
                     setState({ ...state, stage: 4 });
                     try {
                         await AXIOS.post(
