@@ -338,32 +338,60 @@ function CaptchaFrame({ children }) {
 
 function Captcha({ state, setState, baseUrl, field }) {
     const router = useRouter();
+    const [botDetected, setBotDetected] = useState(false);
     return (
-        <HCaptcha
-            sitekey="10613019-10d8-4d66-a2fb-e83e6e6c80b7"
-            theme="dark"
-            reCaptchaCompat={false}
-            onVerify={async (token) => {
-                setState({ ...state, stage: 4 });
-                try {
-                    await AXIOS.post(
-                        baseUrl,
-                        { token },
-                        {
-                            params: {
-                                [field]: router.query[field],
-                            },
-                        }
-                    );
-                } catch (e) {
-                    return setState({
-                        ...state,
-                        stage: 4,
-                        error: e,
-                    });
-                }
-                setState({ ...state, stage: 5 });
-            }}
-        />
+        <>
+            {/* Noptcha trap */}
+            <div className="recaptcha-checkbox" aria-checked={false} />
+            <div id="recaptcha-anchor" onClick={() => setBotDetected(true)} />
+
+            <div className="rc-imageselect-tile" />
+            <div id="rc-imageselect" />
+            <div className="hidden rc-imageselect-instructions">
+                Select all bullshit with{"\n"}cars
+            </div>
+            <table className="hidden">
+                <tbody>
+                    <tr>
+                        {Array(9).fill(0).map((_, index) =>
+                            <td key={index}>
+                                <img src="/img/black_100x100.jpg" />
+                            </td>
+                        )}
+                    </tr>
+                </tbody>
+            </table>
+
+            <div id="recaptcha-verify-button" onClick={() => setBotDetected(true)} />
+            {/* HCaptcha */}
+            <HCaptcha
+                sitekey="10613019-10d8-4d66-a2fb-e83e6e6c80b7"
+                theme="dark"
+                reCaptchaCompat={false}
+                onVerify={async (token) => {
+                    if(botDetected)
+                        alert("are you a bot? you're sus.");
+                    setState({ ...state, stage: 4 });
+                    try {
+                        await AXIOS.post(
+                            baseUrl,
+                            { token },
+                            {
+                                params: {
+                                    [field]: router.query[field],
+                                },
+                            }
+                        );
+                    } catch (e) {
+                        return setState({
+                            ...state,
+                            stage: 4,
+                            error: e,
+                        });
+                    }
+                    setState({ ...state, stage: 5 });
+                }}
+            />
+        </>
     );
 }
