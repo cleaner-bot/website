@@ -27,40 +27,21 @@ export default function Home() {
                 description="A bot built for keeping servers clean. Start protecting your server with The Cleaner now!"
             />
             <div className="--container">
-                <div className="flex flex-wrap justify-center mb-12">
-                    <h1 className="flex-none px-2 text-5xl font-extrabold sm:text-6xl">
-                        <Image
-                            className="hidden w-16 h-16 align-middle rounded-full md:inline-block"
-                            src="/img/avatar.png"
-                            width={256}
-                            height={256}
-                            alt=""
-                        />
-                        <span className="px-2 align-middle hover:border-b-4 border-b-indigo-600">
-                            The Cleaner
-                        </span>
-                    </h1>
-                    <div className="flex h-6 mt-2 space-x-2 md:mt-10">
-                        <Link href="/dash">
-                            <a className="inline-block px-1 align-bottom hover:border-b-2 border-b-indigo-600">
-                                Dashboard
-                            </a>
-                        </Link>
-                        <Link href="/discord">
-                            <a className="inline-block px-1 align-bottom hover:border-b-2 border-b-indigo-600">
-                                Discord
-                            </a>
-                        </Link>
-                        <Link href="/docs/">
-                            <a className="inline-block px-1 align-bottom hover:border-b-2 border-b-indigo-600">
-                                Documentation
-                            </a>
-                        </Link>
-                    </div>
-                </div>
+                <h1 className="flex items-center justify-center px-2 mt-10 text-5xl font-extrabold sm:text-6xl">
+                    <Image
+                        className="hidden w-16 h-16 align-middle rounded-full md:inline-block"
+                        src="/img/avatar.png"
+                        width={256}
+                        height={256}
+                        alt=""
+                    />
+                    <span className="px-2 align-middle hover:underline decoration-indigo-550 decoration-4 underline-offset-2">
+                        The Cleaner
+                    </span>
+                </h1>
                 <div className="grid grid-cols-1 gap-10 mt-20 sm:mt-40 xl:grid-cols-2">
                     <div className="m-auto">
-                        <h2 className="text-5xl font-extrabold leading-10 text-center sm:text-left">
+                        <h2 className="text-5xl font-extrabold leading-10 text-center">
                             A bot built for keeping servers clean
                         </h2>
                         <p className="mt-6 text-gray-100">

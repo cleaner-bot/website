@@ -82,7 +82,7 @@ export default function Footer({ className }) {
             </div>
             {footer.map((foot) => (
                 <div key={foot.name} className="mx-auto">
-                    <p className="text-sm text-gray-200">{foot.name}</p>
+                    <p className="mb-2 text-sm text-gray-200">{foot.name}</p>
                     <div>
                         {foot.links.map((link) => (
                             <Link href={link.href} key={link.href}>
