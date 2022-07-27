@@ -31,66 +31,56 @@ export function Stats({ stats }) {
                             {item.name}
                         </dt>
                         <dd>
-                            <div className="flex items-baseline justify-between mt-1 md:block lg:flex">
-                                <div className="flex items-baseline text-2xl font-semibold text-indigo-400">
-                                    {typeof item.stat === "number" ? (
-                                        formatNumber(item.stat)
-                                    ) : (
-                                        <>
-                                            {formatNumber(item.stat.now)}
-                                            <span className="ml-2 text-sm font-medium text-gray-400">
+                            <div className="flex justify-between">
+                                <div>
+                                    <p className="flex items-baseline text-sm font-medium text-gray-400">
+                                        <span className="mr-2 text-2xl font-semibold text-indigo-400">
+                                            {formatNumber(
+                                                typeof item.stat === "number"
+                                                    ? item.stat
+                                                    : item.stat.now
+                                            )}
+                                        </span>
+                                        {typeof item.stat !== "number" && (
+                                            <>
                                                 from{" "}
                                                 {formatNumber(
                                                     item.stat.previous
                                                 )}
-                                            </span>
-                                        </>
+                                            </>
+                                        )}
+                                    </p>
+                                    {typeof item.stat !== "number" && (
+                                        <p className="mt-2 text-xs font-medium text-gray-400">
+                                            All time total{" "}
+                                            {formatNumber(item.stat.total)}
+                                        </p>
                                     )}
                                 </div>
-
                                 {typeof item.stat !== "number" && (
-                                    <div
-                                        className={clsx(
-                                            item.stat.now === item.stat.previous
-                                                ? "bg-gray-100 text-gray-800"
-                                                : item.stat.now <=
-                                                  item.stat.previous
-                                                ? "bg-green-100 text-green-800"
-                                                : "bg-red-100 text-red-800",
-                                            "inline-flex items-baseline px-2.5 py-0.5 rounded-full text-sm font-medium md:mt-2 lg:mt-0"
-                                        )}
-                                    >
-                                        {item.stat.now ===
-                                        item.stat.previous ? (
-                                            <ArrowSmRightIcon className="-ml-1 mr-0.5 flex-shrink-0 self-center h-5 w-5 text-gray-500" />
-                                        ) : item.stat.now >
-                                          item.stat.previous ? (
-                                            <ArrowSmUpIcon className="-ml-1 mr-0.5 flex-shrink-0 self-center h-5 w-5 text-red-500" />
-                                        ) : (
-                                            <ArrowSmDownIcon className="-ml-1 mr-0.5 flex-shrink-0 self-center h-5 w-5 text-green-500" />
-                                        )}
-
-                                        <span className="sr-only">
-                                            {item.stat.now > item.stat.previous
-                                                ? "Increased"
-                                                : "Decreased"}{" "}
-                                            by
-                                        </span>
-                                        {formatNumber(
-                                            Math.abs(
-                                                item.stat.now -
-                                                    item.stat.previous
-                                            )
+                                    <div className="flex flex-col gap-1">
+                                        <IncreaseDecreaseBadge
+                                            value={
+                                                item.stat.previous -
+                                                item.stat.now
+                                            }
+                                        />
+                                        {item.stat.previous > 0 && (
+                                            <IncreaseDecreaseBadge
+                                                value={
+                                                    -Math.floor(
+                                                        (item.stat.now /
+                                                            item.stat
+                                                                .previous) *
+                                                            100
+                                                    ) + 100
+                                                }
+                                                suffix="%"
+                                            />
                                         )}
                                     </div>
                                 )}
                             </div>
-                            {typeof item.stat !== "number" && (
-                                <div className="mt-2 text-xs font-medium text-gray-400">
-                                    All time total{" "}
-                                    {formatNumber(item.stat.total)}
-                                </div>
-                            )}
                         </dd>
                     </div>
                 )
@@ -99,7 +89,37 @@ export function Stats({ stats }) {
     );
 }
 
+function IncreaseDecreaseBadge({ value, suffix }) {
+    return (
+        <div
+            className={clsx(
+                value === 0
+                    ? "bg-gray-100 text-gray-800"
+                    : value > 0
+                    ? "bg-green-100 text-green-800"
+                    : "bg-red-100 text-red-800",
+                "inline-flex items-baseline px-2.5 py-0.5 rounded-full text-sm font-medium md:mt-2 lg:mt-0"
+            )}
+        >
+            {value === 0 ? (
+                <ArrowSmRightIcon className="-ml-1 mr-0.5 flex-shrink-0 self-center h-5 w-5 text-gray-500" />
+            ) : value > 0 ? (
+                <ArrowSmDownIcon className="-ml-1 mr-0.5 flex-shrink-0 self-center h-5 w-5 text-green-500" />
+            ) : (
+                <ArrowSmUpIcon className="-ml-1 mr-0.5 flex-shrink-0 self-center h-5 w-5 text-red-500" />
+            )}
+
+            <span className="sr-only">
+                {value >= 0 ? "Increased" : "Decreased"} by
+            </span>
+            {formatNumber(Math.abs(value))}
+            {suffix}
+        </div>
+    );
+}
+
 function formatNumber(number) {
+    if (!isFinite(number)) return number;
     let [whole, fraction] = number.toString().split(".");
     whole = whole
         .split("")
