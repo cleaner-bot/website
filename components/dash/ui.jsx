@@ -117,25 +117,23 @@ export function Button({ text, onClick, disabled, className }) {
 }
 
 export function TextInput({
-    placeholder,
     value,
     setValue,
     className,
-    maxLength,
+    ...props
 }) {
     return (
         <>
             <input
                 type="text"
                 value={value}
-                placeholder={placeholder}
                 onChange={(event) => setValue(event.target.value)}
                 className={clsx(
-                    "bg-gray-800 hover:bg-gray-750 focus:bg-gray-750 px-3 py-1 rounded-lg w-full",
+                    "bg-gray-800 hover:bg-gray-750 focus:bg-gray-750 px-3 py-1 rounded-lg w-full disabled:cursor-not-allowed",
                     className
                 )}
-                maxLength={maxLength}
                 spellCheck={false}
+                {...props}
             />
         </>
     );
@@ -217,15 +215,21 @@ export function DropdownSearch({
     const [query, setQuery] = useState(
         values.find((x) => x.id === current)?.name || ""
     );
+    const [isFocused, setFocused] = useState(false);
     return (
-        <div className="relative group">
+        <div className="relative">
             <TextInput
                 placeholder={placeholder}
                 value={query}
                 setValue={setQuery}
                 changeOnInput={true}
+                onFocus={() => setFocused(true)}
+                onBlur={() => setTimeout(() => setFocused(false), 100)}
             />
-            <div className="hidden group-focus-within:block absolute z-20 top-[110%] bg-gray-800 w-full rounded-lg px-3 py-2 shadow">
+            <div className={clsx(
+                "absolute z-20 top-[110%] bg-gray-800 w-full rounded-lg px-3 py-2 shadow",
+                !isFocused && "hidden"
+            )}>
                 {values
                     .filter(({ name }) => name.indexOf(query) !== -1)
                     .map(({ name, id }) => (
