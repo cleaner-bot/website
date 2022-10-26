@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { useRouter } from "next/router";
-import Image from "next/future/image";
+import Image from "next/image";
 
 import Skeleton from "@/components/skeleton.jsx";
 import { Sidebar } from "@/components/dash/sitebar.jsx";

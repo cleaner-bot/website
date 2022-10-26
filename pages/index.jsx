@@ -3,7 +3,7 @@ import "aos/dist/aos.css";
 
 import { useEffect } from "react";
 import Link from "next/link";
-import Image from "next/future/image";
+import Image from "next/image";
 
 import MetaTags from "@/components/metatags.jsx";
 import { Pro } from "@/components/featurelist.jsx";

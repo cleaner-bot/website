@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { ExclamationCircleIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import Image from "next/future/image";
+import Image from "next/image";
 import clsx from "clsx";
 
 import Skeleton from "@/components/skeleton.jsx";

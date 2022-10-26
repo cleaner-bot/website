@@ -3,7 +3,7 @@ import { ExclamationIcon } from "@heroicons/react/24/outline";
 import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
 import { useRouter } from "next/router";
-import Image from "next/future/image";
+import Image from "next/image";
 
 import Skeleton from "@/components/skeleton.jsx";
 import plans from "@/lib/plans.js";
