@@ -52,10 +52,11 @@ export default function AntiSpamComponent({
                     settings instead of fully disabling them.
                 </p>
                 <p className="mt-6">
-                    <Link href="https://docs.cleanerbot.xyz/features/antispam/">
-                        <a className="font-bold text-gray-300 hover:underline">
-                            Read the docs for more information.
-                        </a>
+                    <Link
+                        href="https://docs.cleanerbot.xyz/features/antispam/"
+                        className="font-bold text-gray-300 hover:underline"
+                    >
+                        Read the docs for more information.
                     </Link>
                 </p>
             </Description>
