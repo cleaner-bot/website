@@ -1,130 +1,164 @@
+import Link from "next/link";
+
 import { Pro } from "@/components/featurelist.jsx";
-import Image from "@/components/image.jsx";
-import { ExternalLink } from "@/components/buttons.jsx";
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/20/solid";
+import {
+    UsersIcon,
+    ChartBarIcon,
+    ShieldCheckIcon,
+    UserPlusIcon,
+    FunnelIcon,
+    LockOpenIcon,
+    LockClosedIcon,
+    IdentificationIcon,
+    XMarkIcon,
+    ClipboardDocumentCheckIcon,
+} from "@heroicons/react/20/solid";
 
 const features = [
     {
-        name: "Automatic Spam Prevention",
-        description: (
-            <>
-                <p>
-                    Automatically detects spam using industry leading
-                    techniques.
-                </p>
-                <p>
-                    Automatically chooses the best Discord feature combat the
-                    spam. (timeout, kick, ban, etc)
-                </p>
-            </>
-        ),
+        name: "Anti Spam",
+        description: "Automatically detect and mitigate spam.",
         points: [
-            "Detection within seconds.",
-            "Automatically switches to banning if a large raid is detected.",
-            "Automatic adjustments to channel slowmode.",
+            "Detects all kinds of spam.",
+            "Automatic adjustments to channel slowmode to slow spam down.",
         ],
-        image: {
-            src: "/img/features/antispam.png",
-            width: 1270,
-            height: 1632,
-            alt: "Image of antispam in action.",
-        },
+        icon: ShieldCheckIcon,
     },
     {
-        name: "Phishing Prevention",
+        name: "Auto Moderator",
+        description: "Block unsocialized content in your server.",
+        points: [
+            "Protection against mass pings.",
+            "Protection against Discord invites.",
+            "Protection against broad pings. (@here and @everyone)",
+            "Protection against Phishing. (see more below)",
+            "Protection against certain selfbots.",
+        ],
+        icon: FunnelIcon,
+    },
+    {
+        name: "Phishing Protection",
         description:
-            "Automatically detects phishing, malware and other malicious content.",
+            "Auto Moderator automatically detects phishing, malware and other malicious content.",
         points: [
             "Huge database of past phishing waves.",
             "Advanced heuristics for previously unknown domains.",
-            "Preview embed detection",
+            "Using preview embeds to enhance detection",
         ],
-        image: {
-            src: "/img/features/phishing.png",
-            width: 1270,
-            height: 544,
-            alt: "Image of a message deleted by phishing prevention.",
-        },
+        icon: XMarkIcon,
+    },
+    {
+        name: "Anti Raid",
+        description: "Automatically fight & mitigate raids",
+        points: [
+            "Fully automatic",
+            "Handles big raids without fail",
+            "Customizable limits",
+        ],
+        icon: UsersIcon,
     },
     {
         name: "Verification",
         description: "Verification for new or bad behaving members.",
-        points: ["Discord Account Verification", "CAPTCHA Verification"],
-        image: {
-            src: "/img/features/verification.png",
-            width: 1270,
-            height: 702,
-            alt: "Image of the 'Verification required' embed",
-        },
+        points: [
+            "Passthrough for old accounts",
+            "In-discord CAPTCHA Verification",
+            "External hCAPTCHA Verification",
+        ],
+        icon: LockOpenIcon,
     },
     {
         name: "Super Verification",
-        description: "Prevents bots and raids from doing any harm.",
+        description:
+            "Verification using Discord's Moderation Level to prevent DMs while pending verification.",
         points: [
             "Prevents DMs while pending verification",
-            "Prevents all raids",
-            "No false positive kicks or bans during raids",
+            "Prevents all automated raids",
+            "Normal users unaffected by raids and can continue verifying",
+            "Supports hCAPTCHA Verification",
         ],
         links: [
-            { name: "Demo", href: "/demo/verification" },
-            { name: "Documentation", href: "/docs/verification" },
+            { name: "Demo", href: "/demo/super-verification" },
+            {
+                name: "Documentation",
+                href: "https://docs.cleanerbot.xyz/verification/super-verification",
+            },
         ],
+        icon: LockClosedIcon,
     },
     {
-        name: "Just... keep it clean",
-        description:
-            "Keep a lot of unsocialized content out of your server - by default.",
+        name: "Join Guard",
+        description: "Say goodbye to normal invites and bots.",
+        points: [
+            "Users join the server using the website",
+            "Bots get blocked on the website directly",
+            "Supports hCAPTCHA Verification",
+        ],
+        links: [
+            { name: "Demo", href: "/demo/joinguard" },
+            {
+                name: "Documentation",
+                href: "https://docs.cleanerbot.xyz/verification/joinguard",
+            },
+        ],
+        icon: UserPlusIcon,
+    },
+    {
+        name: "Name Checker",
+        description: "Checks the names of your users.",
         points: [
             "Automatic de-hoisting.",
-            "Protection against mass pings.",
-            "Protection against Discord invites.",
-            "Protection against broad pings. (@here and @everyone)",
-            "Prevent mass emoji usage. (disabled by default)",
+            "Kicks accounts impersonating Discord",
+            // "Blacklist content of usernames",
         ],
-        image: {
-            src: "/img/features/miscellaneous.png",
-            width: 1270,
-            height: 1464,
-            alt: "Image of various deleted messages.",
-        },
+        icon: IdentificationIcon,
+    },
+    {
+        name: "Link Filter",
+        description: "Checks all links send by users.",
+        points: ["Custom whitelist and blacklist.", "Block unknown links."],
+        icon: ClipboardDocumentCheckIcon,
+    },
+    {
+        name: "Statistics",
+        description: "Numbers go brrr",
+        points: [
+            "Per-server stats",
+            "Per-user stats (all servers you can manage)",
+            "Global stats",
+        ],
+        icon: ChartBarIcon,
     },
 ];
 
 export default function Features() {
     return (
-        <div className="space-y-40">
-            {features.map((feat, index) => (
-                <div
-                    className="grid lg:grid-cols-2 gap-y-10"
-                    data-aos="fade-up"
-                    key={feat.name}
-                >
-                    <div className="m-auto">
-                        <h2 className="mb-4 text-4xl font-bold leading-10">
-                            {feat.name}
-                        </h2>
-                        <div className="text-gray-100">{feat.description}</div>
-                        <div className="my-4 space-y-1">
-                            {feat.points.map((point) => (
-                                <Pro key={point}>{point}</Pro>
-                            ))}
-                        </div>
+        <div className="grid gap-10 lg:grid-cols-2">
+            {features.map((feat) => (
+                <div data-aos="fade-up" key={feat.name}>
+                    <h2 className="flex mb-4 text-4xl font-bold leading-10">
+                        {feat.icon && <feat.icon className="w-10 h-10 mr-2" />}
+                        {feat.name}
+                    </h2>
+                    <div className="text-gray-100">{feat.description}</div>
+                    <div className="my-4 space-y-1">
+                        {feat.points.map((point) => (
+                            <Pro key={point}>{point}</Pro>
+                        ))}
                     </div>
-                    <div className={index % 2 === 0 ? "lg:order-first" : ""}>
-                        {feat.image ? (
-                            <Image className="w-full" valt="" {...feat.image} /> // eslint-disable-line jsx-a11y/alt-text
-                        ) : feat.links ? (
-                            <div className="w-full m-auto space-y-2 sm:w-96">
-                                {feat.links.map((link) => (
-                                    <ExternalLink
-                                        key={link.href}
-                                        href={link.href}
-                                    >
+                    {feat.links && (
+                        <p className="flex gap-4">
+                            {feat.links.map((link) => (
+                                <Link href={link.href} key={link.href}>
+                                    <a className="flex items-center text-blue-300 hover:underline">
+                                        <ArrowTopRightOnSquareIcon className="w-5 h-5 mr-2" />
                                         {link.name}
-                                    </ExternalLink>
-                                ))}
-                            </div>
-                        ) : null}
-                    </div>
+                                    </a>
+                                </Link>
+                            ))}
+                        </p>
+                    )}
                 </div>
             ))}
         </div>

@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 
 import ErrorHandler from "@/components/dash/error.jsx";
 import MetaTags from "@/components/metatags.jsx";
-import { postOAuthCallback } from "@/lib/api.js";
+import { postOAuth2Finalize } from "@/lib/api.js";
 
 export default function OAuthComeback() {
     const [error, setError] = useState();
@@ -11,21 +11,35 @@ export default function OAuthComeback() {
     useEffect(() => {
         if (!router.isReady) return;
         const { code, state } = router.query;
-        if (!code || !state) {
-            router.push("/");
+        let redirect = state || `/dash`;
+        if (redirect.includes("://")) redirect = "/dash";
+        if (!code) {
+            router.push(redirect);
             return;
         }
+
+        const redirect_uri = new URL(window.location);
+        redirect_uri.search = "";
+        redirect_uri.hash = "";
 
         (async () => {
             let res;
             try {
-                res = await postOAuthCallback(code, state);
+                res = await postOAuth2Finalize(
+                    code,
+                    state || "",
+                    redirect_uri.toString()
+                );
             } catch (e) {
                 return setError(e);
             }
 
-            const { token, redirect } = res.data;
+            const { token, guild_id } = res.data;
             if (token) localStorage.setItem("token", token);
+            if (guild_id && redirect.startsWith("/dash"))
+                redirect = redirect.includes("#")
+                    ? redirect.replaceAll("#/", `#${guild_id}/`)
+                    : `/dash#${guild_id}`;
             router.push(redirect);
         })();
     }, [router]);

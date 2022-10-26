@@ -11,7 +11,7 @@ function GenericErrorHandler({ title, children, hasSupport }) {
             {hasSupport && (
                 <div className="flex justify-center">
                     <ExternalLink href="/discord" className="mt-12 w-96">
-                        Support (discord)
+                        Support (Discord)
                     </ExternalLink>
                 </div>
             )}
@@ -90,27 +90,29 @@ const httpErrors = {
         return (
             <GenericErrorHandler title="Too Many Requests" hasSupport={true}>
                 <p className="mt-6 text-center text-gray-200">
-                    Your network is sending too many requests!
+                    You are sending too many requests!
                 </p>
                 <p className="text-center text-gray-200">
-                    {retry_after_header
-                        ? `This page will refresh after ${
-                              Math.floor(retry_after_header / 1000) + 2
-                          } seconds...`
-                        : "Your access has been banned. Please contact support."}
+                    Your access has been temporarily restricted.
+                </p>
+                <p className="text-center text-gray-200">
+                    Please reload the page or contact support.
                 </p>
             </GenericErrorHandler>
         );
     },
     503: function Error503({ error }) {
-        window.location.reload();
+        setTimeout(() => window.location.reload(), 10000);
         return (
-            <GenericErrorHandler title="Too Many Requests" hasSupport={true}>
+            <GenericErrorHandler
+                title="Temporarily unavailable"
+                hasSupport={true}
+            >
                 <p className="mt-6 text-center text-gray-200">
-                    Temporarily unavailable
+                    Service temporarily unvailable
                 </p>
                 <p className="text-center text-gray-200">
-                    Your browser will automatically refresh.
+                    Your browser will automatically refresh in a few seconds.
                 </p>
             </GenericErrorHandler>
         );
@@ -142,7 +144,7 @@ function isNetworkError(error) {
 }
 
 export default function ErrorHandler({ error }) {
-    if (error.response) {
+    if (error.response && error.response.status !== 0) {
         const Handler =
             httpErrors[error.response.status] || httpErrors.fallback;
         return <Handler error={error} />;
@@ -153,8 +155,19 @@ export default function ErrorHandler({ error }) {
                 <p className="mt-6 text-center text-gray-200">
                     Failed to reach the server.
                 </p>
+                <p className="mt-6 text-center text-gray-200">
+                    Either our server is down, or our security systems blocked
+                    your request.
+                </p>
+                <p className="mt-6 text-center text-gray-200">
+                    Please reload the page or contact support.
+                </p>
             </GenericErrorHandler>
         );
     }
-    return null;
+    return (
+        <GenericErrorHandler title="Unhandled error" hasSupport={true}>
+            <p className="mt-6 text-center text-gray-200">{error.message}</p>
+        </GenericErrorHandler>
+    );
 }

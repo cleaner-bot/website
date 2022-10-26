@@ -1,18 +1,20 @@
 import { Fragment, useState } from "react";
-import { CheckCircleIcon, CheckIcon, MinusIcon } from "@heroicons/react/solid";
+import {
+    CheckCircleIcon,
+    CheckIcon,
+    MinusIcon,
+} from "@heroicons/react/24/solid";
 import Link from "next/link";
 
 import Footer from "@/components/footer.jsx";
 import MetaTags from "@/components/metatags.jsx";
-import Or from "@/components/or.jsx";
-import { Slider } from "@/components/dash/ui.jsx";
+import { Slider, HorizontalRule } from "@/components/dash/ui.jsx";
 
 const includedFeatures = [
     "Support (Discord & Mail)",
     "Advanced settings + custom branding",
     "Log file downloads",
     "More than 20,000 members",
-    "Workers",
     "Join guard",
 ];
 const eligible = [
@@ -75,19 +77,12 @@ const sections = [
                 name: "Custom risk score / disabling security level",
                 tiers: { pro: true },
             },
-            { name: "Worker", tiers: { pro: "Early access" } },
             { name: "Branding", tiers: { pro: true } },
         ],
     },
     {
         name: "Upcoming features",
-        features: [
-            {
-                name: "Backups",
-                tiers: { free: "Coming soon", pro: "Coming soon" },
-            },
-            { name: "Custom bot", tiers: { pro: "Coming soon" } },
-        ],
+        features: [{ name: "Custom bot", tiers: { pro: "Coming soon" } }],
     },
 ];
 
@@ -187,7 +182,7 @@ export default function Pricing() {
                     <div className="mt-6 text-center text-gray-800">
                         <p>Stripe & Coinbase</p>
                     </div>
-                    <Or />
+                    <HorizontalRule label="OR" />
                     <p className="mt-2 text-lg font-medium text-center">
                         Pay monthly
                     </p>
@@ -202,7 +197,7 @@ export default function Pricing() {
                     <div className="mt-6 text-center text-gray-800">
                         <p>Only Stripe</p>
                     </div>
-                    <Link href="/dash?component=plan">
+                    <Link href="/dash#/plan">
                         <a className="mt-8 text-white --btn --btn-4 --btn-neutral">
                             Select server
                         </a>

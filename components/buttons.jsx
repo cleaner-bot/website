@@ -1,28 +1,10 @@
 import {
     LinkIcon,
-    ExternalLinkIcon,
+    ArrowTopRightOnSquareIcon,
     ArrowRightIcon,
-} from "@heroicons/react/solid";
+} from "@heroicons/react/20/solid";
 import clsx from "clsx";
 import Link from "next/link";
-
-export function DefaultLink({ href, className, style, color, children }) {
-    return (
-        <Link href={href}>
-            <a
-                className={clsx(
-                    "--btn",
-                    style || "--btn-4",
-                    color || "--btn-primary",
-                    className
-                )}
-            >
-                {children}
-                <LinkIcon className="w-5 h-5 ml-3 -mr-1" />
-            </a>
-        </Link>
-    );
-}
 
 export function ExternalLink({ href, className, style, color, children }) {
     return (
@@ -36,7 +18,7 @@ export function ExternalLink({ href, className, style, color, children }) {
                 )}
             >
                 {children}
-                <ExternalLinkIcon className="w-5 h-5 ml-3 -mr-1" />
+                <ArrowTopRightOnSquareIcon className="w-5 h-5 ml-3 -mr-1" />
             </a>
         </Link>
     );

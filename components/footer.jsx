@@ -1,7 +1,6 @@
 import clsx from "clsx";
 import Link from "next/link";
-
-import Image from "@/components/image.jsx";
+import Image from "next/future/image";
 
 const footer = [
     {
@@ -9,30 +8,44 @@ const footer = [
         links: [
             { name: "Dashboard", href: "/dash/" },
             { name: "Discord", href: "/discord" },
-            { name: "Help desk", href: "/help/" },
+            { name: "Documentation", href: "https://docs.cleanerbot.xyz/" },
         ],
     },
     {
         name: "Features",
         links: [
-            { name: "Anti Spam", href: "/docs/features#raid-protection" },
+            {
+                name: "Anti Spam",
+                href: "https://docs.cleanerbot.xyz/features/antispam/",
+            },
             {
                 name: "Anti Phishing",
-                href: "/docs/featuress#phishing-prevention",
+                href: "https://docs.cleanerbot.xyz/features/automod/#phishing",
             },
-            { name: "Verification", href: "/docs/challenges" },
-            { name: "Super Verification", href: "/docs/verification" },
-            { name: "Anti Raid", href: "/docs/antiraid" },
-            { name: "Dehoisting", href: "/docs/dehoisting" },
+            {
+                name: "Verification",
+                href: "https://docs.cleanerbot.xyz/verification/verification/",
+            },
+            {
+                name: "Super Verification",
+                href: "https://docs.cleanerbot.xyz/verification/super-verification/",
+            },
+            {
+                name: "Anti Raid",
+                href: "https://docs.cleanerbot.xyz/features/antiraid/",
+            },
+            {
+                name: "Dehoisting",
+                href: "https://docs.cleanerbot.xyz/features/namechecker/",
+            },
         ],
     },
     {
         name: "Information",
         links: [
             { name: "About & Team", href: "/docs/about/" },
-            { name: "Documentation", href: "/docs/" },
-            { name: "Blog", href: "/blog/" },
-            { name: "Radar", href: "/radar/" },
+            { name: "Global Statistics", href: "/statistics" },
+            { name: "Blog", href: "https://blog.cleanerbot.xyz" },
             { name: "Status", href: "https://cleaner.instatus.com/" },
         ],
     },

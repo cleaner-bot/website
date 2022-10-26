@@ -1,4 +1,4 @@
-import { CheckIcon, XIcon } from "@heroicons/react/outline";
+import { CheckIcon, XIcon } from "@heroicons/react/20/solid";
 import clsx from "clsx";
 
 const sizes = {
