@@ -89,15 +89,19 @@ export function Slider({ value, setValue, minValue, maxValue, step }) {
 export function Upgrade({ plan, guildId }) {
     if (!plan || plan >= plans.length)
         return (
-            <Link href={`/dash/${guildId}/contact`}>
-                <a className="w-32 --btn --btn-3 --btn-primary">Contact us</a>
+            <Link
+                href={`/dash/${guildId}/contact`}
+                className="w-32 --btn --btn-3 --btn-primary"
+            >
+                Contact us
             </Link>
         );
     return (
-        <Link href={`/dash/${guildId}/plan`}>
-            <a className="min-w-[8rem] --btn --btn-3 --btn-primary">
-                Upgrade to {plans[plan]}
-            </a>
+        <Link
+            href={`/dash/${guildId}/plan`}
+            className="min-w-[8rem] --btn --btn-3 --btn-primary"
+        >
+            Upgrade to {plans[plan]}
         </Link>
     );
 }

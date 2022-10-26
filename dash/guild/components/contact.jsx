@@ -12,10 +12,11 @@ export default function ContactComponent({ user, entitlements, route }) {
                     name="Community Support"
                     description="Join the official Discord and receive help by the community. (staff may also respond, but no guarantees)"
                     panel={
-                        <Link href="/discord">
-                            <a className="--btn --btn-3 --btn-primary">
-                                Join Discord
-                            </a>
+                        <Link
+                            href="/discord"
+                            className="--btn --btn-3 --btn-primary"
+                        >
+                            Join Discord
                         </Link>
                     }
                 />
@@ -30,10 +31,11 @@ export default function ContactComponent({ user, entitlements, route }) {
                                     guildId={route.guildId}
                                     required={entitlements.contact_standard}
                                 >
-                                    <Link href="/discord">
-                                        <a className="--btn --btn-3 --btn-primary">
-                                            Join Discord
-                                        </a>
+                                    <Link
+                                        href="/discord"
+                                        className="--btn --btn-3 --btn-primary"
+                                    >
+                                        Join Discord
                                     </Link>
                                 </OptionalUpgrade>
                             }

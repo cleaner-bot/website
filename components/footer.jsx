@@ -60,34 +60,36 @@ export default function Footer({ className }) {
             )}
         >
             <div className="col-span-3 lg:col-span-1">
-                <Link href="/">
-                    <a className="block w-24 h-24 col-span-2 mx-auto rounded-full bg-gray-710 hover:bg-gray-650 --anim">
-                        <Image
-                            src="/img/avatar@96x96.png"
-                            alt="The Cleaner Logo"
-                            width={96}
-                            height={96}
-                        />
-                    </a>
+                <Link
+                    href="/"
+                    className="block w-24 h-24 col-span-2 mx-auto rounded-full bg-gray-710 hover:bg-gray-650 --anim"
+                >
+                    <Image
+                        src="/img/avatar@96x96.png"
+                        alt="The Cleaner Logo"
+                        width={96}
+                        height={96}
+                    />
                 </Link>
                 <div className="flex justify-center gap-4 mt-2">
-                    <Link href="/legal/terms">
-                        <a className="hover:underline">Terms</a>
+                    <Link href="/legal/terms" className="hover:underline">
+                        Terms
                     </Link>
-                    <Link href="/legal/privacy">
-                        <a className="hover:underline">Privacy</a>
+                    <Link href="/legal/privacy" className="hover:underline">
+                        Privacy
                     </Link>
-                    <Link href="/legal/impressum">
-                        <a className="hover:underline">Impressum</a>
+                    <Link href="/legal/impressum" className="hover:underline">
+                        Impressum
                     </Link>
                 </div>
                 <p className="mt-6 text-center text-gray-200">
                     Copyright &copy; 2021 - 2022
                 </p>
-                <Link href="https://github.com/le0developer">
-                    <a className="block text-center hover:underline">
-                        Leo Developer
-                    </a>
+                <Link
+                    href="https://github.com/le0developer"
+                    className="block text-center hover:underline"
+                >
+                    Leo Developer
                 </Link>
                 <p className="mt-2 text-center text-gray-200">
                     Not affiliated with Discord
@@ -98,10 +100,12 @@ export default function Footer({ className }) {
                     <p className="mb-2 text-sm text-gray-200">{foot.name}</p>
                     <div>
                         {foot.links.map((link) => (
-                            <Link href={link.href} key={link.href}>
-                                <a className="block hover:underline">
-                                    {link.name}
-                                </a>
+                            <Link 
+                                href={link.href}
+                                className="block hover:underline"
+                                key={link.href}
+                            >
+                                {link.name}
                             </Link>
                         ))}
                     </div>

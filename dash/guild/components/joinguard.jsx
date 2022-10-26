@@ -22,10 +22,11 @@ export default function JoinGuardComponent({
                 </p>
                 <p>
                     Read the{" "}
-                    <Link href="/docs/joinguard">
-                        <a className="font-bold text-gray-300 hover:underline">
-                            documentation
-                        </a>
+                    <Link
+                        href="/docs/joinguard"
+                        className="font-bold text-gray-300 hover:underline"
+                    >
+                        documentation
                     </Link>{" "}
                     for more information and a setup guide.
                 </p>

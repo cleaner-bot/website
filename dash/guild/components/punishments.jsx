@@ -21,11 +21,12 @@ export default function PunishmentsComponent({
                     to protect your server.
                 </p>
                 <p className="mt-2">
-                    Please see{" "}
-                    <Link href="https://docs.cleanerbot.xyz/misc/punishments/">
-                        <a className="font-bold font-gray-300 hover:underline">
-                            the docs
-                        </a>
+                    Please see the{" "}
+                    <Link
+                        href="https://docs.cleanerbot.xyz/misc/punishments/"
+                        className="font-bold font-gray-300 hover:underline"
+                    >
+                        documentation
                     </Link>{" "}
                     for more information.
                 </p>

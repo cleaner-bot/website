@@ -197,10 +197,8 @@ export default function Pricing() {
                     <div className="mt-6 text-center text-gray-800">
                         <p>Only Stripe</p>
                     </div>
-                    <Link href="/dash#/plan">
-                        <a className="mt-8 text-white --btn --btn-4 --btn-neutral">
-                            Select server
-                        </a>
+                    <Link href="/dash#/plan" className="mt-8 text-white --btn --btn-4 --btn-neutral">
+                        Select server
                     </Link>
                 </div>
             </div>
@@ -240,10 +238,8 @@ export default function Pricing() {
                     </p>
                 </div>
                 <div className="flex items-center justify-center flex-shrink-0 p-6 bg-gray-100 rounded-b-lg lg:p-12 lg:rounded-bl-none lg:rounded-r-lg lg:w-80">
-                    <Link href="/discord">
-                        <a className="w-full my-auto --btn --btn-4 --btn-neutral">
-                            Apply
-                        </a>
+                    <Link href="/discord" className="w-full my-auto --btn --btn-4 --btn-neutral">
+                        Apply
                     </Link>
                 </div>
             </div>

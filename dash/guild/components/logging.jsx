@@ -157,10 +157,9 @@ export default function LoggingComponent({
                                             download.{" "}
                                             <Link
                                                 href={`/dash/${guildId}/contact`}
+                                                className="hover:underline"
                                             >
-                                                <a className="hover:underline">
-                                                    Contact us
-                                                </a>
+                                                Contact us
                                             </Link>{" "}
                                             for downloads.
                                         </p>

@@ -100,17 +100,13 @@ function Login({ route }) {
                 </button>
                 <p className="mt-6 text-center">
                     By logging in you agree to our{" "}
-                    <Link href="/legal/terms">
-                        <a className="font-bold text-gray-300 hover:underline whitespace-nowrap">
-                            Terms of Service
-                        </a>
+                    <Link href="/legal/terms" className="font-bold text-gray-300 hover:underline whitespace-nowrap">
+                        Terms of Service
                     </Link>{" "}
                     and{" "}
-                    <Link href="/legal/privacy">
-                        <a className="font-bold text-gray-300 hover:underline whitespace-nowrap">
-                            Privacy Policy
-                        </a>
-                    </Link>{" "}
+                    <Link href="/legal/privacy" className="font-bold text-gray-300 hover:underline whitespace-nowrap">
+                        Privacy Policy
+                    </Link>
                     .
                 </p>
             </div>

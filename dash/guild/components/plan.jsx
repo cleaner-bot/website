@@ -187,10 +187,8 @@ export default function PlanComponent({ entitlements, route }) {
                             </button>
                         </>
                     )}
-                    <Link href="/pricing">
-                        <a className="hover:underline">
-                            Click here for more feature information.
-                        </a>
+                    <Link href="/pricing" className="hover:underline">
+                        Click here for more feature information.
                     </Link>
                 </PlainBlock>
                 <BlockWithPanel
@@ -200,18 +198,14 @@ export default function PlanComponent({ entitlements, route }) {
                         entitlements.partnered ? (
                             <Unlocked />
                         ) : (
-                            <Link href="/discord">
-                                <a className="--btn --btn-3 --btn-primary">
-                                    Apply
-                                </a>
+                            <Link href="/discord" className="--btn --btn-3 --btn-primary">
+                                Apply
                             </Link>
                         )
                     }
                 >
-                    <Link href="/pricing">
-                        <a className="hover:underline">
-                            Click here for more information.
-                        </a>
+                    <Link href="/pricing" className="hover:underline">
+                        Click here for more information.
                     </Link>
                 </BlockWithPanel>
             </Section>

@@ -41,15 +41,13 @@ export default function Home() {
                     </h1>
                     <div className="hidden gap-4 sm:flex">
                         {headerLinks.map((x) => (
-                            <Link href={x.href} key={x.href}>
-                                <a className="hover:underline">{x.name}</a>
+                            <Link href={x.href} key={x.href} className="hover:underline">
+                                {x.name}
                             </Link>
                         ))}
                     </div>
-                    <Link href="/dash">
-                        <a className="--btn --btn-primary --btn-3 !rounded-full">
-                            Open Dashboard
-                        </a>
+                    <Link href="/dash" className="--btn --btn-primary --btn-3 !rounded-full">
+                        Open Dashboard
                     </Link>
                 </div>
                 <h2 className="mt-20 text-5xl font-extrabold leading-10 text-center">

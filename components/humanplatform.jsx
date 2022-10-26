@@ -130,25 +130,28 @@ export function HumanPlatformPage({ title, payload, messages, userLogin }) {
             <div className="mt-12">
                 <p className="text-center">
                     By verifying you agree to our{" "}
-                    <Link href="/legal/terms">
-                        <a className="font-bold text-gray-300 hover:underline whitespace-nowrap">
-                            Terms of Service
-                        </a>
+                    <Link
+                        href="/legal/terms"
+                        className="font-bold text-gray-300 hover:underline whitespace-nowrap"
+                    >
+                        Terms of Service
                     </Link>{" "}
                     and{" "}
-                    <Link href="/legal/privacy">
-                        <a className="font-bold text-gray-300 hover:underline whitespace-nowrap">
-                            Privacy Policy
-                        </a>
+                    <Link
+                        href="/legal/privacy"
+                        className="font-bold text-gray-300 hover:underline whitespace-nowrap"
+                    >
+                        Privacy Policy
                     </Link>
                     .
                 </p>
                 <p className="text-center">
                     Protection provided by{" "}
-                    <Link href="/">
-                        <a className="font-bold text-gray-300 hover:underline whitespace-nowrap">
-                            The Cleaner
-                        </a>
+                    <Link
+                        href="/"
+                        className="font-bold text-gray-300 hover:underline whitespace-nowrap"
+                    >
+                        The Cleaner
                     </Link>
                     .
                 </p>

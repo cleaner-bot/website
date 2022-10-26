@@ -127,10 +127,11 @@ export default function AutoModComponent({
                     immediately issue a challenge.
                 </p>
                 <p className="mt-6">
-                    <Link href="https://docs.cleanerbot.xyz/features/automod/">
-                        <a className="font-bold text-gray-300 hover:underline">
-                            Read the docs for more information.
-                        </a>
+                    <Link
+                        href="https://docs.cleanerbot.xyz/features/automod/"
+                        className="font-bold text-gray-300 hover:underline"
+                    >
+                        Read the docs for more information.
                     </Link>
                 </p>
             </Description>
