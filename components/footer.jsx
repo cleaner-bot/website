@@ -72,13 +72,13 @@ export default function Footer({ className }) {
                     />
                 </Link>
                 <div className="flex justify-center gap-4 mt-2">
-                    <Link href="/legal/terms" className="hover:underline">
+                    <Link href="https://docs.cleanerbot.xyz/legal/terms" className="hover:underline">
                         Terms
                     </Link>
-                    <Link href="/legal/privacy" className="hover:underline">
+                    <Link href="https://docs.cleanerbot.xyz/legal/privacy/" className="hover:underline">
                         Privacy
                     </Link>
-                    <Link href="/legal/impressum" className="hover:underline">
+                    <Link href="https://docs.cleanerbot.xyz/legal/impressum/" className="hover:underline">
                         Impressum
                     </Link>
                 </div>
