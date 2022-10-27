@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import ErrorHandler from "@/components/dash/error.jsx";
 import { Section } from "@/components/dash/dash.jsx";
 import { PlainBlock, ToggleBlock } from "@/components/dash/block.jsx";
-import { MultilineTextInput, DropdownSearch } from "@/components/dash/ui.jsx";
+import { Attention, MultilineTextInput, DropdownSearch } from "@/components/dash/ui.jsx";
 import { doChange, getLinkFilterList, patchLinkFilterList } from "@/lib/api.js";
 
 export default function LinkFilterComponent({
