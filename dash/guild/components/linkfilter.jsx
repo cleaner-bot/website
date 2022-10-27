@@ -4,7 +4,7 @@ import ErrorHandler from "@/components/dash/error.jsx";
 import { Section } from "@/components/dash/dash.jsx";
 import { PlainBlock, ToggleBlock } from "@/components/dash/block.jsx";
 import { Attention, MultilineTextInput, DropdownSearch } from "@/components/dash/ui.jsx";
-import { doChange, getLinkFilterList, patchLinkFilterList } from "@/lib/api.js";
+import { doChange, patchConfig, getLinkFilterList, patchLinkFilterList } from "@/lib/api.js";
 
 export default function LinkFilterComponent({
     route,
@@ -90,7 +90,7 @@ export default function LinkFilterComponent({
                             messages and embeds in it.
                         </p>
                         {config.linkfilter_channel === "0" && (
-                            <Attention>No logging channel selected.</Attention>
+                            <Attention>No link filter channel selected.</Attention>
                         )}
                         {guild.channels &&
                             (linkFilterChannel
@@ -106,14 +106,14 @@ export default function LinkFilterComponent({
                                   ) && (
                                       <Attention>
                                           The Cleaner can not send messages and
-                                          embeds in the current logging channel.
+                                          embeds in the current link filter channel.
                                           Please select a new one or give me the
                                           missing permissions.
                                       </Attention>
                                   )
                                 : config.linkfilter_channel !== "0" && (
                                       <Attention>
-                                          The logging channel has been deleted.
+                                          The link filter channel has been deleted.
                                           Please select a new one.
                                       </Attention>
                                   ))}
