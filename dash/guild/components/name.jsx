@@ -5,33 +5,35 @@ import { PlainBlock, ToggleBlock } from "@/components/dash/block.jsx";
 import { TextInput, Attention } from "@/components/dash/ui.jsx";
 import { doChange, patchConfig } from "@/lib/api.js";
 
-const defaultAdvancedWords = ["mod", "bot", "help"];
-const defaultAdvancedSubwords = [
-    "admin",
-    "alert",
-    "announcement",
-    "binance",
-    "captcha",
-    "clonex",
-    "coinbase",
-    "collab",
-    "customer",
-    "desk",
-    "giveaway",
-    "guide",
-    "helper",
-    "metamask",
-    "moderator",
-    "mint",
-    "news",
-    "notification",
-    "presale",
-    "raffle",
-    "release",
-    "service",
-    "ticket",
-    "verification",
-    "verify",
+const defaultAdvancedWords = [
+    "mod",
+    "bot",
+    "help",
+    "*admin*",
+    "*alert*",
+    "*announcement*",
+    "*binance*",
+    "*captcha*",
+    "*clonex*",
+    "*coinbase*",
+    "*collab*",
+    "*customer*",
+    "*desk*",
+    "*giveaway*",
+    "*guide*",
+    "*helper*",
+    "*metamask*",
+    "*moderator*",
+    "*mint*",
+    "*news*",
+    "*notification*",
+    "*presale*",
+    "*raffle*",
+    "*release*",
+    "*service*",
+    "*ticket*",
+    "*verification*",
+    "*verify*",
 ];
 
 function containsAll(array1, array2) {
@@ -144,38 +146,9 @@ export default function NameCheckerComponent({
                 {config.name_advanced_enabled && (
                     <>
                         <Blacklist
-                            name="Blacklist: Partial words"
-                            description={
-                                <>
-                                    <p>
-                                        Partial words matches partial words (aka
-                                        substrings).
-                                    </p>
-                                    <p>
-                                        Example: `mod` blocks `moderator`,
-                                        `moderation`, `automod`.
-                                    </p>
-                                </>
-                            }
-                            field="name_advanced_subwords"
-                            defaultBlacklist={defaultAdvancedSubwords}
-                            config={config}
-                            updateConfig={updateConfig}
-                            guildId={route.guildId}
-                        />
-                        <Blacklist
-                            name="Blacklist: Full words"
-                            description={
-                                <>
-                                    <p>Fill words matches full words.</p>
-                                    <p>
-                                        Example: `mod` blocks `mod`, but not
-                                        `moderator`.
-                                    </p>
-                                </>
-                            }
+                            name="Blacklisted Words"
+                            description="You can use *-Wildcards at the start and beginning for partial matches."
                             field="name_advanced_words"
-                            defaultBlacklist={defaultAdvancedWords}
                             config={config}
                             updateConfig={updateConfig}
                             guildId={route.guildId}
@@ -194,7 +167,6 @@ function Blacklist({
     name,
     description,
     field,
-    defaultBlacklist,
 }) {
     const [hasChanged, setChanged] = useState(false);
     const [value, setValue] = useState("");
@@ -275,10 +247,10 @@ function Blacklist({
                 </button>
                 <button
                     className="--btn --btn-3 --btn-primary"
-                    disabled={containsAll(config[field], defaultBlacklist)}
+                    disabled={containsAll(config[field], defaultAdvancedWords)}
                     onClick={() => {
                         const blacklistCopy = [...config[field]];
-                        for (const word of defaultBlacklist) {
+                        for (const word of defaultAdvancedWords) {
                             if (blacklistCopy.indexOf(word) === -1)
                                 blacklistCopy.push(word);
                         }
