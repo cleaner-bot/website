@@ -106,7 +106,7 @@ export function HumanPlatformPage({ title, payload, messages, userLogin }) {
                             }}
                         >
                             <DiscordIconWhite className="w-6 h-6" />
-                            {messages.join}
+                            {messages.login}
                         </button>
                     ) : state.stage === 3 ? (
                         <CaptchaInfoText className="text-green-300">
