@@ -198,7 +198,10 @@ export default function PlanComponent({ entitlements, route }) {
                         entitlements.partnered ? (
                             <Unlocked />
                         ) : (
-                            <Link href="/discord" className="--btn --btn-3 --btn-primary">
+                            <Link
+                                href="/discord"
+                                className="--btn --btn-3 --btn-primary"
+                            >
                                 Apply
                             </Link>
                         )

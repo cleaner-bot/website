@@ -150,8 +150,9 @@ export default function Features() {
                     {feat.links && (
                         <p className="flex gap-4">
                             {feat.links.map((link) => (
-                                <Link 
-                                    href={link.href} key={link.href}
+                                <Link
+                                    href={link.href}
+                                    key={link.href}
                                     className="flex items-center text-blue-300 hover:underline"
                                 >
                                     <ArrowTopRightOnSquareIcon className="w-5 h-5 mr-2" />

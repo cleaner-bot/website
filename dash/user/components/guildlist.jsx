@@ -167,7 +167,10 @@ function Guild({ guild, ...props }) {
                 </span>
             )}
             {guild && guild.is_suspended && (
-                <Link href="https://docs.cleanerbot.xyz/misc/suspension#suspended-guild" className="absolute top-2 right-2">
+                <Link
+                    href="https://docs.cleanerbot.xyz/misc/suspension#suspended-guild"
+                    className="absolute top-2 right-2"
+                >
                     <ExclamationCircleIcon className="w-6 h-6 text-red-500" />
                 </Link>
             )}

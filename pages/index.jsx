@@ -41,12 +41,19 @@ export default function Home() {
                     </h1>
                     <div className="hidden gap-4 sm:flex">
                         {headerLinks.map((x) => (
-                            <Link href={x.href} key={x.href} className="hover:underline">
+                            <Link
+                                href={x.href}
+                                key={x.href}
+                                className="hover:underline"
+                            >
                                 {x.name}
                             </Link>
                         ))}
                     </div>
-                    <Link href="/dash" className="--btn --btn-primary --btn-3 !rounded-full">
+                    <Link
+                        href="/dash"
+                        className="--btn --btn-primary --btn-3 !rounded-full"
+                    >
                         Open Dashboard
                     </Link>
                 </div>

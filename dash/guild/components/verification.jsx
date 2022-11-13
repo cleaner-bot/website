@@ -109,7 +109,10 @@ export default function VerificationComponent({
                             />
                             <p className="my-6 text-sm text-gray-300">
                                 Role not listed?{" "}
-                                <Link href="https://docs.cleanerbot.xyz/misc/roles" className="font-bold text-gray-300 hover:underline">
+                                <Link
+                                    href="https://docs.cleanerbot.xyz/misc/roles"
+                                    className="font-bold text-gray-300 hover:underline"
+                                >
                                     Find out why.
                                 </Link>
                             </p>
@@ -122,8 +125,11 @@ export default function VerificationComponent({
                                           <Attention>
                                               The Cleaner can not control the
                                               current role.{" "}
-                                              <Link href="https://docs.cleanerbot.xyz/misc/roles" className="font-bold text-gray-300 hover:underline">
-                                                    Find out why.
+                                              <Link
+                                                  href="https://docs.cleanerbot.xyz/misc/roles"
+                                                  className="font-bold text-gray-300 hover:underline"
+                                              >
+                                                  Find out why.
                                               </Link>
                                           </Attention>
                                       )

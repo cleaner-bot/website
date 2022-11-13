@@ -12,7 +12,10 @@ export default function BSOD({ error }) {
                     This website ran into a problem and needs to be reloaded.
                 </p>
                 <div className="grid gap-x-4 gap-y-2 sm:grid-cols-2">
-                    <Link href="/discord" className="--btn --btn-3 --btn-neutral">
+                    <Link
+                        href="/discord"
+                        className="--btn --btn-3 --btn-neutral"
+                    >
                         Support
                     </Link>
                     {error && (

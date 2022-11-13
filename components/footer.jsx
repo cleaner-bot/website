@@ -72,13 +72,22 @@ export default function Footer({ className }) {
                     />
                 </Link>
                 <div className="flex justify-center gap-4 mt-2">
-                    <Link href="https://docs.cleanerbot.xyz/legal/terms" className="hover:underline">
+                    <Link
+                        href="https://docs.cleanerbot.xyz/legal/terms"
+                        className="hover:underline"
+                    >
                         Terms
                     </Link>
-                    <Link href="https://docs.cleanerbot.xyz/legal/privacy/" className="hover:underline">
+                    <Link
+                        href="https://docs.cleanerbot.xyz/legal/privacy/"
+                        className="hover:underline"
+                    >
                         Privacy
                     </Link>
-                    <Link href="https://docs.cleanerbot.xyz/legal/impressum/" className="hover:underline">
+                    <Link
+                        href="https://docs.cleanerbot.xyz/legal/impressum/"
+                        className="hover:underline"
+                    >
                         Impressum
                     </Link>
                 </div>
@@ -100,7 +109,7 @@ export default function Footer({ className }) {
                     <p className="mb-2 text-sm text-gray-200">{foot.name}</p>
                     <div>
                         {foot.links.map((link) => (
-                            <Link 
+                            <Link
                                 href={link.href}
                                 className="block hover:underline"
                                 key={link.href}

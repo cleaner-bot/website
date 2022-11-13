@@ -21,7 +21,10 @@ export default function SuperVerificationComponent({
         <>
             <Description>
                 Read the{" "}
-                <Link href="/docs/verification" className="font-bold text-gray-300 hover:underline">
+                <Link
+                    href="/docs/verification"
+                    className="font-bold text-gray-300 hover:underline"
+                >
                     documentation
                 </Link>{" "}
                 for more information and a setup guide.
@@ -36,7 +39,10 @@ export default function SuperVerificationComponent({
                     guildId={route.guildId}
                 >
                     <p>
-                        <Link href="/docs/verification#setup" className="font-bold text-gray-300 hover:underline">
+                        <Link
+                            href="/docs/verification#setup"
+                            className="font-bold text-gray-300 hover:underline"
+                        >
                             Click for Setup guide.
                         </Link>
                     </p>
@@ -108,7 +114,10 @@ export default function SuperVerificationComponent({
                             />
                             <p className="my-6 text-sm text-gray-300">
                                 Role not listed?{" "}
-                                <Link href="https://docs.cleanerbot.xyz/misc/roles" className="font-bold text-gray-300 hover:underline">
+                                <Link
+                                    href="https://docs.cleanerbot.xyz/misc/roles"
+                                    className="font-bold text-gray-300 hover:underline"
+                                >
                                     Find out why.
                                 </Link>
                             </p>
@@ -134,8 +143,11 @@ export default function SuperVerificationComponent({
                                               <Attention>
                                                   The Cleaner can not control
                                                   the current role.{" "}
-                                                  <Link href="https://docs.cleanerbot.xyz/misc/roles" className="font-bold text-gray-300 hover:underline">
-                                                        Find out why.
+                                                  <Link
+                                                      href="https://docs.cleanerbot.xyz/misc/roles"
+                                                      className="font-bold text-gray-300 hover:underline"
+                                                  >
+                                                      Find out why.
                                                   </Link>
                                               </Attention>
                                           )
