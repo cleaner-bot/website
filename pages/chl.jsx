@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { HumanPlatformPage } from "@/components/humanplatform.jsx";
 import decodeFlow from "@/lib/flow.js";
 
-export default function VerificationWebCaptcha() {
+export default function ExternalVerification() {
     const [payload, setPayload] = useState();
     useEffect(() => {
         const [flow] = window.location.hash.substring(1).split("/");

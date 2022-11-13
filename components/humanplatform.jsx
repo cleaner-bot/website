@@ -24,7 +24,6 @@ export function HumanPlatformPage({ title, payload, messages, userLogin }) {
         try {
             res = await postHumanChallenge({ payload, chldata });
         } catch (error) {
-            // payment required? no. captcha required
             if (error.response?.status === 401) {
                 setState({ stage: 1, data: error.response.data });
             } else if (error.response?.status === 403) {
