@@ -123,7 +123,7 @@ export default function NameCheckerComponent({
                             </p>
                         </>
                     }
-                    field="impersonation_advanced_enabled"
+                    field="name_advanced_enabled"
                     config={config}
                     updateConfig={updateConfig}
                     guildId={route.guildId}
