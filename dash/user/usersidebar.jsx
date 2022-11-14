@@ -116,15 +116,13 @@ function Profile({ user, updateRoute }) {
                     updateRoute({ ...opt.route });
                 }}
             >
-                <div className="flex items-center text-left">
-                    {opt.image !== null && (
-                        <div>
-                            {opt.image || (
-                                <Skeleton className="rounded-full h-9 w-9" />
-                            )}
-                        </div>
-                    )}
-                    <div className={opt.image === null ? "ml-12" : "ml-3"}>
+                <div className="flex items-center">
+                    <div className="w-9 h-9">
+                        {opt.image === null ? null : opt.image || (
+                            <Skeleton className="rounded-full" />
+                        )}
+                    </div>
+                    <div className="ml-3 text-left">
                         <p className="text-sm font-medium text-white truncate">
                             {opt.name}
                         </p>
