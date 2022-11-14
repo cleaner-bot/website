@@ -22,7 +22,7 @@ export default function SuperVerificationComponent({
             <Description>
                 Read the{" "}
                 <Link
-                    href="/docs/verification"
+                    href="https://docs.cleanerbot.xyz/verification/super-verification/"
                     className="font-bold text-gray-300 hover:underline"
                 >
                     documentation
@@ -40,7 +40,7 @@ export default function SuperVerificationComponent({
                 >
                     <p>
                         <Link
-                            href="/docs/verification#setup"
+                            href="https://docs.cleanerbot.xyz/verification/super-verification/#setup"
                             className="font-bold text-gray-300 hover:underline"
                         >
                             Click for Setup guide.
