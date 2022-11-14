@@ -179,7 +179,7 @@ function ClickToCopy({ unique }) {
     const url = `https://verify.cleanerbot.xyz/${unique}`;
     return (
         <button
-            className="font-bold text-gray-300 break-all"
+            className="font-bold text-gray-300 contents"
             onClick={() => {
                 navigator.clipboard.writeText(url);
                 toast.success("Copied link.");
