@@ -197,9 +197,11 @@ function Profile({ user, entitlements, updateRoute }) {
             >
                 <div className="flex items-center">
                     <div className="w-9 h-9">
-                        {opt.image === null ? null : opt.image || (
-                            <Skeleton className="rounded-full" />
-                        )}
+                        {opt.image === null
+                            ? null
+                            : opt.image || (
+                                  <Skeleton className="rounded-full" />
+                              )}
                     </div>
                     <div className="ml-3 text-left">
                         <p className="text-sm font-medium text-white truncate">
