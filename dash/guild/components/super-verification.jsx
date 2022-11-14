@@ -6,6 +6,7 @@ import { Attention, DropdownSearch } from "@/components/dash/ui.jsx";
 import { doChange, patchConfig } from "@/lib/api.js";
 import { u64ToBytes } from "@/lib/u64.js";
 import { b64encode } from "@/lib/base64.js";
+import toast from "react-hot-toast";
 
 export default function SuperVerificationComponent({
     config,
@@ -48,24 +49,23 @@ export default function SuperVerificationComponent({
                     </p>
                     <p>
                         Your url is:{" "}
-                        <span className="font-bold text-gray-300 break-all">
-                            https://verify.cleanerbot.xyz/
-                            {entitlements.plan >=
-                                entitlements.branding_vanity &&
-                            entitlements.branding_vanity_url !== ""
-                                ? entitlements.branding_vanity_url
-                                : route.guildId}
-                        </span>
+                        <ClickToCopy
+                            unique={
+                                entitlements.plan >=
+                                    entitlements.branding_vanity &&
+                                entitlements.branding_vanity_url !== ""
+                                    ? entitlements.branding_vanity_url
+                                    : route.guildId
+                            }
+                        />
                         {entitlements.branding_vanity_url === "" && (
                             <>
-                                {" "}
-                                or{" "}
-                                <span className="font-bold text-gray-300 break-all">
-                                    https://verify.cleanerbot.xyz/
-                                    {b64encode(
+                                {" or "}
+                                <ClickToCopy
+                                    unique={b64encode(
                                         u64ToBytes(BigInt(route.guildId))
                                     ).replace(/=+$/, "")}
-                                </span>
+                                />
                             </>
                         )}
                     </p>
@@ -172,5 +172,20 @@ export default function SuperVerificationComponent({
                 )}
             </Section>
         </>
+    );
+}
+
+function ClickToCopy({ unique }) {
+    const url = `https://verify.cleanerbot.xyz/${unique}`;
+    return (
+        <button
+            className="font-bold text-gray-300 break-all"
+            onClick={() => {
+                navigator.clipboard.writeText(url);
+                toast.success("Copied link.");
+            }}
+        >
+            {url}
+        </button>
     );
 }

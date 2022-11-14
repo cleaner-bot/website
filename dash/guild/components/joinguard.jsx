@@ -45,24 +45,23 @@ export default function JoinGuardComponent({
                 >
                     <p>
                         Your url is:{" "}
-                        <span className="font-bold text-gray-300 break-all">
-                            https://join.cleanerbot.xyz/
-                            {entitlements.plan >=
-                                entitlements.branding_vanity &&
-                            entitlements.branding_vanity_url !== ""
-                                ? entitlements.branding_vanity_url
-                                : route.guildId}
-                        </span>
+                        <ClickToCopy
+                            unique={
+                                entitlements.plan >=
+                                    entitlements.branding_vanity &&
+                                entitlements.branding_vanity_url !== ""
+                                    ? entitlements.branding_vanity_url
+                                    : route.guildId
+                            }
+                        />
                         {entitlements.branding_vanity_url === "" && (
                             <>
-                                {" "}
-                                or{" "}
-                                <span className="font-bold text-gray-300 break-all">
-                                    https://join.cleanerbot.xyz/
-                                    {b64encode(
+                                {" or "}
+                                <ClickToCopy
+                                    unique={b64encode(
                                         u64ToBytes(BigInt(route.guildId))
                                     ).replace(/=+$/, "")}
-                                </span>
+                                />
                             </>
                         )}
                     </p>
@@ -92,5 +91,20 @@ export default function JoinGuardComponent({
                 )}
             </Section>
         </>
+    );
+}
+
+function ClickToCopy({ unique }) {
+    const url = `https://join.cleanerbot.xyz/${unique}`;
+    return (
+        <button
+            className="font-bold text-gray-300 break-all"
+            onClick={() => {
+                navigator.clipboard.writeText(url);
+                toast.success("Copied link.");
+            }}
+        >
+            {url}
+        </button>
     );
 }
