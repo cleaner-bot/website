@@ -43,7 +43,10 @@ const footer = [
     {
         name: "Information",
         links: [
-            { name: "About & Team", href: "https://docs.cleanerbot.xyz/misc/about/" },
+            {
+                name: "About & Team",
+                href: "https://docs.cleanerbot.xyz/misc/about/",
+            },
             { name: "Global Statistics", href: "/statistics" },
             { name: "Blog", href: "https://blog.cleanerbot.xyz" },
             { name: "Status", href: "https://cleaner.instatus.com/" },
@@ -53,13 +56,8 @@ const footer = [
 
 export default function Footer({ className }) {
     return (
-        <div
-            className={clsx(
-                "grid grid-cols-3 lg:grid-cols-4 pb-10 gap-y-12",
-                className
-            )}
-        >
-            <div className="col-span-3 lg:col-span-1">
+        <div className="items-baseline justify-center gap-12 lg:flex">
+            <div className="col-span-2 pb-12 sm:col-span-3 lg:col-span-1">
                 <Link
                     href="/"
                     className="block w-24 h-24 col-span-2 mx-auto rounded-full bg-gray-710 hover:bg-gray-650 --anim"
@@ -104,22 +102,26 @@ export default function Footer({ className }) {
                     Not affiliated with Discord
                 </p>
             </div>
-            {footer.map((foot) => (
-                <div key={foot.name} className="mx-auto">
-                    <p className="mb-2 text-sm text-gray-200">{foot.name}</p>
-                    <div>
-                        {foot.links.map((link) => (
-                            <Link
-                                href={link.href}
-                                className="block hover:underline"
-                                key={link.href}
-                            >
-                                {link.name}
-                            </Link>
-                        ))}
+            <div className="flex flex-wrap justify-center gap-8">
+                {footer.map((foot) => (
+                    <div key={foot.name} className="sm:mx-auto">
+                        <p className="mb-2 text-sm text-gray-200">
+                            {foot.name}
+                        </p>
+                        <div>
+                            {foot.links.map((link) => (
+                                <Link
+                                    href={link.href}
+                                    className="block hover:underline"
+                                    key={link.href}
+                                >
+                                    {link.name}
+                                </Link>
+                            ))}
+                        </div>
                     </div>
-                </div>
-            ))}
+                ))}
+            </div>
         </div>
     );
 }
