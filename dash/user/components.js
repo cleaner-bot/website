@@ -3,11 +3,13 @@ import {
     HomeIcon,
     ShieldCheckIcon,
     ChartBarIcon,
+    DocumentTextIcon,
 } from "@heroicons/react/20/solid";
 
+import BanSyncComponent from "@/dash/user/components/bansync.jsx";
 import GuildListComponent from "@/dash/user/components/guildlist.jsx";
-import MFAComponent from "@/dash/user/components/mfa.jsx";
 import LogoutComponent from "@/dash/user/components/logout.jsx";
+import MFAComponent from "@/dash/user/components/mfa.jsx";
 import StatisticsComponent from "@/dash/user/components/statistics.jsx";
 
 const registry = [
@@ -29,6 +31,16 @@ const registry = [
             title: "Statistics (per-user)",
             description: "Statistics across all servers you have access to.",
             component: StatisticsComponent,
+        },
+    },
+    {
+        name: "Ban Lists",
+        id: "bansync",
+        icon: DocumentTextIcon,
+        component: {
+            title: "Your Ban Lists",
+            description: "Create, edit and control your own ban lists!",
+            component: BanSyncComponent,
         },
     },
     {
