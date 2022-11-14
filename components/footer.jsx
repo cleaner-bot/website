@@ -43,7 +43,7 @@ const footer = [
     {
         name: "Information",
         links: [
-            { name: "About & Team", href: "/docs/about/" },
+            { name: "About & Team", href: "https://docs.cleanerbot.xyz/misc/about/" },
             { name: "Global Statistics", href: "/statistics" },
             { name: "Blog", href: "https://blog.cleanerbot.xyz" },
             { name: "Status", href: "https://cleaner.instatus.com/" },
