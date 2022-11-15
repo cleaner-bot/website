@@ -210,7 +210,7 @@ function CaptchaInfoText({ children, className }) {
     return (
         <p
             className={clsx(
-                "flex flex-col items-center justify-center w-full h-full text-xl font-medium text-center px-4",
+                "flex flex-col items-center justify-center w-full h-full text-xl font-medium text-center px-4 overflow-auto",
                 className
             )}
         >
