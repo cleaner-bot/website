@@ -182,14 +182,15 @@ function ShowError({ message }) {
 function ActualCaptcha({ captcha, onVerify, onError }) {
     if (captcha.provider === "hcaptcha")
         return (
-            <HCaptcha
-                sitekey={captcha.sitekey}
-                theme="dark"
-                reCaptchaCompat={false}
-                onVerify={onVerify}
-                onError={onError}
-                className="w-[303px] h-[78px] bg-gray-600 rounded"
-            />
+            <div className="w-[303px] h-[78px] block bg-gray-600 rounded">
+                <HCaptcha
+                    sitekey={captcha.sitekey}
+                    theme="dark"
+                    reCaptchaCompat={false}
+                    onVerify={onVerify}
+                    onError={onError}
+                />
+            </div>
         );
     else if (captcha.provider === "turnstile")
         return (
@@ -200,7 +201,7 @@ function ActualCaptcha({ captcha, onVerify, onError }) {
                 cData={captcha.cdata}
                 onVerify={onVerify}
                 onError={onError}
-                className="w-[300px] h-[65px] bg-gray-600 rounded"
+                className="w-[300px] h-[65px] bg-gray-600 rounded mb-[13px]"
             />
         );
 }
