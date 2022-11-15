@@ -85,10 +85,10 @@ export function HumanPlatformPage({ title, payload, messages, userLogin }) {
             )}
             {!state.error && state.stage === 2 ? (
                 <ActualCaptcha
-                    data={state.data}
+                    captcha={state.data.captcha}
                     onVerify={(token) => {
                         setState({ ...state, stage: 3 });
-                        const body = secretRecipe()(token, state.data);
+                        const body = secretRecipe()(token, state.data.d);
                         postChallenge(body);
                     }}
                     onError={(error) => setState({ ...state, error })}
@@ -179,11 +179,11 @@ function ShowError({ message }) {
     );
 }
 
-function ActualCaptcha({ data, onVerify, onError }) {
-    if (data.type === "hcaptcha")
+function ActualCaptcha({ captcha, onVerify, onError }) {
+    if (captcha.provider === "hcaptcha")
         return (
             <HCaptcha
-                sitekey={data.sitekey}
+                sitekey={captcha.sitekey}
                 theme="dark"
                 reCaptchaCompat={false}
                 onVerify={onVerify}
@@ -191,13 +191,13 @@ function ActualCaptcha({ data, onVerify, onError }) {
                 className="w-[303px] h-[78px] bg-gray-600 rounded"
             />
         );
-    else if (data.type === "turnstile")
+    else if (captcha.provider === "turnstile")
         return (
             <Turnstile
-                sitekey={data.sitekey}
+                sitekey={captcha.sitekey}
                 theme="dark"
-                action={data.action}
-                cData={data.cdata}
+                action={captcha.action}
+                cData={captcha.cdata}
                 onVerify={onVerify}
                 onError={onError}
                 className="w-[300px] h-[65px] bg-gray-600 rounded"
