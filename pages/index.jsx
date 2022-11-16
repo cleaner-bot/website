@@ -12,7 +12,7 @@ import Footer from "@/components/footer.jsx";
 import Features from "@/components/features.jsx";
 
 const headerLinks = [
-    { name: "Documentation", href: "/docs" },
+    { name: "Documentation", href: "https://docs.cleanerbot.xyz/" },
     { name: "Blog", href: "https://blog.cleanerbot.xyz" },
     { name: "Discord", href: "/discord" },
 ];
