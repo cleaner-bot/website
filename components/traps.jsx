@@ -22,7 +22,7 @@ function NopechaTraps() {
         return () => {
             clearInterval(intervalId);
         };
-    }, []);
+    }, [router]);
     return (
         <>
             <div className="recaptcha-checkbox" aria-checked={false} />

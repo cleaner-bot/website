@@ -40,12 +40,12 @@ export function HumanPlatformPage({ title, payload, messages, userLogin }) {
         if (!payload) return;
         if (payload.error) return setState({ error: payload.error });
         postChallenge();
-    }, [payload]);
+    }, [payload]); // eslint-disable-line react-hooks/exhaustive-deps
 
     useEffect(() => {
         if (!userLogin) return;
         getUser().then((res) => setState({ user: res.data }));
-    }, [userLogin]);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <div className="flex flex-col items-center justify-center h-screen --container">
