@@ -116,11 +116,6 @@ export function HumanPlatformPage({ title, payload, messages, userLogin }) {
                         <CaptchaInfoText className="text-green-300">
                             {messages.success}
                         </CaptchaInfoText>
-                    ) : state.stage === 100 ? (
-                        <CaptchaInfoText className="text-green-300">
-                            <span>Already verified.</span>
-                            Maybe wrong account?
-                        </CaptchaInfoText>
                     ) : (
                         <Skeleton className="w-full h-full rounded" />
                     )}
