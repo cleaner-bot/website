@@ -17,6 +17,7 @@ import {
     addUserBanListUsers,
     deleteUserBanListUsers,
     patchUserBanSyncList,
+    deleteUserBanSyncList,
 } from "@/lib/api.js";
 
 const BANLIST_MAX = 5;
@@ -406,7 +407,7 @@ function OwnBanList({
                         disabled={performingOperation}
                         onClick={() => {
                             setPerformingOperation(true);
-                            doChange(deleteBanSyncList(banList.id), {
+                            doChange(deleteUserBanSyncList(banList.id), {
                                 loading: "Deleting...",
                                 error: "Failed to delete: ",
                                 success: "Deleted!",
