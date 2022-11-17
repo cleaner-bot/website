@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { ExclamationIcon } from "@heroicons/react/24/outline";
+import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
 import { useRouter } from "next/router";
@@ -168,7 +168,7 @@ function Profile({ user, entitlements, updateRoute }) {
             name: "Suspension",
             text: "Guild is suspended",
             href: "https://docs.cleanerbot.xyz/misc/suspension#suspended-guild",
-            image: <ExclamationIcon className="text-red-500 w-9 h-9" />,
+            image: <ExclamationTriangleIcon className="text-red-500 w-9 h-9" />,
         });
     if (entitlements && entitlements.plan > 0)
         options.push({
@@ -248,7 +248,7 @@ function UserAvatar({ user }) {
 function Suspended() {
     return (
         <div className="flex flex-col items-center justify-center">
-            <ExclamationIcon className="w-32 h-32" />
+            <ExclamationTriangleIcon className="w-32 h-32" />
             <h1 className="text-5xl font-bold text-center">
                 Guild is suspended
             </h1>

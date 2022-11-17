@@ -23,7 +23,7 @@ import {
     ExclamationTriangleIcon,
     XMarkIcon,
     MinusIcon,
-    GlobeIcon,
+    GlobeAltIcon,
     ClipboardDocumentCheckIcon,
     CheckIcon,
 } from "@heroicons/react/20/solid";
@@ -244,7 +244,7 @@ const registry = [
             {
                 name: "Overview",
                 id: "overview",
-                icon: GlobeIcon,
+                icon: GlobeAltIcon,
                 restrictions: ["dev"],
                 badges: ["beta"],
                 component: {

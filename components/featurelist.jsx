@@ -1,4 +1,4 @@
-import { CheckIcon, XIcon } from "@heroicons/react/20/solid";
+import { CheckIcon, XMarkIcon } from "@heroicons/react/20/solid";
 import clsx from "clsx";
 
 const sizes = {
@@ -35,7 +35,7 @@ export function Contra({ children, size, className }) {
                 className
             )}
         >
-            <XIcon
+            <XMarkIcon
                 className={clsx(
                     "inline text-red-400 mr-2 flex-none",
                     sizes[size || "default"].icon
@@ -55,7 +55,7 @@ export function Restriction({ children, size, className }) {
                 className
             )}
         >
-            <XIcon
+            <XMarkIcon
                 className={clsx(
                     "inline text-gray-400 mr-2 flex-none",
                     sizes[size || "default"].icon
