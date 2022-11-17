@@ -21,12 +21,16 @@ export function HumanPlatformPage({ title, payload, messages, userLogin }) {
 
     const postChallenge = async (chldata) => {
         let res;
+        const d = secretRecipe(0)();
         try {
-            res = await postHumanChallenge({ payload, chldata });
+            res = await postHumanChallenge({ p: payload, c: chldata, d });
         } catch (error) {
             if (error.response?.status === 401) {
                 setState({ stage: 1, data: error.response.data });
-            } else if (error.response?.status === 403) {
+            } else if (
+                error.response?.status === 403 &&
+                typeof error.response.data !== "string"
+            ) {
                 setState({ stage: 2, data: error.response.data });
             } else {
                 setState({ error });
@@ -88,7 +92,7 @@ export function HumanPlatformPage({ title, payload, messages, userLogin }) {
                     captcha={state.data.captcha}
                     onVerify={(token) => {
                         setState({ ...state, stage: 3 });
-                        const body = secretRecipe()(token, state.data.d);
+                        const body = secretRecipe(1)(token, state.data.d);
                         postChallenge(body);
                     }}
                     onError={(error) => setState({ ...state, error })}
