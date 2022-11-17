@@ -33,7 +33,6 @@ export default function GuildListComponent({ route, updateRoute }) {
     const [error, setError] = useState();
     const [query, setQuery] = useState("");
 
-    const isLoading = !response && !error;
     const hasToLogin = error?.response?.status === 401;
     if (hasToLogin) localStorage.removeItem("token");
 

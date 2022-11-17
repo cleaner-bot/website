@@ -116,11 +116,6 @@ function OwnBanList({
                 This list contains{" "}
                 {banList.count === 1 ? "one user" : `${banList.count} users`}.
             </p>
-            <p>
-                {banList.auto_sync
-                    ? "List is synced and new bans will automatically be added to the list."
-                    : "List is not synced and no bans are automatically added."}
-            </p>
             <div className="flex flex-wrap gap-2 mt-6">
                 <button
                     className={clsx(
@@ -376,32 +371,6 @@ function OwnBanList({
             )}
             {tab === 5 && (
                 <div className="flex gap-2 mt-6">
-                    <button
-                        className="--btn --btn-0 --btn-primary min-w-[8rem]"
-                        disabled={performingOperation}
-                        onClick={() => {
-                            setPerformingOperation(true);
-                            doChange(postBanListImport(banList.id)).then(
-                                (response) => {
-                                    setPerformingOperation(false);
-                                    if (!response) return;
-                                    toast(`Imported ${response.data} bans.`);
-                                    const newCount =
-                                        banList.count + response.data;
-                                    setOwnBanList({
-                                        data: ownBanList.data.map((bl) =>
-                                            bl.id === banList.id
-                                                ? { ...bl, count: newCount }
-                                                : bl
-                                        ),
-                                    });
-                                    setUser(); // reset
-                                }
-                            );
-                        }}
-                    >
-                        Import bans from server
-                    </button>
                     <button
                         className="--btn --btn-0 --btn-destructive min-w-[8rem]"
                         disabled={performingOperation}
