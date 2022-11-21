@@ -4,10 +4,10 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useReducer } from "react";
+import { Discord } from "react-bootstrap-icons";
 import clsx from "clsx";
 
 import Skeleton from "@/components/skeleton.jsx";
-import { DiscordIconWhite } from "@/components/discord.jsx";
 import Traps from "@/components/traps.jsx";
 import { getUser, postHumanChallenge } from "@/lib/api.js";
 import secretRecipe from "@/lib/svm.js";
@@ -109,7 +109,7 @@ export function HumanPlatformPage({ title, payload, messages, userLogin }) {
                                 router.push(url);
                             }}
                         >
-                            <DiscordIconWhite className="w-6 h-6" />
+                            <Discord className="w-6 h-6" />
                             {messages.login}
                         </button>
                     ) : state.stage === 3 ? (

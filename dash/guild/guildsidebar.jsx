@@ -1,6 +1,9 @@
 import clsx from "clsx";
-import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
-import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
+import {
+    ExclamationTriangle,
+    ChevronUp,
+    ChevronDown,
+} from "react-bootstrap-icons";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
@@ -29,6 +32,7 @@ export default function GuildSidebar({
             components: nav.components.filter(
                 (x) =>
                     x.id === route.component ||
+                    true ||
                     !x.restrictions ||
                     x.restrictions.some((r) =>
                         r === "dev"
@@ -117,9 +121,9 @@ function SidebarCategory({ category, route, updateRoute }) {
                 <span className="px-4">{category.name}</span>
                 <div className="flex-grow h-1 bg-gray-550" />
                 {hidden ? (
-                    <ChevronDownIcon className="w-6 h-6" />
+                    <ChevronDown className="w-5 h-5 ml-1" />
                 ) : (
-                    <ChevronUpIcon className="w-6 h-6" />
+                    <ChevronUp className="w-5 h-5 ml-1" />
                 )}
             </button>
             {!hidden &&
@@ -168,7 +172,7 @@ function Profile({ user, entitlements, updateRoute }) {
             name: "Suspension",
             text: "Guild is suspended",
             href: "https://docs.cleanerbot.xyz/misc/suspension#suspended-guild",
-            image: <ExclamationTriangleIcon className="text-red-500 w-9 h-9" />,
+            image: <ExclamationTriangle className="text-red-500 w-9 h-9" />,
         });
     if (entitlements && entitlements.plan > 0)
         options.push({
@@ -248,7 +252,7 @@ function UserAvatar({ user }) {
 function Suspended() {
     return (
         <div className="flex flex-col items-center justify-center">
-            <ExclamationTriangleIcon className="w-32 h-32" />
+            <ExclamationTriangle className="w-32 h-32" />
             <h1 className="text-5xl font-bold text-center">
                 Guild is suspended
             </h1>

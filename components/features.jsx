@@ -1,19 +1,19 @@
 import Link from "next/link";
 
 import { Pro } from "@/components/featurelist.jsx";
-import { ArrowTopRightOnSquareIcon } from "@heroicons/react/20/solid";
 import {
-    UsersIcon,
-    ChartBarIcon,
-    ShieldCheckIcon,
-    UserPlusIcon,
-    FunnelIcon,
-    LockOpenIcon,
-    LockClosedIcon,
-    IdentificationIcon,
-    XMarkIcon,
-    ClipboardDocumentCheckIcon,
-} from "@heroicons/react/20/solid";
+    BoxArrowUpRight,
+    People,
+    BarChart,
+    ShieldCheck,
+    PersonPlus,
+    Funnel,
+    ShieldLock,
+    Lock,
+    PersonVcard,
+    X,
+    ClipboardCheck,
+} from "react-bootstrap-icons";
 
 const features = [
     {
@@ -23,7 +23,7 @@ const features = [
             "Detects all kinds of spam.",
             "Automatic adjustments to channel slowmode to slow spam down.",
         ],
-        icon: ShieldCheckIcon,
+        icon: ShieldCheck,
     },
     {
         name: "Auto Moderator",
@@ -35,7 +35,7 @@ const features = [
             "Protection against Phishing. (see more below)",
             "Protection against certain selfbots.",
         ],
-        icon: FunnelIcon,
+        icon: Funnel,
     },
     {
         name: "Phishing Protection",
@@ -46,7 +46,7 @@ const features = [
             "Advanced heuristics for previously unknown domains.",
             "Using preview embeds to enhance detection",
         ],
-        icon: XMarkIcon,
+        icon: X,
     },
     {
         name: "Anti Raid",
@@ -56,7 +56,7 @@ const features = [
             "Handles big raids without fail",
             "Customizable limits",
         ],
-        icon: UsersIcon,
+        icon: People,
         links: [
             {
                 name: "Documentation",
@@ -72,7 +72,7 @@ const features = [
             "In-discord CAPTCHAs (3x3 captcha, classification, text)",
             "External CAPTCHAs (hCaptcha, Turnstile)",
         ],
-        icon: LockOpenIcon,
+        icon: Lock,
         links: [
             {
                 name: "Documentation",
@@ -97,7 +97,7 @@ const features = [
                 href: "https://docs.cleanerbot.xyz/verification/super-verification",
             },
         ],
-        icon: LockClosedIcon,
+        icon: ShieldLock,
     },
     {
         name: "Join Guard",
@@ -114,7 +114,7 @@ const features = [
                 href: "https://docs.cleanerbot.xyz/verification/joinguard",
             },
         ],
-        icon: UserPlusIcon,
+        icon: PersonPlus,
     },
     {
         name: "Name Checker",
@@ -124,7 +124,7 @@ const features = [
             "Kicks accounts impersonating Discord",
             // "Blacklist content of usernames",
         ],
-        icon: IdentificationIcon,
+        icon: PersonVcard,
         links: [
             {
                 name: "Documentation",
@@ -136,7 +136,7 @@ const features = [
         name: "Link Filter",
         description: "Checks all links send by users.",
         points: ["Custom whitelist and blacklist.", "Block unknown links."],
-        icon: ClipboardDocumentCheckIcon,
+        icon: ClipboardCheck,
         links: [
             {
                 name: "Documentation",
@@ -152,7 +152,7 @@ const features = [
             "Per-user statistics (all servers you can manage)",
             "Global statistics",
         ],
-        icon: ChartBarIcon,
+        icon: BarChart,
         links: [
             { name: "Per-server", href: "/dash#/statistics" },
             { name: "Per-user", href: "/dash#statistics" },
@@ -184,7 +184,7 @@ export default function Features() {
                                     key={link.href}
                                     className="flex items-center text-blue-300 hover:underline"
                                 >
-                                    <ArrowTopRightOnSquareIcon className="w-5 h-5 mr-2" />
+                                    <BoxArrowUpRight className="w-5 h-5 mr-2" />
                                     {link.name}
                                 </Link>
                             ))}

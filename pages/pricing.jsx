@@ -1,9 +1,9 @@
 import { Fragment, useState } from "react";
 import {
-    CheckCircleIcon,
-    CheckIcon,
-    MinusIcon,
-} from "@heroicons/react/24/solid";
+    CheckCircle,
+    CheckLg,
+    X,
+} from "react-bootstrap-icons";
 import Link from "next/link";
 
 import Footer from "@/components/footer.jsx";
@@ -80,10 +80,6 @@ const sections = [
             { name: "Branding", tiers: { pro: true } },
         ],
     },
-    {
-        name: "Upcoming features",
-        features: [{ name: "Custom bot", tiers: { pro: "Coming soon" } }],
-    },
 ];
 
 export default function Pricing() {
@@ -116,7 +112,7 @@ export default function Pricing() {
                         {includedFeatures.map((feature) => (
                             <li key={feature} className="flex items-start">
                                 <div className="flex-shrink-0">
-                                    <CheckCircleIcon
+                                    <CheckCircle
                                         className="w-5 h-5 text-green-400"
                                         aria-hidden="true"
                                     />
@@ -224,7 +220,7 @@ export default function Pricing() {
                         {eligible.map((feature) => (
                             <li key={feature} className="flex items-start">
                                 <div className="flex-shrink-0">
-                                    <CheckCircleIcon
+                                    <CheckCircle
                                         className="w-5 h-5 text-green-400"
                                         aria-hidden="true"
                                     />
@@ -307,12 +303,12 @@ export default function Pricing() {
                                                 <>
                                                     {feature.tiers[tier] ===
                                                     true ? (
-                                                        <CheckIcon
+                                                        <CheckLg
                                                             className="w-5 h-5 text-green-500"
                                                             aria-hidden="true"
                                                         />
                                                     ) : (
-                                                        <MinusIcon
+                                                        <X
                                                             className="w-5 h-5 text-gray-400"
                                                             aria-hidden="true"
                                                         />

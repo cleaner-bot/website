@@ -1,8 +1,4 @@
-import {
-    LinkIcon,
-    ArrowTopRightOnSquareIcon,
-    ArrowRightIcon,
-} from "@heroicons/react/20/solid";
+import { BoxArrowUpRight, ArrowRight } from "react-bootstrap-icons";
 import clsx from "clsx";
 import Link from "next/link";
 
@@ -18,7 +14,7 @@ export function ExternalLink({ href, className, style, color, children }) {
             )}
         >
             {children}
-            <ArrowTopRightOnSquareIcon className="w-5 h-5 ml-3 -mr-1" />
+            <BoxArrowUpRight className="w-5 h-5 ml-3 -mr-1" />
         </Link>
     );
 }
@@ -35,7 +31,7 @@ export function InternalLink({ href, className, style, color, children }) {
             )}
         >
             {children}
-            <ArrowRightIcon className="w-5 h-5 ml-3 -mr-1" />
+            <ArrowRight className="w-5 h-5 ml-3 -mr-1" />
         </Link>
     );
 }

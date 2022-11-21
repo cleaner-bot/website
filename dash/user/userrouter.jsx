@@ -1,9 +1,9 @@
 import { useEffect, useRef } from "react";
 import { useRouter } from "next/router";
+import { Discord } from "react-bootstrap-icons";
 import Link from "next/link";
 
 import UserSidebar from "@/dash/user/usersidebar.jsx";
-import { DiscordIconWhite } from "@/components/discord.jsx";
 import { Header } from "@/components/dash/dash.jsx";
 import { HorizontalRule } from "@/components/dash/ui.jsx";
 import { createOAuthRedirect } from "@/lib/api.js";
@@ -81,7 +81,7 @@ function Login({ route }) {
                         router.push(url);
                     }}
                 >
-                    <DiscordIconWhite className="w-6 h-6 mr-4" />
+                    <Discord className="w-6 h-6 mr-4" />
                     Login with Discord
                 </button>
                 <HorizontalRule label="OR" className="my-8" />
@@ -95,7 +95,7 @@ function Login({ route }) {
                         router.push(url);
                     }}
                 >
-                    <DiscordIconWhite className="w-6 h-6 mr-4" />
+                    <Discord className="w-6 h-6 mr-4" />
                     Invite bot directly
                 </button>
                 <p className="mt-6 text-center">

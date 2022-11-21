@@ -1,4 +1,4 @@
-import { CheckIcon, XMarkIcon } from "@heroicons/react/20/solid";
+import { CheckLg, XLg } from "react-bootstrap-icons";
 import clsx from "clsx";
 
 const sizes = {
@@ -15,7 +15,7 @@ export function Pro({ children, size, className }) {
                 className
             )}
         >
-            <CheckIcon
+            <CheckLg
                 className={clsx(
                     "inline text-emerald-400 mr-2 flex-none",
                     sizes[size || "default"].icon
@@ -35,7 +35,7 @@ export function Contra({ children, size, className }) {
                 className
             )}
         >
-            <XMarkIcon
+            <XLg
                 className={clsx(
                     "inline text-red-400 mr-2 flex-none",
                     sizes[size || "default"].icon
@@ -55,7 +55,7 @@ export function Restriction({ children, size, className }) {
                 className
             )}
         >
-            <XMarkIcon
+            <XLg
                 className={clsx(
                     "inline text-gray-400 mr-2 flex-none",
                     sizes[size || "default"].icon

@@ -1,10 +1,10 @@
 import {
-    ArrowLeftOnRectangleIcon,
-    HomeIcon,
-    ShieldCheckIcon,
-    ChartBarIcon,
-    DocumentTextIcon,
-} from "@heroicons/react/20/solid";
+    BoxArrowInLeft,
+    House,
+    ShieldCheck,
+    BarChart,
+    ListCheck,
+} from "react-bootstrap-icons";
 
 import BanSyncComponent from "@/dash/user/components/bansync.jsx";
 import GuildListComponent from "@/dash/user/components/guildlist.jsx";
@@ -16,7 +16,7 @@ const registry = [
     {
         name: "Server List",
         id: "",
-        icon: HomeIcon,
+        icon: House,
         component: {
             title: "Server List",
             description: "",
@@ -26,7 +26,7 @@ const registry = [
     {
         name: "Statistics",
         id: "statistics",
-        icon: ChartBarIcon,
+        icon: BarChart,
         component: {
             title: "Statistics (per-user)",
             description: "Statistics across all servers you have access to.",
@@ -36,7 +36,7 @@ const registry = [
     {
         name: "Ban Lists",
         id: "bansync",
-        icon: DocumentTextIcon,
+        icon: ListCheck,
         component: {
             title: "Your Ban Lists",
             description: "Create, edit and control your own ban lists!",
@@ -46,7 +46,7 @@ const registry = [
     {
         name: "MFA",
         id: "mfa",
-        icon: ShieldCheckIcon,
+        icon: ShieldCheck,
         component: {
             title: "Multi Factor Authorization",
             description:
@@ -57,7 +57,7 @@ const registry = [
     {
         name: "Logout",
         id: "logout",
-        icon: ArrowLeftOnRectangleIcon,
+        icon: BoxArrowInLeft,
         restrictions: ["loggedin"],
         component: {
             title: "Logout",

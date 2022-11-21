@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ExclamationCircleIcon } from "@heroicons/react/20/solid";
+import { ExclamationTriangle } from "react-bootstrap-icons";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Image from "next/image";
@@ -170,7 +170,7 @@ function Guild({ guild, ...props }) {
                     href="https://docs.cleanerbot.xyz/misc/suspension#suspended-guild"
                     className="absolute top-2 right-2"
                 >
-                    <ExclamationCircleIcon className="w-6 h-6 text-red-500" />
+                    <ExclamationTriangle className="w-6 h-6 text-red-500" />
                 </Link>
             )}
             <div className="px-8 mt-2 text-center truncate">

@@ -1,4 +1,4 @@
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { List, X } from "react-bootstrap-icons";
 import { Dialog, Transition } from "@headlessui/react";
 import { useState, Fragment } from "react";
 import clsx from "clsx";
@@ -51,7 +51,7 @@ export function Sidebar({ content, children, childrenClassNames }) {
                                         className="flex items-center justify-center w-10 h-10 ml-1 rounded-full"
                                         onClick={() => setSidebarOpen(false)}
                                     >
-                                        <XMarkIcon className="w-6 h-6 text-white" />
+                                        <X className="w-6 h-6 text-white" />
                                     </button>
                                 </div>
                             </Transition.Child>
@@ -78,7 +78,7 @@ export function Sidebar({ content, children, childrenClassNames }) {
                         className="-ml-0.5 -mt-0.5 h-12 w-12 inline-flex items-center justify-center rounded-md text-gray-500 hover:text-gray-200"
                         onClick={() => setSidebarOpen(true)}
                     >
-                        <Bars3Icon className="w-6 h-6" />
+                        <List className="w-6 h-6" />
                     </button>
                 </div>
                 <main className="flex-1 w-full">

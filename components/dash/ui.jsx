@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import Link from "next/link";
 import { Dialog, Listbox, Switch } from "@headlessui/react";
-import { ExclamationCircleIcon } from "@heroicons/react/24/solid";
+import { ExclamationTriangle } from "react-bootstrap-icons";
 import { Fragment, useState } from "react";
 
 import plans from "@/lib/plans.js";
@@ -380,7 +380,7 @@ export function Attention({ children, className }) {
         >
             <div className="flex">
                 <div className="flex-shrink-0">
-                    <ExclamationCircleIcon className="w-6 h-6 text-yellow-400" />
+                    <ExclamationTriangle className="w-6 h-6 text-yellow-400" />
                 </div>
                 <div className="w-full ml-3">
                     <h3 className="mb-2 font-medium text-yellow-400">

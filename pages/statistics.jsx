@@ -1,11 +1,10 @@
-// import { HomeIcon, UsersIcon } from "@heroicons/react/24/solid";
 import { useEffect, useState } from "react";
 
 import { getGlobalStatistics } from "@/lib/api.js";
 import MetaTags from "@/components/metatags.jsx";
 import Footer from "@/components/footer.jsx";
 import ErrorHandler from "@/components/dash/error.jsx";
-import { Stats, CommonRadar } from "@/components/statistics.jsx";
+import { CommonRadar } from "@/components/statistics.jsx";
 
 export default function Radar() {
     const [response, setResponse] = useState();
@@ -46,13 +45,13 @@ export default function Radar() {
                             null,
                             {
                                 name: "Guilds",
-                                icon: HomeIcon,
+                                icon: House,
                                 stat:
                                     response && response.data.stats.guild_count,
                             },
                             {
                                 name: "Users (approximate)",
-                                icon: UsersIcon,
+                                icon: People,
                                 stat:
                                     response && response.data.stats.user_count,
                             },

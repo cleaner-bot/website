@@ -1,14 +1,14 @@
 import { useState } from "react";
 import {
-    ArrowSmallDownIcon,
-    ArrowSmallRightIcon,
-    ArrowSmallUpIcon,
-} from "@heroicons/react/24/solid";
+    ArrowUpShort,
+    ArrowRightShort,
+    ArrowDownShort,
+} from "react-bootstrap-icons";
 import clsx from "clsx";
 
 import Skeleton from "@/components/skeleton.jsx";
 import { range } from "@/lib/helper.js";
-import { Dropdown } from "./dash/ui";
+import { Dropdown } from "@/components/dash/ui.jsx";
 
 const timespans = [
     { name: "Last day", id: "day" },
@@ -71,16 +71,17 @@ function StatItem({ item }) {
                     <div>
                         <p className="flex items-baseline text-sm font-medium text-gray-400">
                             <span className="mr-2 text-2xl font-semibold text-indigo-400">
-                                {formatNumber(
-                                    typeof item.stat === "number"
-                                        ? item.stat
-                                        : item.stat?.current ?? 0
-                                )}
+                                {(typeof item.stat === "number"
+                                    ? item.stat
+                                    : item.stat?.current ?? 0
+                                ).toLocaleString()}
                             </span>
                             {typeof item.stat !== "number" && (
                                 <>
                                     from{" "}
-                                    {formatNumber(item.stat?.previous ?? 0)}
+                                    {(
+                                        item.stat?.previous ?? 0
+                                    ).toLocaleString()}
                                 </>
                             )}
                         </p>
@@ -97,13 +98,12 @@ function StatItem({ item }) {
                             {item.stat && item.stat.previous > 0 && (
                                 <IncreaseDecreaseBadge
                                     value={
-                                        -Math.floor(
-                                            (item.stat.current /
-                                                item.stat.previous) *
-                                                100
-                                        ) + 100
+                                        -(
+                                            item.stat.current /
+                                            item.stat.previous
+                                        ) + 1
                                     }
-                                    suffix="%"
+                                    style="percent"
                                 />
                             )}
                         </div>
@@ -114,7 +114,7 @@ function StatItem({ item }) {
     );
 }
 
-function IncreaseDecreaseBadge({ value, suffix }) {
+function IncreaseDecreaseBadge({ value, style }) {
     return (
         <div
             className={clsx(
@@ -127,18 +127,17 @@ function IncreaseDecreaseBadge({ value, suffix }) {
             )}
         >
             {value === 0 ? (
-                <ArrowSmallRightIcon className="-ml-1 mr-0.5 flex-shrink-0 self-center h-5 w-5 text-gray-500" />
+                <ArrowRightShort className="-ml-1 mr-0.5 flex-shrink-0 self-center h-5 w-5 text-gray-600" />
             ) : value > 0 ? (
-                <ArrowSmallDownIcon className="-ml-1 mr-0.5 flex-shrink-0 self-center h-5 w-5 text-green-500" />
+                <ArrowDownShort className="-ml-1 mr-0.5 flex-shrink-0 self-center h-5 w-5 text-green-600" />
             ) : (
-                <ArrowSmallUpIcon className="-ml-1 mr-0.5 flex-shrink-0 self-center h-5 w-5 text-red-500" />
+                <ArrowUpShort className="-ml-1 mr-0.5 flex-shrink-0 self-center h-5 w-5 text-red-600" />
             )}
 
             <span className="sr-only">
                 {value >= 0 ? "Increased" : "Decreased"} by
             </span>
-            {formatNumber(Math.abs(value))}
-            {suffix}
+            {value.toLocaleString(undefined, { signDisplay: "never", style })}
         </div>
     );
 }

@@ -1,32 +1,30 @@
 // component registry
 
 import {
-    ArchiveBoxIcon,
-    HomeIcon,
-    UsersIcon,
-    ChartBarIcon,
-    ShieldCheckIcon,
-    ClipboardIcon,
-    UserPlusIcon,
-    UserGroupIcon,
-    FunnelIcon,
-    FingerPrintIcon,
-    LockOpenIcon,
-    LockClosedIcon,
-    SparklesIcon,
-    DocumentTextIcon,
-    ClockIcon,
-    CreditCardIcon,
-    IdentificationIcon,
-    EnvelopeIcon,
-    CubeTransparentIcon,
-    ExclamationTriangleIcon,
-    XMarkIcon,
-    MinusIcon,
-    GlobeAltIcon,
-    ClipboardDocumentCheckIcon,
-    CheckIcon,
-} from "@heroicons/react/20/solid";
+    Archive,
+    House,
+    BarChart,
+    ShieldCheck,
+    ClipboardCheck,
+    PersonPlus,
+    People,
+    Funnel,
+    Hammer,
+    Lock,
+    Award,
+    ListCheck,
+    Clock,
+    CreditCard,
+    PersonVcard,
+    Envelope,
+    Robot,
+    ExclamationTriangle,
+    X,
+    SlashLg,
+    Globe,
+    Clipboard,
+    CheckLg,
+} from "react-bootstrap-icons";
 
 import AccessComponent from "@/dash/guild/components/access.jsx";
 import AntiNukeComponent from "@/dash/guild/components/antinuke.jsx";
@@ -58,7 +56,7 @@ const registry = [
             {
                 name: "General",
                 id: "",
-                icon: HomeIcon,
+                icon: House,
                 component: {
                     title: "General",
                     description: "",
@@ -68,7 +66,7 @@ const registry = [
             {
                 name: "Statistics",
                 id: "statistics",
-                icon: ChartBarIcon,
+                icon: BarChart,
                 component: {
                     title: "Statistics",
                     description:
@@ -79,7 +77,7 @@ const registry = [
             {
                 name: "Logging",
                 id: "logging",
-                icon: ArchiveBoxIcon,
+                icon: Archive,
                 component: {
                     title: "Logging",
                     description:
@@ -95,7 +93,7 @@ const registry = [
             {
                 name: "Auto Moderator",
                 id: "automod",
-                icon: FunnelIcon,
+                icon: Funnel,
                 component: {
                     title: "Auto Moderator",
                     description:
@@ -106,7 +104,7 @@ const registry = [
             {
                 name: "Anti Spam",
                 id: "antispam",
-                icon: ShieldCheckIcon,
+                icon: ShieldCheck,
                 component: {
                     title: "Anti Spam",
                     description:
@@ -117,7 +115,7 @@ const registry = [
             {
                 name: "Anti Raid",
                 id: "antiraid",
-                icon: UsersIcon,
+                icon: People,
                 restrictions: ["antiraid"],
                 component: {
                     title: "Anti Raid",
@@ -128,7 +126,7 @@ const registry = [
             {
                 name: "Link Filter",
                 id: "linkfilter",
-                icon: ClipboardDocumentCheckIcon,
+                icon: ClipboardCheck,
                 restrictions: ["linkfilter"],
                 badges: ["beta"],
                 component: {
@@ -141,7 +139,7 @@ const registry = [
             {
                 name: "Punishments",
                 id: "punishments",
-                icon: FingerPrintIcon,
+                icon: Hammer,
                 component: {
                     title: "Punishments",
                     description: "Control how users are punished.",
@@ -151,7 +149,7 @@ const registry = [
             {
                 name: "Name Checker",
                 id: "name",
-                icon: IdentificationIcon,
+                icon: PersonVcard,
                 component: {
                     title: "Name Checker",
                     description: "Moderate the names of all users.",
@@ -161,7 +159,7 @@ const registry = [
             {
                 name: "Slowmode",
                 id: "slowmode",
-                icon: ClockIcon,
+                icon: Clock,
                 component: {
                     title: "Slowmode",
                     description: "Automatically adjust slowmode",
@@ -171,7 +169,7 @@ const registry = [
             {
                 name: "Report",
                 id: "report",
-                icon: ClipboardIcon,
+                icon: Clipboard,
                 restrictions: ["report"],
                 badges: ["beta"],
                 component: {
@@ -184,7 +182,7 @@ const registry = [
             {
                 name: "Ban Sync",
                 id: "bansync",
-                icon: DocumentTextIcon,
+                icon: ListCheck,
                 restrictions: ["dev"],
                 badges: ["beta"],
                 component: {
@@ -201,7 +199,7 @@ const registry = [
             {
                 name: "Verification",
                 id: "verification",
-                icon: LockOpenIcon,
+                icon: Lock,
                 restrictions: ["verification"],
                 component: {
                     title: "Verification",
@@ -213,7 +211,7 @@ const registry = [
             {
                 name: "Super Verification",
                 id: "super-verification",
-                icon: LockClosedIcon,
+                icon: ShieldCheck,
                 restrictions: ["super_verification"],
                 badges: ["beta"],
                 component: {
@@ -226,7 +224,7 @@ const registry = [
             {
                 name: "Join Guard",
                 id: "joinguard",
-                icon: UserPlusIcon,
+                icon: PersonPlus,
                 restrictions: ["joinguard"],
                 badges: ["beta"],
                 component: {
@@ -244,7 +242,7 @@ const registry = [
             {
                 name: "Overview",
                 id: "overview",
-                icon: GlobeAltIcon,
+                icon: Globe,
                 restrictions: ["dev"],
                 badges: ["beta"],
                 component: {
@@ -255,7 +253,7 @@ const registry = [
             {
                 name: "Access",
                 id: "access",
-                icon: UserGroupIcon,
+                icon: People,
                 restrictions: ["access"],
                 badges: ["beta"],
                 component: {
@@ -267,8 +265,7 @@ const registry = [
             {
                 name: "Commands",
                 id: "commands",
-                icon: MinusIcon,
-                icon_className: "-rotate-45",
+                icon: SlashLg,
                 restrictions: ["dev"],
                 badges: ["beta"],
                 component: {
@@ -279,7 +276,7 @@ const registry = [
             {
                 name: "Anti Nuke",
                 id: "antinuke",
-                icon: XMarkIcon,
+                icon: X,
                 restrictions: ["dev"],
                 badges: ["beta"],
                 component: {
@@ -292,7 +289,7 @@ const registry = [
             {
                 name: "Authy",
                 id: "auth",
-                icon: CheckIcon,
+                icon: CheckLg,
                 restrictions: ["auth"],
                 badges: ["beta"],
                 component: {
@@ -310,7 +307,7 @@ const registry = [
             {
                 name: "Bot",
                 id: "bot",
-                icon: CubeTransparentIcon,
+                icon: Robot,
                 restrictions: [],
                 badges: ["beta"],
                 component: {
@@ -321,7 +318,7 @@ const registry = [
             {
                 name: "Branding",
                 id: "branding",
-                icon: SparklesIcon,
+                icon: Award,
                 restrictions: [
                     "branding_splash",
                     "branding_embed",
@@ -337,7 +334,7 @@ const registry = [
             {
                 name: "Plan",
                 id: "plan",
-                icon: CreditCardIcon,
+                icon: CreditCard,
                 restrictions: ["dev"],
                 badges: ["beta"],
                 component: {
@@ -349,7 +346,7 @@ const registry = [
             {
                 name: "Contact",
                 id: "contact",
-                icon: EnvelopeIcon,
+                icon: Envelope,
                 restrictions: ["dev"],
                 badges: ["beta"],
                 component: {
@@ -367,7 +364,7 @@ const registry = [
             {
                 name: "Developer panel",
                 id: "dev",
-                icon: ExclamationTriangleIcon,
+                icon: ExclamationTriangle,
                 restrictions: ["dev"],
                 component: {
                     title: "Developer panel",
