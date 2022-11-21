@@ -57,16 +57,28 @@ const features = [
             "Customizable limits",
         ],
         icon: UsersIcon,
+        links: [
+            {
+                name: "Documentation",
+                href: "https://docs.cleanerbot.xyz/features/antiraid/",
+            },
+        ],
     },
     {
         name: "Verification",
         description: "Verification for new or bad behaving members.",
         points: [
-            "Passthrough for old accounts",
-            "In-discord CAPTCHA Verification",
-            "External hCAPTCHA Verification",
+            "Passthrough for aged accounts (can be disabled)",
+            "In-discord CAPTCHAs (3x3 captcha, classification, text)",
+            "External CAPTCHAs (hCaptcha, Turnstile)",
         ],
         icon: LockOpenIcon,
+        links: [
+            {
+                name: "Documentation",
+                href: "https://docs.cleanerbot.xyz/verification/verification",
+            },
+        ],
     },
     {
         name: "Super Verification",
@@ -113,22 +125,39 @@ const features = [
             // "Blacklist content of usernames",
         ],
         icon: IdentificationIcon,
+        links: [
+            {
+                name: "Documentation",
+                href: "https://docs.cleanerbot.xyz/features/namechecker/",
+            },
+        ],
     },
     {
         name: "Link Filter",
         description: "Checks all links send by users.",
         points: ["Custom whitelist and blacklist.", "Block unknown links."],
         icon: ClipboardDocumentCheckIcon,
+        links: [
+            {
+                name: "Documentation",
+                href: "https://docs.cleanerbot.xyz/features/linkfilter/",
+            },
+        ],
     },
     {
         name: "Statistics",
-        description: "Numbers go brrr",
+        description: "",
         points: [
-            "Per-server stats",
-            "Per-user stats (all servers you can manage)",
-            "Global stats",
+            "Per-server statistics",
+            "Per-user statistics (all servers you can manage)",
+            "Global statistics",
         ],
         icon: ChartBarIcon,
+        links: [
+            { name: "Per-server", href: "/dash#/statistics" },
+            { name: "Per-user", href: "/dash#statistics" },
+            { name: "Global Statistics", href: "/statistics" },
+        ],
     },
 ];
 
