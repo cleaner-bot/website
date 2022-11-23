@@ -1,9 +1,5 @@
 import { Fragment, useState } from "react";
-import {
-    CheckCircle,
-    CheckLg,
-    X,
-} from "react-bootstrap-icons";
+import { CheckCircle, CheckLg, X } from "react-bootstrap-icons";
 import Link from "next/link";
 
 import Footer from "@/components/footer.jsx";
