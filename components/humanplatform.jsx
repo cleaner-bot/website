@@ -92,7 +92,9 @@ export function HumanPlatformPage({ title, payload, messages, userLogin }) {
                     captcha={state.data.captcha}
                     onVerify={(token) => {
                         setState({ ...state, stage: 3 });
-                        secretRecipe(1)(token, state.data.d).then(postChallenge);
+                        secretRecipe(1)(token, state.data.d).then(
+                            postChallenge
+                        );
                     }}
                     onError={(error) => setState({ ...state, error })}
                 />
