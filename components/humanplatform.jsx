@@ -21,7 +21,7 @@ export function HumanPlatformPage({ title, payload, messages, userLogin }) {
 
     const postChallenge = async (chldata) => {
         let res;
-        const d = secretRecipe(0)();
+        const d = await secretRecipe(0)();
         try {
             res = await postHumanChallenge({ p: payload, c: chldata, d });
         } catch (error) {
@@ -92,8 +92,7 @@ export function HumanPlatformPage({ title, payload, messages, userLogin }) {
                     captcha={state.data.captcha}
                     onVerify={(token) => {
                         setState({ ...state, stage: 3 });
-                        const body = secretRecipe(1)(token, state.data.d);
-                        postChallenge(body);
+                        secretRecipe(1)(token, state.data.d).then(postChallenge);
                     }}
                     onError={(error) => setState({ ...state, error })}
                 />
