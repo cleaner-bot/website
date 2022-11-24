@@ -188,7 +188,7 @@ function ErrorHandler({ error }) {
 }
 
 function ActualCaptcha({ captcha, onVerify, onError }) {
-    if (captcha.provider === "hcaptcha")
+    if (captcha.provider === "hcaptcha") {
         return (
             <div className="w-full h-full bg-gray-600 rounded">
                 <HCaptcha
@@ -200,7 +200,7 @@ function ActualCaptcha({ captcha, onVerify, onError }) {
                 />
             </div>
         );
-    else if (captcha.provider === "turnstile")
+    } else if (captcha.provider === "turnstile") {
         return (
             <Turnstile
                 sitekey={captcha.sitekey}
@@ -212,4 +212,18 @@ function ActualCaptcha({ captcha, onVerify, onError }) {
                 className="w-[300px] h-[65px] bg-gray-600 rounded mb-[13px]"
             />
         );
+    } else if (captcha.provider === "button") {
+        return (
+            <button
+                className="w-full h-full --btn --btn-primary --btn-3"
+                onClick={(event) => {
+                    const token = secretRecipe(2)(event.nativeEvent);
+                    console.log(token);
+                    onVerify(token);
+                }}
+            >
+                Click to verify you are human
+            </button>
+        )
+    } else if(captcha)
 }
