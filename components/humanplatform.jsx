@@ -4,7 +4,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useReducer } from "react";
-import { Discord } from "react-bootstrap-icons";
+import { Discord, Check, X } from "react-bootstrap-icons";
 import clsx from "clsx";
 
 import Skeleton from "@/components/skeleton.jsx";
@@ -87,45 +87,55 @@ export function HumanPlatformPage({ title, payload, messages, userLogin }) {
                     </button>
                 </div>
             )}
-            {!state.error && state.stage === 2 ? (
-                <ActualCaptcha
-                    captcha={state.data.captcha}
-                    onVerify={(token) => {
-                        setState({ ...state, stage: 3 });
-                        secretRecipe(1)(token, state.data.d).then(
-                            postChallenge
-                        );
-                    }}
-                    onError={(error) => setState({ ...state, error })}
-                />
-            ) : (
-                <div className="w-[303px] h-[78px] rounded relative mx-auto bg-gray-600 flex-none">
-                    {state.error ? (
-                        <ErrorHandler error={state.error} />
-                    ) : state.stage === 1 ? (
-                        <button
-                            className="flex-col w-full h-full gap-2 --btn --btn-primary"
-                            onClick={() => {
-                                const url = userLogin({});
-                                router.push(url);
-                            }}
-                        >
-                            <Discord className="w-6 h-6" />
-                            {messages.login}
-                        </button>
-                    ) : state.stage === 3 ? (
-                        <CaptchaInfoText className="text-green-300">
-                            Verifying...
-                        </CaptchaInfoText>
-                    ) : state.stage === 4 ? (
-                        <CaptchaInfoText className="text-green-300">
-                            {messages.success}
-                        </CaptchaInfoText>
-                    ) : (
-                        <Skeleton className="w-full h-full rounded" />
-                    )}
-                </div>
-            )}
+            <div className="w-[303px] h-[78px] relative mx-auto flex-none">
+                {state.error ? (
+                    <div className="w-full h-full bg-red-400 rounded">
+                        <X className="w-20 h-20 mx-auto" />
+                    </div>
+                ) : state.stage === 1 ? (
+                    <button
+                        className="flex-col w-full h-full gap-2 --btn --btn-primary"
+                        onClick={() => {
+                            const url = userLogin({});
+                            router.push(url);
+                        }}
+                    >
+                        <Discord className="w-6 h-6" />
+                    </button>
+                ) : state.stage === 2 ? (
+                    <ActualCaptcha
+                        captcha={state.data.captcha}
+                        onVerify={(token) => {
+                            setState({ ...state, stage: 3 });
+                            secretRecipe(1)(token, state.data.d).then(
+                                postChallenge
+                            );
+                        }}
+                        onError={(error) => setState({ ...state, error })}
+                    />
+                ) : state.stage === 4 ? (
+                    <div className="w-full h-full bg-green-500 rounded">
+                        <Check className="w-20 h-20 mx-auto" />
+                    </div>
+                ) : (
+                    <Skeleton className="w-full h-full rounded" />
+                )}
+            </div>
+            <div className="mt-6">
+                {state.error ? (
+                    <ErrorHandler error={state.error} />
+                ) : state.stage === 1 ? (
+                    messages.login
+                ) : state.stage === 2 ? (
+                    `Please solve the CAPTCHA.${state.data.d.i === 1 ? " (again)" : state.data.d.i > 1 ? ` (again x${state.data.d.i})` : ""}`
+                ) : state.stage === 3 ? (
+                    "Verifying... please wait"
+                ) : state.stage === 4 ? (
+                    messages.success
+                ) : (
+                    "Loading..."
+                )}
+            </div>
             <div className="mt-12">
                 <p className="text-center">
                     By verifying you agree to our{" "}
@@ -182,7 +192,7 @@ function ShowError({ message }) {
 function ActualCaptcha({ captcha, onVerify, onError }) {
     if (captcha.provider === "hcaptcha")
         return (
-            <div className="w-[303px] h-[78px] block bg-gray-600 rounded">
+            <div className="w-full h-full bg-gray-600 rounded">
                 <HCaptcha
                     sitekey={captcha.sitekey}
                     theme="dark"
