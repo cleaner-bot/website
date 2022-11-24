@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-import { useRouter } from "next/router";
 
 export default function Traps() {
     return (
@@ -10,23 +8,10 @@ export default function Traps() {
 }
 
 function NopechaTraps() {
-    const router = useRouter();
-    useEffect(() => {
-        const intervalId = setInterval(() => {
-            for (const script of document.querySelectorAll(
-                `script[src*=".hcaptcha.com/1/api.js"]`
-            )) {
-                if (script.src.includes("hl")) router.reload();
-            }
-        }, 1000);
-        return () => {
-            clearInterval(intervalId);
-        };
-    }, [router]);
     return (
         <>
             <div className="recaptcha-checkbox" aria-checked={false} />
-            <div id="recaptcha-anchor" onClick={() => router.reload()} />
+            <div id="recaptcha-anchor" onClick={() => window.recaptchaLoadCallback = undefined} />
         </>
     );
 }
