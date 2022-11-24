@@ -121,7 +121,7 @@ export function HumanPlatformPage({ title, payload, messages, userLogin }) {
                     <Skeleton className="w-full h-full rounded" />
                 )}
             </div>
-            <div className="mt-6">
+            <p className="mt-6 text-xl font-medium text-center">
                 {state.error ? (
                     <ErrorHandler error={state.error} />
                 ) : state.stage === 1 ? (
@@ -135,7 +135,7 @@ export function HumanPlatformPage({ title, payload, messages, userLogin }) {
                 ) : (
                     "Loading..."
                 )}
-            </div>
+            </p>
             <div className="mt-12">
                 <p className="text-center">
                     By verifying you agree to our{" "}
@@ -170,23 +170,21 @@ export function HumanPlatformPage({ title, payload, messages, userLogin }) {
 }
 
 function ErrorHandler({ error }) {
-    if (typeof error === "string") return <ShowError message={error} />;
-    const { response } = error;
-    if (!response || response.status === 0)
-        return <ShowError message={error.message} />;
-    if (response.status === 404)
-        return <CaptchaInfoText>{response.data}</CaptchaInfoText>;
-    if (typeof response.data === "string")
-        return <ShowError message={response.data} />;
-    if (typeof response.data?.message === "string")
-        return <ShowError message={response.data.message} />;
-    return <ShowError message={`Status ${response.status}`} />;
-}
-
-function ShowError({ message }) {
     return (
-        <CaptchaInfoText className="text-red-350">{message}</CaptchaInfoText>
-    );
+        <span className={clsx(error?.response?.status !== 404 && "text-red-300")}>
+            {typeof error === "string" ? (
+                error
+            ) : !error.response || error.response.status === 0 ? (
+                error.message
+            ) : typeof error.response.data === "string" ? (
+                error.response.data
+            ) : typeof error.response.data?.message === "string" ? (
+                error.response.data.message
+            ) : (
+                `Status ${error.response.status}`
+            )}
+        </span>
+    )
 }
 
 function ActualCaptcha({ captcha, onVerify, onError }) {
@@ -214,17 +212,4 @@ function ActualCaptcha({ captcha, onVerify, onError }) {
                 className="w-[300px] h-[65px] bg-gray-600 rounded mb-[13px]"
             />
         );
-}
-
-function CaptchaInfoText({ children, className }) {
-    return (
-        <p
-            className={clsx(
-                "flex flex-col items-center justify-center w-full h-full text-xl font-medium text-center px-4 overflow-auto",
-                className
-            )}
-        >
-            {children}
-        </p>
-    );
 }
