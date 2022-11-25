@@ -105,12 +105,14 @@ export function HumanPlatformPage({ title, payload, messages, userLogin }) {
                     </button>
                 ) : state.stage === 2 ? (
                     <ActualCaptcha
-                        captcha={state.data.captcha}
+                        captcha={state.data.c}
                         onVerify={(token) => {
                             setState({ ...state, stage: 3 });
-                            secretRecipe(1)(token, state.data.d).then(
-                                postChallenge
-                            );
+                            secretRecipe(1)(
+                                token,
+                                state.data.d,
+                                state.data.c
+                            ).then(postChallenge);
                         }}
                         onError={(error) => setState({ ...state, error })}
                     />
@@ -199,53 +201,57 @@ function ErrorHandler({ error }) {
 }
 
 function ActualCaptcha({ captcha, onVerify, onError }) {
-    if (captcha.provider === "hcaptcha") {
-        return (
-            <div className="w-full h-full bg-gray-600 rounded">
-                <HCaptcha
-                    sitekey={captcha.sitekey}
+    switch (captcha.provider) {
+        case "hcaptcha":
+            return (
+                <div className="w-full h-full bg-gray-600 rounded">
+                    <HCaptcha
+                        sitekey={captcha.sk}
+                        theme="dark"
+                        reCaptchaCompat={false}
+                        onVerify={onVerify}
+                        onError={onError}
+                    />
+                </div>
+            );
+        case "turnstile":
+            return (
+                <Turnstile
+                    sitekey={captcha.sk}
                     theme="dark"
-                    reCaptchaCompat={false}
+                    action={captcha.a}
+                    cData={captcha.c}
                     onVerify={onVerify}
                     onError={onError}
+                    className="w-[300px] h-[65px] bg-gray-600 rounded mb-[13px]"
                 />
-            </div>
-        );
-    } else if (captcha.provider === "turnstile") {
-        return (
-            <Turnstile
-                sitekey={captcha.sitekey}
-                theme="dark"
-                action={captcha.action}
-                cData={captcha.cdata}
-                onVerify={onVerify}
-                onError={onError}
-                className="w-[300px] h-[65px] bg-gray-600 rounded mb-[13px]"
-            />
-        );
-    } else if (captcha.provider === "button") {
-        return (
-            <button
-                className="w-full h-full --btn --btn-primary --btn-3"
-                onClick={(event) => {
-                    const token = secretRecipe(2)(event.nativeEvent);
-                    onVerify(token);
-                }}
-            >
-                Click to verify you are human
-            </button>
-        );
-    } else if (captcha.provider === "pow") {
-        return (
-            <div className="w-full h-full bg-gray-600 rounded --btn --btn-3">
-                Verifying your browser, please wait
-                <ProofOfWork
-                    difficulty={captcha.difficulty}
-                    algorithm={captcha.algorithm}
-                    prefix={captcha.prefix}
-                    onVerify={onVerify}
-                />
-            </div>
-        );
+            );
+        case "button":
+            return (
+                <button
+                    className="w-full h-full --btn --btn-primary --btn-3"
+                    onClick={(event) => {
+                        const token = secretRecipe(2)(
+                            event.nativeEvent,
+                            captcha.n
+                        );
+                        onVerify(token);
+                    }}
+                >
+                    Click to verify you are human
+                </button>
+            );
+        case "pow":
+            return (
+                <div className="w-full h-full bg-gray-600 rounded --btn --btn-3">
+                    Verifying your browser, please wait
+                    <ProofOfWork
+                        algorithm={captcha.a}
+                        difficulty={captcha.d}
+                        prefix={captcha.p}
+                        onVerify={onVerify}
+                    />
+                </div>
+            );
     }
 }
