@@ -17,6 +17,6 @@ export default function ProofOfWork({
             prefix,
         });
         return () => worker.terminate();
-    }, []);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
     return null;
 }
