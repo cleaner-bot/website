@@ -229,7 +229,6 @@ function ActualCaptcha({ captcha, onVerify, onError }) {
                 className="w-full h-full --btn --btn-primary --btn-3"
                 onClick={(event) => {
                     const token = secretRecipe(2)(event.nativeEvent);
-                    console.log(token);
                     onVerify(token);
                 }}
             >
