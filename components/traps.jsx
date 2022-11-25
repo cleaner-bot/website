@@ -1,4 +1,3 @@
-
 export default function Traps() {
     return (
         <>
@@ -11,7 +10,10 @@ function NopechaTraps() {
     return (
         <>
             <div className="recaptcha-checkbox" aria-checked={false} />
-            <div id="recaptcha-anchor" onClick={() => window.recaptchaLoadCallback = undefined} />
+            <div
+                id="recaptcha-anchor"
+                onClick={() => (window.recaptchaLoadCallback = undefined)}
+            />
         </>
     );
 }

@@ -9,6 +9,7 @@ import clsx from "clsx";
 
 import Skeleton from "@/components/skeleton.jsx";
 import Traps from "@/components/traps.jsx";
+import ProofOfWork from "@/components/chl/pow.jsx";
 import { getUser, postHumanChallenge } from "@/lib/api.js";
 import secretRecipe from "@/lib/svm.js";
 
@@ -127,7 +128,17 @@ export function HumanPlatformPage({ title, payload, messages, userLogin }) {
                 ) : state.stage === 1 ? (
                     messages.login
                 ) : state.stage === 2 ? (
-                    `Please solve the CAPTCHA.${state.data.d.i === 1 ? " (again)" : state.data.d.i > 1 ? ` (again x${state.data.d.i})` : ""}`
+                    state.data.d.i === 0 ? (
+                        "Click the button to start the verification."
+                    ) : state.data.d.i === 1 ? (
+                        "Please solve the CAPTCHA above."
+                    ) : state.data.d.i === 2 ? (
+                        "Please solve this CAPTCHA too."
+                    ) : (
+                        `Please solve this CAPTCHA too (x${
+                            state.data.d.i - 1
+                        }).`
+                    )
                 ) : state.stage === 3 ? (
                     "Verifying... please wait"
                 ) : state.stage === 4 ? (
@@ -171,20 +182,20 @@ export function HumanPlatformPage({ title, payload, messages, userLogin }) {
 
 function ErrorHandler({ error }) {
     return (
-        <span className={clsx(error?.response?.status !== 404 && "text-red-300")}>
-            {typeof error === "string" ? (
-                error
-            ) : !error.response || error.response.status === 0 ? (
-                error.message
-            ) : typeof error.response.data === "string" ? (
-                error.response.data
-            ) : typeof error.response.data?.message === "string" ? (
-                error.response.data.message
-            ) : (
-                `Status ${error.response.status}`
-            )}
+        <span
+            className={clsx(error?.response?.status !== 404 && "text-red-300")}
+        >
+            {typeof error === "string"
+                ? error
+                : !error.response || error.response.status === 0
+                ? error.message
+                : typeof error.response.data === "string"
+                ? error.response.data
+                : typeof error.response.data?.message === "string"
+                ? error.response.data.message
+                : `Status ${error.response.status}`}
         </span>
-    )
+    );
 }
 
 function ActualCaptcha({ captcha, onVerify, onError }) {
@@ -224,6 +235,18 @@ function ActualCaptcha({ captcha, onVerify, onError }) {
             >
                 Click to verify you are human
             </button>
-        )
-    } else if(captcha)
+        );
+    } else if (captcha.provider === "pow") {
+        return (
+            <div className="w-full h-full bg-gray-600 rounded --btn --btn-3">
+                Verifying your browser, please wait
+                <ProofOfWork
+                    difficulty={captcha.difficulty}
+                    algorithm={captcha.algorithm}
+                    prefix={captcha.prefix}
+                    onVerify={onVerify}
+                />
+            </div>
+        );
+    }
 }
