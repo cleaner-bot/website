@@ -201,7 +201,7 @@ function ErrorHandler({ error }) {
 }
 
 function ActualCaptcha({ captcha, onVerify, onError }) {
-    switch (captcha.provider) {
+    switch (captcha.p) {
         case "hcaptcha":
             return (
                 <div className="w-full h-full bg-gray-600 rounded">
