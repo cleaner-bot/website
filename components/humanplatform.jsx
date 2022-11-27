@@ -248,7 +248,7 @@ function ActualCaptcha({ captcha, onVerify, onError }) {
                     <ProofOfWork
                         algorithm={captcha.a}
                         difficulty={captcha.d}
-                        prefix={captcha.p}
+                        prefix={captcha.s}
                         onVerify={onVerify}
                     />
                 </div>
