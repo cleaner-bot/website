@@ -10,11 +10,11 @@ export default function JoinGuard() {
     useEffect(() => {
         const [guildId] = window.location.hash.substring(1).split("/");
         if (/^\d{17,22}$/.test(guildId))
-            setPayload({ type: "j", guild: guildId });
+            setPayload({ t: "j", g: guildId });
         else if (/^[a-zA-Z0-9+/]{10,12}$/.test(guildId))
             setPayload({
-                type: "j",
-                guild: bytesToU64(b64decode(guildId)).toString(),
+                t: "j",
+                g: bytesToU64(b64decode(guildId)).toString(),
             });
         else setPayload({ error: "Invalid link" });
     }, []);

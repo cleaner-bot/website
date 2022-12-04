@@ -8,9 +8,8 @@ export default function ExternalVerification() {
     useEffect(() => {
         const [flow] = window.location.hash.substring(1).split("/");
         const decodedFlow = decodeFlow(flow);
-        console.log(flow, decodedFlow);
         if (decodedFlow.isValid && decodedFlow.isChecksumValid)
-            setPayload({ type: "v", flow });
+            setPayload({ t: "v", f: flow });
         else setPayload({ error: "Link is invalid" });
     }, []);
     return (

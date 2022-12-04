@@ -10,11 +10,11 @@ export default function SuperVerification() {
     useEffect(() => {
         const [guildId] = window.location.hash.substring(1).split("/");
         if (/^\d{17,22}$/.test(guildId))
-            setPayload({ type: "sv", guild: guildId });
+            setPayload({ t: "sv", g: guildId });
         else if (/^[a-zA-Z0-9+/]{10,12}$/.test(guildId))
             setPayload({
-                type: "sv",
-                guild: bytesToU64(b64decode(guildId)).toString(),
+                t: "sv",
+                g: bytesToU64(b64decode(guildId)).toString(),
             });
         else setPayload({ error: "Invalid link" });
     }, []);
