@@ -148,14 +148,14 @@ export function HumanPlatformPage({ title, payload, messages, userLogin }) {
                 <p className="text-center">
                     By verifying you agree to our{" "}
                     <Link
-                        href="/legal/terms"
+                        href="https://docs.cleanerbot.xyz/legal/terms/"
                         className="font-bold text-gray-300 hover:underline whitespace-nowrap"
                     >
                         Terms of Service
                     </Link>{" "}
                     and{" "}
                     <Link
-                        href="/legal/privacy"
+                        href="https://docs.cleanerbot.xyz/legal/privacy/"
                         className="font-bold text-gray-300 hover:underline whitespace-nowrap"
                     >
                         Privacy Policy
