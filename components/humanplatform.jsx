@@ -107,7 +107,12 @@ export function HumanPlatformPage({ title, payload, messages, userLogin }) {
                         captcha={state.data.c}
                         onVerify={(token) => {
                             setState({ ...state, stage: 3 });
-                            callTrustZone([40, payload, state.data, token]).then(postChallenge);
+                            callTrustZone([
+                                40,
+                                payload,
+                                state.data,
+                                token,
+                            ]).then(postChallenge);
                         }}
                         onError={(error) => setState({ ...state, error })}
                     />
@@ -226,13 +231,9 @@ function ActualCaptcha({ captcha, onVerify, onError }) {
                 <button
                     className="w-full h-full --btn --btn-primary --btn-3"
                     onClick={(event) => {
-                        callTrustZone(
-                            [
-                                0,
-                                event.nativeEvent,
-                                captcha
-                            ]
-                        ).then(onVerify);
+                        callTrustZone([0, event.nativeEvent, captcha]).then(
+                            onVerify
+                        );
                     }}
                 >
                     Click to verify you are human

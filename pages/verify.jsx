@@ -9,8 +9,7 @@ export default function SuperVerification() {
     const [payload, setPayload] = useState();
     useEffect(() => {
         const [guildId] = window.location.hash.substring(1).split("/");
-        if (/^\d{17,22}$/.test(guildId))
-            setPayload({ t: "sv", g: guildId });
+        if (/^\d{17,22}$/.test(guildId)) setPayload({ t: "sv", g: guildId });
         else if (/^[a-zA-Z0-9+/]{10,12}$/.test(guildId))
             setPayload({
                 t: "sv",

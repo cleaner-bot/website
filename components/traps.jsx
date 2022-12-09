@@ -16,7 +16,10 @@ function NopechaTraps() {
             />
             <div id="captcha-container">
                 <div id="root">
-                    <div id="amzn-captcha-verify-button" onClick={() => window.awsLoadCallback = undefined} />
+                    <div
+                        id="amzn-captcha-verify-button"
+                        onClick={() => (window.awsLoadCallback = undefined)}
+                    />
                 </div>
             </div>
         </>
