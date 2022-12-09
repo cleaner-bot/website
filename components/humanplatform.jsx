@@ -11,7 +11,7 @@ import Skeleton from "@/components/skeleton.jsx";
 import Traps from "@/components/traps.jsx";
 import ProofOfWork from "@/components/chl/pow.jsx";
 import { getUser, postHumanChallenge } from "@/lib/api.js";
-import secretRecipe from "@/lib/svm.js";
+import callTrustZone from "@/lib/tz.js";
 
 export function HumanPlatformPage({ title, payload, messages, userLogin }) {
     const router = useRouter();
@@ -20,11 +20,10 @@ export function HumanPlatformPage({ title, payload, messages, userLogin }) {
         {}
     );
 
-    const postChallenge = async (chldata) => {
+    const postChallenge = async (data) => {
         let res;
-        const d = await secretRecipe(0)();
         try {
-            res = await postHumanChallenge({ p: payload, c: chldata, d });
+            res = await postHumanChallenge(data);
         } catch (error) {
             if (error.response?.status === 401) {
                 setState({ stage: 1, data: error.response.data });
@@ -44,7 +43,7 @@ export function HumanPlatformPage({ title, payload, messages, userLogin }) {
     useEffect(() => {
         if (!payload) return;
         if (payload.error) return setState({ error: payload.error });
-        postChallenge();
+        callTrustZone([29, payload]).then(postChallenge);
     }, [payload]); // eslint-disable-line react-hooks/exhaustive-deps
 
     useEffect(() => {
@@ -108,11 +107,7 @@ export function HumanPlatformPage({ title, payload, messages, userLogin }) {
                         captcha={state.data.c}
                         onVerify={(token) => {
                             setState({ ...state, stage: 3 });
-                            secretRecipe(1)(
-                                token,
-                                state.data.d,
-                                state.data.c
-                            ).then(postChallenge);
+                            callTrustZone([40, payload, state.data, token]).then(postChallenge);
                         }}
                         onError={(error) => setState({ ...state, error })}
                     />
@@ -231,11 +226,13 @@ function ActualCaptcha({ captcha, onVerify, onError }) {
                 <button
                     className="w-full h-full --btn --btn-primary --btn-3"
                     onClick={(event) => {
-                        const token = secretRecipe(2)(
-                            event.nativeEvent,
-                            captcha.n
-                        );
-                        onVerify(token);
+                        callTrustZone(
+                            [
+                                0,
+                                event.nativeEvent,
+                                captcha
+                            ]
+                        ).then(onVerify);
                     }}
                 >
                     Click to verify you are human
