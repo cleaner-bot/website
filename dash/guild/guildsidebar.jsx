@@ -32,7 +32,6 @@ export default function GuildSidebar({
             components: nav.components.filter(
                 (x) =>
                     x.id === route.component ||
-                    true ||
                     !x.restrictions ||
                     x.restrictions.some((r) =>
                         r === "dev"
