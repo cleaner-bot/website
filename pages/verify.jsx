@@ -28,7 +28,7 @@ export default function SuperVerification() {
             }
             payload={payload}
             messages={{
-                success: "Verified!",
+                success: "Verified! You can return to Discord now.",
                 login: "Authorize with Discord to verify",
             }}
         />

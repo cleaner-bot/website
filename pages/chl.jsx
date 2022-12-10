@@ -17,7 +17,7 @@ export default function ExternalVerification() {
             title="Verification"
             payload={payload}
             messages={{
-                success: "Verified!",
+                success: "Verified! You can return to Discord now.",
                 login: "Authorize with Discord to verify" /* this is unused */,
             }}
         />
