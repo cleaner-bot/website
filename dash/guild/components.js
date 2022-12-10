@@ -183,7 +183,7 @@ const registry = [
                 name: "Ban Sync",
                 id: "bansync",
                 icon: ListCheck,
-                restrictions: ["dev"],
+                restrictions: [],
                 badges: ["beta"],
                 component: {
                     title: "Ban Synchronization",
