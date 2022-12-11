@@ -204,12 +204,12 @@ function GuildButton({ guild, updateRoute }) {
                     "w-full --btn --btn-4",
                     guild.flags.includes("suspended")
                         ? "--btn-destructive"
-                        : guild.includes("added")
+                        : guild.flags.includes("added")
                         ? "--btn-primary"
                         : "--btn-success"
                 )}
                 onClick={() => {
-                    if (guild.includes("suspended") || guild.includes("added"))
+                    if (guild.flags.includes("suspended") || guild.flags.includes("added"))
                         return updateRoute({ guildId: guild.id });
                     const url = createOAuthRedirect({
                         withBot: true,
