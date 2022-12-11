@@ -83,8 +83,9 @@ export default function GuildListComponent({ route, updateRoute }) {
 }
 
 function guildCategory(guild) {
-    if (guild.is_suspended) return "suspended";
-    if (guild.is_added) return "added";
+    if (guild.flags.includes("suspended")) return "suspended";
+    if (guild.flags.includes("added")) return "added";
+    if (guild.flags.includes("suggested")) return "suggested";
     return "invite";
 }
 
@@ -93,6 +94,9 @@ function FullGuildList({ guilds, query, ...props }) {
         query
             ? guild.name.toLowerCase().indexOf(query.toLowerCase()) >= 0
             : true
+    );
+    const suggestedGuilds = guildList.filter(
+        (guild) => guildCategory(guild) === "suggested"
     );
     const suspendedGuilds = guildList.filter(
         (guild) => guildCategory(guild) === "suspended"
@@ -106,6 +110,12 @@ function FullGuildList({ guilds, query, ...props }) {
 
     return (
         <div className="space-y-10">
+            {suspendedGuilds.length > 0 && (
+                <div>
+                    <HorizontalRule label="Suggested servers to invite the bot" />
+                    <GuildList guilds={suggestedGuilds} {...props} />
+                </div>
+            )}
             {suspendedGuilds.length > 0 && (
                 <div>
                     <HorizontalRule label="Suspended servers" />
@@ -165,7 +175,7 @@ function Guild({ guild, ...props }) {
                     }
                 </span>
             )}
-            {guild && guild.is_suspended && (
+            {guild && guild.flags.includes("suspended") && (
                 <Link
                     href="https://docs.cleanerbot.xyz/misc/suspension#suspended-guild"
                     className="absolute top-2 right-2"
@@ -185,21 +195,21 @@ function Guild({ guild, ...props }) {
     );
 }
 
-function GuildButton({ guild, route, updateRoute }) {
+function GuildButton({ guild, updateRoute }) {
     const router = useRouter();
     return (
         <div className="mx-4 mt-4">
             <button
                 className={clsx(
                     "w-full --btn --btn-4",
-                    guild.is_suspended
+                    guild.flags.includes("suspended")
                         ? "--btn-destructive"
-                        : guild.is_added
+                        : guild.includes("added")
                         ? "--btn-primary"
                         : "--btn-success"
                 )}
                 onClick={() => {
-                    if (guild.is_suspended || guild.is_added)
+                    if (guild.includes("suspended") || guild.includes("added"))
                         return updateRoute({ guildId: guild.id });
                     const url = createOAuthRedirect({
                         withBot: true,
@@ -209,9 +219,9 @@ function GuildButton({ guild, route, updateRoute }) {
                     router.push(url);
                 }}
             >
-                {guild.is_suspended
+                {guild.flags.includes("suspended")
                     ? "Suspended"
-                    : guild.is_added
+                    : guild.flags.includes("added")
                     ? "Dashboard"
                     : "Setup"}
             </button>
