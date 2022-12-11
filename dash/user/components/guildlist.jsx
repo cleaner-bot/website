@@ -110,12 +110,6 @@ function FullGuildList({ guilds, query, ...props }) {
 
     return (
         <div className="space-y-10">
-            {suggestedGuilds.length > 0 && (
-                <div>
-                    <HorizontalRule label="Suggested servers to invite the bot" />
-                    <GuildList guilds={suggestedGuilds} {...props} />
-                </div>
-            )}
             {suspendedGuilds.length > 0 && (
                 <div>
                     <HorizontalRule label="Suspended servers" />
@@ -126,6 +120,12 @@ function FullGuildList({ guilds, query, ...props }) {
                 <div>
                     <HorizontalRule label="Servers" />
                     <GuildList guilds={addedGuilds} {...props} />
+                </div>
+            )}
+            {suggestedGuilds.length > 0 && (
+                <div>
+                    <HorizontalRule label="Suggested servers to invite the bot" />
+                    <GuildList guilds={suggestedGuilds} {...props} />
                 </div>
             )}
             {guildsToInvite.length > 0 && (
