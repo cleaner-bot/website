@@ -124,7 +124,7 @@ function Profile({ user, updateRoute }) {
                                   <Skeleton className="rounded-full" />
                               )}
                     </div>
-                    <div className="ml-3 text-left">
+                    <div className="w-full ml-3 text-left">
                         <p className="text-sm font-medium text-white truncate">
                             {opt.name}
                         </p>
