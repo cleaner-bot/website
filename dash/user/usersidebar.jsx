@@ -117,7 +117,7 @@ function Profile({ user, updateRoute }) {
                 }}
             >
                 <div className="flex items-center">
-                    <div className="w-9 h-9">
+                    <div className="flex-none w-9 h-9">
                         {opt.image === null
                             ? null
                             : opt.image || (
