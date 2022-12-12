@@ -48,11 +48,9 @@ export default function MFAComponent({ user, setUser, route, updateRoute }) {
                                 onClick={() => {
                                     deleteMFA()
                                         .then(() =>
-                                            setMFA({
-                                                response: { status: 404 },
-                                            })
+                                            setMFA(null)
                                         )
-                                        .catch(setMFA);
+                                        .catch(setError);
                                 }}
                             >
                                 Deauthorize MFA
@@ -115,7 +113,7 @@ function MFASetup({ onVerify }) {
     );
 }
 
-function TOTPMFASetup() {
+function TOTPMFASetup({ onVerify }) {
     const [secret, setSecret] = useState();
     useEffect(() => {
         const buffer = new Uint8Array(16);
@@ -155,7 +153,7 @@ function TOTPMFASetup() {
                 Enter the verification code from the app:
             </p>
             <div className="flex justify-center">
-                <TOTPCodeInput secret={secret} />
+                <TOTPCodeInput secret={secret} onVerify={onVerify} />
             </div>
         </div>
     );
