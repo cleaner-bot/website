@@ -91,7 +91,6 @@ const features = [
             "Supports hCAPTCHA Verification",
         ],
         links: [
-            { name: "Demo", href: "/demo/super-verification" },
             {
                 name: "Documentation",
                 href: "https://docs.cleanerbot.xyz/verification/super-verification",
@@ -108,7 +107,6 @@ const features = [
             "Supports hCAPTCHA Verification",
         ],
         links: [
-            { name: "Demo", href: "/demo/joinguard" },
             {
                 name: "Documentation",
                 href: "https://docs.cleanerbot.xyz/verification/joinguard",
