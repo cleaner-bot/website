@@ -48,7 +48,7 @@ const footer = [
                 href: "https://docs.cleanerbot.xyz/misc/about/",
             },
             { name: "Global Statistics", href: "/statistics" },
-            { name: "Blog", href: "https://blog.cleanerbot.xyz" },
+            { name: "Blog", href: "https://docs.cleanerbot.xyz/blog/" },
             { name: "Status", href: "https://cleaner.instatus.com/" },
         ],
     },
