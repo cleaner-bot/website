@@ -7,19 +7,21 @@ export function ToggleBlock({
     name,
     description,
     config,
-    setConfig,
+    updateConfig,
     guildId,
     field,
     entitlement,
     entitlements,
     children,
+    disabled,
 }) {
     const inner = (
         <Toggle
             config={config}
-            setConfig={setConfig}
+            updateConfig={updateConfig}
             guildId={guildId}
             field={field}
+            disabled={disabled}
         />
     );
     return (
@@ -68,6 +70,7 @@ export function BlockWithPanel({
     children,
     panel,
     className,
+    small,
 }) {
     return (
         <div
@@ -85,7 +88,12 @@ export function BlockWithPanel({
                 )}
                 {children}
             </div>
-            <div className="flex items-center justify-center flex-none w-full px-12 py-6 border-t lg:p-12 lg:w-64 w lg:border-t-0 lg:border-l border-gray-550">
+            <div
+                className={clsx(
+                    "flex gap-2 flex-col sm:flex-row lg:flex-col items-center justify-center flex-none w-full border-t lg:w-64 w lg:border-t-0 lg:border-l border-gray-550",
+                    small ? "p-4" : "px-12 py-6 lg:p-12"
+                )}
+            >
                 {panel}
             </div>
         </div>

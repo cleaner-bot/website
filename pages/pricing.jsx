@@ -1,18 +1,16 @@
 import { Fragment, useState } from "react";
-import { CheckCircleIcon, CheckIcon, MinusIcon } from "@heroicons/react/solid";
+import { CheckCircle, CheckLg, X } from "react-bootstrap-icons";
 import Link from "next/link";
 
 import Footer from "@/components/footer.jsx";
 import MetaTags from "@/components/metatags.jsx";
-import Or from "@/components/or.jsx";
-import { Slider } from "@/components/dash/ui.jsx";
+import { Slider, HorizontalRule } from "@/components/dash/ui.jsx";
 
 const includedFeatures = [
     "Support (Discord & Mail)",
     "Advanced settings + custom branding",
     "Log file downloads",
     "More than 20,000 members",
-    "Workers",
     "Join guard",
 ];
 const eligible = [
@@ -75,18 +73,7 @@ const sections = [
                 name: "Custom risk score / disabling security level",
                 tiers: { pro: true },
             },
-            { name: "Worker", tiers: { pro: "Early access" } },
             { name: "Branding", tiers: { pro: true } },
-        ],
-    },
-    {
-        name: "Upcoming features",
-        features: [
-            {
-                name: "Backups",
-                tiers: { free: "Coming soon", pro: "Coming soon" },
-            },
-            { name: "Custom bot", tiers: { pro: "Coming soon" } },
         ],
     },
 ];
@@ -121,7 +108,7 @@ export default function Pricing() {
                         {includedFeatures.map((feature) => (
                             <li key={feature} className="flex items-start">
                                 <div className="flex-shrink-0">
-                                    <CheckCircleIcon
+                                    <CheckCircle
                                         className="w-5 h-5 text-green-400"
                                         aria-hidden="true"
                                     />
@@ -187,7 +174,7 @@ export default function Pricing() {
                     <div className="mt-6 text-center text-gray-800">
                         <p>Stripe & Coinbase</p>
                     </div>
-                    <Or />
+                    <HorizontalRule label="OR" />
                     <p className="mt-2 text-lg font-medium text-center">
                         Pay monthly
                     </p>
@@ -202,10 +189,11 @@ export default function Pricing() {
                     <div className="mt-6 text-center text-gray-800">
                         <p>Only Stripe</p>
                     </div>
-                    <Link href="/dash?component=plan">
-                        <a className="mt-8 text-white --btn --btn-4 --btn-neutral">
-                            Select server
-                        </a>
+                    <Link
+                        href="/dash#/plan"
+                        className="mt-8 text-white --btn --btn-4 --btn-neutral"
+                    >
+                        Select server
                     </Link>
                 </div>
             </div>
@@ -228,7 +216,7 @@ export default function Pricing() {
                         {eligible.map((feature) => (
                             <li key={feature} className="flex items-start">
                                 <div className="flex-shrink-0">
-                                    <CheckCircleIcon
+                                    <CheckCircle
                                         className="w-5 h-5 text-green-400"
                                         aria-hidden="true"
                                     />
@@ -245,10 +233,11 @@ export default function Pricing() {
                     </p>
                 </div>
                 <div className="flex items-center justify-center flex-shrink-0 p-6 bg-gray-100 rounded-b-lg lg:p-12 lg:rounded-bl-none lg:rounded-r-lg lg:w-80">
-                    <Link href="/discord">
-                        <a className="w-full my-auto --btn --btn-4 --btn-neutral">
-                            Apply
-                        </a>
+                    <Link
+                        href="/discord"
+                        className="w-full my-auto --btn --btn-4 --btn-neutral"
+                    >
+                        Apply
                     </Link>
                 </div>
             </div>
@@ -310,12 +299,12 @@ export default function Pricing() {
                                                 <>
                                                     {feature.tiers[tier] ===
                                                     true ? (
-                                                        <CheckIcon
+                                                        <CheckLg
                                                             className="w-5 h-5 text-green-500"
                                                             aria-hidden="true"
                                                         />
                                                     ) : (
-                                                        <MinusIcon
+                                                        <X
                                                             className="w-5 h-5 text-gray-400"
                                                             aria-hidden="true"
                                                         />

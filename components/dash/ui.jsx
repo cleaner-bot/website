@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import Link from "next/link";
 import { Dialog, Listbox, Switch } from "@headlessui/react";
-import { ExclamationIcon } from "@heroicons/react/solid";
+import { ExclamationTriangle } from "react-bootstrap-icons";
 import { Fragment, useState } from "react";
 
 import plans from "@/lib/plans.js";
@@ -37,7 +37,14 @@ export function Checkbox({ enabled, setEnabled, onChange, labelOn, labelOff }) {
     );
 }
 
-export function Toggle({ config, setConfig, guildId, field, onToggle }) {
+export function Toggle({
+    config,
+    updateConfig,
+    guildId,
+    field,
+    onToggle,
+    disabled,
+}) {
     const enabled = config[field];
     const [updating, setUpdating] = useState(false);
     return (
@@ -46,7 +53,7 @@ export function Toggle({ config, setConfig, guildId, field, onToggle }) {
                 "w-32 --btn --btn-3",
                 enabled ? "--btn-success" : "--btn-destructive"
             )}
-            disabled={updating}
+            disabled={disabled || updating}
             onClick={async () => {
                 setUpdating(true);
                 const success = await doChange(
@@ -54,7 +61,7 @@ export function Toggle({ config, setConfig, guildId, field, onToggle }) {
                 );
                 setUpdating(false);
                 if (!success) return;
-                setConfig({ ...config, [field]: !enabled });
+                updateConfig({ [field]: !enabled });
                 if (onToggle) onToggle(!enabled);
             }}
         >
@@ -82,15 +89,19 @@ export function Slider({ value, setValue, minValue, maxValue, step }) {
 export function Upgrade({ plan, guildId }) {
     if (!plan || plan >= plans.length)
         return (
-            <Link href={`/dash/${guildId}/contact`}>
-                <a className="w-32 --btn --btn-3 --btn-primary">Contact us</a>
+            <Link
+                href={`/dash/${guildId}/contact`}
+                className="w-32 --btn --btn-3 --btn-primary"
+            >
+                Contact us
             </Link>
         );
     return (
-        <Link href={`/dash/${guildId}/plan`}>
-            <a className="min-w-[8rem] --btn --btn-3 --btn-primary">
-                Upgrade to {plans[plan]}
-            </a>
+        <Link
+            href={`/dash/${guildId}/plan`}
+            className="min-w-[8rem] --btn --btn-3 --btn-primary"
+        >
+            Upgrade to {plans[plan]}
         </Link>
     );
 }
@@ -101,11 +112,12 @@ export function OptionalUpgrade({ entitlements, guildId, required, children }) {
     return children || null;
 }
 
-export function Button({ text, onClick, disabled, className }) {
+export function Button({ text, onClick, disabled, color, className }) {
     return (
         <button
             className={clsx(
-                "min-w-[8rem] --btn --btn-3 --btn-primary",
+                "min-w-[8rem] --btn --btn-3",
+                color ?? "--btn-primary",
                 className
             )}
             onClick={onClick}
@@ -116,12 +128,7 @@ export function Button({ text, onClick, disabled, className }) {
     );
 }
 
-export function TextInput({
-    value,
-    setValue,
-    className,
-    ...props
-}) {
+export function TextInput({ value, setValue, className, ...props }) {
     return (
         <>
             <input
@@ -222,14 +229,15 @@ export function DropdownSearch({
                 placeholder={placeholder}
                 value={query}
                 setValue={setQuery}
-                changeOnInput={true}
                 onFocus={() => setFocused(true)}
                 onBlur={() => setTimeout(() => setFocused(false), 100)}
             />
-            <div className={clsx(
-                "absolute z-20 top-[110%] bg-gray-800 w-full rounded-lg px-3 py-2 shadow",
-                !isFocused && "hidden"
-            )}>
+            <div
+                className={clsx(
+                    "absolute z-20 top-[110%] bg-gray-800 w-full rounded-lg px-3 py-2 shadow",
+                    !isFocused && "hidden"
+                )}
+            >
                 {values
                     .filter(({ name }) => name.indexOf(query) !== -1)
                     .map(({ name, id }) => (
@@ -266,7 +274,7 @@ export function MultiSelect({
     selection,
     guildId,
     config,
-    setConfig,
+    updateConfig,
 }) {
     return (
         <>
@@ -293,7 +301,7 @@ export function MultiSelect({
                                         patchConfig(guildId, { [field]: copy })
                                     );
                                     if (!success) return;
-                                    setConfig({ ...config, [field]: copy });
+                                    updateConfig({ [field]: copy });
                                 }}
                             >
                                 <svg
@@ -325,7 +333,7 @@ export function MultiSelect({
                         patchConfig(guildId, { [field]: copy })
                     );
                     if (!success) return;
-                    setConfig({ ...config, [field]: copy });
+                    updateConfig({ [field]: copy });
                 }}
                 dontSetQuery={true}
             />
@@ -372,7 +380,7 @@ export function Attention({ children, className }) {
         >
             <div className="flex">
                 <div className="flex-shrink-0">
-                    <ExclamationIcon className="w-6 h-6 text-yellow-400" />
+                    <ExclamationTriangle className="w-6 h-6 text-yellow-400" />
                 </div>
                 <div className="w-full ml-3">
                     <h3 className="mb-2 font-medium text-yellow-400">
@@ -381,6 +389,20 @@ export function Attention({ children, className }) {
                     {children}
                 </div>
             </div>
+        </div>
+    );
+}
+
+export function HorizontalRule({ label, color, className }) {
+    if (!label)
+        return (
+            <div className={clsx("h-1", color ?? "bg-gray-550", className)} />
+        );
+    return (
+        <div className={clsx("flex items-center justify-center", className)}>
+            <div className={clsx("flex-grow h-1", color ?? "bg-gray-550")} />
+            <div className="px-4">{label}</div>
+            <div className={clsx("flex-grow h-1", color ?? "bg-gray-550")} />
         </div>
     );
 }
