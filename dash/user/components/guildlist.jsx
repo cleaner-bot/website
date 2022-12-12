@@ -209,7 +209,10 @@ function GuildButton({ guild, updateRoute }) {
                         : "--btn-success"
                 )}
                 onClick={() => {
-                    if (guild.flags.includes("suspended") || guild.flags.includes("added"))
+                    if (
+                        guild.flags.includes("suspended") ||
+                        guild.flags.includes("added")
+                    )
                         return updateRoute({ guildId: guild.id });
                     const url = createOAuthRedirect({
                         withBot: true,
