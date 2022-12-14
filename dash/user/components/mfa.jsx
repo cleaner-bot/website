@@ -47,9 +47,7 @@ export default function MFAComponent({ user, setUser, route, updateRoute }) {
                                 className="--btn --btn-3 --btn-destructive"
                                 onClick={() => {
                                     deleteMFA()
-                                        .then(() =>
-                                            setMFA(null)
-                                        )
+                                        .then(() => setMFA(null))
                                         .catch(setError);
                                 }}
                             >
