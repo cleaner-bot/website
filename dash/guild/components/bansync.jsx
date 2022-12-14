@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { X } from "react-bootstrap-icons";
 import toast from "react-hot-toast";
 import clsx from "clsx";
 
@@ -162,6 +163,8 @@ export default function BanSyncComponent({
                                     route={route}
                                     ownBanList={ownBanList}
                                     setOwnBanList={setOwnBanList}
+                                    config={config}
+                                    updateConfig={updateConfig}
                                 />
                             </PlainBlock>
                         ))}
@@ -179,22 +182,61 @@ function OwnBanList({
     route,
     ownBanList,
     setOwnBanList,
+    config,
+    updateConfig,
 }) {
     const [tab, setTab] = useState(-1);
     const [users, setUser] = useState();
     const [userInput, setUserInput] = useState("");
     return (
         <>
-            <p>
-                {banList.name} -{" "}
-                <code className="px-1 bg-gray-600 rounded">{banList.id}</code>{" "}
+            <p className="flex flex-wrap gap-2">
+                {banList.name && `${banList.name} - `}
+                <code className="px-1 bg-gray-600 rounded">
+                    {banList.id}
+                </code>{" "}
                 <span className="px-2 rounded-full bg-indigo-550 upper">
                     {banList.manager ? "Manager" : "Subscriber"}
                 </span>
+                <button
+                    className="ml-auto rounded-full --btn --btn-destructive"
+                    title="Unsubscribe"
+                    onClick={() => {
+                        setPerformingOperation(true);
+                        const newList = config.bansync_subscribed.filter(
+                            (x) => x !== banList.id
+                        );
+                        doChange(
+                            patchConfig(route.guildId, {
+                                bansync_subscribed: newList,
+                            })
+                        ).then((response) => {
+                            setPerformingOperation(false);
+                            if (!response) return;
+                            updateConfig({ bansync_subscribed: newList });
+                            setOwnBanList({
+                                data: ownBanList.data.filter(
+                                    (bl) => bl.id !== banList.id
+                                ),
+                            });
+                        });
+                    }}
+                >
+                    <X className="w-6 h-6" />
+                </button>
             </p>
             <p className="mt-2">
-                This list contains{" "}
-                {banList.count === 1 ? "one user" : `${banList.count} users`}.
+                {banList.deleted ? (
+                    "This list has been deleted."
+                ) : (
+                    <>
+                        This list contains{" "}
+                        {banList.count === 1
+                            ? "one user"
+                            : `${banList.count} users`}
+                        .
+                    </>
+                )}
             </p>
             {banList.manager && (
                 <>
