@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import clsx from "clsx";
 
 import { BlockWithPanel, PlainBlock } from "@/components/dash/block.jsx";
 import { Description, Section } from "@/components/dash/dash.jsx";
@@ -16,7 +17,6 @@ import {
     deleteGuildBanListUsers,
     postGuildBanListImport,
 } from "@/lib/api.js";
-import clsx from "clsx";
 
 export default function BanSyncComponent({
     config,
@@ -202,11 +202,6 @@ function OwnBanList({
                         {banList.auto_sync
                             ? "List is synced and new bans will automatically be added to the list."
                             : "List is not synced and no bans are automatically added."}
-                    </p>
-                    <p className="text-xs text-gray-300">
-                        Note: You still have to subscribe to this banlist or
-                        bans added to this ban list will not take affect in your
-                        server.
                     </p>
                     <div className="flex flex-wrap gap-2 mt-6">
                         <button
