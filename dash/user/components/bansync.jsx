@@ -337,21 +337,13 @@ function OwnBanList({
                             ).then((response) => {
                                 setPerformingOperation(false);
                                 if (!response) return;
-                                setGuildInput(
-                                    response.data.managers.join(", ")
-                                );
-                                if (response.data < ids.length)
-                                    toast(
-                                        `${
-                                            ids.length - response.data
-                                        } guilds were not added due to some reasons.`
-                                    );
+                                setGuildInput(ids.join(", "));
                                 setOwnBanList({
                                     data: ownBanList.data.map((bl) =>
                                         bl.id === banList.id
                                             ? {
                                                   ...bl,
-                                                  managers: response.data,
+                                                  managers: ids,
                                               }
                                             : bl
                                     ),
