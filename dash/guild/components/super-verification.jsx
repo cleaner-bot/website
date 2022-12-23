@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import { Description, Section } from "@/components/dash/dash.jsx";
 import { ToggleBlock, PlainBlock } from "@/components/dash/block.jsx";
 import { Attention, DropdownSearch, Button } from "@/components/dash/ui.jsx";
-import { doChange, patchConfig, postSuperVerificationMessage } from "@/lib/api.js";
+import { createOAuthRedirect, doChange, patchConfig, postSuperVerificationMessage } from "@/lib/api.js";
 import { u64ToBytes } from "@/lib/u64.js";
 import { b64encode } from "@/lib/base64.js";
 
@@ -50,27 +50,34 @@ export default function SuperVerificationComponent({
                             Click for Setup guide.
                         </Link>
                     </p>
-                    <p>
-                        Your url is:{" "}
-                        <ClickToCopy
-                            unique={
-                                entitlements.plan >=
-                                    entitlements.branding_vanity &&
-                                entitlements.branding_vanity_url !== ""
-                                    ? entitlements.branding_vanity_url
-                                    : route.guildId
-                            }
-                        />
-                        {entitlements.branding_vanity_url === "" && (
-                            <>
-                                {" or "}
+                    <p className="my-6">
+                        If you wish to send the verification message yourself,
+                        you can use one of the following urls:
+                        <ul className="list-disc list-inside">
+                            <li>
                                 <ClickToCopy
-                                    unique={b64encode(
-                                        u64ToBytes(BigInt(route.guildId))
-                                    ).replace(/=+$/, "")}
+                                    unique={
+                                        entitlements.plan >=
+                                            entitlements.branding_vanity &&
+                                        entitlements.branding_vanity_url !== ""
+                                            ? entitlements.branding_vanity_url
+                                            : route.guildId
+                                    }
                                 />
-                            </>
-                        )}
+                            </li>
+                            {entitlements.branding_vanity_url === "" && (
+                                <li>
+                                    <ClickToCopy
+                                        unique={b64encode(
+                                            u64ToBytes(BigInt(route.guildId))
+                                        ).replace(/=+$/, "")}
+                                    />
+                                    </li>
+                            )}
+                            <li>
+                                <ClickToCopy unique={createOAuthRedirect({ destination: `verify#${route.guildId}` })} />
+                            </li>
+                        </ul>
                     </p>
                     {guild.verification_level !== 3 && (
                         <Attention className="mt-6">
@@ -262,10 +269,10 @@ export default function SuperVerificationComponent({
 }
 
 function ClickToCopy({ unique }) {
-    const url = `https://verify.cleanerbot.xyz/${unique}`;
+    const url = unique.includes("https") ? unique : `https://verify.cleanerbot.xyz/${unique}`;
     return (
         <button
-            className="font-bold text-gray-300 contents"
+            className="font-bold text-gray-300 break-all contents"
             onClick={() => {
                 navigator.clipboard.writeText(url);
                 toast.success("Copied link.");
