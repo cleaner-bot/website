@@ -24,6 +24,7 @@ import {
     Globe,
     Clipboard,
     CheckLg,
+    Alarm,
 } from "react-bootstrap-icons";
 
 import AccessComponent from "@/dash/guild/components/access.jsx";
@@ -45,6 +46,7 @@ import PunishmentsComponent from "@/dash/guild/components/punishments.jsx";
 import ReportComponent from "@/dash/guild/components/report.jsx";
 import SlowmodeComponent from "@/dash/guild/components/slowmode.jsx";
 import StatisticsComponent from "@/dash/guild/components/statistics.jsx";
+import TimeLimitComponent from "@/dash/guild/components/timelimit.jsx";
 import SuperVerificationComponent from "@/dash/guild/components/super-verification.jsx";
 import VerificationComponent from "@/dash/guild/components/verification.jsx";
 import LinkFilterComponent from "@/dash/guild/components/linkfilter.jsx";
@@ -233,6 +235,18 @@ const registry = [
                     component: JoinGuardComponent,
                 },
             },
+            {
+                name: "Timelimit",
+                id: "timelimit",
+                icon: Alarm,
+                restrictions: ["verification_timelimit"],
+                badges: ["beta"],
+                component: {
+                    title: "Timelimit",
+                    description: "Verification timelimit after which users will be kicked.",
+                    component: TimeLimitComponent
+                }
+            }
         ],
     },
     {

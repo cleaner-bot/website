@@ -14,6 +14,7 @@ export default function SuperVerificationComponent({
     entitlements,
     guild,
     route,
+    updateRoute,
 }) {
     const verifiedRole =
         guild.roles &&
@@ -33,7 +34,7 @@ export default function SuperVerificationComponent({
             <Section>
                 <ToggleBlock
                     name="Enable Super Verification"
-                    description="Enable verification. This will automatically kick members after 8 minutes if they have not verified."
+                    description="Enable super verification. Users will be able to verify using the link below."
                     field="super_verification_enabled"
                     config={config}
                     updateConfig={updateConfig}
@@ -69,16 +70,34 @@ export default function SuperVerificationComponent({
                             </>
                         )}
                     </p>
-                    {guild.myself &&
-                        !(
-                            guild.myself.permissions.ADMINISTRATOR ||
-                            guild.myself.permissions.KICK_MEMBERS
-                        ) && (
-                            <Attention className="mt-6">
-                                Missing permission to kick members! This feature
-                                will not work without it.
-                            </Attention>
-                        )}
+                    {guild.verification_level !== 3 && (
+                        <Attention className="mt-6">
+                            Your verification level is <b>NOT</b> on <code>High</code>!
+                            Users will be able to DM while pending verification.
+                        </Attention>
+                    )}
+                    {!config.verification_timelimit_enabled && (
+                        <Attention className="mt-6">
+                            You do not have{" "}
+                            <button onClick={() => {
+                                updateRoute({ component: "timelimit" })
+                            }} className="font-bold text-gray-300 hover:underline">
+                                Verification Timelimit
+                            </button>
+                            {" "}enabled!
+                        </Attention>
+                    )}
+                    {config.verification_timelimit_enabled && config.verification_timelimit > 480 && (
+                        <Attention className="mt-6">
+                            Your{" "}
+                            <button onClick={() => {
+                                updateRoute({ component: "timelimit" })
+                            }} className="font-bold text-gray-300 hover:underline">
+                                Verification Timelimit
+                            </button>
+                            {" "}is over the recommended 8 minutes.
+                        </Attention>
+                    )}
                 </ToggleBlock>
                 {config.super_verification_enabled && (
                     <>
