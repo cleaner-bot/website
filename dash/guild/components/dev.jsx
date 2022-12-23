@@ -24,7 +24,7 @@ export default function DeveloperComponent({
                 {Object.keys(entitlements).map((key) => (
                     <Config
                         object={entitlements}
-                        setObject={updateEntitlements}
+                        updateObject={updateEntitlements}
                         patch={patchEntitlements}
                         route={route}
                         key={key}
@@ -37,7 +37,7 @@ export default function DeveloperComponent({
                 {Object.keys(config).map((key) => (
                     <Config
                         object={config}
-                        updateConfig={updateConfig}
+                        updateObject={updateConfig}
                         patch={patchConfig}
                         route={route}
                         key={key}
@@ -49,7 +49,7 @@ export default function DeveloperComponent({
     );
 }
 
-function Config({ object, updateConfig, patch, field, route }) {
+function Config({ object, updateObject, patch, field, route }) {
     const [input, setInput] = useState(JSON.stringify(object[field]));
     return (
         <BlockWithPanel
@@ -73,7 +73,7 @@ function Config({ object, updateConfig, patch, field, route }) {
                                 })
                             );
                             if (!success) return;
-                            updateConfig({
+                            updateObject({
                                 [field]: new_value,
                             });
                         }}
