@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import { Description, Section } from "@/components/dash/dash.jsx";
 import { ToggleBlock, PlainBlock } from "@/components/dash/block.jsx";
-import { Attention, DropdownSearch } from "@/components/dash/ui.jsx";
+import { Attention, DropdownSearch, Button } from "@/components/dash/ui.jsx";
 import { doChange, patchConfig, postSuperVerificationMessage } from "@/lib/api.js";
 import { u64ToBytes } from "@/lib/u64.js";
 import { b64encode } from "@/lib/base64.js";
