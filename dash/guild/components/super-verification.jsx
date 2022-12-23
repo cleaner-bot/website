@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Description, Section } from "@/components/dash/dash.jsx";
 import { ToggleBlock, PlainBlock } from "@/components/dash/block.jsx";
 import { Attention, DropdownSearch } from "@/components/dash/ui.jsx";
-import { doChange, patchConfig } from "@/lib/api.js";
+import { doChange, patchConfig, postSuperVerificationMessage } from "@/lib/api.js";
 import { u64ToBytes } from "@/lib/u64.js";
 import { b64encode } from "@/lib/base64.js";
 import toast from "react-hot-toast";
@@ -16,6 +16,7 @@ export default function SuperVerificationComponent({
     route,
     updateRoute,
 }) {
+    const [messageChannel, setMessageChannel] = useState("");
     const verifiedRole =
         guild.roles &&
         guild.roles.find((role) => role.id === config.super_verification_role);
@@ -195,6 +196,63 @@ export default function SuperVerificationComponent({
                             updateConfig={updateConfig}
                             guildId={route.guildId}
                         />
+                        <PlainBlock
+                            name="Send verification message"
+                            description="Sends the verification message in the selected channel. Unverified users need access to this message to verify and gain access to the server."
+                        >
+                            <DropdownSearch
+                                placeholder={
+                                    guild.channels && guild.myself
+                                        ? "Select a channel."
+                                        : "Channel list is unavailable. Refresh the page or contact support."
+                                }
+                                values={
+                                    guild.channels && guild.myself
+                                        ? guild.channels.filter(
+                                              (channel) =>
+                                                  guild.myself.permissions
+                                                      .ADMINISTRATOR ||
+                                                  (channel.permissions
+                                                      .VIEW_CHANNEL &&
+                                                      channel.permissions
+                                                          .SEND_MESSAGES &&
+                                                      channel.permissions
+                                                          .EMBED_LINKS)
+                                          )
+                                        : []
+                                }
+                                current={messageChannel}
+                                setCurrent={setMessageChannel}
+                            />
+                            <Button
+                                text={
+                                    config.branding_embed_enabled
+                                        ? "Send custom message"
+                                        : "Send message"
+                                }
+                                disabled={!messageChannel}
+                                className="mt-4"
+                                onClick={async () => {
+                                    const success = await doChange(
+                                        postSuperVerificationMessage(
+                                            route.guildId,
+                                            messageChannel
+                                        ),
+                                        {
+                                            loading: "Sending...",
+                                            error: "Failed to send: ",
+                                            success: "Message sent",
+                                        }
+                                    );
+                                    if (!success) return;
+                                    setMessageChannel(0);
+                                }}
+                            />
+                            <p className="mt-6 text-sm text-gray-300">
+                                Channel not listed? Make sure The Cleaner can
+                                send messages and embeds in it.
+                            </p>
+                        </PlainBlock>
                     </>
                 )}
             </Section>
