@@ -72,32 +72,40 @@ export default function SuperVerificationComponent({
                     </p>
                     {guild.verification_level !== 3 && (
                         <Attention className="mt-6">
-                            Your verification level is <b>NOT</b> on <code>High</code>!
-                            Users will be able to DM while pending verification.
+                            Your verification level is <b>NOT</b> on{" "}
+                            <code>High</code>! Users will be able to DM while
+                            pending verification.
                         </Attention>
                     )}
                     {!config.verification_timelimit_enabled && (
                         <Attention className="mt-6">
                             You do not have{" "}
-                            <button onClick={() => {
-                                updateRoute({ component: "timelimit" })
-                            }} className="font-bold text-gray-300 hover:underline">
+                            <button
+                                onClick={() => {
+                                    updateRoute({ component: "timelimit" });
+                                }}
+                                className="font-bold text-gray-300 hover:underline"
+                            >
                                 Verification Timelimit
-                            </button>
-                            {" "}enabled!
+                            </button>{" "}
+                            enabled!
                         </Attention>
                     )}
-                    {config.verification_timelimit_enabled && config.verification_timelimit > 480 && (
-                        <Attention className="mt-6">
-                            Your{" "}
-                            <button onClick={() => {
-                                updateRoute({ component: "timelimit" })
-                            }} className="font-bold text-gray-300 hover:underline">
-                                Verification Timelimit
-                            </button>
-                            {" "}is over the recommended 8 minutes.
-                        </Attention>
-                    )}
+                    {config.verification_timelimit_enabled &&
+                        config.verification_timelimit > 480 && (
+                            <Attention className="mt-6">
+                                Your{" "}
+                                <button
+                                    onClick={() => {
+                                        updateRoute({ component: "timelimit" });
+                                    }}
+                                    className="font-bold text-gray-300 hover:underline"
+                                >
+                                    Verification Timelimit
+                                </button>{" "}
+                                is over the recommended 8 minutes.
+                            </Attention>
+                        )}
                 </ToggleBlock>
                 {config.super_verification_enabled && (
                     <>

@@ -2,11 +2,7 @@ import { useState } from "react";
 
 import { Section } from "@/components/dash/dash.jsx";
 import { ToggleBlock, PlainBlock } from "@/components/dash/block.jsx";
-import {
-    Button,
-    Attention,
-    TextInput,
-} from "@/components/dash/ui.jsx";
+import { Button, Attention, TextInput } from "@/components/dash/ui.jsx";
 import { doChange, patchConfig } from "@/lib/api.js";
 import { durationToText, textToDuration } from "@/lib/duration.js";
 
@@ -25,7 +21,7 @@ export default function TimeLimitComponent({
             <Section>
                 <ToggleBlock
                     name="Verification Timelimit"
-                    description="Users will kicked if they don't verify within the timelimit."
+                    description="Users will kicked if they don't gain a role within the timelimit."
                     field="verification_timelimit_enabled"
                     config={config}
                     updateConfig={updateConfig}
@@ -46,7 +42,7 @@ export default function TimeLimitComponent({
                     <>
                         <PlainBlock
                             name="Timelimit"
-                            description="Users that don't verify within the timelimit will be kicked."
+                            description="Users that don't verify (or gain a role) within the timelimit will be kicked."
                         >
                             <TextInput
                                 placeholder="Timelimit to kick after"
@@ -63,9 +59,9 @@ export default function TimeLimitComponent({
                                 text="Save timelimit"
                                 disabled={
                                     textToDuration(timeLimit) ===
-                                    config.verification_timelimit
-                                    || textToDuration(timeLimit) < 60
-                                    || textToDuration(timeLimit) > 60 * 60 * 24 * 7
+                                        config.verification_timelimit ||
+                                    textToDuration(timeLimit) < 60 ||
+                                    textToDuration(timeLimit) > 60 * 60 * 24 * 7
                                 }
                                 className="mt-4"
                                 onClick={async () => {

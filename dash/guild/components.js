@@ -243,10 +243,11 @@ const registry = [
                 badges: ["beta"],
                 component: {
                     title: "Timelimit",
-                    description: "Verification timelimit after which users will be kicked.",
-                    component: TimeLimitComponent
-                }
-            }
+                    description:
+                        "Verification timelimit after which users will be kicked.",
+                    component: TimeLimitComponent,
+                },
+            },
         ],
     },
     {
