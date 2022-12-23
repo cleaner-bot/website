@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 import { Description, Section } from "@/components/dash/dash.jsx";
 import { ToggleBlock, PlainBlock } from "@/components/dash/block.jsx";
@@ -7,7 +8,6 @@ import { Attention, DropdownSearch, Button } from "@/components/dash/ui.jsx";
 import { doChange, patchConfig, postSuperVerificationMessage } from "@/lib/api.js";
 import { u64ToBytes } from "@/lib/u64.js";
 import { b64encode } from "@/lib/base64.js";
-import toast from "react-hot-toast";
 
 export default function SuperVerificationComponent({
     config,
