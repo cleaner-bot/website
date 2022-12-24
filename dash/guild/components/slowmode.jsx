@@ -17,29 +17,27 @@ export default function SlowmodeComponent({
                 !channel.permissions.MANAGE_CHANNELS
         );
     return (
-        <>
-            <Section>
-                <ToggleBlock
-                    name="Enable slowmode"
-                    description="Enable automatic slowmode adjustments. Channels with more than 10s slowmode will not be adjusted."
-                    config={config}
-                    updateConfig={updateConfig}
-                    guildId={route.guildId}
-                    field="slowmode_enabled"
-                >
-                    {guild.channels && missingInChannels.length > 0 && (
-                        <Attention>
-                            Missing permission to change slowmode in the
-                            following channels:
-                            <ul className="list-disc list-inside">
-                                {missingInChannels.map((channel) => (
-                                    <li key={channel.id}>{channel.name}</li>
-                                ))}
-                            </ul>
-                        </Attention>
-                    )}
-                </ToggleBlock>
-            </Section>
+        <Section>
+            <ToggleBlock
+                name="Enable slowmode"
+                description="Enable automatic slowmode adjustments. Channels with more than 10s slowmode will not be adjusted."
+                config={config}
+                updateConfig={updateConfig}
+                guildId={route.guildId}
+                field="slowmode_enabled"
+            >
+                {guild.channels && missingInChannels.length > 0 && (
+                    <Attention>
+                        Missing permission to change slowmode in the
+                        following channels:
+                        <ul className="list-disc list-inside">
+                            {missingInChannels.map((channel) => (
+                                <li key={channel.id}>{channel.name}</li>
+                            ))}
+                        </ul>
+                    </Attention>
+                )}
+            </ToggleBlock>
             <PlainBlock
                 name="Exceptions"
                 description="Channels marked as exception will have a lot less slowmode. This also makes Anti Spam less likely trigger."
@@ -60,6 +58,6 @@ export default function SlowmodeComponent({
                     updateConfig={updateConfig}
                 />
             </PlainBlock>
-        </>
+        </Section>
     );
 }

@@ -13,14 +13,12 @@ export default function StatisticsComponent({ route }) {
     }, []);
 
     return (
-        <>
-            {error ? (
-                <ErrorHandler error={error} />
-            ) : response?.data === null ? (
-                <div className="mt-10 text-center">No data available.</div>
-            ) : (
-                <CommonRadar data={response?.data} />
-            )}
-        </>
+        error ? (
+            <ErrorHandler error={error} />
+        ) : response?.data === null ? (
+            <div className="mt-10 text-center">No data available.</div>
+        ) : (
+            <CommonRadar data={response?.data} />
+        )
     );
 }

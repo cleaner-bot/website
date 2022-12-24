@@ -13,84 +13,82 @@ export default function AuthComponent({
     guild,
 }) {
     return (
-        <>
-            <Section>
-                <ToggleBlock
-                    name="Enable authentication"
-                    description={
-                        <>
-                            <p>
-                                Authentication allows staff to temporarily pick
-                                up roles after verifying themselves using MFA.
-                                The role will be taken after a few minutes or
-                                once they send or edit a message.
-                            </p>
-                            <p>
-                                Make sure the <b>/auth</b> command is usable, it
-                                defaults to only be usable by admins.
-                            </p>
-                        </>
-                    }
-                    field="auth_enabled"
-                    config={config}
-                    updateConfig={updateConfig}
-                    guildId={route.guildId}
-                    entitlement={entitlements.auth}
-                    entitlements={entitlements}
-                />
-                {config.auth_enabled && (
+        <Section>
+            <ToggleBlock
+                name="Enable authentication"
+                description={
                     <>
-                        <PlainBlock
-                            name="Setup a role"
-                            description="Add a role that staff can pick up."
-                        >
-                            <DropdownSearch
-                                placeholder="Select a role."
-                                values={
-                                    guild.roles
-                                        ? guild.roles.filter(
-                                              (role) =>
-                                                  role.can_control &&
-                                                  !config.auth_roles[role.id]
-                                          )
-                                        : []
-                                }
-                                current={""}
-                                dontSetQuery={true}
-                                setCurrent={async (new_value) => {
-                                    const success = await doChange(
-                                        patchConfig(route.guildId, {
-                                            auth_roles: {
-                                                ...config.auth_roles,
-                                                [new_value]: [],
-                                            },
-                                        })
-                                    );
-                                    if (!success) return;
-                                    updateConfig({
+                        <p>
+                            Authentication allows staff to temporarily pick
+                            up roles after verifying themselves using MFA.
+                            The role will be taken after a few minutes or
+                            once they send or edit a message.
+                        </p>
+                        <p>
+                            Make sure the <b>/auth</b> command is usable, it
+                            defaults to only be usable by admins.
+                        </p>
+                    </>
+                }
+                field="auth_enabled"
+                config={config}
+                updateConfig={updateConfig}
+                guildId={route.guildId}
+                entitlement={entitlements.auth}
+                entitlements={entitlements}
+            />
+            {config.auth_enabled && (
+                <>
+                    <PlainBlock
+                        name="Setup a role"
+                        description="Add a role that staff can pick up."
+                    >
+                        <DropdownSearch
+                            placeholder="Select a role."
+                            values={
+                                guild.roles
+                                    ? guild.roles.filter(
+                                            (role) =>
+                                                role.can_control &&
+                                                !config.auth_roles[role.id]
+                                        )
+                                    : []
+                            }
+                            current={""}
+                            dontSetQuery={true}
+                            setCurrent={async (new_value) => {
+                                const success = await doChange(
+                                    patchConfig(route.guildId, {
                                         auth_roles: {
                                             ...config.auth_roles,
                                             [new_value]: [],
                                         },
-                                    });
-                                }}
+                                    })
+                                );
+                                if (!success) return;
+                                updateConfig({
+                                    auth_roles: {
+                                        ...config.auth_roles,
+                                        [new_value]: [],
+                                    },
+                                });
+                            }}
+                        />
+                    </PlainBlock>
+                    {Object.keys(config.auth_roles)
+                        .sort()
+                        .map((roleId) => (
+                            <AuthRole
+                                route={route}
+                                config={config}
+                                updateConfig={updateConfig}
+                                guild={guild}
+                                roleId={roleId}
                             />
-                        </PlainBlock>
-                        {Object.keys(config.auth_roles)
-                            .sort()
-                            .map((roleId) => (
-                                <AuthRole
-                                    route={route}
-                                    config={config}
-                                    updateConfig={updateConfig}
-                                    guild={guild}
-                                    roleId={roleId}
-                                />
-                            ))}
-                    </>
-                )}
-            </Section>
-        </>
+                        ))}
+                </>
+            )}
+        </Section>
     );
 }
 

@@ -12,61 +12,59 @@ import { doChange, patchConfig } from "@/lib/api.js";
 
 export default function AccessComponent({ route, config, updateConfig }) {
     return (
-        <>
-            <Section>
-                <BlockWithPanel
-                    name="Permissions"
-                    description="Manages what permissions people need to access the dashboard."
-                    panel={
-                        <>
-                            <Dropdown
-                                values={[
-                                    { id: 0, name: "Server owner only" },
-                                    { id: 1, name: "Admins" },
-                                    { id: 2, name: "Admins, Managers" },
-                                ]}
-                                current={config.access_permissions}
-                                setCurrent={async (value) => {
-                                    const success = await doChange(
-                                        patchConfig(route.guildId, {
-                                            access_permissions: value,
-                                        })
-                                    );
-                                    if (success)
-                                        updateConfig({
-                                            access_permissions: value,
-                                        });
-                                }}
-                                className="w-40"
-                            />
-                        </>
-                    }
-                />
+        <Section>
+            <BlockWithPanel
+                name="Permissions"
+                description="Manages what permissions people need to access the dashboard."
+                panel={
+                    <>
+                        <Dropdown
+                            values={[
+                                { id: 0, name: "Server owner only" },
+                                { id: 1, name: "Admins" },
+                                { id: 2, name: "Admins, Managers" },
+                            ]}
+                            current={config.access_permissions}
+                            setCurrent={async (value) => {
+                                const success = await doChange(
+                                    patchConfig(route.guildId, {
+                                        access_permissions: value,
+                                    })
+                                );
+                                if (success)
+                                    updateConfig({
+                                        access_permissions: value,
+                                    });
+                            }}
+                            className="w-40"
+                        />
+                    </>
+                }
+            />
 
-                <PlainBlock
-                    name="Whitelisted users"
-                    description="Users who have access to the dashboard. This has priority over permissions checks."
-                >
-                    <IDSelector
-                        name="Users: "
-                        none="No users added."
-                        placeholder="Type the user's id to add to the whitelist."
-                        field="access_members"
-                        guildId={route.guildId}
-                        config={config}
-                        updateConfig={updateConfig}
-                    />
-                </PlainBlock>
-                <ToggleBlock
-                    name="Enable MFA requirement"
-                    description="Enable MFA requirement. All users who wish to modify anything of this dashboard must secure their session with MFA. We support TOTP and U2F."
+            <PlainBlock
+                name="Whitelisted users"
+                description="Users who have access to the dashboard. This has priority over permissions checks."
+            >
+                <IDSelector
+                    name="Users: "
+                    none="No users added."
+                    placeholder="Type the user's id to add to the whitelist."
+                    field="access_members"
+                    guildId={route.guildId}
                     config={config}
                     updateConfig={updateConfig}
-                    guildId={route.guildId}
-                    field="access_mfa"
                 />
-            </Section>
-        </>
+            </PlainBlock>
+            <ToggleBlock
+                name="Enable MFA requirement"
+                description="Enable MFA requirement. All users who wish to modify anything of this dashboard must secure their session with MFA. We support TOTP and U2F."
+                config={config}
+                updateConfig={updateConfig}
+                guildId={route.guildId}
+                field="access_mfa"
+            />
+        </Section>
     );
 }
 
