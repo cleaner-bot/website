@@ -93,6 +93,12 @@ const challengeTextes = {
     TV: "User is put in timeout or has to verify again.",
 };
 
+const automodActions = [
+    { name: "Disabled", id: 0 },
+    { name: "Block", id: 1 },
+    { name: "Challenge", id: 2 },
+];
+
 export default function AutoModComponent({
     config,
     updateConfig,
@@ -166,12 +172,6 @@ function AutoModRule({
     const value = config[field];
     const [updating, setUpdating] = useState(false);
 
-    const options = [
-        { name: "Disabled", id: 0 },
-        { name: "Block", id: 1 },
-        { name: "Challenge", id: 2 },
-    ];
-
     return (
         <BlockWithPanel
             name={name}
@@ -180,7 +180,7 @@ function AutoModRule({
                 <>
                     Action:
                     <Dropdown
-                        values={options}
+                        values={automodActions}
                         current={value}
                         setCurrent={async (new_value) => {
                             setUpdating(true);
