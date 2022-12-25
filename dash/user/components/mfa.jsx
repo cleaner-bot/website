@@ -22,14 +22,13 @@ export default function MFAComponent({ user, setUser, route, updateRoute }) {
             });
     }, []);
     const onVerify = () => {
+        setUser({ ...user, has_mfa: true });
         if (route.other.length > 0) {
             updateRoute({
                 guildId: route.other.shift() ?? "",
                 component: route.other.shift() ?? "",
                 other: route.other,
             });
-        } else {
-            setUser({ ...user, has_mfa: true });
         }
     };
     return (
