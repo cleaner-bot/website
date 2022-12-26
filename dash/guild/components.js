@@ -25,6 +25,7 @@ import {
     Clipboard,
     CheckLg,
     Alarm,
+    CodeSlash,
 } from "react-bootstrap-icons";
 
 import AccessComponent from "@/dash/guild/components/access.jsx";
@@ -37,6 +38,7 @@ import BanSyncComponent from "@/dash/guild/components/bansync.jsx";
 import BrandingComponent from "@/dash/guild/components/branding.jsx";
 import ContactComponent from "@/dash/guild/components/contact.jsx";
 import DeveloperComponent from "@/dash/guild/components/dev.jsx";
+import FilterRulesComponent from "@/dash/guild/components/filterrules";
 import GeneralComponent from "@/dash/guild/components/general.jsx";
 import JoinGuardComponent from "@/dash/guild/components/joinguard.jsx";
 import LoggingComponent from "@/dash/guild/components/logging.jsx";
@@ -190,6 +192,18 @@ const registry = [
                     title: "Ban Synchronization",
                     description: "Synchronize bans across servers.",
                     component: BanSyncComponent,
+                },
+            },
+            {
+                name: "Filter Rules",
+                id: "filterrules",
+                icon: CodeSlash,
+                restrictions: ["filterrules"],
+                badges: ["beta"],
+                component: {
+                    title: "Filter Rules",
+                    description: "Allows you to filter stuff.",
+                    component: FilterRulesComponent,
                 },
             },
         ],
