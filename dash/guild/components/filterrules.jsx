@@ -34,7 +34,7 @@ const MESSAGE_ACTIONS = [
     { name: "Kick/Ban (auto)", id: "auto" },
 ];
 const LIMIT = 5;
-const phases = [
+const events = [
     {
         name: "Member join",
         description: "This filter rule will run when a member joins.",
@@ -97,14 +97,14 @@ export default function FilterRulesComponent({
                 </Link>{" "}
                 for more information.
             </Description>
-            {phases.map((phase) => (
-                <Phase
-                    phase={phase}
+            {events.map((event) => (
+                <Event
+                    event={event}
                     route={route}
-                    key={phase.id}
-                    rules={rules && rules[phase.id]}
+                    key={event.id}
+                    rules={rules && rules[event.id]}
                     updateRules={(newRules) => {
-                        setRules({ ...rules, [phase.id]: newRules });
+                        setRules({ ...rules, [event.id]: newRules });
                     }}
                 />
             ))}
@@ -112,13 +112,13 @@ export default function FilterRulesComponent({
     );
 }
 
-function Phase({ route, phase, rules, updateRules }) {
+function Event({ route, event, rules, updateRules }) {
     const [creating, setCreating] = useState(false);
     return (
-        <Section name={phase.name}>
+        <Section name={event.name}>
             <BlockWithPanel
-                name={`Create a new ${phase.name.toLowerCase()} rule`}
-                description={phase.description}
+                name={`Create a new ${event.name.toLowerCase()} rule`}
+                description={event.description}
                 panel={
                     <Button
                         text="Create rule"
@@ -130,7 +130,7 @@ function Phase({ route, phase, rules, updateRules }) {
                         onClick={async () => {
                             setCreating(true);
                             const response = await doChange(
-                                postFilterRule(route.guildId, phase.id)
+                                postFilterRule(route.guildId, event.id)
                             );
                             setCreating(false);
                             if (!response) return;
@@ -157,7 +157,7 @@ function Phase({ route, phase, rules, updateRules }) {
                                 )
                             );
                         }}
-                        phase={phase}
+                        event={event}
                         route={route}
                         index={idx}
                     />
@@ -167,7 +167,7 @@ function Phase({ route, phase, rules, updateRules }) {
     );
 }
 
-function Rule({ rule, updateRule, phase, route, index }) {
+function Rule({ rule, updateRule, event, route, index }) {
     const [canSave, setCanSave] = useState(false);
     const [saving, setSaving] = useState(false);
     return (
@@ -187,7 +187,7 @@ function Rule({ rule, updateRule, phase, route, index }) {
             <div className="flex gap-4 mt-2">
                 Action:
                 <Dropdown
-                    values={phase.actions}
+                    values={event.actions}
                     current={rule.action}
                     setCurrent={(action) => {
                         updateRule({ ...rule, action });
@@ -206,9 +206,9 @@ function Rule({ rule, updateRule, phase, route, index }) {
                 placeholder="(current.time - user.created_at) < 300"
             />
             <p className="text-xs text-gray-300">
-                Available scopes: {phase.scopes.join(", ")}.{" "}
+                Available scopes: {event.scopes.join(", ")}.{" "}
                 <Link
-                    href={`https://docs.cleanerbot.xyz/filterrules/#phase-${phase.id}`}
+                    href={`https://docs.cleanerbot.xyz/filterrules/#event-${event.id}`}
                     className="font-bold text-gray-400 hover:underline"
                 >
                     Documentation.
@@ -220,7 +220,7 @@ function Rule({ rule, updateRule, phase, route, index }) {
                 onClick={async () => {
                     setSaving(true);
                     const response = await doChange(
-                        patchFilterRule(route.guildId, phase.id, index, rule)
+                        patchFilterRule(route.guildId, event.id, index, rule)
                     );
                     setSaving(false);
                     if (!response) return;
