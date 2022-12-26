@@ -40,16 +40,16 @@ export default function LoggingComponent({
                             values={
                                 guild.channels && guild.myself
                                     ? guild.channels.filter(
-                                            (channel) =>
-                                                guild.myself.permissions
-                                                    .ADMINISTRATOR ||
-                                                (channel.permissions
-                                                    .VIEW_CHANNEL &&
-                                                    channel.permissions
-                                                        .SEND_MESSAGES &&
-                                                    channel.permissions
-                                                        .EMBED_LINKS)
-                                        )
+                                          (channel) =>
+                                              guild.myself.permissions
+                                                  .ADMINISTRATOR ||
+                                              (channel.permissions
+                                                  .VIEW_CHANNEL &&
+                                                  channel.permissions
+                                                      .SEND_MESSAGES &&
+                                                  channel.permissions
+                                                      .EMBED_LINKS)
+                                      )
                                     : []
                             }
                             current={config.logging_channel}
@@ -66,40 +66,37 @@ export default function LoggingComponent({
                             }}
                         />
                         <p className="my-6 text-sm text-gray-300">
-                            Channel not listed? Make sure The Cleaner can
-                            send messages and embeds in it.
+                            Channel not listed? Make sure The Cleaner can send
+                            messages and embeds in it.
                         </p>
                         {config.logging_channel === "0" && (
-                            <Attention>
-                                No logging channel selected.
-                            </Attention>
+                            <Attention>No logging channel selected.</Attention>
                         )}
                         {guild.channels &&
                             (loggingChannel
                                 ? !(
-                                        loggingChannel.permissions
-                                            .ADMINISTRATOR ||
-                                        (loggingChannel.permissions
-                                            .VIEW_CHANNEL &&
-                                            loggingChannel.permissions
-                                                .SEND_MESSAGES &&
-                                            loggingChannel.permissions
-                                                .EMBED_LINKS)
-                                    ) && (
-                                        <Attention>
-                                            The Cleaner can not send messages
-                                            and embeds in the current logging
-                                            channel. Please select a new one
-                                            or give me the missing
-                                            permissions.
-                                        </Attention>
-                                    )
+                                      loggingChannel.permissions
+                                          .ADMINISTRATOR ||
+                                      (loggingChannel.permissions
+                                          .VIEW_CHANNEL &&
+                                          loggingChannel.permissions
+                                              .SEND_MESSAGES &&
+                                          loggingChannel.permissions
+                                              .EMBED_LINKS)
+                                  ) && (
+                                      <Attention>
+                                          The Cleaner can not send messages and
+                                          embeds in the current logging channel.
+                                          Please select a new one or give me the
+                                          missing permissions.
+                                      </Attention>
+                                  )
                                 : config.logging_channel !== "0" && (
-                                        <Attention>
-                                            The logging channel has been
-                                            deleted. Please select a new one.
-                                        </Attention>
-                                    ))}
+                                      <Attention>
+                                          The logging channel has been deleted.
+                                          Please select a new one.
+                                      </Attention>
+                                  ))}
                     </PlainBlock>
                     <ToggleBlock
                         name="Join log"
@@ -122,13 +119,12 @@ export default function LoggingComponent({
                         description={
                             <>
                                 <p>
-                                    We&apos;ll save all your logs, so they
-                                    can be inspected even if the Discord log
-                                    becomes unavailable.
+                                    We&apos;ll save all your logs, so they can
+                                    be inspected even if the Discord log becomes
+                                    unavailable.
                                 </p>
                                 <p>
-                                    We guarantee your logs to be available
-                                    for{" "}
+                                    We guarantee your logs to be available for{" "}
                                     <b>{entitlements.logging_retention}</b>{" "}
                                     month
                                     {entitlements.logging_retention !== 1 &&
@@ -145,15 +141,13 @@ export default function LoggingComponent({
                         entitlement={entitlements.logging_downloads}
                         entitlements={entitlements}
                     >
-                        {entitlements.plan >=
-                            entitlements.logging_downloads &&
+                        {entitlements.plan >= entitlements.logging_downloads &&
                             config.logging_downloads_enabled && (
                                 <>
                                     <p>We are collecting your logs now!</p>
                                     <p>
                                         Due to architectural constraints, we
-                                        can&apos;t provide a direct
-                                        download.{" "}
+                                        can&apos;t provide a direct download.{" "}
                                         <Link
                                             href={`/dash/${guildId}/contact`}
                                             className="hover:underline"

@@ -51,9 +51,8 @@ export default function AntiRaidComponent({
                                     seconds&quot;.
                                 </p>
                                 <p>
-                                    You cannot chose more than 99,999 joins
-                                    and the timeframe cannot be over 999
-                                    seconds.
+                                    You cannot chose more than 99,999 joins and
+                                    the timeframe cannot be over 999 seconds.
                                 </p>
                             </>
                         }
@@ -70,9 +69,7 @@ export default function AntiRaidComponent({
                         />
                         <button
                             className="w-32 --btn --btn-3 --btn-primary"
-                            disabled={
-                                antiRaidLimit === config.antiraid_limit
-                            }
+                            disabled={antiRaidLimit === config.antiraid_limit}
                             onClick={async () => {
                                 const new_value = antiRaidLimit;
                                 setAntiRaidLimit(config.antiraid_limit);
@@ -96,16 +93,15 @@ export default function AntiRaidComponent({
                         description={
                             <>
                                 <p>
-                                    Restrict the join limit to a group of
-                                    people who created their Discord in a
-                                    certain timespan.
+                                    Restrict the join limit to a group of people
+                                    who created their Discord in a certain
+                                    timespan.
                                 </p>
                                 <p>
-                                    For example, setting the limit to 5/5
-                                    and the mode to &quot;Within one
-                                    day&quot; will kick when 5 people who
-                                    created their account on the same day
-                                    join within 5 seconds.
+                                    For example, setting the limit to 5/5 and
+                                    the mode to &quot;Within one day&quot; will
+                                    kick when 5 people who created their account
+                                    on the same day join within 5 seconds.
                                 </p>
                             </>
                         }

@@ -42,8 +42,8 @@ export default function GeneralComponent({
                         <p>
                             Members with <b>administrator</b> or{" "}
                             <b>manage server</b> permission, the{" "}
-                            <b>server owner</b>, and <b>bots</b> will always
-                            be ignored.
+                            <b>server owner</b>, and <b>bots</b> will always be
+                            ignored.
                         </p>
                     </>
                 }

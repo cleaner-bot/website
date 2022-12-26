@@ -42,8 +42,8 @@ export default function VerificationComponent({
                         guild.myself.permissions.MANAGE_ROLES
                     ) && (
                         <Attention>
-                            Missing permission to manage roles! I cannot
-                            give or take roles.
+                            Missing permission to manage roles! I cannot give or
+                            take roles.
                         </Attention>
                     )}
             </ToggleBlock>
@@ -68,8 +68,8 @@ export default function VerificationComponent({
                             values={
                                 guild.roles
                                     ? guild.roles.filter(
-                                            (role) => role.can_control
-                                        )
+                                          (role) => role.can_control
+                                      )
                                     : []
                             }
                             current={config.verification_role}
@@ -121,23 +121,23 @@ export default function VerificationComponent({
                         {guild.roles &&
                             (verificationRole
                                 ? !verificationRole.can_control && (
-                                        <Attention>
-                                            The Cleaner can not control the
-                                            current role.{" "}
-                                            <Link
-                                                href="https://docs.cleanerbot.xyz/misc/roles"
-                                                className="font-bold text-gray-300 hover:underline"
-                                            >
-                                                Find out why.
-                                            </Link>
-                                        </Attention>
-                                    )
+                                      <Attention>
+                                          The Cleaner can not control the
+                                          current role.{" "}
+                                          <Link
+                                              href="https://docs.cleanerbot.xyz/misc/roles"
+                                              className="font-bold text-gray-300 hover:underline"
+                                          >
+                                              Find out why.
+                                          </Link>
+                                      </Attention>
+                                  )
                                 : config.verification_role !== "0" && (
-                                        <Attention>
-                                            The role has been deleted. Please
-                                            select a new one.
-                                        </Attention>
-                                    ))}
+                                      <Attention>
+                                          The role has been deleted. Please
+                                          select a new one.
+                                      </Attention>
+                                  ))}
                     </PlainBlock>
                     <PlainBlock
                         name="Send verification message"
@@ -152,16 +152,16 @@ export default function VerificationComponent({
                             values={
                                 guild.channels && guild.myself
                                     ? guild.channels.filter(
-                                            (channel) =>
-                                                guild.myself.permissions
-                                                    .ADMINISTRATOR ||
-                                                (channel.permissions
-                                                    .VIEW_CHANNEL &&
-                                                    channel.permissions
-                                                        .SEND_MESSAGES &&
-                                                    channel.permissions
-                                                        .EMBED_LINKS)
-                                        )
+                                          (channel) =>
+                                              guild.myself.permissions
+                                                  .ADMINISTRATOR ||
+                                              (channel.permissions
+                                                  .VIEW_CHANNEL &&
+                                                  channel.permissions
+                                                      .SEND_MESSAGES &&
+                                                  channel.permissions
+                                                      .EMBED_LINKS)
+                                      )
                                     : []
                             }
                             current={messageChannel}
@@ -192,8 +192,8 @@ export default function VerificationComponent({
                             }}
                         />
                         <p className="mt-6 text-sm text-gray-300">
-                            Channel not listed? Make sure The Cleaner can
-                            send messages and embeds in it.
+                            Channel not listed? Make sure The Cleaner can send
+                            messages and embeds in it.
                         </p>
                     </PlainBlock>
 
@@ -202,13 +202,12 @@ export default function VerificationComponent({
                         description={
                             <>
                                 <p>
-                                    Users older than the set age won't have
-                                    to solve a CAPTCHA the first time and
-                                    are instead passed through immediately.
+                                    Users older than the set age won't have to
+                                    solve a CAPTCHA the first time and are
+                                    instead passed through immediately.
                                 </p>
                                 <p className="text-sm font-light text-gray-300">
-                                    This replaces the old risk rating
-                                    system.
+                                    This replaces the old risk rating system.
                                 </p>
                             </>
                         }
@@ -240,8 +239,7 @@ export default function VerificationComponent({
                                 );
                                 if (!success) return;
                                 updateConfig({
-                                    verification_age:
-                                        textToDuration(minAge),
+                                    verification_age: textToDuration(minAge),
                                 });
                             }}
                         />

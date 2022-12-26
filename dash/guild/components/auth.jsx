@@ -19,10 +19,10 @@ export default function AuthComponent({
                 description={
                     <>
                         <p>
-                            Authentication allows staff to temporarily pick
-                            up roles after verifying themselves using MFA.
-                            The role will be taken after a few minutes or
-                            once they send or edit a message.
+                            Authentication allows staff to temporarily pick up
+                            roles after verifying themselves using MFA. The role
+                            will be taken after a few minutes or once they send
+                            or edit a message.
                         </p>
                         <p>
                             Make sure the <b>/auth</b> command is usable, it
@@ -48,10 +48,10 @@ export default function AuthComponent({
                             values={
                                 guild.roles
                                     ? guild.roles.filter(
-                                            (role) =>
-                                                role.can_control &&
-                                                !config.auth_roles[role.id]
-                                        )
+                                          (role) =>
+                                              role.can_control &&
+                                              !config.auth_roles[role.id]
+                                      )
                                     : []
                             }
                             current={""}

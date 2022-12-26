@@ -118,8 +118,8 @@ export default function BrandingComponent({
                             placeholder="Verification required"
                         />
                         <p className="mt-1 text-xs text-gray-300">
-                            Limit is 200 characters. Cannot contain links
-                            and markdown does not work.
+                            Limit is 200 characters. Cannot contain links and
+                            markdown does not work.
                         </p>
                         <p className="mt-4 mb-2">Embed description:</p>
                         <MultilineTextInput
@@ -134,8 +134,7 @@ export default function BrandingComponent({
                         <button
                             className="w-full mt-6 --btn --btn-3 --btn-primary sm:w-80 lg:mx-0"
                             disabled={
-                                (embedTitle ===
-                                    config.branding_embed_title &&
+                                (embedTitle === config.branding_embed_title &&
                                     embedDescription ===
                                         config.branding_embed_description) ||
                                 embedUpdating

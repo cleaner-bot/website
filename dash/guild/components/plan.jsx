@@ -67,8 +67,7 @@ export default function PlanComponent({ entitlements, route }) {
                                                         >
                                                             <p className="inline-flex space-x-1">
                                                                 <span>
-                                                                    Pay
-                                                                    with:
+                                                                    Pay with:
                                                                 </span>
                                                                 {plan.stripe && (
                                                                     <span className="hover:underline">

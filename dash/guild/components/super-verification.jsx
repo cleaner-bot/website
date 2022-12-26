@@ -5,7 +5,12 @@ import toast from "react-hot-toast";
 import { Description, Section } from "@/components/dash/dash.jsx";
 import { ToggleBlock, PlainBlock } from "@/components/dash/block.jsx";
 import { Attention, DropdownSearch, Button } from "@/components/dash/ui.jsx";
-import { createOAuthRedirect, doChange, patchConfig, postSuperVerificationMessage } from "@/lib/api.js";
+import {
+    createOAuthRedirect,
+    doChange,
+    patchConfig,
+    postSuperVerificationMessage,
+} from "@/lib/api.js";
 import { u64ToBytes } from "@/lib/u64.js";
 import { b64encode } from "@/lib/base64.js";
 
@@ -72,10 +77,14 @@ export default function SuperVerificationComponent({
                                             u64ToBytes(BigInt(route.guildId))
                                         ).replace(/=+$/, "")}
                                     />
-                                    </li>
+                                </li>
                             )}
                             <li>
-                                <ClickToCopy unique={createOAuthRedirect({ destination: `verify#${route.guildId}` })} />
+                                <ClickToCopy
+                                    unique={createOAuthRedirect({
+                                        destination: `verify#${route.guildId}`,
+                                    })}
+                                />
                             </li>
                         </ul>
                     </p>
@@ -269,7 +278,9 @@ export default function SuperVerificationComponent({
 }
 
 function ClickToCopy({ unique }) {
-    const url = unique.includes("https") ? unique : `https://verify.cleanerbot.xyz/${unique}`;
+    const url = unique.includes("https")
+        ? unique
+        : `https://verify.cleanerbot.xyz/${unique}`;
     return (
         <button
             className="font-bold text-gray-300 break-all contents"

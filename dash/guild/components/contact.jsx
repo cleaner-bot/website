@@ -52,8 +52,7 @@ export default function ContactComponent({ user, entitlements, route }) {
                             </OptionalUpgrade>
                         }
                     >
-                        {entitlements.plan >=
-                            entitlements.contact_email && (
+                        {entitlements.plan >= entitlements.contact_email && (
                             <>
                                 <span className="mt-6 text-gray-300">
                                     Your contact email:{" "}

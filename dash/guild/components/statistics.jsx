@@ -12,13 +12,11 @@ export default function StatisticsComponent({ route }) {
         getGuildStatistics(route.guildId).then(setResponse).catch(setError);
     }, []);
 
-    return (
-        error ? (
-            <ErrorHandler error={error} />
-        ) : response?.data === null ? (
-            <div className="mt-10 text-center">No data available.</div>
-        ) : (
-            <CommonRadar data={response?.data} />
-        )
+    return error ? (
+        <ErrorHandler error={error} />
+    ) : response?.data === null ? (
+        <div className="mt-10 text-center">No data available.</div>
+    ) : (
+        <CommonRadar data={response?.data} />
     );
 }

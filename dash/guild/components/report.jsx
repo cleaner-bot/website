@@ -40,16 +40,16 @@ export default function ReportComponent({
                             values={
                                 guild.channels && guild.myself
                                     ? guild.channels.filter(
-                                            (channel) =>
-                                                guild.myself.permissions
-                                                    .ADMINISTRATOR ||
-                                                (channel.permissions
-                                                    .VIEW_CHANNEL &&
-                                                    channel.permissions
-                                                        .SEND_MESSAGES &&
-                                                    channel.permissions
-                                                        .EMBED_LINKS)
-                                        )
+                                          (channel) =>
+                                              guild.myself.permissions
+                                                  .ADMINISTRATOR ||
+                                              (channel.permissions
+                                                  .VIEW_CHANNEL &&
+                                                  channel.permissions
+                                                      .SEND_MESSAGES &&
+                                                  channel.permissions
+                                                      .EMBED_LINKS)
+                                      )
                                     : []
                             }
                             current={config.report_channel}
@@ -66,40 +66,34 @@ export default function ReportComponent({
                             }}
                         />
                         <p className="my-6 text-sm text-gray-300">
-                            Channel not listed? Make sure The Cleaner can
-                            send messages and embeds in it.
+                            Channel not listed? Make sure The Cleaner can send
+                            messages and embeds in it.
                         </p>
                         {config.report_channel === "0" && (
-                            <Attention>
-                                No report channel selected.
-                            </Attention>
+                            <Attention>No report channel selected.</Attention>
                         )}
                         {guild.channels &&
                             (reportChannel
                                 ? !(
-                                        reportChannel.permissions
-                                            .ADMINISTRATOR ||
-                                        (reportChannel.permissions
-                                            .VIEW_CHANNEL &&
-                                            reportChannel.permissions
-                                                .SEND_MESSAGES &&
-                                            reportChannel.permissions
-                                                .EMBED_LINKS)
-                                    ) && (
-                                        <Attention>
-                                            The Cleaner can not send messages
-                                            and embeds in the current report
-                                            channel. Please select a new one
-                                            or give me the missing
-                                            permissions.
-                                        </Attention>
-                                    )
+                                      reportChannel.permissions.ADMINISTRATOR ||
+                                      (reportChannel.permissions.VIEW_CHANNEL &&
+                                          reportChannel.permissions
+                                              .SEND_MESSAGES &&
+                                          reportChannel.permissions.EMBED_LINKS)
+                                  ) && (
+                                      <Attention>
+                                          The Cleaner can not send messages and
+                                          embeds in the current report channel.
+                                          Please select a new one or give me the
+                                          missing permissions.
+                                      </Attention>
+                                  )
                                 : config.report_channel !== "0" && (
-                                        <Attention>
-                                            The report channel has been
-                                            deleted. Please select a new one.
-                                        </Attention>
-                                    ))}
+                                      <Attention>
+                                          The report channel has been deleted.
+                                          Please select a new one.
+                                      </Attention>
+                                  ))}
                     </PlainBlock>
                 </>
             )}

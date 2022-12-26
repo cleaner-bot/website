@@ -28,8 +28,8 @@ export default function SlowmodeComponent({
             >
                 {guild.channels && missingInChannels.length > 0 && (
                     <Attention>
-                        Missing permission to change slowmode in the
-                        following channels:
+                        Missing permission to change slowmode in the following
+                        channels:
                         <ul className="list-disc list-inside">
                             {missingInChannels.map((channel) => (
                                 <li key={channel.id}>{channel.name}</li>
