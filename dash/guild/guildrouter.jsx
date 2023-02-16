@@ -82,7 +82,7 @@ function DashboardComponent(props) {
     if (!component) return <p>component not found.</p>;
     return (
         <>
-            {props.guild?.access?.requires_mfa && !props.user?.has_mfa && (
+            {props.guild?.access?.requires_mfa && !props.user?.flags.includes("mfa_verified") && (
                 <Attention className="mb-12">
                     <p>
                         This server requires MFA. You are not able to modify any

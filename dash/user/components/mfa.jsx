@@ -22,7 +22,7 @@ export default function MFAComponent({ user, setUser, route, updateRoute }) {
             });
     }, []);
     const onVerify = () => {
-        setUser({ ...user, has_mfa: true });
+        setUser({ ...user, flags: [...user.flags, "mfa_verified"] });
         if (route.other.length > 0) {
             updateRoute({
                 guildId: route.other.shift() ?? "",
@@ -36,7 +36,7 @@ export default function MFAComponent({ user, setUser, route, updateRoute }) {
             {error ? (
                 <ErrorHandler error={error} />
             ) : mfa ? (
-                user.has_mfa ? (
+                user.flags.includes("mfa_verified") ? (
                     <>
                         <p className="mb-4">
                             You are currently using: {mfa.toUpperCase()}
