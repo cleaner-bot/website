@@ -14,7 +14,7 @@ export default function DeveloperComponent({
     route,
     updateRoute,
 }) {
-    if (!user.is_dev) {
+    if (!user.flags.includes("developer")) {
         updateRoute({ component: "" });
         return null;
     }

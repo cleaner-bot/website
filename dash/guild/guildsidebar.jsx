@@ -22,7 +22,7 @@ export default function GuildSidebar({
     entitlements,
     children,
 }) {
-    const isDev = user?.is_dev;
+    const isDev = user?.flags.includes("developer");
     const isSuspended =
         entitlements?.suspended > 0 && !(isDev && route.component === "dev");
 

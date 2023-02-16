@@ -19,7 +19,7 @@ export default function ContactComponent({ user, entitlements, route }) {
                     </Link>
                 }
             />
-            {user.is_dev && (
+            {user.flags.includes("developer") && (
                 <>
                     <BlockWithPanel
                         name="Standard Support"
