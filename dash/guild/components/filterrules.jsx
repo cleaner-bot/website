@@ -3,12 +3,7 @@ import Link from "next/link";
 
 import { Description, Section } from "@/components/dash/dash.jsx";
 import { BlockWithPanel, PlainBlock } from "@/components/dash/block.jsx";
-import {
-    MultiSelect,
-    Attention,
-    Button,
-    Dropdown,
-} from "@/components/dash/ui.jsx";
+import { Button, Dropdown } from "@/components/dash/ui.jsx";
 import {
     doChange,
     getFilterRules,

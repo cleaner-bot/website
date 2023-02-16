@@ -82,38 +82,41 @@ function DashboardComponent(props) {
     if (!component) return <p>component not found.</p>;
     return (
         <>
-            {props.guild?.access?.requires_mfa && !props.user?.flags.includes("mfa_verified") && (
-                <Attention className="mb-12">
-                    <p>
-                        This server requires MFA. You are not able to modify any
-                        settings until you verify your session.
-                    </p>
-                    <button
-                        className="mt-6 --btn --btn-3 --btn-primary w-60"
-                        onClick={() => {
-                            props.updateRoute({
-                                guildId: "mfa",
-                                component: "",
-                                other: [
-                                    props.route.guildId,
-                                    props.route.component,
-                                ],
-                            });
-                        }}
-                    >
-                        Verify session
-                    </button>
-                </Attention>
-            )}
-            {props.guild?.mfa_level !== 0 && !props.user?.flags.includes("discord:mfa") && (
-                <Attention className="mb-12">
-                    This server has the "server-wide 2FA" Discord setting enabled.
-                    To modify any settings, you need to add 
-                    <Link href="https://support.discord.com/hc/en-us/articles/219576828-Setting-up-Two-Factor-Authentication">
-                        2FA to your Discord account
-                    </Link>.
-                </Attention>
-            )}
+            {props.guild?.access?.requires_mfa &&
+                !props.user?.flags.includes("mfa_verified") && (
+                    <Attention className="mb-12">
+                        <p>
+                            This server requires MFA. You are not able to modify
+                            any settings until you verify your session.
+                        </p>
+                        <button
+                            className="mt-6 --btn --btn-3 --btn-primary w-60"
+                            onClick={() => {
+                                props.updateRoute({
+                                    guildId: "mfa",
+                                    component: "",
+                                    other: [
+                                        props.route.guildId,
+                                        props.route.component,
+                                    ],
+                                });
+                            }}
+                        >
+                            Verify session
+                        </button>
+                    </Attention>
+                )}
+            {props.guild?.mfa_level !== 0 &&
+                !props.user?.flags.includes("discord:mfa") && (
+                    <Attention className="mb-12">
+                        This server has the "server-wide 2FA" Discord setting
+                        enabled. To modify any settings, you need to add
+                        <Link href="https://support.discord.com/hc/en-us/articles/219576828-Setting-up-Two-Factor-Authentication">
+                            2FA to your Discord account
+                        </Link>
+                        .
+                    </Attention>
+                )}
             {props.entitlements?.suspended && (
                 <Attention className="mb-12">
                     This server is currently suspended.
