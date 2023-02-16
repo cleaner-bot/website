@@ -1,5 +1,6 @@
 import { useEffect, useReducer, useRef, useState } from "react";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 import GuildSidebar from "@/dash/guild/guildsidebar.jsx";
 import ErrorHandler from "@/components/dash/error.jsx";
@@ -102,6 +103,15 @@ function DashboardComponent(props) {
                     >
                         Verify session
                     </button>
+                </Attention>
+            )}
+            {props.guild?.mfa_level !== 0 && !props.user?.flags.includes("discord:mfa") && (
+                <Attention className="mb-12">
+                    This server has the "server-wide 2FA" Discord setting enabled.
+                    To modify any settings, you need to add 
+                    <Link href="https://support.discord.com/hc/en-us/articles/219576828-Setting-up-Two-Factor-Authentication">
+                        2FA to your Discord account
+                    </Link>.
                 </Attention>
             )}
             {props.entitlements?.suspended && (
