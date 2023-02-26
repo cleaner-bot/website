@@ -139,6 +139,16 @@ export default function LinkFilterComponent({
                         entitlement={entitlements.linkfilter}
                         entitlements={entitlements}
                     />
+                    <ToggleBlock
+                        name="Show a link preview"
+                        description="All links sent for review will include a link preview. There are NO abuse filters, so NSFW previews may be shown (or blocked by Discord if the channel is not an NSFW channel). Any website with decently configured bot filters will also identify the preview bot, and may show a different page than reality."
+                        config={config}
+                        updateConfig={updateConfig}
+                        guildId={route.guildId}
+                        field="linkfilter_linkpreview"
+                        entitlement={entitlements.linkfilter}
+                        entitlements={entitlements}
+                    />
                     <LinkBlock
                         name="Whitelisted links"
                         description="Links that will be ignored."
