@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { Description, Section } from "@/components/dash/dash.jsx";
 import { PlainBlock, ToggleBlock } from "@/components/dash/block.jsx";
-import { TextInput, Attention } from "@/components/dash/ui.jsx";
+import { MultiSelect, TextInput, Attention } from "@/components/dash/ui.jsx";
 import { doChange, patchConfig } from "@/lib/api.js";
 
 const defaultAdvancedWords = [
@@ -155,6 +155,38 @@ export default function NameCheckerComponent({
                         />
                     </>
                 )}
+                <PlainBlock
+                    name="Whitelisted roles"
+                    description={
+                        <>
+                            <p>
+                                Moderators and people with one of the following 
+                                roles are whitelisted and will not be checked
+                                by Name Checker.
+                            </p>
+                        </>
+                    }
+                >
+                    <MultiSelect
+                        name="Roles:"
+                        none="No roles."
+                        singular="Role"
+                        field="name_roles"
+                        placeholder={
+                            guild.roles
+                                ? "Select a role to whitelist."
+                                : "Role list is unavailable. Refresh the page or contact support."
+                        }
+                        selection={
+                            guild.roles
+                                ? guild.roles.filter((x) => !x.is_managed)
+                                : []
+                        }
+                        guildId={route.guildId}
+                        config={config}
+                        updateConfig={updateConfig}
+                    />
+                </PlainBlock>
             </Section>
         </>
     );
