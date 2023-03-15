@@ -8,7 +8,9 @@ import { b64decode } from "@/lib/base64.js";
 export default function JoinGuard() {
     const [payload, setPayload] = useState();
     useEffect(() => {
-        const [guildId] = window.location.hash.substring(1).split("/");
+        let [guildId, fallback] = window.location.hash.substring(1).split("/");
+        if(!guildId && fallback) guildId = fallback;
+
         if (/^\d{17,22}$/.test(guildId)) setPayload({ t: "j", g: guildId });
         else if (/^[a-zA-Z0-9+/]{10,12}$/.test(guildId))
             setPayload({
