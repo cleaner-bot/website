@@ -68,6 +68,11 @@ const categories = [
                 description:
                     "Catches unsafe Discord invites. This only targets a subset of invites that are related to ongoing scam waves.",
             },
+            {
+                name: "advertisement.unsafelink",
+                description:
+                    "Catches unsafe links. This only targets a subset of links.",
+            },
         ],
     },
     {
