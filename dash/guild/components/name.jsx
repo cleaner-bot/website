@@ -160,9 +160,9 @@ export default function NameCheckerComponent({
                     description={
                         <>
                             <p>
-                                Moderators and people with one of the following 
-                                roles are whitelisted and will not be checked
-                                by Name Checker.
+                                Moderators and people with one of the following
+                                roles are whitelisted and will not be checked by
+                                Name Checker.
                             </p>
                         </>
                     }

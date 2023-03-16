@@ -76,7 +76,7 @@ function Header() {
                 Open Dashboard
             </Link>
         </div>
-    )
+    );
 }
 
 function Hero() {
@@ -86,18 +86,15 @@ function Hero() {
                 Keep your server clean
             </h2>
             <p className="mt-6 text-gray-100">
-                The Cleaner helps you keep your server clean and safe while
-                you are away.
+                The Cleaner helps you keep your server clean and safe while you
+                are away.
             </p>
             <p>
                 Fully automated state-of-the-art security for your server in
                 bundled into an all-in-one package to let you sleep.
             </p>
             <div className="flex items-center justify-center w-full gap-4 mt-12 md:w-1/2 md:max-w-xl">
-                <InternalLink
-                    href="/dash"
-                    className="w-full"
-                >
+                <InternalLink href="/dash" className="w-full">
                     Dashboard
                 </InternalLink>
                 <ExternalLink
@@ -110,7 +107,7 @@ function Hero() {
                 </ExternalLink>
             </div>
         </>
-    )
+    );
 }
 
 function FeatureSection() {
@@ -125,7 +122,11 @@ function FeatureSection() {
                 }}
             >
                 Show {showMore ? "less" : "more"} features
-                {showMore ? <ChevronUp className="ml-2" /> : <ChevronDown className="ml-2" />}
+                {showMore ? (
+                    <ChevronUp className="ml-2" />
+                ) : (
+                    <ChevronDown className="ml-2" />
+                )}
             </button>
             {showMore && (
                 <div className="mt-20">
@@ -133,7 +134,7 @@ function FeatureSection() {
                 </div>
             )}
         </>
-    )
+    );
 }
 
 function CTA() {
@@ -142,12 +143,9 @@ function CTA() {
             <h2 className="text-6xl font-bold leading-[3rem] text-center max-w-[30rem] lg:max-w-none mx-auto">
                 Try <span className="text-blue-300">The Cleaner</span> now
             </h2>
-            <InternalLink
-                href="/dash"
-                className="mx-auto max-w-[27rem] mt-12"
-            >
+            <InternalLink href="/dash" className="mx-auto max-w-[27rem] mt-12">
                 Dashboard
             </InternalLink>
         </div>
-    )
+    );
 }

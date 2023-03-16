@@ -58,22 +58,26 @@ const footer = [
     {
         name: "Contact",
         links: [
-            { name: "hi@cleanerbot.xyz", href: "mailto:hi@cleanerbot.xyz", icon: EnvelopeFill },
+            {
+                name: "hi@cleanerbot.xyz",
+                href: "mailto:hi@cleanerbot.xyz",
+                icon: EnvelopeFill,
+            },
             { name: "Discord", href: "/discord", icon: Discord },
-        ]
-    }
+        ],
+    },
 ];
 
 const legal = [
     { name: "Terms", href: "https://docs.cleanerbot.xyz/legal/terms/" },
     { name: "Privacy", href: "https://docs.cleanerbot.xyz/legal/privacy/" },
     { name: "Impressum", href: "https://docs.cleanerbot.xyz/legal/impressum/" },
-]
+];
 
 const social = [
     { icon: Discord, href: "/discord" },
-    { icon: Github, href: "https://github.com/cleaner-bot" }
-]
+    { icon: Github, href: "https://github.com/cleaner-bot" },
+];
 
 export default function Footer() {
     return (
@@ -97,18 +101,16 @@ export default function Footer() {
                     Not affiliated with Discord
                 </p>
                 <div className="flex gap-4 my-4">
-                    {social.map(link => (
+                    {social.map((link) => (
                         <Link href={link.href} key={link.href}>
                             <link.icon className="w-4 h-4" />
                         </Link>
                     ))}
                 </div>
             </div>
-            {footer.map(section => (
+            {footer.map((section) => (
                 <div key={section.name} className="col-span-2 sm:col-span-2">
-                    <p className="mb-2 text-sm text-gray-200">
-                        {section.name}
-                    </p>
+                    <p className="mb-2 text-sm text-gray-200">{section.name}</p>
                     <div className="flex flex-col">
                         {section.links.map((link) => (
                             <Link
@@ -126,8 +128,7 @@ export default function Footer() {
 
             <div className="flex flex-wrap justify-between col-span-2 py-2 text-xs text-gray-300 border-t gap-x-8 gap-y-2 md:col-span-4 border-gray-550 lg:col-span-5">
                 <p className="text-xs text-gray-300">
-                    Copyright &copy; 2021 - 2023
-                    &middot;{" "}
+                    Copyright &copy; 2021 - 2023 &middot;{" "}
                     <Link
                         href="https://github.com/le0developer"
                         className="hover:underline"
@@ -136,7 +137,7 @@ export default function Footer() {
                     </Link>
                 </p>
                 <div className="flex gap-4">
-                    {legal.map(link => (
+                    {legal.map((link) => (
                         <Link
                             href={link.href}
                             key={link.href}
@@ -148,7 +149,7 @@ export default function Footer() {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 function Footer2() {

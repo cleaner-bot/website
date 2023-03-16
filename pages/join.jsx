@@ -9,7 +9,7 @@ export default function JoinGuard() {
     const [payload, setPayload] = useState();
     useEffect(() => {
         let [guildId, fallback] = window.location.hash.substring(1).split("/");
-        if(!guildId && fallback) guildId = fallback;
+        if (!guildId && fallback) guildId = fallback;
 
         if (/^\d{17,22}$/.test(guildId)) setPayload({ t: "j", g: guildId });
         else if (/^[a-zA-Z0-9+/]{10,12}$/.test(guildId))

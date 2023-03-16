@@ -165,7 +165,7 @@ const features = [
 export function Features({ withAos }) {
     return (
         <div className="grid gap-10 lg:grid-cols-2">
-            {features.map((feat) => (
+            {features.map((feat) =>
                 withAos ? (
                     <div data-aos="fade-up" key={feat.name}>
                         <Card feature={feat} />
@@ -175,7 +175,7 @@ export function Features({ withAos }) {
                         <Card feature={feat} />
                     </div>
                 )
-            ))}
+            )}
         </div>
     );
 }
@@ -208,52 +208,46 @@ function Card({ feature }) {
                 </p>
             )}
         </>
-    )
+    );
 }
 
 const reducedFeatures = [
     {
         name: "Auto Moderator",
         icon: EnvelopeExclamation,
-        description: "Automatically moderate messages by filtering out Spam, Advertisements, Phishing and more!",
-        features: [
-            "Anti Spam",
-            "Auto Moderator",
-        ]
+        description:
+            "Automatically moderate messages by filtering out Spam, Advertisements, Phishing and more!",
+        features: ["Anti Spam", "Auto Moderator"],
     },
     {
         name: "Verification Gate",
         icon: PersonExclamation,
-        description: "Verify members are actually Human by solving a CAPTCHA. Supporting in-channel and website CAPTCHAs.",
-        features: [
-            "Verification",
-            "Super Verification",
-        ]
+        description:
+            "Verify members are actually Human by solving a CAPTCHA. Supporting in-channel and website CAPTCHAs.",
+        features: ["Verification", "Super Verification"],
     },
     {
         name: "Join Security",
         icon: PersonAdd,
-        description: "Secure your server from malicious joins with raid protection and CAPTCHAs before even joining.",
-        features: [
-            "Anti Raid",
-            "Join Guard",
-        ]
-    }
-]
+        description:
+            "Secure your server from malicious joins with raid protection and CAPTCHAs before even joining.",
+        features: ["Anti Raid", "Join Guard"],
+    },
+];
 export function ReducedFeatures() {
     return (
         <div className="grid gap-8 md:grid-cols-3">
-            {reducedFeatures.map(feature => (
+            {reducedFeatures.map((feature) => (
                 <div key={feature.name} data-aos="fade-up">
-                    {feature.icon && <feature.icon className="w-10 h-10 mr-2" />}
+                    {feature.icon && (
+                        <feature.icon className="w-10 h-10 mr-2" />
+                    )}
                     <h2 className="flex mb-4 text-4xl font-bold leading-10">
                         {feature.name}
                     </h2>
-                    <p className="text-gray-300">
-                        {feature.description}
-                    </p>
+                    <p className="text-gray-300">{feature.description}</p>
                     <ul className="mt-2">
-                        {feature.features.map(feat => (
+                        {feature.features.map((feat) => (
                             <li key={feat}>
                                 <Pro>{feat}</Pro>
                             </li>
@@ -262,5 +256,5 @@ export function ReducedFeatures() {
                 </div>
             ))}
         </div>
-    )
+    );
 }
