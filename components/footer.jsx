@@ -109,7 +109,7 @@ export default function Footer() {
                 </div>
             </div>
             {footer.map((section) => (
-                <div key={section.name} className="col-span-2 sm:col-span-2">
+                <div key={section.name} className="col-span-2 sm:col-span-1">
                     <p className="mb-2 text-sm text-gray-200">{section.name}</p>
                     <div className="flex flex-col">
                         {section.links.map((link) => (
