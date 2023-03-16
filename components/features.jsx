@@ -175,7 +175,7 @@ export default function Features() {
                         ))}
                     </div>
                     {feat.links && (
-                        <p className="flex gap-4">
+                        <p className="flex flex-wrap gap-4">
                             {feat.links.map((link) => (
                                 <Link
                                     href={link.href}
