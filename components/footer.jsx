@@ -54,10 +54,10 @@ const footer = [
     },
 ];
 
-export default function Footer({ className }) {
+export default function Footer() {
     return (
         <div className="items-baseline justify-center gap-12 lg:flex">
-            <div className="col-span-2 pb-12 sm:col-span-3 lg:col-span-1">
+            <div className="col-span-2 pb-12 text-center sm:col-span-3 lg:col-span-1">
                 <Link
                     href="/"
                     className="block w-24 h-24 col-span-2 mx-auto rounded-full bg-gray-710 hover:bg-gray-650 --anim"
@@ -89,20 +89,20 @@ export default function Footer({ className }) {
                         Impressum
                     </Link>
                 </div>
-                <p className="mt-6 text-center text-gray-200">
+                <p className="mt-6 text-gray-200">
                     Copyright &copy; 2021 - 2023
                 </p>
                 <Link
                     href="https://github.com/le0developer"
-                    className="block text-center hover:underline"
+                    className="block hover:underline"
                 >
                     Leo Developer
                 </Link>
-                <p className="mt-2 text-center text-gray-200">
+                <p className="mt-2 text-gray-200">
                     Not affiliated with Discord
                 </p>
             </div>
-            <div className="flex flex-wrap justify-center gap-8">
+            <div className="flex flex-col justify-center gap-8 sm:flex-row">
                 {footer.map((foot) => (
                     <div key={foot.name} className="sm:mx-auto">
                         <p className="mb-2 text-sm text-gray-200">
