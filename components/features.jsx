@@ -13,6 +13,9 @@ import {
     PersonVcard,
     X,
     ClipboardCheck,
+    EnvelopeExclamation,
+    PersonExclamation,
+    PersonAdd,
 } from "react-bootstrap-icons";
 
 const features = [
@@ -159,37 +162,105 @@ const features = [
     },
 ];
 
-export default function Features() {
+export function Features({ withAos }) {
     return (
         <div className="grid gap-10 lg:grid-cols-2">
             {features.map((feat) => (
-                <div data-aos="fade-up" key={feat.name}>
-                    <h2 className="flex mb-4 text-4xl font-bold leading-10">
-                        {feat.icon && <feat.icon className="w-10 h-10 mr-2" />}
-                        {feat.name}
-                    </h2>
-                    <div className="text-gray-100">{feat.description}</div>
-                    <div className="my-4 space-y-1">
-                        {feat.points.map((point) => (
-                            <Pro key={point}>{point}</Pro>
-                        ))}
+                withAos ? (
+                    <div data-aos="fade-up" key={feat.name}>
+                        <Card feature={feat} />
                     </div>
-                    {feat.links && (
-                        <p className="flex flex-wrap gap-4">
-                            {feat.links.map((link) => (
-                                <Link
-                                    href={link.href}
-                                    key={link.href}
-                                    className="flex items-center text-blue-300 hover:underline"
-                                >
-                                    <BoxArrowUpRight className="w-5 h-5 mr-2" />
-                                    {link.name}
-                                </Link>
-                            ))}
-                        </p>
-                    )}
-                </div>
+                ) : (
+                    <div key={feat.name}>
+                        <Card feature={feat} />
+                    </div>
+                )
             ))}
         </div>
     );
+}
+
+function Card({ feature }) {
+    return (
+        <>
+            <h2 className="flex mb-4 text-4xl font-bold leading-10">
+                {feature.icon && <feature.icon className="w-10 h-10 mr-2" />}
+                {feature.name}
+            </h2>
+            <div className="text-gray-100">{feature.description}</div>
+            <div className="my-4 space-y-1">
+                {feature.points.map((point) => (
+                    <Pro key={point}>{point}</Pro>
+                ))}
+            </div>
+            {feature.links && (
+                <p className="flex flex-wrap gap-4">
+                    {feature.links.map((link) => (
+                        <Link
+                            href={link.href}
+                            key={link.href}
+                            className="flex items-center text-blue-300 hover:underline"
+                        >
+                            <BoxArrowUpRight className="w-5 h-5 mr-2" />
+                            {link.name}
+                        </Link>
+                    ))}
+                </p>
+            )}
+        </>
+    )
+}
+
+const reducedFeatures = [
+    {
+        name: "Auto Moderator",
+        icon: EnvelopeExclamation,
+        description: "Automatically moderate messages by filtering out Spam, Advertisements, Phishing and more!",
+        features: [
+            "Anti Spam",
+            "Auto Moderator",
+        ]
+    },
+    {
+        name: "Verification Gate",
+        icon: PersonExclamation,
+        description: "Verify members are actually Human by solving a CAPTCHA. Supporting in-channel and website CAPTCHAs.",
+        features: [
+            "Verification",
+            "Super Verification",
+        ]
+    },
+    {
+        name: "Join Security",
+        icon: PersonAdd,
+        description: "Secure your server from malicious joins with raid protection and CAPTCHAs before even joining.",
+        features: [
+            "Anti Raid",
+            "Join Guard",
+        ]
+    }
+]
+export function ReducedFeatures() {
+    return (
+        <div className="grid gap-8 md:grid-cols-3">
+            {reducedFeatures.map(feature => (
+                <div key={feature.name} data-aos="fade-up">
+                    {feature.icon && <feature.icon className="w-10 h-10 mr-2" />}
+                    <h2 className="flex mb-4 text-4xl font-bold leading-10">
+                        {feature.name}
+                    </h2>
+                    <p className="text-gray-300">
+                        {feature.description}
+                    </p>
+                    <ul className="mt-2">
+                        {feature.features.map(feat => (
+                            <li key={feat}>
+                                <Pro>{feat}</Pro>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            ))}
+        </div>
+    )
 }
