@@ -90,7 +90,7 @@ export default function Footer({ className }) {
                     </Link>
                 </div>
                 <p className="mt-6 text-center text-gray-200">
-                    Copyright &copy; 2021 - 2022
+                    Copyright &copy; 2021 - 2023
                 </p>
                 <Link
                     href="https://github.com/le0developer"
