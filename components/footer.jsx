@@ -93,10 +93,10 @@ export default function Footer() {
                         height={96}
                     />
                 </Link>
-                <p className="my-4">
+                <p className="my-4 lg:text-sm">
                     Keeping the world clean, one server at a time.
                 </p>
-                <p className="mt-2 text-gray-200">
+                <p className="mt-2 text-xs text-gray-200">
                     Not affiliated with Discord
                 </p>
                 <div className="flex gap-4 my-4">
