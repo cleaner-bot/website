@@ -27,7 +27,7 @@ export default function Home() {
                 <Header />
                 <Hero />
             </div>
-            <div className="py-20 mt-20 border-t border-b bg-gray-750 border-gray-550">
+            <div className="py-20 my-20 border-t border-b bg-gray-750 border-gray-550">
                 <div className="--container">
                     <FeatureSection />
                 </div>
@@ -35,7 +35,11 @@ export default function Home() {
             <div className="--container">
                 <StatsSection />
             </div>
-            <div className="pb-8 border-t border-gray-550" data-aos="fade-up" />
+            <div className="py-20 my-20 border-t border-b bg-gray-750 border-gray-550">
+                <div className="!max-w-5xl --container">
+                    <TestimonialSection />
+                </div>
+            </div>
             <div className="--container">
                 <CTASection />
                 <div className="pb-8 border-t border-gray-550" />
@@ -105,7 +109,7 @@ function FeatureSection() {
 
 function StatsSection() {
     return (
-        <div className="grid py-8 gap-y-4 md:divide-x sm:grid-cols-2 md:grid-cols-4 divide-gray-550" data-aos="fade-up">
+        <div className="grid gap-y-4 md:divide-x sm:grid-cols-2 md:grid-cols-4 divide-gray-550" data-aos="fade-up">
             <Stat name="Servers" count={data.guilds} />
             <Stat name="Users" count={data.users} />
             <Stat name="Bans" count={data.bans} />
@@ -123,6 +127,60 @@ function Stat({ name, count }) {
             <span className="text-gray-200">
                 {name}
             </span>
+        </div>
+    )
+}
+
+function TestimonialSection() {
+    return (
+        <div className="grid gap-8 lg:grid-cols-2">
+            <h2 className="pb-10 text-3xl font-bold text-center lg:col-span-2">
+                See what our customers say
+            </h2>
+            <Testimonial
+                guildName="Leo Laboratories"
+                guildIcon=""
+                author="SoraDev#1337"
+                authorIcon=""
+                authorRole="Owner"
+            >
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.
+            </Testimonial>
+            <Testimonial
+                guildName="The Cleaner | Cleaning Utensils"
+                guildIcon=""
+                author="SoraDev#1337"
+                authorIcon=""
+                authorRole="Owner"
+            >
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.
+            </Testimonial>
+        </div>
+    );
+}
+
+function Testimonial({ guildName, guildIcon, author, authorIcon, authorRole, children }) {
+    return (
+        <div className="flex flex-col items-center justify-center gap-6" data-aos="fade-up">
+            <div className="flex items-center gap-8 text-xl font-semibold text-indigo-200">
+                {guildIcon && <Image src={guildIcon} className="w-10 h-10" />}
+                {guildName}
+            </div>
+            <p className="text-center text-gray-200">
+                &ldquo;{children}&rdquo;
+            </p>
+            <div className="flex flex-col lg:flex-row">
+                <div className="flex flex-col items-center gap-4 md:flex-row">
+                    {authorIcon && <Image src={authorIcon} className="w-10 h-10" />}
+                    {author}
+                </div>
+                <svg className="hidden w-5 h-5 mx-1 text-indigo-200 lg:block" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M11 0h3L9 20H6l5-20z" />
+                </svg>
+                <span className="text-gray-300">
+                    {authorRole}, {guildName}
+                </span>
+            </div>
         </div>
     )
 }
