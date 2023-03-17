@@ -1,8 +1,6 @@
-import clsx from "clsx";
 import Link from "next/link";
 import Image from "next/image";
-import { ExternalLink } from "./buttons";
-import { Discord, Envelope, EnvelopeFill, Github, Twitter } from "react-bootstrap-icons";
+import { Discord, EnvelopeFill, Github, Twitter } from "react-bootstrap-icons";
 
 const footer = [
     {
