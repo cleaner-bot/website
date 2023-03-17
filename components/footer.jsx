@@ -102,7 +102,7 @@ export default function Footer() {
                 <div className="flex gap-4 my-4">
                     {social.map((link) => (
                         <Link href={link.href} key={link.href}>
-                            <link.icon className="w-5 h-5" />
+                            <link.icon className="w-5 h-5 hover:text-gray-300 --anim" />
                         </Link>
                     ))}
                 </div>
