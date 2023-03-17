@@ -35,7 +35,7 @@ export default function Home() {
             <div className="--container">
                 <StatsSection />
             </div>
-            <div className="pb-8 border-t border-gray-550" />
+            <div className="pb-8 border-t border-gray-550" data-aos="fade-up" />
             <div className="--container">
                 <CTASection />
                 <div className="pb-8 border-t border-gray-550" />
