@@ -9,6 +9,8 @@ import { InternalLink, ExternalLink } from "@/components/buttons.jsx";
 import Header from "@/components/header.jsx";
 import Footer from "@/components/footer.jsx";
 import { Features, ReducedFeatures } from "@/components/features.jsx";
+import data from "@/lib/data";
+import { getSiPrefixedNumber } from "@/lib/si";
 
 
 export default function Home() {
@@ -30,8 +32,12 @@ export default function Home() {
                     <FeatureSection />
                 </div>
             </div>
-            <CTA />
             <div className="--container">
+                <StatsSection />
+            </div>
+            <div className="pb-8 border-t border-gray-550" />
+            <div className="--container">
+                <CTASection />
                 <div className="pb-8 border-t border-gray-550" />
                 <Footer />
             </div>
@@ -97,7 +103,31 @@ function FeatureSection() {
     );
 }
 
-function CTA() {
+function StatsSection() {
+    return (
+        <div className="grid py-8 gap-y-4 md:divide-x sm:grid-cols-2 md:grid-cols-4 divide-gray-550" data-aos="fade-up">
+            <Stat name="Servers" count={data.guilds} />
+            <Stat name="Users" count={data.users} />
+            <Stat name="Bans" count={data.bans} />
+            <Stat name="Deleted messages" count={data.messages} />
+        </div>
+    )
+}
+
+function Stat({ name, count }) {
+    return (
+        <div className="flex flex-col items-center justify-center">
+            <span className="text-5xl font-bold">
+                {getSiPrefixedNumber(count)}+
+            </span>
+            <span className="text-gray-200">
+                {name}
+            </span>
+        </div>
+    )
+}
+
+function CTASection() {
     return (
         <div className="my-40 --container" data-aos="fade-up">
             <h2 className="text-6xl font-bold leading-[3rem] text-center max-w-[30rem] lg:max-w-none mx-auto">
