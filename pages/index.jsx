@@ -188,10 +188,10 @@ function Testimonial({ guildName, guildIcon, author, authorIcon, authorRole, chi
 function CTASection() {
     return (
         <div className="my-40 --container" data-aos="fade-up">
-            <h2 className="text-6xl font-bold leading-[3rem] text-center max-w-[30rem] lg:max-w-none mx-auto">
-                Try <span className="text-blue-300">The Cleaner</span> now
+            <h2 className="text-3xl font-bold text-center sm:text-5xl md:text-6xl">
+                Try <span className="text-indigo-200">The Cleaner</span> now
             </h2>
-            <InternalLink href="/dash" className="mx-auto max-w-[27rem] mt-12">
+            <InternalLink href="/dash" className="mx-auto max-w-[27rem] mt-6 sm:mt-12">
                 Dashboard
             </InternalLink>
         </div>
