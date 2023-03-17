@@ -10,10 +10,10 @@ const headerLinks = [
 
 export default function Header() {
     return (
-        <div className="flex flex-wrap items-end justify-center h-10 gap-4 mt-4 overflow-hidden sm:justify-between gap-y-10">
+        <div className="flex items-end justify-center gap-4 py-4 border-b sm:justify-between border-gray-550">
             <h1 className="flex items-center justify-center h-full text-2xl font-extrabold hover:underline decoration-indigo-550 decoration-4 underline-offset-2">
                 <Image
-                    className="hidden w-8 h-8 mr-2 rounded-full md:inline-block"
+                    className="inline-block w-8 h-8 mr-2 rounded-full sm:hidden md:inline-block"
                     src="/img/avatar@96x96.png"
                     width={96}
                     height={96}
@@ -34,7 +34,7 @@ export default function Header() {
             </div>
             <Link
                 href="/dash"
-                className="--btn --btn-primary --btn-3 !rounded-full"
+                className="!hidden sm:!flex --btn --btn-primary --btn-3 !rounded-full"
             >
                 Open Dashboard
             </Link>
