@@ -23,9 +23,7 @@ export default function Radar() {
             />
 
             <Header />
-            <h1 className="mt-20 mb-4 text-5xl font-bold">
-                Global Statistics
-            </h1>
+            <h1 className="mt-20 mb-4 text-5xl font-bold">Global Statistics</h1>
             <p className="mt-8">
                 The Cleaner is a Discord bot for keeping your servers clean.
                 Shown here are statistics powered by real data we collect

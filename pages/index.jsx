@@ -12,7 +12,6 @@ import { Features, ReducedFeatures } from "@/components/features.jsx";
 import data from "@/lib/data";
 import { getSiPrefixedNumber } from "@/lib/si";
 
-
 export default function Home() {
     useEffect(() => {
         AOS.init();
@@ -109,13 +108,16 @@ function FeatureSection() {
 
 function StatsSection() {
     return (
-        <div className="grid gap-y-4 md:divide-x sm:grid-cols-2 md:grid-cols-4 divide-gray-550" data-aos="fade-up">
+        <div
+            className="grid gap-y-4 md:divide-x sm:grid-cols-2 md:grid-cols-4 divide-gray-550"
+            data-aos="fade-up"
+        >
             <Stat name="Servers" count={data.guilds} />
             <Stat name="Users" count={data.users} />
             <Stat name="Bans" count={data.bans} />
             <Stat name="Deleted messages" count={data.messages} />
         </div>
-    )
+    );
 }
 
 function Stat({ name, count }) {
@@ -124,11 +126,9 @@ function Stat({ name, count }) {
             <span className="text-5xl font-bold">
                 {getSiPrefixedNumber(count)}+
             </span>
-            <span className="text-gray-200">
-                {name}
-            </span>
+            <span className="text-gray-200">{name}</span>
         </div>
-    )
+    );
 }
 
 function TestimonialSection() {
@@ -144,7 +144,9 @@ function TestimonialSection() {
                 authorIcon=""
                 authorRole="Owner"
             >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
+                expedita voluptas culpa sapiente alias molestiae. Numquam
+                corrupti in laborum sed rerum et corporis.
             </Testimonial>
             <Testimonial
                 guildName="The Cleaner | Cleaning Utensils"
@@ -153,15 +155,27 @@ function TestimonialSection() {
                 authorIcon=""
                 authorRole="Owner"
             >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
+                expedita voluptas culpa sapiente alias molestiae. Numquam
+                corrupti in laborum sed rerum et corporis.
             </Testimonial>
         </div>
     );
 }
 
-function Testimonial({ guildName, guildIcon, author, authorIcon, authorRole, children }) {
+function Testimonial({
+    guildName,
+    guildIcon,
+    author,
+    authorIcon,
+    authorRole,
+    children,
+}) {
     return (
-        <div className="flex flex-col items-center justify-center gap-6" data-aos="fade-up">
+        <div
+            className="flex flex-col items-center justify-center gap-6"
+            data-aos="fade-up"
+        >
             <div className="flex items-center gap-8 text-xl font-semibold text-indigo-200">
                 {guildIcon && <Image src={guildIcon} className="w-10 h-10" />}
                 {guildName}
@@ -171,10 +185,16 @@ function Testimonial({ guildName, guildIcon, author, authorIcon, authorRole, chi
             </p>
             <div className="flex flex-col lg:flex-row">
                 <div className="flex flex-col items-center gap-4 md:flex-row">
-                    {authorIcon && <Image src={authorIcon} className="w-10 h-10" />}
+                    {authorIcon && (
+                        <Image src={authorIcon} className="w-10 h-10" />
+                    )}
                     {author}
                 </div>
-                <svg className="hidden w-5 h-5 mx-1 text-indigo-200 lg:block" fill="currentColor" viewBox="0 0 20 20">
+                <svg
+                    className="hidden w-5 h-5 mx-1 text-indigo-200 lg:block"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                >
                     <path d="M11 0h3L9 20H6l5-20z" />
                 </svg>
                 <span className="text-gray-300">
@@ -182,7 +202,7 @@ function Testimonial({ guildName, guildIcon, author, authorIcon, authorRole, chi
                 </span>
             </div>
         </div>
-    )
+    );
 }
 
 function CTASection() {
@@ -191,7 +211,10 @@ function CTASection() {
             <h2 className="text-3xl font-bold text-center sm:text-5xl md:text-6xl">
                 Try <span className="text-indigo-200">The Cleaner</span> now
             </h2>
-            <InternalLink href="/dash" className="mx-auto max-w-[27rem] mt-6 sm:mt-12">
+            <InternalLink
+                href="/dash"
+                className="mx-auto max-w-[27rem] mt-6 sm:mt-12"
+            >
                 Dashboard
             </InternalLink>
         </div>
