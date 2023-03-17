@@ -5,6 +5,7 @@ import MetaTags from "@/components/metatags.jsx";
 import Footer from "@/components/footer.jsx";
 import ErrorHandler from "@/components/dash/error.jsx";
 import { CommonRadar } from "@/components/statistics.jsx";
+import Header from "@/components/header";
 
 export default function Radar() {
     const [response, setResponse] = useState();
@@ -15,14 +16,15 @@ export default function Radar() {
     }, []);
 
     return (
-        <div className="py-6 --container">
+        <div className="--container">
             <MetaTags
                 title="The Cleaner - Global Statistics"
                 description="Some statistics collected by The Cleaner."
             />
 
-            <h1 className="mb-4 text-5xl font-bold">
-                The Cleaner - Global Statistics
+            <Header />
+            <h1 className="mt-20 mb-4 text-5xl font-bold">
+                Global Statistics
             </h1>
             <p className="mt-8">
                 The Cleaner is a Discord bot for keeping your servers clean.
