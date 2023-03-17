@@ -82,7 +82,7 @@ const social = [
 
 export default function Footer() {
     return (
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-5">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-4 lg:gap-y-0 md:grid-cols-4 lg:grid-cols-5">
             <div className="col-span-2 md:col-span-4 lg:col-span-1">
                 <Link
                     href="/"
@@ -104,7 +104,7 @@ export default function Footer() {
                 <div className="flex gap-4 my-4">
                     {social.map((link) => (
                         <Link href={link.href} key={link.href}>
-                            <link.icon className="w-4 h-4" />
+                            <link.icon className="w-5 h-5" />
                         </Link>
                     ))}
                 </div>
