@@ -2,7 +2,7 @@ import clsx from "clsx";
 import Link from "next/link";
 import Image from "next/image";
 import { ExternalLink } from "./buttons";
-import { Discord, Envelope, EnvelopeFill, Github } from "react-bootstrap-icons";
+import { Discord, Envelope, EnvelopeFill, Github, Twitter } from "react-bootstrap-icons";
 
 const footer = [
     {
@@ -77,6 +77,7 @@ const legal = [
 const social = [
     { icon: Discord, href: "/discord" },
     { icon: Github, href: "https://github.com/cleaner-bot" },
+    { icon: Twitter, href: "https://twitter.com/leodeveloper2" },
 ];
 
 export default function Footer() {
