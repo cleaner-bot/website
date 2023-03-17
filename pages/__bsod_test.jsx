@@ -1,7 +1,15 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Test() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    useEffect(null); // reliable way to cause a crash
-    return <>hello there</>;
+    const [show, setShow] = useState(true);
+    useEffect(() => {
+        document.getElementById("removeme").remove();
+        setShow(false);
+    }, []);
+    return (
+        <>
+            {show && <div id="removeme" />}
+        </>
+    )
 }
