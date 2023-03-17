@@ -3,14 +3,15 @@ import "aos/dist/aos.css";
 
 import { useEffect, useState } from "react";
 import { ChevronDown, ChevronUp } from "react-bootstrap-icons";
+import Image from "next/image";
 
 import MetaTags from "@/components/metatags.jsx";
 import { InternalLink, ExternalLink } from "@/components/buttons.jsx";
 import Header from "@/components/header.jsx";
 import Footer from "@/components/footer.jsx";
 import { Features, ReducedFeatures } from "@/components/features.jsx";
-import data from "@/lib/data";
-import { getSiPrefixedNumber } from "@/lib/si";
+import data from "@/lib/data.js";
+import { getSiPrefixedNumber } from "@/lib/si.js";
 
 export default function Home() {
     useEffect(() => {
@@ -177,7 +178,13 @@ function Testimonial({
             data-aos="fade-up"
         >
             <div className="flex items-center gap-8 text-xl font-semibold text-indigo-200">
-                {guildIcon && <Image src={guildIcon} className="w-10 h-10" />}
+                {guildIcon && (
+                    <Image
+                        src={guildIcon}
+                        className="w-10 h-10"
+                        alt={`Logo of ${guildName}`}
+                    />
+                )}
                 {guildName}
             </div>
             <p className="text-center text-gray-200">
@@ -186,7 +193,11 @@ function Testimonial({
             <div className="flex flex-col lg:flex-row">
                 <div className="flex flex-col items-center gap-4 md:flex-row">
                     {authorIcon && (
-                        <Image src={authorIcon} className="w-10 h-10" />
+                        <Image
+                            src={authorIcon}
+                            className="w-10 h-10"
+                            alt={`Avatar of ${author}`}
+                        />
                     )}
                     {author}
                 </div>
