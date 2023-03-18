@@ -221,7 +221,7 @@ function Testimonial({
 function CTASection() {
     return (
         <div className="my-40 --container" data-aos="fade-up">
-            <h2 className="text-3xl font-bold text-center sm:text-5xl md:text-6xl">
+            <h2 className="text-2xl font-bold text-center sm:text-5xl md:text-6xl">
                 Try <span className="text-indigo-200">The Cleaner</span> now
             </h2>
             <InternalLink
