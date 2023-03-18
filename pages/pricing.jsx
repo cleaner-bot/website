@@ -1,363 +1,253 @@
-import { Fragment, useState } from "react";
-import { CheckCircle, CheckLg, X } from "react-bootstrap-icons";
-import Link from "next/link";
-
 import Footer from "@/components/footer.jsx";
 import MetaTags from "@/components/metatags.jsx";
-import { Slider, HorizontalRule } from "@/components/dash/ui.jsx";
-
-const includedFeatures = [
-    "Support (Discord & Mail)",
-    "Advanced settings + custom branding",
-    "Log file downloads",
-    "More than 20,000 members",
-    "Join guard",
-];
-const eligible = [
-    "Verified & Partnered servers*",
-    "Early adopters of the bot (OG servers)",
-    "Servers of FOSS projects",
-];
-
-const sections = [
-    {
-        name: "General",
-        features: [
-            { name: "Dashboard", tiers: { free: true, pro: true } },
-            { name: "Logging", tiers: { free: true, pro: true } },
-            { name: "Statistics", tiers: { free: true, pro: true } },
-            { name: "Automatic dehoisting", tiers: { free: true, pro: true } },
-            { name: "Discord impersonation", tiers: { free: true, pro: true } },
-            { name: "Multiple languages", tiers: { free: true, pro: true } },
-            {
-                name: "Member limit",
-                tiers: { free: "20,000 members *", pro: "Unlimited" },
-            },
-            {
-                name: "Support",
-                tiers: {
-                    free: "Community",
-                    pro: "Community, E-Mail and Tickets",
-                },
-            },
-        ],
-    },
-    {
-        name: "Security",
-        features: [
-            { name: "Anti Spam", tiers: { free: true, pro: true } },
-            { name: "Firewall", tiers: { free: true, pro: true } },
-            { name: "Phishing prevention", tiers: { free: true, pro: true } },
-            { name: "Automatic Slowmode", tiers: { free: true, pro: true } },
-            { name: "Challenge & timeouts", tiers: { free: true, pro: true } },
-            {
-                name: "Report to server staff",
-                tiers: { free: "Early access", pro: "Early access" },
-            },
-        ],
-    },
-    {
-        name: "Verification",
-        features: [
-            { name: "Anti Raid", tiers: { free: true, pro: true } },
-            { name: "Super Verification", tiers: { free: true, pro: true } },
-            { name: "Join Guard", tiers: { pro: "Early access" } },
-        ],
-    },
-    {
-        name: "Professional",
-        features: [
-            { name: "Advanced impersonation", tiers: { pro: true } },
-            { name: "Log file downloads", tiers: { pro: true } },
-            {
-                name: "Custom risk score / disabling security level",
-                tiers: { pro: true },
-            },
-            { name: "Branding", tiers: { pro: true } },
-        ],
-    },
-];
+import Header from "@/components/header";
 
 export default function Pricing() {
-    const [memberCount, setMemberCount] = useState(0);
     return (
-        <div className="py-16 --container">
+        <div className="--container">
             <MetaTags
                 title="The Cleaner Pricing"
                 description="You aren't supposed to see this yet :eyes:"
             />
-            <h2 className="text-2xl font-extrabold text-center text-gray-100 sm:text-4xl lg:text-5xl">
-                Support The Cleaner
-            </h2>
-            <div className="my-16 lg:flex">
-                <div className="flex-1 p-6 bg-gray-800 rounded-t-lg lg:p-12 lg:rounded-tr-none lg:rounded-l-lg">
-                    <h2 className="mb-6 text-3xl font-extrabold text-gray-400">
-                        The Cleaner Professional
-                    </h2>
-                    <p>
-                        Support the development and gain access to reserved
-                        features.
-                    </p>
-                    <div className="flex items-center justify-center my-8">
-                        <h3 className="pr-4 text-sm font-semibold tracking-wider text-blue-300 uppercase">
-                            What&apos;s included
-                        </h3>
-                        <div className="flex-grow h-1 rounded-full bg-gray-550" />
-                    </div>
-                    <ul className="grid gap-4 text-sm md:grid-cols-2">
-                        {includedFeatures.map((feature) => (
-                            <li key={feature} className="flex items-start">
-                                <div className="flex-shrink-0">
-                                    <CheckCircle
-                                        className="w-5 h-5 text-green-400"
-                                        aria-hidden="true"
-                                    />
-                                </div>
-                                <p className="ml-3 text-sm text-gray-200">
-                                    {feature}
-                                </p>
-                            </li>
-                        ))}
-                    </ul>
-                    <div className="flex items-center justify-center my-8">
-                        <h3 className="pr-4 text-sm font-semibold tracking-wider text-blue-300 uppercase">
-                            Pricing
-                        </h3>
-                        <div className="flex-grow h-1 rounded-full bg-gray-550" />
-                    </div>
-                    <p className="text-gray-200">Members pricing</p>
-                    <ul className="list-disc list-inside">
-                        <li className="text-sm text-gray-300">
-                            First 20,000 members are free.
-                        </li>
-                        <li className="text-sm text-gray-300">
-                            0.05€ per 1,000 members for members 20,000 - 100,000
-                        </li>
-                        <li className="text-sm text-gray-300">
-                            0.20€ per 10,000 members for all members after that
-                        </li>
-                    </ul>
-                    <p className="mt-4 text-gray-200">Pricing calculator</p>
-                    <div className="sm:flex sm:w-1/2">
-                        <span className="flex-none pr-8 text-sm text-gray-300">
-                            Member count
-                        </span>
-                        <Slider
-                            minValue={0}
-                            maxValue={1000}
-                            step={1}
-                            value={memberCount}
-                            setValue={setMemberCount}
-                        />
-                    </div>
-                    <p className="mt-2 text-sm text-gray-200">
-                        Pricing for{" "}
-                        {memberCount === 0 ? "0" : `${memberCount},000`}{" "}
-                        members:{" "}
-                        {roundNumber(5 + getMembersPricing(memberCount))}€/mo{" "}
-                        {roundNumber(50 + getMembersPricing(memberCount, true))}
-                        €/yr
-                    </p>
-                </div>
-                <div className="flex-shrink-0 p-6 text-gray-900 bg-gray-100 rounded-b-lg lg:p-12 lg:rounded-bl-none lg:rounded-r-lg lg:w-80">
-                    <p className="text-lg font-medium text-center">
-                        Pay yearly
-                    </p>
-                    <p className="mt-4 text-center text-black">Starting at</p>
-                    <div className="flex items-center justify-center text-5xl font-extrabold">
-                        <span>50€</span>
-                        <span className="flex flex-col ml-3 text-sm font-medium leading-3 text-gray-600">
-                            <span>EUR</span>
-                            <span>per year</span>
-                        </span>
-                    </div>
-                    <div className="mt-6 text-center text-gray-800">
-                        <p>Stripe & Coinbase</p>
-                    </div>
-                    <HorizontalRule label="OR" />
-                    <p className="mt-2 text-lg font-medium text-center">
-                        Pay monthly
-                    </p>
-                    <p className="mt-4 text-center text-black">Starting at</p>
-                    <div className="flex items-center justify-center text-5xl font-extrabold">
-                        <span>5€</span>
-                        <span className="flex flex-col ml-3 text-sm font-medium leading-3 text-gray-600">
-                            <span>EUR</span>
-                            <span>per month</span>
-                        </span>
-                    </div>
-                    <div className="mt-6 text-center text-gray-800">
-                        <p>Only Stripe</p>
-                    </div>
-                    <Link
-                        href="/dash#/plan"
-                        className="mt-8 text-white --btn --btn-4 --btn-neutral"
-                    >
-                        Select server
-                    </Link>
-                </div>
+            <Header />
+            <div className="mx-auto mt-16 space-y-2 max-w-prose ">
+                <h2 className="text-5xl font-bold">Pricing</h2>
+                <p>
+                    Any bot costs money to operate, The Cleaner is not an
+                    exception. To pay for our operating costs, The Cleaner
+                    requires a subscription for servers above a certain size.
+                </p>
+                <h3 className="pt-2 text-3xl font-semibold" id="pricing-table">
+                    Server tiers
+                </h3>
+                <PricingCards />
+                <p>* Price is in credits. 1 EUR ~ 1 credit.</p>
+                <p>** Yearly pricing available. (2 months for free)</p>
+                <h3
+                    className="pt-2 text-3xl font-semibold"
+                    id="payment-options"
+                >
+                    Available addons
+                </h3>
+                <p>Addons can be purchased independently of tiers.</p>
+                <Addons />
+                <p>* Price is in credits. 1 EUR ~ 1 credit.</p>
+                <p>** Setup price is paid once.</p>
+                <h3
+                    className="pt-2 text-3xl font-semibold"
+                    id="payment-options"
+                >
+                    Payment options
+                </h3>
+                <p>The Cleaner currently supports:</p>
+                <ul className="list-disc list-inside">
+                    <li>
+                        Credit / Debit Cards{" "}
+                        <span className="italic text-gray-300">(Stripe)</span>
+                    </li>
+                    <li>
+                        Crypto Currencies{" "}
+                        <span className="italic text-gray-300">(Coinbase)</span>
+                    </li>
+                </ul>
+                <p>
+                    Because Crypto Currencies do not support repeated payments
+                    out-of-the-box, we implement a <b>prepaid system</b>. You
+                    can transfer crypto currency to us at any time, and we will
+                    convert it to <b>credits</b>, matching the current EURO
+                    exchange.
+                </p>
+                <p>
+                    For example, if the ETH ~ EUR exchange is at 1 ETH ~ 1,700€,
+                    you get 1,700 credits per transfered ETH. Even if ETH
+                    crashes to 0€ afterwards, you will retain your 1,700
+                    credits.
+                </p>
+                <p>
+                    <b>
+                        You are not able to withdraw credits. No exceptions. We
+                        are not a bank.
+                    </b>
+                </p>
+                <p>
+                    Credits are bound to your Discord Accounts. It&apos;s your
+                    responsibility to keep it safe.
+                </p>
+                <h3 className="pt-2 text-3xl font-semibold" id="renewal">
+                    Renewal
+                </h3>
+                <p>
+                    In case you need to renew your subscription, the following
+                    actions are executed in this order:
+                </p>
+                <ol className="list-decimal list-inside">
+                    <li>
+                        If you have enough credits, the renewal amount will be
+                        deducted.
+                    </li>
+                    <li>
+                        If you do not have enough credits, but a card is set, it
+                        will be charged with the renewal amount.
+                    </li>
+                    <li>
+                        If you do not have enough credits and do not have a
+                        payment method set, we will contact you.
+                    </li>
+                </ol>
+                <p>
+                    If renewal fails, your server enters a two-week grace
+                    period, during which the bot continues to operate normally.
+                    Pay the subscription within that timeframe and everything is
+                    ok. Failure to perform the payment within the grave period
+                    will result in a suspension.
+                </p>
+                <p>
+                    <b>
+                        Cancel your subscription before renewal to avoid
+                        suspension.
+                    </b>
+                </p>
+                <h3 className="pt-2 text-3xl font-semibold" id="free-trial">
+                    Cancellation
+                </h3>
+                <p>You can cancel at anytime in the Dashboard.</p>
+                <h3 className="pt-2 text-3xl font-semibold" id="free-trial">
+                    Free Trial
+                </h3>
+                <p>
+                    From the moment your server is required to pay (aka
+                    surpasses the 20k member threshold), a four-week trial is
+                    automatically activated. After the trial was activated, it&apos;s
+                    impossible to cancel it. You are eligible for another trial
+                    a year after your current subscription ends.
+                </p>
+                <p>
+                    You will be notified when the trial starts. You will also be
+                    notified several times in the days leading up to the
+                    expiration of the trial.
+                </p>
             </div>
-            <div className="my-16 lg:flex">
-                <div className="flex-1 p-6 bg-gray-800 rounded-t-lg lg:p-12 lg:rounded-tr-none lg:rounded-l-lg">
-                    <h2 className="mb-6 text-3xl font-extrabold text-gray-400">
-                        Partner programme
-                    </h2>
-                    <p>
-                        Partner with The Cleaner and gain all benefits from The
-                        Cleaner Professional.
-                    </p>
-                    <div className="flex items-center justify-center my-8">
-                        <h3 className="pr-4 text-sm font-semibold tracking-wider text-blue-300 uppercase">
-                            Who&apos;s eligible
-                        </h3>
-                        <div className="flex-grow h-1 rounded-full bg-gray-550" />
-                    </div>
-                    <ul className="grid gap-4 text-sm md:grid-cols-2">
-                        {eligible.map((feature) => (
-                            <li key={feature} className="flex items-start">
-                                <div className="flex-shrink-0">
-                                    <CheckCircle
-                                        className="w-5 h-5 text-green-400"
-                                        aria-hidden="true"
-                                    />
-                                </div>
-                                <p className="ml-3 text-sm text-gray-200">
-                                    {feature}
-                                </p>
-                            </li>
-                        ))}
-                    </ul>
-                    <p className="mt-6 text-xs font-gray-300">
-                        * Verified and partnered servers automatically receive
-                        Partner status.
-                    </p>
-                </div>
-                <div className="flex items-center justify-center flex-shrink-0 p-6 bg-gray-100 rounded-b-lg lg:p-12 lg:rounded-bl-none lg:rounded-r-lg lg:w-80">
-                    <Link
-                        href="/discord"
-                        className="w-full my-auto --btn --btn-4 --btn-neutral"
-                    >
-                        Apply
-                    </Link>
-                </div>
-            </div>
-            <table className="w-full h-px table-fixed">
-                <thead>
-                    <tr>
-                        <th
-                            className="px-6 pb-4 text-sm font-medium text-left text-gray-300"
-                            scope="col"
-                        >
-                            <span className="sr-only">Feature by</span>
-                            <span>Plans</span>
-                        </th>
-                        <th
-                            className="w-1/3 px-6 pb-4 text-lg font-medium leading-6 text-left"
-                            scope="col"
-                        >
-                            Free
-                        </th>
-                        <th
-                            className="w-1/3 px-6 pb-4 text-lg font-medium leading-6 text-left"
-                            scope="col"
-                        >
-                            <span className="hidden sm:inline">
-                                Professional
-                            </span>
-                            <span className="sm:hidden">Pro</span>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody className="border-t divide-y border-gray-550 divide-gray-550">
-                    {sections.map((section) => (
-                        <Fragment key={section.name}>
-                            <tr>
-                                <th
-                                    className="py-3 pl-6 text-sm font-medium text-left text-gray-300 bg-gray-750"
-                                    colSpan={3}
-                                    scope="colgroup"
-                                >
-                                    {section.name}
-                                </th>
-                            </tr>
-                            {section.features.map((feature) => (
-                                <tr key={feature.name}>
-                                    <th
-                                        className="px-6 py-5 text-sm font-normal text-left text-gray-100"
-                                        scope="row"
-                                    >
-                                        {feature.name}
-                                    </th>
-                                    {["free", "pro"].map((tier) => (
-                                        <td key={tier} className="px-6 py-5">
-                                            {typeof feature.tiers[tier] ===
-                                            "string" ? (
-                                                <span className="block text-sm text-gray-200">
-                                                    {feature.tiers[tier]}
-                                                </span>
-                                            ) : (
-                                                <>
-                                                    {feature.tiers[tier] ===
-                                                    true ? (
-                                                        <CheckLg
-                                                            className="w-5 h-5 text-green-500"
-                                                            aria-hidden="true"
-                                                        />
-                                                    ) : (
-                                                        <X
-                                                            className="w-5 h-5 text-gray-400"
-                                                            aria-hidden="true"
-                                                        />
-                                                    )}
-
-                                                    <span className="sr-only">
-                                                        {feature.tiers[tier] ===
-                                                        true
-                                                            ? "Included"
-                                                            : "Not included"}{" "}
-                                                        in {tier}
-                                                    </span>
-                                                </>
-                                            )}
-                                        </td>
-                                    ))}
-                                </tr>
-                            ))}
-                        </Fragment>
-                    ))}
-                </tbody>
-            </table>
-            <p className="mt-6 text-xs text-gray-300">
-                * We will automatically activate a <b>free four week trial</b>{" "}
-                if your server has more than 20,000 members.
-            </p>
             <div className="pb-8 mt-20 border-t border-gray-550" />
             <Footer />
         </div>
     );
 }
 
-function getMembersPricing(count, multiply) {
-    let total = [];
-    count -= 20; // first 20k are free
-    if (count > 0) {
-        // limit to 80k higher pricing
-        const value = Math.min(count, 80);
-        total.push(value * 0.05);
-        count -= value;
-    }
-    if (count > 0) {
-        // divided by 10 cuz it's per 10k
-        total.push(0.2 * Math.floor(count / 10));
-    }
-    if (multiply)
-        total = total.map((x, idx) =>
-            idx === total.length - 1 ? x * 12 : x * 10
-        );
-    return total.reduce((a, b) => a + b, 0);
+const tiers = [
+    { name: "Free", price: 0, members: 20_000 },
+    { name: "50k", price: 3, members: 50_000 },
+    { name: "100k", price: 5, members: 100_000 },
+    { name: "250k", price: 10, members: 250_000 },
+    { name: "GOAT", price: 20, members: 10_000_000 },
+];
+
+function PricingCards() {
+    return (
+        <table className="w-full border divide-y divide-gray-550 border-gray-550">
+            <thead className="bg-gray-600">
+                <tr>
+                    <th
+                        scope="col"
+                        className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-300 uppercase"
+                    >
+                        Name
+                    </th>
+                    <th
+                        scope="col"
+                        className="px-6 py-3 text-xs font-medium tracking-wider text-right text-gray-300 uppercase"
+                    >
+                        Price * per month **
+                    </th>
+                    <th
+                        scope="col"
+                        className="px-6 py-3 text-xs font-medium tracking-wider text-right text-gray-300 uppercase"
+                    >
+                        Max members
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {tiers.map((tier, idx) => (
+                    <tr
+                        key={tier.name}
+                        className={idx % 2 === 1 && "bg-gray-650"}
+                    >
+                        <td className="px-6 py-4 text-sm font-medium whitespace-nowrap">
+                            {tier.name}
+                        </td>
+                        <td className="px-6 py-4 text-sm text-right text-gray-300 whitespace-nowrap">
+                            {tier.price}
+                        </td>
+                        <td className="px-6 py-4 text-sm text-right text-gray-300 whitespace-nowrap">
+                            {tier.members.toLocaleString()}
+                        </td>
+                    </tr>
+                ))}
+            </tbody>
+        </table>
+    );
 }
 
-function roundNumber(number) {
-    const value = number.toString().split(".");
-    return `${value[0]}.${((value[1] || 0) + "00").substring(0, 2)}`;
+const addons = [
+    {
+        name: "Branding",
+        price: 5,
+        setup: 20,
+        description: "Custom website branding + Bot",
+    },
+];
+function Addons() {
+    return (
+        <table className="w-full border divide-y divide-gray-550 border-gray-550">
+            <thead className="bg-gray-600">
+                <tr>
+                    <th
+                        scope="col"
+                        className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-300 uppercase"
+                    >
+                        Name
+                    </th>
+                    <th
+                        scope="col"
+                        className="px-6 py-3 text-xs font-medium tracking-wider text-right text-gray-300 uppercase"
+                    >
+                        Price per month *
+                    </th>
+                    <th
+                        scope="col"
+                        className="px-6 py-3 text-xs font-medium tracking-wider text-right text-gray-300 uppercase"
+                    >
+                        Setup price * **
+                    </th>
+                    <th
+                        scope="col"
+                        className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-300 uppercase"
+                    >
+                        Description
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {addons.map((addon, idx) => (
+                    <tr
+                        key={addon.name}
+                        className={idx % 2 === 1 && "bg-gray-650"}
+                    >
+                        <td className="px-6 py-4 text-sm font-medium whitespace-nowrap">
+                            {addon.name}
+                        </td>
+                        <td className="px-6 py-4 text-sm text-right text-gray-300 whitespace-nowrap">
+                            {addon.price}
+                        </td>
+                        <td className="px-6 py-4 text-sm text-right text-gray-300 whitespace-nowrap">
+                            {addon.setup}
+                        </td>
+                        <td className="px-6 py-4 text-sm text-gray-300 whitespace-nowrap">
+                            {addon.description}
+                        </td>
+                    </tr>
+                ))}
+            </tbody>
+        </table>
+    );
 }
