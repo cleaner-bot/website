@@ -16,7 +16,7 @@ export default function Header() {
             >
                 <Image
                     className="inline-block w-8 h-8 mr-2 rounded-full sm:hidden md:inline-block"
-                    src="/img/avatar@96x96.png"
+                    src="/img/avatar@256x256.png"
                     width={96}
                     height={96}
                     alt=""

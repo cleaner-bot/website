@@ -87,7 +87,7 @@ export default function Footer() {
                     className="block w-16 h-16 col-span-2 rounded-full bg-gray-710 hover:bg-gray-650 --anim"
                 >
                     <Image
-                        src="/img/avatar@96x96.png"
+                        src="/img/avatar@256x256.png"
                         alt="The Cleaner Logo"
                         width={96}
                         height={96}

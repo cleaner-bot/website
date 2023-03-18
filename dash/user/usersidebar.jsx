@@ -49,7 +49,7 @@ function SidebarHeader() {
         >
             <div className="flex items-center gap-2 text-2xl font-semibold text-gray-200 truncate">
                 <Image
-                    src="/img/avatar@96x96.png"
+                    src="/img/avatar@256x256.png"
                     alt=""
                     className="w-8 h-8 rounded-full bg-gray-750"
                     width={96}
