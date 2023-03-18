@@ -242,7 +242,7 @@ export function ReducedFeatures() {
                     {feature.icon && (
                         <feature.icon className="w-10 h-10 mr-2" />
                     )}
-                    <h2 className="flex mb-4 text-4xl font-bold leading-10">
+                    <h2 className="flex mb-4 text-4xl font-bold leading-10 md:text-2xl lg:text-4xl">
                         {feature.name}
                     </h2>
                     <p className="text-gray-300">{feature.description}</p>
