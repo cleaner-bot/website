@@ -2,11 +2,12 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 import { useEffect, useState } from "react";
-import { ChevronDown, ChevronUp } from "react-bootstrap-icons";
+import { BoxArrowUpRight, ChevronDown, ChevronUp } from "react-bootstrap-icons";
 import Image from "next/image";
+import Link from "next/link";
 
 import MetaTags from "@/components/metatags.jsx";
-import { InternalLink, ExternalLink } from "@/components/buttons.jsx";
+import { InternalLink } from "@/components/buttons.jsx";
 import Header from "@/components/header.jsx";
 import Footer from "@/components/footer.jsx";
 import { Features, ReducedFeatures } from "@/components/features.jsx";
@@ -65,16 +66,17 @@ function Hero() {
             </p>
             <div className="flex items-center justify-center w-full gap-4 mt-12 md:w-1/2 md:max-w-xl">
                 <InternalLink href="/dash" className="w-full">
-                    Dashboard
+                    Open Dashboard
                 </InternalLink>
-                <ExternalLink
-                    href="https://docs.cleanerbot.xyz"
-                    color="--btn-neutral"
-                    style="--btn-0"
-                    className="!hidden md:!flex"
-                >
-                    Documentation
-                </ExternalLink>
+                <span className="flex-none hidden sm:block">
+                    <Link
+                        href="https://docs.cleanerbot.xyz"
+                        className="!items-start --btn --btn-neutral --btn-0"
+                    >
+                        Read Documentation
+                        <BoxArrowUpRight className="w-3 h-3 ml-2" />
+                    </Link>
+                </span>
             </div>
         </>
     );
@@ -226,7 +228,7 @@ function CTASection() {
                 href="/dash"
                 className="mx-auto max-w-[27rem] mt-6 sm:mt-12"
             >
-                Dashboard
+                Open Dashboard
             </InternalLink>
         </div>
     );
