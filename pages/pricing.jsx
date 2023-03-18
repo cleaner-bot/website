@@ -10,6 +10,9 @@ export default function Pricing() {
                 description="You aren't supposed to see this yet :eyes:"
             />
             <Header />
+            <div className="py-4 font-extrabold text-center bg-red-500">
+                DRAFT - NOT FINAL
+            </div>
             <div className="w-full mx-auto mt-16 space-y-2 max-w-prose">
                 <h2 className="text-5xl font-bold">Pricing</h2>
                 <p>
