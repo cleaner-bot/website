@@ -64,7 +64,7 @@ function Hero() {
                 Fully automated state-of-the-art security for your server in
                 bundled into an all-in-one package to let you sleep.
             </p>
-            <div className="flex items-center justify-center w-full gap-4 mt-12 md:w-1/2 md:max-w-xl">
+            <div className="flex items-center justify-center w-full max-w-xl gap-4 mt-12 lg:w-1/2">
                 <InternalLink href="/dash" className="w-full">
                     Open Dashboard
                 </InternalLink>
