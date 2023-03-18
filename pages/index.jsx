@@ -52,33 +52,38 @@ export default function Home() {
 
 function Hero() {
     return (
-        <>
-            <h2 className="mt-20 text-5xl font-extrabold leading-10 text-center md:text-left">
-                Keep your server clean
-            </h2>
-            <p className="mt-6 text-gray-100">
-                The Cleaner helps you keep your server clean and safe while you
-                are away.
-            </p>
-            <p>
-                Fully automated state-of-the-art security for your server in
-                bundled into an all-in-one package to let you sleep.
-            </p>
-            <div className="flex items-center justify-center w-full max-w-xl gap-4 mt-12 lg:w-1/2">
-                <InternalLink href="/dash" className="w-full">
-                    Open Dashboard
-                </InternalLink>
-                <span className="flex-none hidden sm:block">
-                    <Link
-                        href="https://docs.cleanerbot.xyz"
-                        className="!items-start --btn --btn-neutral --btn-0"
-                    >
-                        Read Documentation
-                        <BoxArrowUpRight className="w-3 h-3 ml-2" />
-                    </Link>
-                </span>
+        <div className="grid gap-y-8 lg:grid-cols-2">
+            <div>
+                <h2 className="mt-20 text-5xl font-extrabold leading-10 text-center lg:text-4xl xl:text-5xl md:text-left">
+                    Keep your server clean
+                </h2>
+                <p className="mt-6 text-gray-100">
+                    The Cleaner helps you keep your server clean and safe while you
+                    are away.
+                </p>
+                <p>
+                    Fully automated state-of-the-art security for your server
+                    bundled into an all-in-one package to let you sleep.
+                </p>
+                <div className="flex items-center justify-center w-full max-w-xl gap-4 mt-12">
+                    <InternalLink href="/dash" className="w-full">
+                        Open Dashboard
+                    </InternalLink>
+                    <span className="flex-none hidden sm:block">
+                        <Link
+                            href="https://docs.cleanerbot.xyz"
+                            className="!items-start --btn --btn-neutral --btn-0"
+                        >
+                            Read Documentation
+                            <BoxArrowUpRight className="w-3 h-3 ml-2" />
+                        </Link>
+                    </span>
+                </div>
             </div>
-        </>
+            <div className="flex items-center justify-center">
+                <p>imagine an image cloud here or something</p>
+            </div>
+        </div>
     );
 }
 
