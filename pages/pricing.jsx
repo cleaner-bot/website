@@ -10,7 +10,7 @@ export default function Pricing() {
                 description="You aren't supposed to see this yet :eyes:"
             />
             <Header />
-            <div className="mx-auto mt-16 space-y-2 max-w-prose ">
+            <div className="w-full mx-auto mt-16 space-y-2 max-w-prose">
                 <h2 className="text-5xl font-bold">Pricing</h2>
                 <p>
                     Any bot costs money to operate, The Cleaner is not an
@@ -143,48 +143,50 @@ const tiers = [
 
 function PricingCards() {
     return (
-        <table className="w-full border divide-y divide-gray-550 border-gray-550">
-            <thead className="bg-gray-600">
-                <tr>
-                    <th
-                        scope="col"
-                        className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-300 uppercase"
-                    >
-                        Name
-                    </th>
-                    <th
-                        scope="col"
-                        className="px-6 py-3 text-xs font-medium tracking-wider text-right text-gray-300 uppercase"
-                    >
-                        Price * per month **
-                    </th>
-                    <th
-                        scope="col"
-                        className="px-6 py-3 text-xs font-medium tracking-wider text-right text-gray-300 uppercase"
-                    >
-                        Max members
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                {tiers.map((tier, idx) => (
-                    <tr
-                        key={tier.name}
-                        className={idx % 2 === 1 && "bg-gray-650"}
-                    >
-                        <td className="px-6 py-4 text-sm font-medium whitespace-nowrap">
-                            {tier.name}
-                        </td>
-                        <td className="px-6 py-4 text-sm text-right text-gray-300 whitespace-nowrap">
-                            {tier.price}
-                        </td>
-                        <td className="px-6 py-4 text-sm text-right text-gray-300 whitespace-nowrap">
-                            {tier.members.toLocaleString()}
-                        </td>
+        <div className="overflow-auto border shadow border-gray-550 sm:rounded-lg">
+            <table className="w-full border divide-y divide-gray-550 border-gray-550">
+                <thead className="bg-gray-600">
+                    <tr>
+                        <th
+                            scope="col"
+                            className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-300 uppercase"
+                        >
+                            Name
+                        </th>
+                        <th
+                            scope="col"
+                            className="px-6 py-3 text-xs font-medium tracking-wider text-right text-gray-300 uppercase"
+                        >
+                            Price * per month **
+                        </th>
+                        <th
+                            scope="col"
+                            className="px-6 py-3 text-xs font-medium tracking-wider text-right text-gray-300 uppercase"
+                        >
+                            Max members
+                        </th>
                     </tr>
-                ))}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {tiers.map((tier, idx) => (
+                        <tr
+                            key={tier.name}
+                            className={idx % 2 === 1 && "bg-gray-650"}
+                        >
+                            <td className="px-6 py-4 text-sm font-medium whitespace-nowrap">
+                                {tier.name}
+                            </td>
+                            <td className="px-6 py-4 text-sm text-right text-gray-300 whitespace-nowrap">
+                                {tier.price}
+                            </td>
+                            <td className="px-6 py-4 text-sm text-right text-gray-300 whitespace-nowrap">
+                                {tier.members.toLocaleString()}
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
     );
 }
 
@@ -198,56 +200,58 @@ const addons = [
 ];
 function Addons() {
     return (
-        <table className="w-full border divide-y divide-gray-550 border-gray-550">
-            <thead className="bg-gray-600">
-                <tr>
-                    <th
-                        scope="col"
-                        className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-300 uppercase"
-                    >
-                        Name
-                    </th>
-                    <th
-                        scope="col"
-                        className="px-6 py-3 text-xs font-medium tracking-wider text-right text-gray-300 uppercase"
-                    >
-                        Price per month *
-                    </th>
-                    <th
-                        scope="col"
-                        className="px-6 py-3 text-xs font-medium tracking-wider text-right text-gray-300 uppercase"
-                    >
-                        Setup price * **
-                    </th>
-                    <th
-                        scope="col"
-                        className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-300 uppercase"
-                    >
-                        Description
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                {addons.map((addon, idx) => (
-                    <tr
-                        key={addon.name}
-                        className={idx % 2 === 1 && "bg-gray-650"}
-                    >
-                        <td className="px-6 py-4 text-sm font-medium whitespace-nowrap">
-                            {addon.name}
-                        </td>
-                        <td className="px-6 py-4 text-sm text-right text-gray-300 whitespace-nowrap">
-                            {addon.price}
-                        </td>
-                        <td className="px-6 py-4 text-sm text-right text-gray-300 whitespace-nowrap">
-                            {addon.setup}
-                        </td>
-                        <td className="px-6 py-4 text-sm text-gray-300 whitespace-nowrap">
-                            {addon.description}
-                        </td>
+        <div className="overflow-auto border shadow border-gray-550 sm:rounded-lg">
+            <table className="w-full divide-y divide-gray-550">
+                <thead className="bg-gray-600">
+                    <tr>
+                        <th
+                            scope="col"
+                            className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-300 uppercase"
+                        >
+                            Name
+                        </th>
+                        <th
+                            scope="col"
+                            className="px-6 py-3 text-xs font-medium tracking-wider text-right text-gray-300 uppercase"
+                        >
+                            Price per month *
+                        </th>
+                        <th
+                            scope="col"
+                            className="px-6 py-3 text-xs font-medium tracking-wider text-right text-gray-300 uppercase"
+                        >
+                            Setup price * **
+                        </th>
+                        <th
+                            scope="col"
+                            className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-300 uppercase"
+                        >
+                            Description
+                        </th>
                     </tr>
-                ))}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {addons.map((addon, idx) => (
+                        <tr
+                            key={addon.name}
+                            className={idx % 2 === 1 && "bg-gray-650"}
+                        >
+                            <td className="px-6 py-4 text-sm font-medium whitespace-nowrap">
+                                {addon.name}
+                            </td>
+                            <td className="px-6 py-4 text-sm text-right text-gray-300 whitespace-nowrap">
+                                {addon.price}
+                            </td>
+                            <td className="px-6 py-4 text-sm text-right text-gray-300 whitespace-nowrap">
+                                {addon.setup}
+                            </td>
+                            <td className="px-6 py-4 text-sm text-gray-300 whitespace-nowrap">
+                                {addon.description}
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
     );
 }
