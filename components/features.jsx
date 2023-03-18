@@ -16,6 +16,7 @@ import {
     EnvelopeExclamation,
     PersonExclamation,
     PersonAdd,
+    Robot,
 } from "react-bootstrap-icons";
 
 const features = [
@@ -221,14 +222,14 @@ const reducedFeatures = [
     },
     {
         name: "Verification Gate",
-        icon: PersonExclamation,
+        icon: Robot,
         description:
-            "Verify members are actually Human by solving a CAPTCHA. Supporting in-channel and website CAPTCHAs.",
+            "Verify members are actually Human by solving an always changing CAPTCHA.",
         features: ["Verification", "Super Verification"],
     },
     {
         name: "Join Security",
-        icon: PersonAdd,
+        icon: PersonExclamation,
         description:
             "Secure your server from malicious joins with raid protection and CAPTCHAs before even joining.",
         features: ["Anti Raid", "Join Guard"],
