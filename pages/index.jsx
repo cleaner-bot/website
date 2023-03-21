@@ -121,7 +121,7 @@ function StatsSection() {
             data-aos="fade-up"
         >
             <Stat name="Servers" count={data.guilds} />
-            <Stat name="Users" count={data.users} />
+            <Stat name="Protected users" count={data.users} />
             <Stat name="Bans" count={data.bans} />
             <Stat name="Deleted messages" count={data.messages} />
         </div>
