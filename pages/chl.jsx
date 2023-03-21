@@ -6,7 +6,10 @@ import decodeFlow from "@/lib/flow.js";
 export default function ExternalVerification() {
     const [payload, setPayload] = useState();
     useEffect(() => {
-        const [flow] = window.location.hash.substring(1).split("/");
+        const url = new URL(document.documentURI);
+        const base = url.username ?? location.hash.substring(1);
+
+        let [flow] = base.split("/");
         const decodedFlow = decodeFlow(flow);
         if (decodedFlow.isValid && decodedFlow.isChecksumValid)
             setPayload({ t: "v", f: flow });
