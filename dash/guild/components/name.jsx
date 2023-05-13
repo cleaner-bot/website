@@ -177,11 +177,7 @@ export default function NameCheckerComponent({
                                 ? "Select a role to whitelist."
                                 : "Role list is unavailable. Refresh the page or contact support."
                         }
-                        selection={
-                            guild.roles
-                                ? guild.roles.filter((x) => !x.is_managed)
-                                : []
-                        }
+                        selection={guild.roles}
                         guildId={route.guildId}
                         config={config}
                         updateConfig={updateConfig}
