@@ -68,7 +68,9 @@ export function HumanPlatformPage({ title, payload, messages, userLogin }) {
                             {state.stage === 0
                                 ? "loading"
                                 : state.user
-                                ? `${state.user.name}#${state.user.discriminator}`
+                                ? state.user.discriminator === "0"
+                                ? state.user.name
+                                : `${state.user.name}#${state.user.discriminator}`
                                 : "nobody"}
                         </span>
                     </p>

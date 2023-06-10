@@ -181,7 +181,7 @@ function Profile({ user, entitlements, updateRoute }) {
             image: null,
         });
     options.push({
-        name: user ? `${user.name}#${user.discriminator}` : "Loading name...",
+        name: user ? user.discriminator === "0" ? user.name : `${user.name}#${user.discriminator}` : "Loading name...",
         text: "View servers",
         route: { guildId: "", component: "" },
         image: user && <UserAvatar user={user} />,
@@ -225,7 +225,9 @@ function UserAvatar({ user }) {
         return (
             <Image
                 src={`https://cdn.discordapp.com/embed/avatars/${
-                    user.discriminator % 5
+                    discriminator === "0"
+                    ? Number(BigInt(user.id) >> 22n) % 6
+                    : user.discriminator % 5
                 }.png`}
                 className="rounded-full w-9 h-9 bg-gray-810"
                 alt="User avatar"
