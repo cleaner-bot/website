@@ -225,7 +225,7 @@ function UserAvatar({ user }) {
         return (
             <Image
                 src={`https://cdn.discordapp.com/embed/avatars/${
-                    discriminator === "0"
+                    user.discriminator === "0"
                     ? Number(BigInt(user.id) >> 22n) % 6
                     : user.discriminator % 5
                 }.png`}
